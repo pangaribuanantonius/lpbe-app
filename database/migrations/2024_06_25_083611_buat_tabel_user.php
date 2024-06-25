@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('tandatangan_naskah_id', 10)->nullable(true)->default('kosong');
             $table->string('nama')->nullable(true)->default('kosong');
             $table->string('nip', '20')->nullable(true)->default('kosong');
-            $table->string('jabtan')->nullable(true)->default('kosong');
+            $table->string('jabatan')->nullable(true)->default('kosong');
             $table->string('level')->nullable(true)->default('kosong');
             $table->string('username')->nullable(true)->default('kosong');
             $table->string('password')->nullable(true)->default('kosong');
