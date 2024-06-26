@@ -39,6 +39,7 @@ return new class extends Migration
             $table->string('jabatan_pic')->nullable(true)->default('Kosong');
             $table->string('kontak')->nullable(true)->default('Kosong');
             $table->string('tahun')->nullable(true)->default('Kosong');
+            $table->string('status')->nullable(true)->default('Kosong');
         });
     }
 
