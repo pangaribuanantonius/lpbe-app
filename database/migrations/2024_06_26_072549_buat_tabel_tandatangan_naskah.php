@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tabel_tanda_tangan_naskah', function(Blueprint $table) {
+        Schema::create('tabel_tandatangan_naskah', function(Blueprint $table) {
             $table->string('id', 10)->unique();
             $table->string('user_id', 10)->nullable(true)->default('Kosong');
             $table->string('kecamatan_id', 10)->nullable(true)->default('Kosong');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tabel_tanda_tangan_naskah');
+        Schema::dropIfExists('tabel_tandatangan_naskah');
     }
 };
