@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tabel_bidang_urusan', function(Blueprint $table) {
             $table->string('id', 10)->unique();
             $table->string('urusan_id', 10)->nullable(true)->default('Kosong');
-            $table->string('nama_bidang_usrusan');
+            $table->string('nama_bidang_urusan')->nullable(true)->default('Kosong');
             $table->timestamps();
         });
     }
