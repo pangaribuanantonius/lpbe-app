@@ -40,7 +40,8 @@ class AplikasiSeeder extends Seeder
                 'nama_pic' => 'Kosong',
                 'jabatan_pic' => 'Kosong',
                 'kontak' => 'Kosong',
-                'tahun' => 'tahun', 
+                'tahun' => 'Kosong',
+                'status' => 'Kosong', 
             ],
             [
                 'id' => 'ewffd9kZ',
@@ -69,7 +70,8 @@ class AplikasiSeeder extends Seeder
                 'nama_pic' => 'Kosong',
                 'jabatan_pic' => 'Kosong',
                 'kontak' => 'Kosong',
-                'tahun' => 'tahun',
+                'tahun' => 'Kosong',
+                'status' => 'Kosong',
             ],
         ];
         \DB::table('tabel_aplikasi')->insert($listaplikasi);
