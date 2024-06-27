@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tabel_kecamatan', function(Blueprint $table){
             $table->string('id', 10)->unique();
             $table->string('nama_kecamatan')->nullable(true)->default('Kosong');
+            $table->timestamps();
         });
     }
 
