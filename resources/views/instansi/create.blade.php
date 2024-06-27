@@ -31,6 +31,9 @@
 							<div>
 								<select name="kecamatan_id" class="form-control" required>
 									<option value="">Pilih</option>
+									@foreach($kecamatan as $listkecamatan)
+									<option value="{{ $listkecamatan->id }}">{{ $listkecamatan->nama_kecamatan }}</option>
+									@endforeach
 								</select>
 							</div>
 						</div>

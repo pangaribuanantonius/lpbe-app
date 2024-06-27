@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Instansi;
+use App\Models\Kecamatan;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class InstansiController extends Controller
     }
 
     public function create(){
-        return view('instansi.create');
+        $kecamatan = Kecamatan::orderBy('nama_kecamatan', 'asc')->get();
+        return view('instansi.create', ['kecamatan' => $kecamatan]);
     }
 
     public function store(Request $request){
