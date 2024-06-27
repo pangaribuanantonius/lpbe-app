@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('urusan_id', 10)->nullable(true)->default('Kosong');
             $table->string('bidang_urusan_id', 10)->nullable(true)->default('Kosong');
             $table->string('nama_aplikasi')->nullable(true)->default('Kosong');
+            $table->string('jenis_aplikasi')->nullable(true)->default('Kosong');
             $table->string('kepemilikan')->nullable(true)->default('Kosong');
             $table->string('tahun_digunakan')->nullable(true)->default('Kosong');
             $table->longText('dasarhukum')->nullable(true);
