@@ -15,30 +15,34 @@
 <section class="dashboard">
 	<div class="row">
 		<div class="col-lg-12">
-			<form method="post" action="{{ route('instansi.edit', ['instansi' => $instansi]) }}" enctype="multipart/form-data">
-				@csrf
-                @method('PATCH')
-				<div class="form-group">
-					<label>Nama Instansi</label>
-					<div>
-						<input type="text" name="nama_instansi" class="form-control" value="{{ $instansi->nama_instansi }}">
-					</div>
-				</div><br>
-				<div class="form-group">
-					<button class="btn btn-outline-success btn-icon-split" type="submit">
-						<span class="icon">
-							<i class="bi bi-check-circle"></i>
-						</span>
-						<span class="text">Simpan</span>
-					</button>
-					<a href="#" class="btn btn-outline-danger btn-icon-split"  data-bs-toggle="modal" data-bs-target="#Modal">
-                        <span class="icon">
-                            <i class="bi bi-trash"></i>
-                        </span>
-                        <span class="text">Hapus</span>
-                    </a>
+			<div class="card">
+				<div class="card-body">
+					<form method="post" action="{{ route('instansi.edit', ['instansi' => $instansi]) }}" enctype="multipart/form-data">
+						@csrf
+						@method('PATCH')
+						<div class="form-group">
+							<label>Nama Instansi</label>
+							<div>
+								<input type="text" name="nama_instansi" class="form-control" value="{{ $instansi->nama_instansi }}">
+							</div>
+						</div><br>
+						<div class="form-group">
+							<button class="btn btn-outline-success btn-icon-split" type="submit">
+								<span class="icon">
+									<i class="bi bi-check-circle"></i>
+								</span>
+								<span class="text">Simpan</span>
+							</button>
+							<a href="#" class="btn btn-outline-danger btn-icon-split"  data-bs-toggle="modal" data-bs-target="#Modal">
+								<span class="icon">
+									<i class="bi bi-trash"></i>
+								</span>
+								<span class="text">Hapus</span>
+							</a>
+						</div>
+					</form>
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 </section>
