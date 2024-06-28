@@ -37,9 +37,11 @@
 						</div>
 						<div class="form-group mt-3">
 							<label>Tempat</label>
-							<select name="tempat" class="form-control form-select" required>
+							<select name="kecamatan_id" class="form-control form-select" required>
 								<option value="">Pilih alamat</option>
-								<option value="Lubuk Pakam">Lubuk Pakam</option>
+								@foreach($kecamatan as $listkecamatan)
+								<option value="{{ $listkecamatan->id }}">{{ $listkecamatan->nama_kecamatan }}</option>
+								@endforeach
 							</select>
 						</div>
 						<div class="form-group mt-3">

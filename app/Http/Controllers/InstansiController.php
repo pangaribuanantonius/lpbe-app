@@ -21,6 +21,7 @@ class InstansiController extends Controller
     public function store(Request $request){
             Instansi::create([
                 'id' => \Str::random(8),
+                'kecamatan_id' => $request->kecamatan_id,
                 'nama_instansi' => $request->nama_instansi,
             ]);
        
@@ -28,11 +29,13 @@ class InstansiController extends Controller
     }
 
     public function edit(Instansi $instansi){
-        return view('instansi.edit', ['instansi' => $instansi]);
+        $kecamatan = Kecamatan::orderBy('nama_kecamatan', 'asc')->get();
+        return view('instansi.edit', ['instansi' => $instansi], ['kecamatan' => $kecamatan]);
     }
 
     public function update(Request $request, Instansi $instansi){
              $instansi->update([
+                'kecamatan_id' => $request->kecamatan_id,
                 'nama_instansi' => $request->nama_instansi,
             ]);
        
