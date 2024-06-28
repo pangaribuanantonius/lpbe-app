@@ -57,23 +57,24 @@ class Aplikasi2021Controller extends Controller
                 'platform2' => $request->platform2,
                 'url' => $request->url,
                 'tempataplikasi' => $request->tempataplikasi,
-                'informasi' => $request->informasi,
+                
                 'dasarhukum' => $request->dasarhukum,
                 'sektorpelayananpublik' => $request->sektorpelayananpublik,
                 'sektorpelayananpublik2' => $request->sektorpelayananpublik2,
                 'deskripsi' => $request->deskripsi,
-                'fiturutama' => $request->fiturutama,
+                
                 'pengguna' => $request->pengguna,
-                'pengguna2' => $request->pengguna2,
+                
                 'daftarlayanan' => $request->daftarlayanan,
                 'daftarproduklayanan' => $request->daftarproduklayanan,
                 'tahun_digunakan' => $request->tahun_digunakan,
                 'tahun_pembuatan' => $request->tahun_pembuatan,
                 'launching' => $request->launching,
-                'penanggungjawab' => $request->penanggungjawab,
+                
                 'nama_pic' => $request->nama_pic,
                 'jabatan_pic' => $request->jabatan_pic,
                 'kontak' => $request->kontak,
+                'status' => 'Sedang Proses',
             ]);
        
         return redirect('layanan/index?layanan=aplikasi&jenisaplikasi=layanan_publik&tahun='.request('tahun').'')->with('success', 'Berhasil Menambah Data!');
@@ -99,20 +100,20 @@ class Aplikasi2021Controller extends Controller
                 /*'platform' => implode(',', $request->platform),*/
                 'url' => $request->url,
                 'tempataplikasi' => $request->tempataplikasi,
-                'informasi' => $request->informasi,
+                
                 'dasarhukum' => $request->dasarhukum,
                 'sektorpelayananpublik' => $request->sektorpelayananpublik,
                 'sektorpelayananpublik2' => $request->sektorpelayananpublik2,
                 'deskripsi' => $request->deskripsi,
-                'fiturutama' => $request->fiturutama,
+                
                 'pengguna' => $request->pengguna,
-                'pengguna2' => $request->pengguna2,
+                
                 'daftarlayanan' => $request->daftarlayanan,
                 'daftarproduklayanan' => $request->daftarproduklayanan,
                 'tahun_digunakan' => $request->tahun_digunakan,
                 'tahun_pembuatan' => $request->tahun_pembuatan,
                 'launching' => $request->launching,
-                'penanggungjawab' => $request->penanggungjawab,
+                
                 'nama_pic' => $request->nama_pic,
                 'jabatan_pic' => $request->jabatan_pic,
                 'kontak' => $request->kontak,

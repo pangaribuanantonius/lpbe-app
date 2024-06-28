@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('url')->nullable(true)->default('Kosong');
             $table->string('tempataplikasi')->nullable(true)->default('Kosong');
             $table->string('sektorpelayananpublik')->nullable(true)->default('Kosong');
+            $table->string('sektorpelayananpublik2')->nullable(true)->default('Kosong');
             $table->longText('deskripsi')->nullable(true);
             $table->longText('daftarlayanan')->nullable(true);
             $table->longText('daftarproduklayanan')->nullable(true);
