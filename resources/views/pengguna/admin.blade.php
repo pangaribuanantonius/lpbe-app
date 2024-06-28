@@ -67,8 +67,8 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Jenis Kelamin</div>
-                    <div class="col-lg-9 col-md-8">{{ $user->jenkel }}</div>
+                    <div class="col-lg-3 col-md-4 label">Jabatan</div>
+                    <div class="col-lg-9 col-md-8">{{ $user->jabatan }}</div>
                   </div>
                  
 
@@ -83,7 +83,7 @@
                   <input type="hidden" name="id" value="{{ $user->id }}">
 
                     <div class="row mb-3">
-                      <label for="nama" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
+                      <label for="nama" class="col-md-4 col-lg-3 col-form-label">Nama Pengguna</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="nama" type="text" class="form-control" id="nama" value="{{ $user->nama }}" required>
                       </div>

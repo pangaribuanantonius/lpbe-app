@@ -16,7 +16,6 @@
 <div class="alert alert-info" role="alert">
 	Tidak Ada Data
 </div>
-<a class="btn btn-outline-success" href="{{ route('aplikasi.layanan_publik.2021.create') }}"><i class="bi bi-plus-circle"></i> Tambah Data</a>
 @elseif($jumlahaplikasipublik >=1 && $statuss->status == 'Sedang Proses')
 <div class="alert alert-info alert-dismissible fade show" role="alert">
 	Sedang Proses
