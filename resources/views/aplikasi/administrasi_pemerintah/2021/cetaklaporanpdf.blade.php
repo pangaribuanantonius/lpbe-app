@@ -50,7 +50,7 @@
 			<tbody>
 				<!-- <tr>
 					<td>
-						<span>Lubuk Pakam, Agustus 2023</span>
+						<span>{{$penandatanganan->kecamatan->nama_kecamatan}}, Agustus 2023</span>
 						<br><br><br><br>
 					</td>
 				</tr>
