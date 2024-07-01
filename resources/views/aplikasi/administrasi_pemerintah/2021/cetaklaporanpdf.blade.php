@@ -20,7 +20,7 @@
 		</p>
 	</center>
  
-	<table class="table table-bordered" width="100%" border="0.5">
+	<table class="table table-bordered" width="100%" border="1">
 		<thead>
 			<tr>
 				<th>Nama Aplikasi</th>
@@ -69,7 +69,42 @@
 					<td width="20%"></td>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%">Lubuk Pakam, Agustus 2023 <br><br><br><br><br></td>
+					<td width="20%">{{$penandatanganan->kecamatan->nama_kecamatan}}, {{ \Carbon\Carbon::now()->translatedFormat('d F Y') }}</td>
+				</tr>
+				<tr>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+				</tr>
+				<tr>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+				</tr>
+				<tr>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+				</tr>
+				<tr>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+				</tr>
+				<tr>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
