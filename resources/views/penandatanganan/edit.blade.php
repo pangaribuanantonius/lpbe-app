@@ -36,8 +36,8 @@
 						</div>
 						<div class="form-group mt-3">
 							<label>Tempat</label>
-							<select name="tempat" class="form-control form-select" required>
-								<option value="{{ $penandatanganan->tempat }}">{{ $penandatanganan->tempat }}</option>
+							<select name="kecamatan_id" class="form-control form-select" required>
+								<option value="{{ $penandatanganan->kecamatan_id }}">{{ $penandatanganan->kecamatan->nama_kecamatan }}</option>
 								<option value="Lubuk Pakam">Lubuk Pakam</option>
 							</select>
 						</div>
