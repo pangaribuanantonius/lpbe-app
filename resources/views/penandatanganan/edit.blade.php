@@ -38,7 +38,9 @@
 							<label>Tempat</label>
 							<select name="kecamatan_id" class="form-control form-select" required>
 								<option value="{{ $penandatanganan->kecamatan_id }}">{{ $penandatanganan->kecamatan->nama_kecamatan }}</option>
-								<option value="Lubuk Pakam">Lubuk Pakam</option>
+								@foreach($kecamatan as $listkecamatan)
+								<option value="{{ $listkecamatan->id }}">{{ $listkecamatan->nama_kecamatan }}</option>
+								@endforeach
 							</select>
 						</div>
 						<div class="form-group mt-3">
