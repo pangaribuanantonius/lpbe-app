@@ -65,7 +65,42 @@
 					<td width="20%"></td>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%">Lubuk Pakam, Agustus 2023 <br><br><br><br><br></td>
+					<td width="20%">{{$penandatanganan->kecamatan->nama_kecamatan}}, {{ \Carbon\Carbon::now()->translatedFormat('d F Y') }}</td>
+				</tr>
+				<tr>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+				</tr>
+				<tr>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+				</tr>
+				<tr>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+				</tr>
+				<tr>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+				</tr>
+				<tr>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
+					<td width="20%"></td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
