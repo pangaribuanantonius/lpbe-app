@@ -64,7 +64,7 @@
 								<div class="mt-3">
 									<label><h5>Tempat</h5></label>
 									<div>
-										{{ $pn->tempat }}
+										{{ $pn->kecamatan->nama_kecamatan }}
 									</div>
 								</div>
 							</p>

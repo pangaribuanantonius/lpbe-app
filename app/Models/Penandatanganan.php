@@ -14,4 +14,7 @@ class Penandatanganan extends Model
     public function instansi(){
         return $this->belongsTo(Instansi::class, 'instansi_id', 'id');
     }
+    public function kecamatan(){
+        return $this->belongsTo(Kecamatan::class, 'kecamatan_id', 'id');
+    }
 }

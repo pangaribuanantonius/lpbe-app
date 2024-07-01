@@ -20,13 +20,13 @@
 					<form method="post" action="{{ route('instansi.edit', ['instansi' => $instansi]) }}" enctype="multipart/form-data">
 						@csrf
 						@method('PATCH')
-						<div class="form-group">
+						<div class="form-group mt-3">
 							<label>Nama Instansi</label>
 							<div>
 								<input type="text" name="nama_instansi" class="form-control" value="{{ $instansi->nama_instansi }}">
 							</div>
 						</div><br>
-						<div class="form-group">
+						<div class="form-group mt-3">
 							<button class="btn btn-outline-success btn-icon-split" type="submit">
 								<span class="icon">
 									<i class="bi bi-check-circle"></i>
