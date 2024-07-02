@@ -29,8 +29,8 @@
 								@foreach($tahun as $thn)
 								<tr>
 									<td>{{ $thn->tahun }}</td>
-									<td>
-			                            <a href="{{ route('tahun.edit', $thn->id) }}"><i class="bi bi-pencil"></i></a>
+									<td class="text-center">
+			                            <a class="btn btn-outline-primary" style="white-space: nowrap;" href="{{ route('tahun.edit', $thn->id) }}"><i class="bi bi-pencil"></i> Edit</a>
 									</td>
 								</tr>
 								@endforeach
