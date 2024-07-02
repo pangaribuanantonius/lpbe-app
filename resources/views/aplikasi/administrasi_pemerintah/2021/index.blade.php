@@ -49,8 +49,8 @@
 			                    <td>{{ $aps->status }}</td>
 			                    <td>
 			                    	<div class="text-center">
-			                            <a class="btn btn-outline-dark text-center mb-1" style="white-space: nowrap" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
-			                            <a class="btn btn-outline-primary text-center mb-1" style="white-space: nowrap" href="{{ route('aplikasi.administrasi_pemerintah.2021.edit', $aps->id) }}"><i class="bi bi-pencil"></i> Edit</a>
+			                            <a class="btn btn-outline-dark text-center mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
+			                            <a class="btn btn-outline-primary text-center mb-1" style="white-space: nowrap;" href="{{ route('aplikasi.administrasi_pemerintah.2021.edit', $aps->id) }}"><i class="bi bi-pencil"></i> Edit</a>
 			                        </div>
 			                    </td>
 							</tr>
