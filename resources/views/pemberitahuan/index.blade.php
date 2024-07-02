@@ -29,8 +29,8 @@
 								@foreach($pemberitahuan as $ppp)
 								<tr>
 									<td>{{ $ppp->isi_pemberitahuan }}</td>
-									<td>
-			                            <a href="{{ route('pemberitahuan.edit', $ppp->id) }}"><i class="bi bi-pencil"></i></a>
+									<td class="text-center">
+			                            <a class="btn btn-outline-primary" style="white-space: nowrap;" href="{{ route('pemberitahuan.edit', $ppp->id) }}"><i class="bi bi-pencil"></i> Edit</a>
 									</td>
 								</tr>
 								@endforeach
