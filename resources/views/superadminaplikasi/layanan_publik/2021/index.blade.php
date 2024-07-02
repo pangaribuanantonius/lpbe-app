@@ -48,7 +48,7 @@
 			                    <td>{{ $aps->status }}</td>
 			                    <td>
 			                    	<div class="text-center">
-			                            <a href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i></a>
+			                            <a class="btn btn-outline-dark" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
 			                        </div>
 			                    </td>
 							</tr>
@@ -269,7 +269,7 @@
 								<td>{{ $aps->status }}</td>
 								<td>
 									<div class="text-center">
-										<a href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i></a>
+										<a class="btn btn-outline-dark" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
 									</div>
 								</td>
 							</tr>
