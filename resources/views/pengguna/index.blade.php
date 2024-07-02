@@ -30,7 +30,7 @@
 		                        <td>{{ $akun->nama }}</td>
 		                        <td>
 		                            <div class="text-center">
-		                                <a href="{{ route('pengguna.editdata', $akun->id) }}"><i class="bi bi-pencil"></i></a>
+		                                <a class="btn btn-outline-primary" style="white-space: nowrap;" href="{{ route('pengguna.editdata', $akun->id) }}"><i class="bi bi-pencil"></i> Edit</a>
 		                            </div>
 		                            <!-- <div class="text-center">
 		                                <a href="#" data-bs-toggle="modal" data-bs-target="#Modal"><i class="fas fa-paper-plane text-success"></i></a>
