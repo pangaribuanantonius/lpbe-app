@@ -47,8 +47,8 @@
 			                    <td>{{ $aps->status }}</td>
 			                    <td>
 			                    	<div class="text-center">
-			                            <a href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i></a>
-			                            <a href="{{ route('aplikasi.layanan_publik.2021.edit', $aps->id) }}"><i class="bi bi-pencil"></i></a>
+			                            <a class="btn btn-outline-dark text-center mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
+			                            <a class="btn btn-outline-primary text-center mb-1" style="white-space: nowrap;" href="{{ route('aplikasi.layanan_publik.2021.edit', $aps->id) }}"><i class="bi bi-pencil"></i> Edit</a>
 			                        </div>
 			                    </td>
 							</tr>
@@ -229,15 +229,25 @@
 	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
-<div class="mb-2" align="right">
+<!--<div class="mb-2" align="right">
 	<a class="btn btn-outline-danger" style="margin-left: 820px;" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
 		<i class="bi bi-printer"></i> Cetak
 	</a>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="{{ route('aplikasi.layanan_publik.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a></li>
-		<!-- <li><a class="dropdown-item" href="#" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a></li> -->
+		<li><a class="dropdown-item" href="#" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a></li>
 	</ul>
+</div>-->
+
+@if($penandatanganan == 0)
+<div class="text-end">
+	<button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> Cetak</button>
 </div>
+@else
+<div class="text-end">
+	<a class="btn btn-danger mb-2" href="{{ route('aplikasi.layanan_publik.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a>
+</div>
+@endif
 
 <section class="section dashboard">
 	<div class="row">
@@ -265,7 +275,7 @@
 								<td>{{ $aps->status }}</td>
 								<td>
 									<div class="text-center">
-										<a href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i></a>
+										<a class="btn btn-outline-dark mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
 									</div>
 								</td>
 							</tr>
@@ -447,6 +457,18 @@
 @else
 <p>Not Found</p>
 @endif
+
+<script>
+	document.querySelector(".first").addEventListener('click', function(){
+		Swal.fire({
+			icon: 'error',
+			title: 'Peringatan',
+			html: 'Kolom Penandatanganan belum diisi, Klik <a href="{{ route('penandatanganan.create') }}">disini</a> untuk pengisian.',
+			confirmButtonText: 'Tutup',
+			
+		});
+	});
+</script>
 
 @endsection
 

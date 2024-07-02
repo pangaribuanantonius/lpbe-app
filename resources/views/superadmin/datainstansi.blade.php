@@ -17,7 +17,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="card">
-					<div class="card-body">
+					<div class="card-body mt-3">
 						<table class="table table-hover datatable">
 							<thead>
 								<tr>
