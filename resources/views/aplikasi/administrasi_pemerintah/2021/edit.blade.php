@@ -150,7 +150,7 @@
 	                        <div>
 	                        	<select name="tempataplikasi" class="form-control" value="{{ old('tempataplikasi') }}" required>
 		                           <option value="{{ $aplikasi->tempataplikasi }}">{{ $aplikasi->tempataplikasi }}</option>
-		                            <option value="Instansi Daerah">Instansi Daerah</option>
+								   <option value="Unit Kerja Terkait">Unit Kerja Terkait</option>
 		                            <option value="Dinas Komunikasi, Informatika, Statistik dan Persandian">Dinas Komunikasi, Informatika, Statistik dan Persandian</option>
 		                            <option value="Pemerintah Pusat/Kementrian">Pemerintah Pusat/Kementrian</option>
 		                        </select>

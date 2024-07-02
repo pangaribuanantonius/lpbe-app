@@ -20,4 +20,7 @@ class Instansi extends Model
     public function spbe(){
         return $this->hasMany(Spbe::class, 'instansi_id', 'id');
     }
+    public function kecamatan(){
+        return $this->belongsTo(Kecamatan::class, 'kecamatan_id', 'id');
+    }
 }

@@ -1,9 +1,9 @@
-@extends('sidebar.sidebaradmin')
-@section('layout')
+@extends('sidebar.sidebarunitkerjaadmin')
+@section('unitkerja')
 
 <!-- page title -->
 <div class="pagetitle">
-	<h1><i class="bi bi-diagram-3"></i> Instansi</h1>
+	<h1><i class="bi bi-diagram-3"></i> Unit Kerja</h1>
 	<nav>
 		<ol class="breadcrumb">
 			<li class="active ms-1">Tambah Data</li>
@@ -21,13 +21,13 @@
 						@csrf
 						@method('POST')
 						<div class="form-group mt-3">
-							<label>Nama Instansi</label>
+							<label>Unit Kerja</label>
 							<div>
 								<input type="text" name="nama_instansi" class="form-control" value="{{ old('nama_instansi') }}" required>
 							</div>
 						</div>
 						<div class="form-group mt-3">
-							<label>Kecamatan</label>
+							<label>Kecamatan <small class="fst-italic">(Sesuai dengan alamat unit kerja)</small></label>
 							<div>
 								<select name="kecamatan_id" class="form-control" required>
 									<option value="">Pilih</option>

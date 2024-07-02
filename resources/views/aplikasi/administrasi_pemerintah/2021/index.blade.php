@@ -1,6 +1,10 @@
 @extends('sidebar.sidebarmonevaplikasipengguna')
 @section('monevaplikasipengguna')
 
+
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
 <div class="pagetitle">
 	<h1><i class="bi bi-cpu"></i> Monev Aplikasi</h1>
 	<nav>
@@ -30,8 +34,7 @@
 						<thead>
 							<tr>
 								<th>Nama Aplikasi</th>
-			                    <th>Klasifikasi</th>
-			                    <th>Kepemilikan</th>
+			                    <th>Jenis</th>
 			                    <th>Tempat Aplikasi</th>
 			                    <th>Status</th>
 			                    <th>Aksi</th>
@@ -42,13 +45,12 @@
 							<tr>
 								<td>{{ $aps->nama_aplikasi }}</td>
 			                    <td>{{ $aps->jenis_aplikasi }}</td>
-			                    <td>{{ $aps->kepemilikan }}</td>
 			                    <td>{{ $aps->tempataplikasi }}</td>
 			                    <td>{{ $aps->status }}</td>
 			                    <td>
 			                    	<div class="text-center">
-			                            <a href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i></a>
-			                            <a href="{{ route('aplikasi.administrasi_pemerintah.2021.edit', $aps->id) }}"><i class="bi bi-pencil"></i></a>
+			                            <a class="btn btn-outline-dark text-center mb-1" style="white-space: nowrap" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
+			                            <a class="btn btn-outline-primary text-center mb-1" style="white-space: nowrap" href="{{ route('aplikasi.administrasi_pemerintah.2021.edit', $aps->id) }}"><i class="bi bi-pencil"></i> Edit</a>
 			                        </div>
 			                    </td>
 							</tr>
@@ -144,14 +146,6 @@
 						<input type="text" name="url" class="form-control" readonly="readonly" value="{{ $aps->url }}">
 					</div><br>
 					<div class="form-group">
-						<label>Sektor Pelayanan Publik</label>
-						<input type="text" name="sektorpelayananpublik" class="form-control" readonly="readonly" value="{{ $aps->sektorpelayananpublik }}">
-					</div><br>
-					<div class="form-group">
-						<label>Sektor Pelayanan Publik Lainnya</label>
-						<input type="text" name="sektorpelayananpublik2" class="form-control" readonly="readonly" value="{{ $aps->sektorpelayananpublik2 }}">
-					</div><br>
-					<div class="form-group">
 						<label>Deskripsi Singkat</label>
 						<textarea name="deskripsi" class="form-control" readonly="readonly">{{ $aps->deskripsi }}</textarea>
 					</div><br>
@@ -228,15 +222,32 @@
 	Sudah Final
 	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
-<div class="mb-2" align="right">
+
+<!--<div class="mb-2" align="right">
 	<a class="btn btn-outline-danger" style="margin-left: 762px;" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
 		<i class="bi bi-printer"></i> Cetak
 	</a>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a></li>
-		<!-- <li><a class="dropdown-item" href="#" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a></li> -->
+		<li><a class="dropdown-item" href="#" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a></li>
 	</ul>
+</div>-->
+
+
+@if($penandatanganan == 0)
+<div class="first mb-2" align="right">
+	<button class="btn btn-outline-danger" style="margin-left: 762px;"><i class="bi bi-printer"></i> Cetak</button>
 </div>
+@else
+<div class="mb-2" align="right">
+	<a class="btn btn-outline-danger" style="margin-left: 762px;" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-printer"></i> Cetak</a>
+</div>
+@endif
+
+
+
+
+
 <section class="section dashboard">
 	<div class="row">
 		<div class="col-lg-12">
@@ -246,8 +257,7 @@
 						<thead>
 							<tr>
 								<th>Nama Aplikasi</th>
-								<th>Klasifikasi</th>
-								<th>Kepemilikan</th>
+								<th>Jenis</th>
 								<th>Tempat Aplikasi</th>
 								<th>Status</th>
 								<th>Aksi</th>
@@ -258,12 +268,12 @@
 							<tr>
 								<td>{{ $aps->nama_aplikasi }}</td>
 								<td>{{ $aps->jenis_aplikasi }}</td>
-								<td>{{ $aps->kepemilikan }}</td>
 								<td>{{ $aps->tempataplikasi }}</td>
 								<td>{{ $aps->status }}</td>
 								<td>
 									<div class="text-center">
-										<a href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i></a>
+										
+										<a class="btn btn-outline-dark text-center mb-1" style="white-space: nowrap" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
 									</div>
 								</td>
 							</tr>
@@ -359,14 +369,6 @@
 													<input type="text" name="url" class="form-control" readonly="readonly" value="{{ $aps->url }}">
 												</div><br>
 												<div class="form-group">
-													<label>Sektor Pelayanan Publik</label>
-													<input type="text" name="sektorpelayananpublik" class="form-control" readonly="readonly" value="{{ $aps->sektorpelayananpublik }}">
-												</div><br>
-												<div class="form-group">
-													<label>Sektor Pelayanan Publik Lainnya</label>
-													<input type="text" name="sektorpelayananpublik2" class="form-control" readonly="readonly" value="{{ $aps->sektorpelayananpublik2 }}">
-												</div><br>
-												<div class="form-group">
 													<label>Deskripsi Singkat</label>
 													<textarea name="deskripsi" class="form-control" readonly="readonly">{{ $aps->deskripsi }}</textarea>
 												</div><br>
@@ -442,7 +444,19 @@
 <p>tidak ada</p>
 @endif
 
-@endsection
 
+<script>
+	document.querySelector(".first").addEventListener('click', function(){
+		Swal.fire({
+			icon: 'error',
+			title: 'Perhatian',
+			html: 'Anda harus buat <a href="{{ route('penandatanganan.create') }}">Penandatanganan</a> terlebih dahulu.',
+			confirmButtonText: 'Tutup',
+			
+		});
+	});
+</script>
+
+@endsection
 
 

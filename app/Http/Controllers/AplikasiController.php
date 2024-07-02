@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Aplikasi;
 use App\Models\CallCenter;
 use App\Models\Instansi;
+use App\Models\Penandatanganan;
 use Illuminate\Http\Request;
 
 class AplikasiController extends Controller
@@ -26,23 +27,24 @@ class AplikasiController extends Controller
         $statuss = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->first();
         $statussaplikasiadm = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->first();
         $statusscallcenter = \App\Models\CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->first();
+        $penandatanganan = Penandatanganan:: where('instansi_id', $instansi_id)->count();
 
         if ($layanan == 'aplikasi') {
             if ($jenisaplikasi == 'layanan_publik') {
                 if ($tahun == 2021) {
-                    return view('aplikasi.layanan_publik.2021.index', ['aplikasi' => $aplikasi, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss]);
+                    return view('aplikasi.layanan_publik.2021.index', ['aplikasi' => $aplikasi, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss, 'penandatanganan' => $penandatanganan]);
                 }else{
                     return view('404');
                 }
             }elseif ($jenisaplikasi == 'administrasi_pemerintah') {
                 if ($tahun == 2021) {
-                    return view('aplikasi.administrasi_pemerintah.2021.index', ['aplikasiadm' => $aplikasiadm, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasiadm' => $jumlahaplikasiadm, 'statussaplikasiadm' => $statussaplikasiadm]);
+                    return view('aplikasi.administrasi_pemerintah.2021.index', ['aplikasiadm' => $aplikasiadm, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasiadm' => $jumlahaplikasiadm, 'statussaplikasiadm' => $statussaplikasiadm, 'penandatanganan' => $penandatanganan]);
                 }else{
                     return view('404');
                 }
             }elseif ($jenisaplikasi == 'call_center') {
                 if ($tahun == 2021) {
-                    return view('call_center.2021.index', ['call_center' => $call_center, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter]);
+                    return view('call_center.2021.index', ['call_center' => $call_center, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
                 }else{
                     return view('404');
                 }

@@ -1,9 +1,9 @@
-@extends('sidebar.sidebaradmin')
-@section('layout')
+@extends('sidebar.sidebarunitkerjaadmin')
+@section('unitkerja')
 
 <!-- page title -->
 <div class="pagetitle">
-	<h1><i class="bi bi-diagram-3"></i> Instansi</h1>
+	<h1><i class="bi bi-diagram-3"></i> Unit Kerja</h1>
 	<nav>
 		<ol class="breadcrumb">
 			<li class="active ms-1">Tambah Data</li>
@@ -21,11 +21,22 @@
 						@csrf
 						@method('PATCH')
 						<div class="form-group mt-3">
-							<label>Nama Instansi</label>
+							<label>Unit Kerja</label>
 							<div>
 								<input type="text" name="nama_instansi" class="form-control" value="{{ $instansi->nama_instansi }}">
 							</div>
-						</div><br>
+						</div>
+						<div class="form-group mt-3">
+							<label>Kecamatan <small class="fst-italic">(Sesuai dengan alamat unit kerja)</small></label>
+							<div>
+								<select name="kecamatan_id" class="form-control" required>
+									<option value="{{ $instansi->kecamatan_id }}">{{ $instansi->kecamatan->nama_kecamatan }}</option>
+									@foreach($kecamatan as $listkecamatan)
+									<option value="{{ $listkecamatan->id }}">{{ $listkecamatan->nama_kecamatan }}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
 						<div class="form-group mt-3">
 							<button class="btn btn-outline-success btn-icon-split" type="submit">
 								<span class="icon">

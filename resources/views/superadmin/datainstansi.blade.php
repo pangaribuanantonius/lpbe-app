@@ -21,7 +21,7 @@
 						<table class="table table-hover datatable">
 							<thead>
 								<tr>
-									<th scope="col" class="align-middle" width="75%">Nama Instansi</th>
+									<th scope="col" class="align-middle" width="75%">Unit Kerja</th>
 									<th scope="col" class="align-middle">Aksi</th>
 								</tr>
 							</thead>
