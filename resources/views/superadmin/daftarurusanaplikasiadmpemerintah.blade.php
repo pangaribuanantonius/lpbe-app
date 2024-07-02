@@ -28,9 +28,9 @@
                         @foreach($urusanaplikasiadmpemerintah as $urusanapspem)
                         <tr>
                         	<td>{{ $urusanapspem->nama_urusan }}</td>
-                        	<td>
-                        		<a class="text-center" href="{{ route('urusanaplikasiadmpemerintah.edit', $urusanapspem->id) }}"><i class="bi bi-pencil"></i></a>
-                        		<a class="text-center" href="{{ route('superadmin.daftarbidangurusanaplikasiadmpemerintah', ['urusan_id' => $urusanapspem->id]) }}"><i class="bi bi-eye"></i></a>
+                        	<td class="text-center">
+                        		<a class="btn btn-outline-dark mb-1" style="white-space: nowrap;" href="{{ route('urusanaplikasiadmpemerintah.edit', $urusanapspem->id) }}"><i class="bi bi-pencil"></i> Edit</a>
+                        		<a class="btn btn-outline-primary mb-1" style="white-space: nowrap;" href="{{ route('superadmin.daftarbidangurusanaplikasiadmpemerintah', ['urusan_id' => $urusanapspem->id]) }}"><i class="bi bi-eye"></i> Lihat</a>
                         	</td>
                         </tr>
                         @endforeach

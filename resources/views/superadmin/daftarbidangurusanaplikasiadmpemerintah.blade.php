@@ -30,8 +30,8 @@
 								<tr>
 									<!-- <td>{{ $bidangurusanapspem->urusanapladmpemerintah->id }}</td> -->
 									<td>{{ $bidangurusanapspem->nama_bidang_urusan }}</td>
-									<td>
-			                            <a href="{{ route('bidangurusanaplikasiadmpemerintah.edit', $bidangurusanapspem->id) }}"><i class="bi bi-pencil"></i></a>
+									<td class="text-center">
+			                            <a class="btn btn-outline-primary" style="white-space: nowrap;" href="{{ route('bidangurusanaplikasiadmpemerintah.edit', $bidangurusanapspem->id) }}"><i class="bi bi-pencil"></i> Edit</a>
 									</td>
 								</tr>
 								@endforeach
