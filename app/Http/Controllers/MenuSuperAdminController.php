@@ -40,17 +40,15 @@ class MenuSuperAdminController extends Controller
     }
 
     public function monevaplikasi_admin(){
-        $tahun = request('tahun');
-        $tampil_tahun = Tahun::orderBy('tahun', 'asc')->get();
-
-        $aplikasi_layanan_publik_tahun = Aplikasi::where('jenis_aplikasi', 'Layanan Publik')->where('tahun', $tahun)->count();
-        $aplikasi_administrasi_pemerintah_tahun = Aplikasi::where('jenis_aplikasi', 'Administrasi Pemerintah')->where('tahun', $tahun)->count();
-        $call_center_tahun = CallCenter::where('tahun', $tahun)->count();
+        $instansi = Instansi::All();
+        $aplikasi_layanan_publik = Aplikasi::Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->count();
+        $aplikasi_administrasi_pemerintah = Aplikasi::Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->count();
+        $call_center = CallCenter::Where('tahun', '2021')->count();
 
         $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
         
 
-        return view('superadmin.monevaplikasi_admin', ['pemberitahuan' =>$pemberitahuan, 'tampil_tahun' => $tampil_tahun, 'aplikasi_layanan_publik_tahun' => $aplikasi_layanan_publik_tahun, 'aplikasi_administrasi_pemerintah_tahun' => $aplikasi_administrasi_pemerintah_tahun, 'call_center_tahun' =>$call_center_tahun, 'tahun' => $tahun]);
+        return view('superadmin.monevaplikasi_admin', ['instansi' => $instansi, 'pemberitahuan' =>$pemberitahuan, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'call_center' => $call_center]);
 
     }
 
