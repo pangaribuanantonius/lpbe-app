@@ -24,12 +24,12 @@
 						<input type="hidden" name="instansi_id" class="form-control" value="{{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
                     	<input type="hidden" name="user_id" class="form-control" value="{{ \App\Models\User::where('username', session('username'))->first()->id }}" readonly>
 						<div class="form-group mt-3">
-							<label>NIP</label>
-							<input type="number" name="nip" class="form-control" value="{{ old('$nip') }}" required>
-						</div>
-						<div class="form-group mt-3">
 							<label>Nama</label>
 							<input type="text" name="nama" class="form-control" value="{{ old('$nama') }}" required>
+						</div>
+						<div class="form-group mt-3">
+							<label>NIP</label>
+							<input type="number" name="nip" class="form-control" value="{{ old('$nip') }}" required>
 						</div>
 						<div class="form-group mt-3">
 							<label>Jabatan</label>

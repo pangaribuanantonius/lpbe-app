@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Layanan Aplikasi Adm Pemerintah Tahun 2021 {{ $nama_instansi }}</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
 	<style type="text/css">
@@ -20,7 +20,7 @@
 		</p>
 	</center>
  
-	<table class="table table-bordered" width="100%" border="1">
+	<table class="table table-bordered" style="padding:4px;" width="100%" border="1">
 		<thead>
 			<tr>
 				<th>Nama Aplikasi</th>
@@ -67,69 +67,67 @@
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%">{{$penandatanganan->kecamatan->nama_kecamatan}}, {{ \Carbon\Carbon::now()->translatedFormat('d F Y') }}</td>
+					<td width="30%"></td>
+					<td width="30%">{{$penandatanganan->kecamatan->nama_kecamatan}}, {{ \Carbon\Carbon::now()->translatedFormat('d F Y') }}</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%">{{ $penandatanganan->jabatan }}</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%"></td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%"></td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%">#</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%"></td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%">{{ $penandatanganan->nama }}</td>
+					<td width="30%"></td>
+					<td width="30%"></td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%">{{ $penandatanganan->jabatan }}</td>
+					<td width="30%"></td>
+					<td width="30%">{{ $penandatanganan->nama }}</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%">{{ $penandatanganan->pangkat }}</td>
+				</tr>
+				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%">NIP. {{ $penandatanganan->nip }}</td>
+					<td width="30%"></td>
+					<td width="30%">NIP. {{ $penandatanganan->nip }}</td>
 				</tr>
 
 			</tbody>
 		</table>
- 
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

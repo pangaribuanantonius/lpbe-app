@@ -23,12 +23,12 @@
 						@method('PATCH')
 						<input type="hidden" name="id" value="{{ $penandatanganan->id }}">
 						<div class="form-group mt-3">
-							<label>NIP</label>
-							<input type="number" name="nip" class="form-control" value="{{ $penandatanganan->nip }}" required>
-						</div>
-						<div class="form-group mt-3">
 							<label>Nama</label>
 							<input type="text" name="nama" class="form-control" value="{{ $penandatanganan->nama }}" required>
+						</div>
+						<div class="form-group mt-3">
+							<label>NIP</label>
+							<input type="number" name="nip" class="form-control" value="{{ $penandatanganan->nip }}" required>
 						</div>
 						<div class="form-group mt-3">
 							<label>Jabatan</label>

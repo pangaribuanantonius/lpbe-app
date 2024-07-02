@@ -235,12 +235,14 @@
 
 
 @if($penandatanganan == 0)
-<div class="first mb-2" align="right">
-	<button class="btn btn-outline-danger" style="margin-left: 762px;"><i class="bi bi-printer"></i> Cetak</button>
+<div class="text-end">
+	<button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> Cetak</button>
 </div>
+
+
 @else
-<div class="mb-2" align="right">
-	<a class="btn btn-outline-danger" style="margin-left: 762px;" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-printer"></i> Cetak</a>
+<div class="text-end">
+	<a class="btn btn-danger mb-2" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf-fill"></i> Cetak</a>
 </div>
 @endif
 
@@ -449,8 +451,8 @@
 	document.querySelector(".first").addEventListener('click', function(){
 		Swal.fire({
 			icon: 'error',
-			title: 'Perhatian',
-			html: 'Anda harus buat <a href="{{ route('penandatanganan.create') }}">Penandatanganan</a> terlebih dahulu.',
+			title: 'Peringatan',
+			html: 'Kolom Penandatanganan belum diisi, Klik <a href="{{ route('penandatanganan.create') }}">disini</a> untuk pengisian.',
 			confirmButtonText: 'Tutup',
 			
 		});
