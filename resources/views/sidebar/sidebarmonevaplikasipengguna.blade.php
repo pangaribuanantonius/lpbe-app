@@ -103,7 +103,7 @@
         </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link rounded-5" href="#">
+          <a class="nav-link rounded-5" href="{{ route('menu.kirimaps') }}">
               <i class="bi bi-send"></i>
               <span>Kirim</span>
           </a>

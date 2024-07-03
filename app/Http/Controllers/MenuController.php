@@ -51,6 +51,12 @@ class MenuController extends Controller
         return view('menu.aplikasi', ['tahun' => $tahun, 'nama_instansi' => $nama_instansi, 'pemberitahuan' => $pemberitahuan, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'call_center' =>$call_center, 'instansiall' => $instansiall]);
     }
 
+    public function kirimaplikasi(){
+        $tahun = \App\Models\Tahun::orderBy('tahun', 'asc')->get();
+        $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
+        return view('menu.kirimaps', ['tahun' => $tahun, 'pemberitahuan' => $pemberitahuan]);
+    }
+
     public function penandatanganan(){
 
         $instansi_id = \App\Models\User::Where('username', session('username'))->first()->instansi_id;
@@ -66,6 +72,19 @@ class MenuController extends Controller
             'instansi_id' => $instansi_id, 
             'nama_instansi' => $nama_instansi, 
             'penandatanganan' => $penandatanganan]);
+    }
+
+
+    public function updatelayananaplikasi(Request $request){
+        $tahun = request('tahun');
+        $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
+        \App\Models\Aplikasi::where('instansi_id', $instansi_id)->where('tahun', $tahun)->update([
+            'status' => 'Final',
+        ]);
+        \App\Models\CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->update([
+            'status' => 'Final',
+        ]);
+        return redirect('menu/kirimaps')->with('update', '');
     }
 
 

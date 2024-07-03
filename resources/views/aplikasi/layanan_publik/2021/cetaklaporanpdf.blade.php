@@ -92,7 +92,7 @@
 					<td width="20%"></td>
 					<td width="20%"></td>
 					<td width="30%"></td>
-					<td width="30%">#</td>
+					<td class="" width="30%">#</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>

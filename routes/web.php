@@ -100,6 +100,8 @@ Route::get('/menu/monitoring', [MenuController::class, 'monitoring'])->name('men
 Route::get('/menu/penandatanganan', [MenuController::class, 'penandatanganan'])->name('menu.penandatanganan')->middleware('auth');
 
 Route::get('/menu/aplikasi', [MenuController::class, 'aplikasi'])->name('menu.aplikasi')->middleware('auth');
+Route::get('/menu/kirimaps', [MenuController::class, 'kirimaplikasi'])->name('menu.kirimaps')->middleware('auth');
+
 
 /*penandatanganan controller pengguna*/
 Route::get('/penandatanganan/create', [PenandatangananController::class, 'create'])->name('penandatanganan.create')->middleware('auth');
@@ -436,6 +438,8 @@ Route::get('/pemberitahuan/create', [PemberitahuanController::class, 'create'])-
 Route::post('/pemberitahuan/store', [PemberitahuanController::class, 'store'])->name('pemberitahuan.store')->middleware('auth');
 Route::get('/pemberitahuan/{pemberitahuan}/edit', [PemberitahuanController::class, 'edit'])->name('pemberitahuan.edit')->middleware('auth');
 Route::patch('/pemberitahuan/{pemberitahuan}/edit', [PemberitahuanController::class, 'update'])->name('pemberitahuan.edit')->middleware('auth');
+
+Route::post('/menu/updatelayananaplikasi', [MenuController::class, 'updatelayananaplikasi'])->name('menu.updatelayananaplikasi')->middleware('auth');
 
 
 
