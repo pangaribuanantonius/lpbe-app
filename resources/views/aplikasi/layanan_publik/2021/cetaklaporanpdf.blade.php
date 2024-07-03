@@ -20,7 +20,7 @@
 		</p>
 	</center>
  
-	<table class="table table-bordered" width="100%" border="0.5">
+	<table class="table table-bordered" width="100%" style="padding:4px;" border="1">
 		<thead>
 			<tr>
 				<th>Nama Aplikasi</th>
@@ -67,65 +67,62 @@
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%">{{$penandatanganan->kecamatan->nama_kecamatan}}, {{ \Carbon\Carbon::now()->translatedFormat('d F Y') }}</td>
+					<td width="30%"></td>
+					<td width="30%">{{$penandatanganan->kecamatan->nama_kecamatan}}, {{ \Carbon\Carbon::now()->translatedFormat('d F Y') }}</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%">{{ $penandatanganan->jabatan }}</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%"></td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%"></td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%">#</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%"></td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%">{{ $penandatanganan->nama }}</td>
+					<td width="30%"></td>
+					<td width="30%"></td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%"></td>
-					<td width="20%">{{ $penandatanganan->jabatan }}</td>
+					<td width="30%"></td>
+					<td width="30%">{{ $penandatanganan->nama }}</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
+					<td width="30%"></td>
+					<td width="30%">{{ $penandatanganan->pangkat }}</td>
+				</tr>
+				<tr>
 					<td width="20%"></td>
 					<td width="20%"></td>
-					<td width="20%">NIP. {{ $penandatanganan->nip }}</td>
+					<td width="30%"></td>
+					<td width="30%">NIP. {{ $penandatanganan->nip }}</td>
 				</tr>
 
 			</tbody>
