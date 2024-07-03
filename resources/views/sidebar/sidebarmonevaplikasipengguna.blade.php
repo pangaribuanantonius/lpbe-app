@@ -102,7 +102,14 @@
             <span>Monev Aplikasi</span>
         </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link rounded-5" href="#">
+              <i class="bi bi-send"></i>
+              <span>Kirim</span>
+          </a>
+        </li>
         <!-- Aplikasi nav end -->
+         
 
         <li class="nav-heading"><hr></li>
         <!-- Kembali start -->
