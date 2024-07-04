@@ -50,11 +50,11 @@
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Tahap Finalisasi</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel">Kirim Data</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  Apakah anda ingin melakukan finalisasi data ?
+                                  Apakah anda ingin mengirimkan data ?
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
