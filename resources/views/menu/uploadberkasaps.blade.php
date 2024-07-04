@@ -11,6 +11,10 @@
 </div>
 <!-- End Page Title -->
 
+@php
+$tahun = request('tahun');
+@endphp
+{{$tahun}}
 <section class="section dashboard">
     <div class="row">
         <div class="col-md-12">
@@ -27,6 +31,8 @@
                         <label>Test</label>
                         <input type="text" name="" class="form-control">
                     </div>
+                    @else
+                    <div>belum ada</div>
                     @endif
                 </div>
             </div>
