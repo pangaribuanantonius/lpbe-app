@@ -439,7 +439,8 @@ Route::post('/pemberitahuan/store', [PemberitahuanController::class, 'store'])->
 Route::get('/pemberitahuan/{pemberitahuan}/edit', [PemberitahuanController::class, 'edit'])->name('pemberitahuan.edit')->middleware('auth');
 Route::patch('/pemberitahuan/{pemberitahuan}/edit', [PemberitahuanController::class, 'update'])->name('pemberitahuan.edit')->middleware('auth');
 
-Route::post('/menu/updatelayananaplikasi', [MenuController::class, 'updatelayananaplikasi'])->name('menu.updatelayananaplikasi')->middleware('auth');
+Route::get('/menu/updatelayananaplikasi', [MenuController::class, 'updatelayananaplikasi'])->name('menu.updatelayananaplikasi')->middleware('auth');
+Route::get('/menu/uploadberkasaps', [MenuController::class, 'uploadberkasaps'])->name('menu.uploadberkasaps')->middleware('auth');
 
 
 

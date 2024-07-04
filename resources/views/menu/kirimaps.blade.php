@@ -23,9 +23,7 @@
               <div class="col-lg-12">
                 <div class="card">
                   <div class="card-body mt-4">
-                    <form action="{{ route('menu.updatelayananaplikasi') }}" method="post" enctype="multipart/form-data">
-                      @csrf
-                      @method('POST')
+                    <form action="{{ route('menu.uploadberkasaps') }}" method="get" enctype="multipart/form-data">
                       <div class="row">
                         <div class="col-lg-12">
                           <div class="form-group">
@@ -42,26 +40,7 @@
                         </div>
                        
                           <div class="d-grid d-flex gap-2">
-                            <a class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Modal"><i class="bi bi-arrow-right-circle"></i> Lanjut</a>
-                          </div>
-
-                          <!-- Modal -->
-                          <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Kirim Data</h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  Apakah anda ingin mengirimkan data ?
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
-                                    <button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split"><i class="bi bi-cloud-upload"></i> <span class="text">Lanjutkan</span></button>
-                                </div>
-                              </div>
-                            </div>
+                            <button class="btn btn-outline-dark" type="submit"><i class="bi bi-arrow-right-circle"></i> Lanjut</button>
                           </div>
 
                        

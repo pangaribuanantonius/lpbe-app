@@ -53,8 +53,10 @@ class MenuController extends Controller
 
     public function kirimaplikasi(){
         $tahun = \App\Models\Tahun::orderBy('tahun', 'asc')->get();
+        $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
+        $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
         $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
-        return view('menu.kirimaps', ['tahun' => $tahun, 'pemberitahuan' => $pemberitahuan]);
+        return view('menu.kirimaps', ['tahun' => $tahun, 'pemberitahuan' => $pemberitahuan, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi]);
     }
 
     public function penandatanganan(){
@@ -75,16 +77,9 @@ class MenuController extends Controller
     }
 
 
-    public function updatelayananaplikasi(Request $request){
-        $tahun = request('tahun');
-        $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
-        \App\Models\Aplikasi::where('instansi_id', $instansi_id)->where('tahun', $tahun)->update([
-            'status' => 'Final',
-        ]);
-        \App\Models\CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->update([
-            'status' => 'Final',
-        ]);
-        return redirect('menu/kirimaps')->with('update', '');
+
+    public function uploadberkasaps(){
+        dd('test');
     }
 
 
