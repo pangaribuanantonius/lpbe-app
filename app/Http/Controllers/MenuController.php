@@ -79,7 +79,14 @@ class MenuController extends Controller
 
 
     public function uploadberkasaps(){
-        dd('test');
+        $tahun = request('tahun');
+        $instansi_id = \App\Models\User::Where('username', session('username'))->first()->instansi_id;
+
+        $aplikasi = Aplikasi::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
+        $call_center = CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
+        $aplikasi_final = Aplikasi::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Final')->count();
+        $call_center_final = CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Final')->count();
+        return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'call_center_final' => $call_center_final]);
     }
 
 
