@@ -13,6 +13,7 @@
 
 @php
 $tahun = request('tahun');
+$instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
 @endphp
 <div class="d-none">{{ $tahun }}</div>
 <section class="section dashboard">
@@ -24,7 +25,9 @@ $tahun = request('tahun');
             <div class="card">
                 <div class="card-body">
                     <form action="#" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="tahun" value="Layanan Aplikasi Tahun {{ $tahun }}" class="form-control">
+                        <input type="text" name="instansi_id" value="{{ $instansi_id }}" class="form-control">
+                        <input type="hidden" name="nama" value="Layanan Aplikasi Tahun {{ $tahun }}" class="form-control">
+                        <input type="hidden" name="tahun" value="{{ $tahun }}" class="form-control">
                         <div class="form-gorup mt-3">
                             <label>File Aplikasi Layanan Publik</label>
                             <input type="file" name="" class="form-control" required>
