@@ -14,28 +14,38 @@
 @php
 $tahun = request('tahun');
 @endphp
-{{$tahun}}
+<div class="d-none">{{ $tahun }}</div>
 <section class="section dashboard">
     <div class="row">
         <div class="col-md-12">
+            @if($aplikasi || $call_center)
+            <div class="alert alert-primary mt-4">Ada data yang belum di finalisasi. Finalisasi Sekarang !!!</div>
+            @elseif($aplikasi_final && $call_center_final)
             <div class="card">
                 <div class="card-body">
-                    @if($aplikasi || $call_center)
-                    <div>test</div>
-                    @elseif($aplikasi_final && $call_center_final)
-                    <div class="form-gorup mt-3">
-                        <label>Test</label>
-                        <input type="text" name="" class="form-control">
-                    </div>
-                    <div class="form-gorup mt-3">
-                        <label>Test</label>
-                        <input type="text" name="" class="form-control">
-                    </div>
-                    @else
-                    <div>belum ada</div>
-                    @endif
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="tahun" value="Layanan Aplikasi Tahun {{ $tahun }}" class="form-control">
+                        <div class="form-gorup mt-3">
+                            <label>File Aplikasi Layanan Publik</label>
+                            <input type="file" name="" class="form-control" required>
+                        </div>
+                        <div class="form-gorup mt-3">
+                            <label>File Aplikasi Adm. Pemerintahan</label>
+                            <input type="file" name="" class="form-control" required>
+                        </div>
+                        <div class="form-gorup mt-3">
+                            <label>File Layanan Call Center</label>
+                            <input type="file" name="" class="form-control" required>
+                        </div>
+                        <div class="form-gorup mt-3">
+                            <button class="btn btn-outline-success" type="submit"><i class="bi bi-check-circle"></i> Kirim</button>
+                        </div>
+                    </form>
                 </div>
             </div>
+            @else
+            <div class="alert alert-primary">Belum tersedia</div>
+            @endif
         </div>
     </div>
 </section>
