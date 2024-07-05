@@ -5,6 +5,7 @@ use App\Models\Aplikasi;
 use App\Models\CallCenter;
 use App\Models\Spbe;
 use App\Models\Penandatanganan;
+use App\Models\Berkas;
 use App\Models\Instansi;
 use App\Models\Tahun;
 use App\Models\Pemberitahuan;
@@ -89,26 +90,66 @@ class MenuController extends Controller
         return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'call_center_final' => $call_center_final]);
     }
 
-    public function kirimberkas(Request $request){
+    /*public function kirimberkas(Request $request){
         $datasudahvalidasi = $request->validate([
             'file_aps_publik' => 'file|mimes:pdf|max:4096',
             'file_aps_pemerintah' => 'file|mimes:pdf|max:4096',
             'file_call_center' => 'file|mimes:pdf|max:4096',
         ]);
-            $extFile = $request->berkas->getClientOriginalExtension();
-            $namaFile = time().".".$extFile;
+            $extFile = $request->file_aps_publik->getClientOriginalExtension();
+            $extFile = $request->file_aps_pemerintah->getClientOriginalExtension();
+            $extFile = $request->file_call_center->getClientOriginalExtension();
+            $namaFile = time()." Layanan Publik.".$extFile;
+            $namaFile2 = time()." Layanan Administrasi Pemerintahan.".$extFile;
+            $namaFile3 = time()." Layanan Call Center.".$extFile;
 
-            $request->berkas->move('konten/berkas', $namaFile);
+            $request->file_aps_publik->move('konten/berkas', $namaFile);
+            $request->file_aps_pemerintah->move('konten/berkas', $namaFile2);
+            $request->file_call_center->move('konten/berkas', $namaFile3);
             \App\Models\Berkas::create([
                 'id' => \Str::random(8),
-                'instansi_id' => $request('instansi_id'),
-                'tahun' => $request('tahun'),
-                'nama' => $request('nama'),
-                'file_aps_publik' => $namaFile,
-                'file_aps_pemerintah' => $namaFile,
-                'file_call_center' => $namaFile,
+                'instansi_id' => $request->instansi_id,
+                'tahun' => $request->tahun,
+                'nama' => $request->nama,
+                'tahun' => $request->tahun,
+                'file_aps_publik' => $datasudahvalidasi->$namaFile,
+                'file_aps_pemerintah' => $datasudahvalidasi->$namaFile2,
+                'file_call_center' => $datasudahvalidasi->$namaFile3,
             ]);
-        return redirect('berkas/create')->with('success', 'Berhasil Menambah Data!');;
+        return redirect()->back()->with('success', 'Berhasil Menambah Data!');
+    }*/
+
+    public function kirimberkas(Request $request)
+    {
+        // Validasi file yang diunggah
+        $validatedData = $request->validate([
+            'file_aps_publik' => 'required|file|mimes:pdf|max:10000', // max:10000 artinya maksimal 10MB
+            'file_aps_pemerintah' => 'required|file|mimes:pdf|max:10000',
+            'file_call_center' => 'required|file|mimes:pdf|max:10000',
+        ]);
+
+        // Mendapatkan ekstensi file dan membuat nama file unik dengan timestamp
+        $namaFile1 = time() . ' Layanan Publik.' . $request->file_aps_publik->getClientOriginalExtension();
+        $namaFile2 = time() . ' Layanan Administrasi Pemerintahan.' . $request->file_aps_pemerintah->getClientOriginalExtension();
+        $namaFile3 = time() . ' Layanan Call Center.' . $request->file_call_center->getClientOriginalExtension();
+
+        // Memindahkan file ke direktori yang diinginkan
+        $request->file_aps_publik->move('konten/berkas', $namaFile1);
+        $request->file_aps_pemerintah->move('konten/berkas', $namaFile2);
+        $request->file_call_center->move('konten/berkas', $namaFile3);
+
+        // Menyimpan data ke database
+        \App\Models\Berkas::create([
+            'id' => \Str::random(8),
+            'instansi_id' => $request->instansi_id,
+            'tahun' => $request->tahun,
+            'nama' => $request->nama,
+            'file_aps_publik' => $namaFile1,
+            'file_aps_pemerintah' => $namaFile2,
+            'file_call_center' => $namaFile3,
+        ]);
+
+        return redirect()->back()->with('success', 'Berhasil Menambah Data!');
     }
 
 
