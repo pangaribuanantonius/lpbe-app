@@ -441,6 +441,7 @@ Route::patch('/pemberitahuan/{pemberitahuan}/edit', [PemberitahuanController::cl
 
 Route::get('/menu/updatelayananaplikasi', [MenuController::class, 'updatelayananaplikasi'])->name('menu.updatelayananaplikasi')->middleware('auth');
 Route::get('/menu/uploadberkasaps', [MenuController::class, 'uploadberkasaps'])->name('menu.uploadberkasaps')->middleware('auth');
+Route::post('/menu/kirimberkas', [MenuController::class, 'kirimberkas'])->name('menu.kirimberkas')->middleware('auth');
 
 
 

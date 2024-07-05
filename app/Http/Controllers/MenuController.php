@@ -89,6 +89,28 @@ class MenuController extends Controller
         return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'call_center_final' => $call_center_final]);
     }
 
+    public function kirimberkas(Request $request){
+        $datasudahvalidasi = $request->validate([
+            'file_aps_publik' => 'file|mimes:pdf|max:4096',
+            'file_aps_pemerintah' => 'file|mimes:pdf|max:4096',
+            'file_call_center' => 'file|mimes:pdf|max:4096',
+        ]);
+            $extFile = $request->berkas->getClientOriginalExtension();
+            $namaFile = time().".".$extFile;
+
+            $request->berkas->move('konten/berkas', $namaFile);
+            \App\Models\Berkas::create([
+                'id' => \Str::random(8),
+                'instansi_id' => $request('instansi_id'),
+                'tahun' => $request('tahun'),
+                'nama' => $request('nama'),
+                'file_aps_publik' => $namaFile,
+                'file_aps_pemerintah' => $namaFile,
+                'file_call_center' => $namaFile,
+            ]);
+        return redirect('berkas/create')->with('success', 'Berhasil Menambah Data!');;
+    }
+
 
 
 }

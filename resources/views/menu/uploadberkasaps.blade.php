@@ -24,7 +24,9 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
             @elseif($aplikasi_final && $call_center_final)
             <div class="card">
                 <div class="card-body">
-                    <form action="#" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('menu.kirimberkas') }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
                         <input type="text" name="instansi_id" value="{{ $instansi_id }}" class="form-control">
                         <input type="hidden" name="nama" value="Layanan Aplikasi Tahun {{ $tahun }}" class="form-control">
                         <input type="hidden" name="tahun" value="{{ $tahun }}" class="form-control">
