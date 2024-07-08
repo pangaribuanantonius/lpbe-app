@@ -167,7 +167,7 @@ class MenuController extends Controller
     }
 
     public function edit_berkas(Berkas $berkas) {
-        dd('test');
+        return view('menu.edit_berkas', ['berkas' => $berkas]);
     }
 
 
