@@ -23,6 +23,9 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
             <div class="alert alert-primary mt-4">Ada data yang belum di finalisasi. Finalisasi Sekarang !!!</div>
             @elseif($aplikasi_final && $call_center_final)
             <div class="card">
+                <div class="card-header">
+                    Upload berkas anda disini
+                </div>
                 <div class="card-body">
                     <form action="{{ route('menu.kirimberkas') }}" method="post" enctype="multipart/form-data">
                         @csrf

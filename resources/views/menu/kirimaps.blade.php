@@ -41,6 +41,7 @@
                        
                           <div class="d-grid d-flex gap-2">
                             <button class="btn btn-outline-dark" type="submit"><i class="bi bi-arrow-right-circle"></i> Lanjut</button>
+                            <a href="#" class="btn btn-outline-primary"><i class="bi bi-files"></i> Data</a>
                           </div>
 
                        
