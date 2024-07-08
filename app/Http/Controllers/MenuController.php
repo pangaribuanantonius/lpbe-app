@@ -152,6 +152,13 @@ class MenuController extends Controller
         return redirect()->back()->with('success', 'Berhasil Menambah Data!');
     }
 
+    public function berkas() {
+        $berkas = Berkas::all();
+        $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
+        $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
+        return view('menu.berkas', ['berkas' => $berkas, 'nama_instansi' => $nama_instansi]);
+    }
+
 
 
 }
