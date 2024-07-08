@@ -153,10 +153,16 @@ class MenuController extends Controller
     }
 
     public function berkas() {
-        $berkas = Berkas::all();
+        $berkas = Berkas::orderBy('created_at', 'desc')->get();
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
         return view('menu.berkas', ['berkas' => $berkas, 'nama_instansi' => $nama_instansi]);
+    }
+
+
+    public function detail_berkas(Berkas $berkas) {
+        /*return view('detail_berkas', ['berkas' => $berkas]);*/
+        dd('test');
     }
 
 

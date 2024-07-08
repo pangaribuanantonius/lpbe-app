@@ -443,6 +443,7 @@ Route::get('/menu/updatelayananaplikasi', [MenuController::class, 'updatelayanan
 Route::get('/menu/uploadberkasaps', [MenuController::class, 'uploadberkasaps'])->name('menu.uploadberkasaps')->middleware('auth');
 Route::post('/menu/kirimberkas', [MenuController::class, 'kirimberkas'])->name('menu.kirimberkas')->middleware('auth');
 Route::get('/menu/berkas', [MenuController::class, 'berkas'])->name('menu.berkas')->middleware('auth');
+Route::get('/menu/{berkas}/detail_berkas', [MenuController::class, 'detail_berkas'])->name('menu.detail_berkas')->middleware('auth');
 
 
 

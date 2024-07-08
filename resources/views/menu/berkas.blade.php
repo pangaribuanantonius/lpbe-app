@@ -15,7 +15,7 @@
                     @foreach($berkas as $bks)
                     <div class="mt-3">
                         <p>{{ $bks->nama }} {{ $nama_instansi }}</p>
-                        <p>Berkas Berkas Berkas</p>
+                        <p><a href="{{ route('menu.detail_berkas', $bks->id) }}" class="text-primary">Lihat Berkas</a></p>
                         <hr>    
                     </div>
                     @endforeach
