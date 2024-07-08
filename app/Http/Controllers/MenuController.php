@@ -161,7 +161,12 @@ class MenuController extends Controller
 
 
     public function detail_berkas(Berkas $berkas) {
-        /*return view('detail_berkas', ['berkas' => $berkas]);*/
+        $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
+        $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
+        return view('menu.detail_berkas', ['berkas' => $berkas, 'nama_instansi' => $nama_instansi]);
+    }
+
+    public function edit_berkas(Berkas $berkas) {
         dd('test');
     }
 
