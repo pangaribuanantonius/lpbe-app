@@ -445,7 +445,7 @@ Route::post('/menu/kirimberkas', [MenuController::class, 'kirimberkas'])->name('
 Route::get('/menu/berkas', [MenuController::class, 'berkas'])->name('menu.berkas')->middleware('auth');
 Route::get('/menu/{berkas}/detail_berkas', [MenuController::class, 'detail_berkas'])->name('menu.detail_berkas')->middleware('auth');
 Route::get('/menu/{berkas}/edit_berkas', [MenuController::class, 'edit_berkas'])->name('menu.edit_berkas')->middleware('auth');
-
+Route::patch('/menu/{berkas}/edit_berkas', [MenuController::class, 'updateberkas'])->name('menu.edit_berkas')->middleware('auth');
 
 
 

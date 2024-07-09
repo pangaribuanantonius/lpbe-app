@@ -170,6 +170,62 @@ class MenuController extends Controller
         return view('menu.edit_berkas', ['berkas' => $berkas]);
     }
 
+    public function updateberkas(Request $request, Berkas $berkas)
+{
+    // Validasi input
+    $datasudahvalidasi = $request->validate([
+        'file_aps_publik' => 'file|mimes:pdf|max:10000|nullable',
+        'file_aps_pemerintah' => 'file|mimes:pdf|max:10000|nullable',
+        'file_call_center' => 'file|mimes:pdf|max:10000|nullable',
+    ]);
+
+    // Proses file file_aps_publik jika ada
+    if ($request->hasFile('file_aps_publik')) {
+        // Hapus file lama jika ada
+        if ($berkas->file_aps_publik) {
+            unlink(public_path('konten/berkas/' . $berkas->file_aps_publik));
+        }
+        // Upload file baru
+        $extFile1 = $request->file_aps_publik->getClientOriginalExtension();
+        $namaFile1 = time() . " Layanan Publik." . $extFile1;
+        $request->file_aps_publik->move('konten/berkas', $namaFile1);
+        $berkas->file_aps_publik = $namaFile1;
+    }
+
+    // Proses file file_aps_pemerintah jika ada
+    if ($request->hasFile('file_aps_pemerintah')) {
+        // Hapus file lama jika ada
+        if ($berkas->file_aps_pemerintah) {
+            unlink(public_path('konten/berkas/' . $berkas->file_aps_pemerintah));
+        }
+        // Upload file baru
+        $extFile2 = $request->file_aps_pemerintah->getClientOriginalExtension();
+        $namaFile2 = time() . " Layanan Administrasi Pemerintahan." . $extFile2;
+        $request->file_aps_pemerintah->move('konten/berkas', $namaFile2);
+        $berkas->file_aps_pemerintah = $namaFile2;
+    }
+
+    // Proses file file_call_center jika ada
+    if ($request->hasFile('file_call_center')) {
+        // Hapus file lama jika ada
+        if ($berkas->file_call_center) {
+            unlink(public_path('konten/berkas/' . $berkas->file_call_center));
+        }
+        // Upload file baru
+        $extFile3 = $request->file_call_center->getClientOriginalExtension();
+        $namaFile3 = time() . " Layanan Call Center." . $extFile3;
+        $request->file_call_center->move('konten/berkas', $namaFile3);
+        $berkas->file_call_center = $namaFile3;
+    }
+
+    // Update data lainnya
+    $berkas->save();
+
+    // Redirect dengan pesan sukses
+    return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
+}
+
+
 
 
 }
