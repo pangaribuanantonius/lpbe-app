@@ -104,8 +104,8 @@
         </li>
         <li class="nav-item">
           <a class="nav-link collapsed rounded-5" href="{{ route('menu.kirimaps') }}">
-              <i class="bi bi-send"></i>
-              <span>Kirim</span>
+              <i class="bi bi-files"></i>
+              <span>Kirim Berkas</span>
           </a>
         </li>
         <!-- Aplikasi nav end -->

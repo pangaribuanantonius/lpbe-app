@@ -11,18 +11,39 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
-                   
-                    <div class="mt-3 text-center">
-                        <p>
-                            <h1 class="text-center">{{ $berkas->nama }}</h1>
-                            {{ $nama_instansi }}
-                        </p>
-                        <p class="text-center"><a class="btn d-block btn-primary" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_aps_publik }}" target="_blank" class="text-primary"><small>File Aps Layanan Publik</small></a></p>
-                        <p class="text-center"><a class="btn d-block btn-primary" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_aps_pemerintah }}" target="_blank" class="text-primary"><small>File Aps Layanan Administrasi Pemerintahan</small></a></p>
-                        <p class="text-center"><a class="btn d-block btn-primary" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_call_center }}" target="_blank" class="text-primary"><small>File Layanan Call Center</small></a></p>
-                        <p class="text-center"><a class="btn d-block btn-danger" href="#" class="text-primary"><small>Hapus</small></a></p>
-                    </div>
+                <div class="card-body mt-3">
+
+                    <table class="table table-hover datatable">
+                        <thead>
+                            <tr>
+                                <th>Nama Berkas</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $berkas->file_aps_publik }}</td>
+                                <td class="text-center">
+                                    <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_aps_publik }}"><i class="bi bi-eye"></i>Lihat</a>
+                                    <a class="btn btn-outline-danger" href="#"><i class="bi bi-pencil"></i>Ganti</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{{ $berkas->file_aps_pemerintah }}</td>
+                                <td class="text-center">
+                                    <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_aps_pemerintah }}"><i class="bi bi-eye"></i>Lihat</a>
+                                    <a class="btn btn-outline-danger" href="#"><i class="bi bi-pencil"></i>Ganti</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{{ $berkas->file_call_center }}</td>
+                                <td class="text-center">
+                                    <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_call_center }}"><i class="bi bi-eye"></i>Lihat</a>
+                                    <a class="btn btn-outline-danger" href="#"><i class="bi bi-pencil"></i>Ganti</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
             
                 </div>
             </div>

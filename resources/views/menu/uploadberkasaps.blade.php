@@ -20,7 +20,14 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
     <div class="row">
         <div class="col-md-12">
             @if($aplikasi || $call_center)
-            <div class="alert alert-primary mt-4">Ada data yang belum di finalisasi. Finalisasi Sekarang !!!</div>
+            <div class="alert alert-primary mt-4">Ada data yang belum di finalisasi. Mohon lakukan finalisasi!</div>
+            <p>Status: 
+                <ul>
+                    <li>Pendataan Aplikasi Pelayanan Publik Sedang Proses, <a href="#">Klik Disini!</a></li>
+                    <li>Pendataan Aplikasi Layanan Administrasi Pemerintahan Sedang Proses, <a href="#">Klik Disini!</a></li>
+                    <li>Pendataan Layanan Call Center Sedang Proses, <a href="#">Klik Disini!</a></li>
+                </ul>
+            </p>
             @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $berkas == 0)
             <div class="card">
                 <div class="card-header">
@@ -70,7 +77,6 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                                 <td>{{$bks->tahun}}</td>
                                 <td class="text-center">
                                     <a href="{{ route('menu.detail_berkas', $bks->id) }}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>
-                                    <a href="{{ route('menu.edit_berkas', $bks->id) }}" class="btn btn-outline-dark"><i class="bi bi-pencil"></i> Edit</a>
                                 </td>
                             </tr>
                             @endforeach
