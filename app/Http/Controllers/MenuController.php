@@ -87,7 +87,9 @@ class MenuController extends Controller
         $call_center = CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
         $aplikasi_final = Aplikasi::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Final')->count();
         $call_center_final = CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Final')->count();
-        return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'call_center_final' => $call_center_final]);
+        $berkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->count();
+        $listberkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->get();
+        return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'call_center_final' => $call_center_final, 'berkas' => $berkas, 'listberkas' => $listberkas]);
     }
 
     /*public function kirimberkas(Request $request){

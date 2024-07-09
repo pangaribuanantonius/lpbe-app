@@ -115,6 +115,9 @@
             <li>
               <a href="{{ route('superadmin.daftarurusanaplikasiadmpemerintah') }}" class="rounded-5"> <i class="bi bi-bar-chart-steps me-2"></i><span>Urusan</span> </a>
             </li>
+            <li>
+              <a href="#" class="rounded-5"> <i class="bi bi-files me-2"></i><span>Berkas</span> </a>
+            </li>
           </ul>
         </li>
 

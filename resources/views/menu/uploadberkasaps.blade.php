@@ -21,7 +21,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
         <div class="col-md-12">
             @if($aplikasi || $call_center)
             <div class="alert alert-primary mt-4">Ada data yang belum di finalisasi. Finalisasi Sekarang !!!</div>
-            @elseif($aplikasi_final && $call_center_final)
+            @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $berkas == 0)
             <div class="card">
                 <div class="card-header">
                     Upload berkas anda disini
@@ -49,6 +49,33 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                             <button class="btn btn-outline-success" type="submit"><i class="bi bi-check-circle"></i> Kirim</button>
                         </div>
                     </form>
+                </div>
+            </div>
+            
+            @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $berkas >= 1)
+            <div class="card">
+                <div class="card-body mt-3">
+                    <table class="table table-hover datatable">
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Tahun</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($listberkas as $bks)
+                            <tr>
+                                <td>{{$bks->nama}}</td>
+                                <td>{{$bks->tahun}}</td>
+                                <td class="text-center">
+                                    <a href="{{ route('menu.detail_berkas', $bks->id) }}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>
+                                    <a href="{{ route('menu.edit_berkas', $bks->id) }}" class="btn btn-outline-dark"><i class="bi bi-pencil"></i> Edit</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
             @else
