@@ -259,4 +259,8 @@ class MenuController extends Controller
     return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
 }
 
+public function ubah_berkas_aps_pemerintah(Berkas $berkas) {
+    dd('test');
+}
+
 }
