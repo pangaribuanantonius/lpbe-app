@@ -15,6 +15,7 @@
                     <form action="{{ route('berkas.aps_layanan_publik.ubah_berkas', ['berkas' => $berkas]) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
+                        <input type="hidden" name="id">
                         <div class="form-group mt-3">
                             <label>File</label>
                             <input type="file" name="file_aps_publik" class="form-control" required>

@@ -259,8 +259,35 @@ class MenuController extends Controller
     return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
 }
 
-public function ubah_berkas_aps_pemerintah(Berkas $berkas) {
-    dd('test');
-}
+    public function ubah_berkas_aps_pemerintah(Berkas $berkas) {
+        return view('berkas.aps_pemerintahan.ubah_berkas', ['berkas' => $berkas]);
+    }
+
+    public function update_berkas_aps_pemerintah(Request $request, Berkas $berkas) { 
+        // Validasi input
+        $datasudahvalidasi = $request->validate([
+            'file_aps_pemerintah' => 'file|mimes:pdf|max:10000',
+        
+        ]);
+
+        // Proses file file_aps_pemerintah jika ada
+        if ($request->hasFile('file_aps_pemerintah')) {
+            // Hapus file lama jika ada
+            if ($berkas->file_aps_pemerintah) {
+                unlink(public_path('konten/berkas/' . $berkas->file_aps_pemerintah));
+            }
+            // Upload file baru
+            $extFile2 = $request->file_aps_pemerintah->getClientOriginalExtension();
+            $namaFile2 = time() . " Layanan Administrasi Pemerintahan." . $extFile2;
+            $request->file_aps_pemerintah->move('konten/berkas', $namaFile2);
+            $berkas->file_aps_pemerintah = $namaFile2;
+        }
+
+        // Update data lainnya
+        $berkas->save();
+
+        // Redirect dengan pesan sukses
+        return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
+        }
 
 }
