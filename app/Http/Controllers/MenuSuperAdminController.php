@@ -206,11 +206,16 @@ class MenuSuperAdminController extends Controller
     }
 
     public function listberkas() {
-
         $instansi_id = request('instansi_id');
         $tahun = request('tahun');
         $listberkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->get();
         return view('superadmin.listberkas', ['instansi_id' => $instansi_id, 'tahun' => $tahun, 'listberkas' => $listberkas]);
+    }
+
+    public function detail_berkas(Berkas $berkas) {
+
+        $instansi_id = request('instansi_id');
+        return view('superadmin.detail_berkas', ['berkas' =>$berkas, 'instansi_id' => $instansi_id]);
     }
     
 }

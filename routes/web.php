@@ -470,6 +470,7 @@ Route::patch('/berkas/call_center/{berkas}/ubah_berkas', [MenuController::class,
 
 Route::get('/superadmin/berkas_aps', [MenuSuperAdminController::class, 'berkas_aps'])->name('superadmin.berkas_aps')->middleware('auth');
 Route::get('/superadmin/listberkas', [MenuSuperAdminController::class, 'listberkas'])->name('superadmin.listberkas')->middleware('auth');
+Route::get('/superadmin/{berkas}/detail_berkas', [MenuSuperAdminController::class, 'detail_berkas'])->name('superadmin.detail_berkas')->middleware('auth');
 
 
 

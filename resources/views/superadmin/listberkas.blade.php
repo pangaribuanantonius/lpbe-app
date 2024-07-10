@@ -17,7 +17,7 @@
                     <td>{{$bks->nama}}</td>
                     <td>{{$bks->tahun}}</td>
                     <td class="text-center">
-                        <a href="#" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>
+                        <a href="{{ route('superadmin.detail_berkas', $bks->id) }}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>
                     </td>
                 </tr>
                 @endforeach
