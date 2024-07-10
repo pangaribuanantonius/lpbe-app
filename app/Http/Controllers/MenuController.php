@@ -291,7 +291,37 @@ class MenuController extends Controller
     }
 
     public function ubah_berkas_call_center(Berkas $berkas) {
-        dd('test');
+        return view('berkas.call_center.ubah_berkas', ['berkas' => $berkas]);
+    }
+
+
+    public function update_berkas_call_center(Request $request, Berkas $berkas) {
+          // Validasi input
+          $datasudahvalidasi = $request->validate([
+            'file_call_center' => 'file|mimes:pdf|max:10000',
+        
+        ]);
+
+         // Proses file file_call_center jika ada
+    if ($request->hasFile('file_call_center')) {
+        // Hapus file lama jika ada
+        if ($berkas->file_call_center) {
+            unlink(public_path('konten/berkas/' . $berkas->file_call_center));
+        }
+        // Upload file baru
+        $extFile3 = $request->file_call_center->getClientOriginalExtension();
+        $namaFile3 = time() . " Layanan Call Center." . $extFile3;
+        $request->file_call_center->move('konten/berkas', $namaFile3);
+        $berkas->file_call_center = $namaFile3;
+    }
+
+    // Update data lainnya
+    $berkas->save();
+
+    // Redirect dengan pesan sukses
+    return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
+
+
     }
 
 }
