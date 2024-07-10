@@ -288,6 +288,10 @@ class MenuController extends Controller
 
         // Redirect dengan pesan sukses
         return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
-        }
+    }
+
+    public function ubah_berkas_call_center(Berkas $berkas) {
+        dd('test');
+    }
 
 }
