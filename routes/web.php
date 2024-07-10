@@ -454,6 +454,40 @@ Route::patch('/berkas/aps_pemerintahan/{berkas}/ubah_berkas', [MenuController::c
 Route::get('/berkas/call_center/{berkas}/ubah_berkas', [MenuController::class, 'ubah_berkas_call_center'])->name('berkas.call_center.ubah_berkas')->middleware('auth');
 Route::patch('/berkas/call_center/{berkas}/ubah_berkas', [MenuController::class, 'update_berkas_call_center'])->name('berkas.call_center.ubah_berkas')->middleware('auth');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/superadmin/berkas_aps', [MenuSuperAdminController::class, 'berkas_aps'])->name('superadmin.berkas_aps')->middleware('auth');
+Route::get('/superadmin/listberkas', [MenuSuperAdminController::class, 'listberkas'])->name('superadmin.listberkas')->middleware('auth');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'ceklogin'])->name('ceklogin');

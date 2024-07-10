@@ -6,6 +6,7 @@ use App\Models\CallCenter;
 use App\Models\Instansi;
 use App\Models\User;
 use App\Models\Tahun;
+use App\Models\Berkas;
 use App\Models\IndikatorSpbe;
 use App\Models\Urusan;
 use App\Models\BidangUrusan;
@@ -195,6 +196,21 @@ class MenuSuperAdminController extends Controller
         $urusan_id = request('urusan_id');
         $bidangurusan1::destroy($bidangurusan1->id);
         return redirect('superadmin/daftarbidangurusanaplikasiadmpemerintah/'.$bidangurusan1->urusan_id)->with('delete', 'Berhasil Menghapus Data!');
+    }
+
+    public function berkas_aps() {
+        $instansi_id = request('instansi_id');
+        $instansi = Instansi::orderBy('nama_instansi', 'asc')->get();
+        $tahun = Tahun::orderBy('tahun', 'asc')->get();
+        return view('superadmin.berkas_aps', ['instansi_id' => $instansi_id, 'instansi' => $instansi, 'tahun' => $tahun]);
+    }
+
+    public function listberkas() {
+
+        $instansi_id = request('instansi_id');
+        $tahun = request('tahun');
+        $listberkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->get();
+        return view('superadmin.listberkas', ['instansi_id' => $instansi_id, 'tahun' => $tahun, 'listberkas' => $listberkas]);
     }
     
 }
