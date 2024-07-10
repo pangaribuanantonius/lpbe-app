@@ -227,7 +227,36 @@ class MenuController extends Controller
     return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
 }
 
+    public function ubah_berkas_aps_publik(Berkas $berkas) {
+        return view('berkas.aps_layanan_publik.ubah_berkas', ['berkas' => $berkas]);
+    }
+
+    public function update_berkas_aps_publik(Request $request, Berkas $berkas) {
+    // Validasi input
+    $datasudahvalidasi = $request->validate([
+        'file_aps_publik' => 'file|mimes:pdf|max:10000',
+       
+    ]);
+
+    // Proses file file_aps_publik jika ada
+    if ($request->hasFile('file_aps_publik')) {
+        // Hapus file lama jika ada
+        if ($berkas->file_aps_publik) {
+            unlink(public_path('konten/berkas/' . $berkas->file_aps_publik));
+        }
+        // Upload file baru
+        $extFile1 = $request->file_aps_publik->getClientOriginalExtension();
+        $namaFile1 = time() . " Layanan Publik." . $extFile1;
+        $request->file_aps_publik->move('konten/berkas', $namaFile1);
+        $berkas->file_aps_publik = $namaFile1;
+    }
 
 
+    // Update data lainnya
+    $berkas->save();
+
+    // Redirect dengan pesan sukses
+    return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
+}
 
 }

@@ -25,7 +25,7 @@
                                 <td>{{ $berkas->file_aps_publik }}</td>
                                 <td class="text-center">
                                     <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_aps_publik }}"><i class="bi bi-eye"></i>Lihat</a>
-                                    <a class="btn btn-outline-danger" href="#"><i class="bi bi-pencil"></i>Ganti</a>
+                                    <a class="btn btn-outline-danger" href="{{ route('berkas.aps_layanan_publik.ubah_berkas', $berkas->id) }}"><i class="bi bi-pencil"></i>Ganti</a>
                                 </td>
                             </tr>
                             <tr>

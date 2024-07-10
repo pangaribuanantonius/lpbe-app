@@ -447,6 +447,9 @@ Route::get('/menu/{berkas}/detail_berkas', [MenuController::class, 'detail_berka
 Route::get('/menu/{berkas}/edit_berkas', [MenuController::class, 'edit_berkas'])->name('menu.edit_berkas')->middleware('auth');
 Route::patch('/menu/{berkas}/edit_berkas', [MenuController::class, 'updateberkas'])->name('menu.edit_berkas')->middleware('auth');
 
+Route::get('/berkas/aps_layanan_publik/{berkas}/ubah_berkas', [MenuController::class, 'ubah_berkas_aps_publik'])->name('berkas.aps_layanan_publik.ubah_berkas')->middleware('auth');
+Route::patch('/berkas/aps_layanan_publik/{berkas}/ubah_berkas', [MenuController::class, 'update_berkas_aps_publik'])->name('berkas.aps_layanan_publik.ubah_berkas')->middleware('auth');
+
 
 
 
