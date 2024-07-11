@@ -87,9 +87,9 @@ class MenuController extends Controller
         $call_center = CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
         $aplikasi_final = Aplikasi::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Final')->count();
         $call_center_final = CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Final')->count();
-        $berkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->count();
-        $listberkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->get();
-        return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'call_center_final' => $call_center_final, 'berkas' => $berkas, 'listberkas' => $listberkas]);
+        $jlhberkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->count();
+        $berkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->get();
+        return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'call_center_final' => $call_center_final, 'jlhberkas' => $jlhberkas, 'berkas' => $berkas]);
     }
 
     /*public function kirimberkas(Request $request){
@@ -118,7 +118,7 @@ class MenuController extends Controller
                 'file_aps_pemerintah' => $datasudahvalidasi->$namaFile2,
                 'file_call_center' => $datasudahvalidasi->$namaFile3,
             ]);
-        return redirect()->back()->with('success', 'Berhasil Menambah Data!');
+        return redirect()->back()->with('update', 'Berhasil Menambah Data!');
     }*/
 
     public function kirimberkas(Request $request)
@@ -149,6 +149,7 @@ class MenuController extends Controller
             'file_aps_publik' => $namaFile1,
             'file_aps_pemerintah' => $namaFile2,
             'file_call_center' => $namaFile3,
+            'posisi' => 'Pengguna',
         ]);
 
         return redirect()->back()->with('success', 'Berhasil Menambah Data!');
@@ -224,7 +225,7 @@ class MenuController extends Controller
     $berkas->save();
 
     // Redirect dengan pesan sukses
-    return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
+    return redirect()->back()->with('update', 'Berhasil Memperbarui Data!');
 }
 
     public function ubah_berkas_aps_publik(Berkas $berkas) {
@@ -232,6 +233,8 @@ class MenuController extends Controller
     }
 
     public function update_berkas_aps_publik(Request $request, Berkas $berkas) {
+
+        $id = request('id');
     // Validasi input
     $datasudahvalidasi = $request->validate([
         'file_aps_publik' => 'file|mimes:pdf|max:10000',
@@ -256,7 +259,7 @@ class MenuController extends Controller
     $berkas->save();
 
     // Redirect dengan pesan sukses
-    return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
+    return redirect('menu/'.request('id').'/detail_berkas')->with('update', 'Berhasil Memperbarui Data!');
 }
 
     public function ubah_berkas_aps_pemerintah(Berkas $berkas) {
@@ -287,7 +290,7 @@ class MenuController extends Controller
         $berkas->save();
 
         // Redirect dengan pesan sukses
-        return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
+        return redirect()->back()->with('update', 'Berhasil Memperbarui Data!');
     }
 
     public function ubah_berkas_call_center(Berkas $berkas) {
@@ -319,9 +322,19 @@ class MenuController extends Controller
     $berkas->save();
 
     // Redirect dengan pesan sukses
-    return redirect()->back()->with('success', 'Berhasil Memperbarui Data!');
+    return redirect()->back()->with('update', 'Berhasil Memperbarui Data!');
 
 
     }
+
+    public function ubahposisiberkas(Request $request, Berkas $berkas){
+        $berkas->update([
+            'posisi' => $request->posisi, 
+        ]);
+   
+        return redirect()->back()->with('update', 'Berhasil Memperbarui Data!');
+    }
+
+
 
 }

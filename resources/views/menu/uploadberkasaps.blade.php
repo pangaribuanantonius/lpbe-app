@@ -2,12 +2,7 @@
 @section('monevaplikasipengguna')
 
 <div class="pagetitle">
-    <h1><i class="bi bi-cpu"></i> Monev Aplikasi</h1>
-    <nav>
-        <ol class="breadcrumb">
-            <li class="active ms-1">Pendataan Aplikasi</li>
-        </ol>
-    </nav>
+    <h1><i class="bi bi-files"></i> Berkas</h1>
 </div>
 <!-- End Page Title -->
 
@@ -16,6 +11,7 @@ $tahun = request('tahun');
 $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
 @endphp
 <div class="d-none">{{ $tahun }}</div>
+
 <section class="section dashboard">
     <div class="row">
         <div class="col-md-12">
@@ -28,7 +24,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                     <li>Pendataan Layanan Call Center Sedang Proses, <a href="#">Klik Disini!</a></li>
                 </ul>
             </p>
-            @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $berkas == 0)
+            @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $jlhberkas == 0)
             <div class="card">
                 <div class="card-header">
                     Upload berkas anda disini
@@ -59,7 +55,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                 </div>
             </div>
             
-            @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $berkas >= 1)
+            @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $jlhberkas >= 1)
             <div class="card">
                 <div class="card-body mt-3">
                     <table class="table table-hover datatable">
@@ -71,13 +67,51 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($listberkas as $bks)
+                            @foreach($berkas as $bks)
                             <tr>
                                 <td>{{$bks->nama}}</td>
                                 <td>{{$bks->tahun}}</td>
+                                @if($bks->posisi == 'Pengguna')
+                                <td class="text-center">
+                                    <a href="{{ route('menu.detail_berkas', $bks->id) }}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>
+                                    <a href="#" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#sendberkas{{$bks->id}}"><i class="bi bi-send"></i> Kirim</a>                                    
+                                </td>
+
+
+<!-- Modal Kirim Berkas -->
+<div class="modal fade" id="sendberkas{{$bks->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tahap Finalisasi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Apakah anda yakin ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
+                <form method="post" action="{{ route('menu.ubahposisiberkas', ['berkas' => $bks->id]) }}" enctype="multipart/form-data">
+                    @csrf
+                    @method('PATCH')
+                    <input type="text" name="id" value="{{ $bks->id }}">
+                    <input type="hidden" name="posisi" value="Admin">
+                    <button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
+                        <i class="bi bi-send"></i> <span class="text">Lanjutkan</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                                
+                                @elseif($bks->posisi == 'Admin')
                                 <td class="text-center">
                                     <a href="{{ route('menu.detail_berkas', $bks->id) }}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                         </tbody>
@@ -90,5 +124,10 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
         </div>
     </div>
 </section>
+
+
+
+
+
 
 @endsection

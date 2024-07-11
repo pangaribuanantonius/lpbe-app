@@ -474,6 +474,8 @@ Route::get('/superadmin/{berkas}/detail_berkas', [MenuSuperAdminController::clas
 
 
 
+Route::patch('/menu{berkas}/ubahposisiberkas', [MenuController::class, 'ubahposisiberkas'])->name('menu.ubahposisiberkas')->middleware('auth');
+
 
 
 
