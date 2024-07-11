@@ -1,5 +1,5 @@
-@extends('sidebar.sidebarpendataanaplikasiadmin')
-@section('monevaplikasiadmin')
+@extends('sidebar.sidebarberkasapsadmin')
+@section('berkasapsadmin')
 
 <!-- Page Title -->
 <div class="pagetitle">
