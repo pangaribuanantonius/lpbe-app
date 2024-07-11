@@ -1,6 +1,12 @@
 @extends('sidebar.sidebarpendataanaplikasiadmin')
 @section('monevaplikasiadmin')
 
+<!-- Page Title -->
+<div class="pagetitle">
+    <h1><i class="bi bi-files"></i> Berkas</h1>
+</div>
+<!-- End Page Title -->
+
 <div class="card">
     <div class="card-body mt-3">
         <table class="table table-hover datatable">
