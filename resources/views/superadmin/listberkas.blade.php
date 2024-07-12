@@ -33,7 +33,7 @@
                     <td>{{$bks->tahun}}</td>
                     <td class="text-center">
                         <a href="{{ route('superadmin.detail_berkas', $bks->id) }}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>
-                        <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#balikberkas{{$bks->id}}"><i class="bi bi-pencil"></i> Kembali ke Pengguna</a>
+                        <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#balikberkas{{$bks->id}}"><i class="bi bi-send"></i> Kirim Ke Pengguna</a>
                     </td>
                 </tr>
                 @endif
