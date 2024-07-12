@@ -33,7 +33,7 @@
                     <td>{{$bks->tahun}}</td>
                     <td class="text-center">
                         <a href="{{ route('superadmin.detail_berkas', $bks->id) }}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>
-                        <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#balikberkas{{$bks->id}}"><i class="bi bi-pencil"></i> Ubah</a>
+                        <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#balikberkas{{$bks->id}}"><i class="bi bi-pencil"></i> Kembali ke Pengguna</a>
                     </td>
                 </tr>
                 @endif
@@ -43,7 +43,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tahap Finalisasi</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Kembalikan berkas ke Pengguna</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
