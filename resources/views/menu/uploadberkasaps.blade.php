@@ -94,7 +94,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                 <form method="post" action="{{ route('menu.ubahposisiberkas', ['berkas' => $bks->id]) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
-                    <input type="text" name="id" value="{{ $bks->id }}">
+                    <input type="hidden" name="id" value="{{ $bks->id }}">
                     <input type="hidden" name="posisi" value="Admin">
                     <button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
                         <i class="bi bi-send"></i> <span class="text">Lanjutkan</span>
