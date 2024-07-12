@@ -35,6 +35,10 @@
 							<input type="text" name="jabatan" class="form-control" value="{{ $penandatanganan->jabatan }}" required>
 						</div>
 						<div class="form-group mt-3">
+							<label>Pangkat</label>
+							<input type="text" name="pangkat" class="form-control" value="{{ $penandatanganan->pangkat }}" required>
+						</div>
+						<div class="form-group mt-3">
 							<label>Tempat</label>
 							<select name="kecamatan_id" class="form-control form-select" required>
 								<option value="{{ $penandatanganan->kecamatan_id }}">{{ $penandatanganan->kecamatan->nama_kecamatan }}</option>

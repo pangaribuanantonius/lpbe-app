@@ -15,7 +15,7 @@
 	</style>
 	<center>
 		<p align="center">
-			<strong>Aplikasi Pelayanan Publik {{ $nama_instansi }}</Strong><br>
+			<strong>Aplikasi Pelayanan Publik <br> {{ $nama_instansi }}</Strong><br>
 			<strong>Tahun 2021</strong>
 		</p>
 	</center>
@@ -24,7 +24,7 @@
 		<thead>
 			<tr>
 				<th>Nama Aplikasi</th>
-				<th>Klasifikasi</th>
+				<th>Deskripsi</th>
 				<th>Kepemilikan</th>
 				<th>Tempat Aplikasi</th>
 				<th>Pengguna</th>
@@ -34,7 +34,7 @@
 			@foreach($aplikasi as $p)
 			<tr>
 				<td>{{ $p->nama_aplikasi }}</td>
-				<td>{{ $p->jenis_aplikasi }}</td>
+				<td>{{ $p->deskripsi }}</td>
 				<td>{{ $p->kepemilikan }}</td>
 				<td>{{ $p->tempataplikasi }}</td>
 				<td>{{ $p->pengguna }}</td>

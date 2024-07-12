@@ -37,10 +37,10 @@
 							</div>
 						</div>
 						<div class="form-group mt-3">
-							<label>Nomor Layanan</label>
+							<label>Platform</label>
 							<div>
-								<input type="checkbox" name="whatsapp" value="Whatsapp" {{ $call_center->whatsapp=="Whatsapp"? 'checked':'' }} disabled> Whatsapp <br/>
-								<input type="checkbox" name="telepon" value="Telepon" {{ $call_center->telepon=="Telepon"? 'checked':'' }} disabled> Telepon <br/>
+								<input type="checkbox" name="whatsapp" value="Whatsapp" {{ $call_center->whatsapp=="Whatsapp"? 'checked':'' }}> Whatsapp <br/>
+								<input type="checkbox" name="telepon" value="Telepon" {{ $call_center->telepon=="Telepon"? 'checked':'' }}> Telepon <br/>
 	                            <input type="checkbox" name="lainnya" value="Lainnya" onClick="lainNya()"> Lainnya <br/>
 							</div>
 						</div>

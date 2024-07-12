@@ -15,7 +15,7 @@
 	</style>
 	<center>
 		<p align="center">
-			<strong>Layanan Call Center {{ $nama_instansi }}</Strong><br>
+			<strong>Layanan Call Center <br> {{ $nama_instansi }}</Strong><br>
 			<strong>Tahun 2021</strong>
 		</p>
 	</center>
@@ -25,7 +25,8 @@
 			<tr>
 				<th>Nama Layanan</th>
 				<th>Nomor Layanan</th>
-				<th>Status</th>
+				<th>Deskripsi Layanan</th>
+				<th>Sektor Layanan</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,7 +34,8 @@
 			<tr>
 				<td>{{ $c->nama_layanan }}</td>
 				<td>{{ $c->nomor_layanan }}</td>
-				<td>{{ $c->status }}</td>
+				<td>{{ $c->deskripsi_layanan }}</td>
+				<td>{{ $c->sektorlayanan }}</td>
 			</tr>
 			@endforeach
 		</tbody>

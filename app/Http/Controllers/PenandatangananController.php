@@ -43,6 +43,7 @@ class PenandatangananController extends Controller
             'nama' => 'required',
             'nip' => 'required',
             'jabatan' => 'required',
+            'pangkat' => 'required',
             
         ]);
             \App\Models\Penandatanganan::create([
@@ -52,6 +53,7 @@ class PenandatangananController extends Controller
                 'nama' => $request->nama,
                 'nip' => $request->nip,
                 'jabatan' => $request->jabatan,
+                'pangkat' => $request->pangkat,
                 'kecamatan_id' => $request->kecamatan_id,
                 
             ]);
@@ -64,6 +66,7 @@ class PenandatangananController extends Controller
                 'nama' => $request->nama,
                 'nip' => $request->nip,
                 'jabatan' => $request->jabatan,
+                'pangkat' => $request->pangkat,
                 'kecamatan_id' => $request->kecamatan_id,
                 
             ]);

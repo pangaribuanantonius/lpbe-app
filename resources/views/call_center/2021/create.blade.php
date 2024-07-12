@@ -36,7 +36,7 @@
 							</div>
 						</div>
 						<div class="form-group mt-3">
-							<label>Nomor Layanan</label>
+							<label>Platform</label>
 							<div>
 								<input type="checkbox" name="whatsapp" id="whatsapp" value="Whatsapp"> Whatsapp <br/>
 	                            <input type="checkbox" name="telepon" id="telepon" value="Telepon"> Telepon <br/>

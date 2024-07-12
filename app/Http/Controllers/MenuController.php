@@ -259,7 +259,7 @@ class MenuController extends Controller
     $berkas->save();
 
     // Redirect dengan pesan sukses
-    return redirect('menu/'.request('id').'/detail_berkas')->with('update', 'Berhasil Memperbarui Data!');
+    return redirect()->back()->with('update', 'Berhasil Memperbarui Data!');
 }
 
     public function ubah_berkas_aps_pemerintah(Berkas $berkas) {

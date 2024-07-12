@@ -108,7 +108,7 @@
         <div class="col-12">
           <div class="card overflow-auto">
             <div class="card-body">
-              <h5 class="card-title">Progres Entri Data <span>| 2024</span></h5>
+              <h5 class="card-title">Progres Entri Data <span>| 2021</span></h5>
 
               <table class="table table-hover datatable">
                 <thead>
