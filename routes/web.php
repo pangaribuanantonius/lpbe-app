@@ -478,6 +478,10 @@ Route::patch('/menu{berkas}/ubahposisiberkas', [MenuController::class, 'ubahposi
 
 
 
+Route::patch('/superadmin{berkas}/balikberkaskepengguna', [MenuSuperAdminController::class, 'balikberkaskepengguna'])->name('superadmin.balikberkaskepengguna')->middleware('auth');
+
+
+
 
 
 

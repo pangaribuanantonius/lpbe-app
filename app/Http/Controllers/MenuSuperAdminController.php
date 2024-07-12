@@ -217,5 +217,13 @@ class MenuSuperAdminController extends Controller
         $instansi_id = request('instansi_id');
         return view('superadmin.detail_berkas', ['berkas' =>$berkas, 'instansi_id' => $instansi_id]);
     }
+
+    public function balikberkaskepengguna(Request $request, Berkas $berkas) {
+        $berkas->update ([
+            'posisi' => $request->posisi,
+        ]);
+        return redirect()->back()->with('update', 'Berhasil Memperbarui Data!');
+
+    }
     
 }
