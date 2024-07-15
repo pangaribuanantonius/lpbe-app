@@ -44,7 +44,7 @@
 			                    <td>{{ $c->status }}</td>
 			                    <td>
 			                    	<div class="text-center">
-			                            <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view{{ $c->id }}"><i class="bi bi-eye"></i> Lihat</a>
+			                            <a href="#" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#view{{ $c->id }}"><i class="bi bi-eye"></i> Lihat</a>
 			                        </div>
 			                    </td>
 							</tr>
@@ -186,7 +186,7 @@
 			                    <td>{{ $c->status }}</td>
 								<td>
 									<div class="text-center">
-										<a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#view2{{ $c->id }}"><i class="bi bi-eye"></i> Lihat</a>
+										<a href="#" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#view2{{ $c->id }}"><i class="bi bi-eye"></i> Lihat</a>
 									</div>
 								</td>
 							</tr>
