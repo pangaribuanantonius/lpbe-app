@@ -31,8 +31,8 @@
 						<thead>
 							<tr>
 								<th>Nama Aplikasi</th>
-			                    <th>Klasifikasi</th>
-			                    <th>Kepemilikan</th>
+			                    
+			                    
 			                    <th>Tempat Aplikasi</th>
 			                    <th>Status</th>
 			                    <th>Aksi</th>
@@ -42,13 +42,14 @@
 							@foreach($aplikasi as $aps)
 							<tr>
 								<td>{{ $aps->nama_aplikasi }}</td>
-			                    <td>{{ $aps->jenis_aplikasi }}</td>
-			                    <td>{{ $aps->kepemilikan }}</td>
+			                    
+			                    
 			                    <td>{{ $aps->tempataplikasi }}</td>
 			                    <td>{{ $aps->status }}</td>
 			                    <td>
 			                    	<div class="text-center">
 			                            <a class="btn btn-outline-dark" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
+										<a class="btn btn-outline-danger" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i> Verifikasi</a>
 			                        </div>
 			                    </td>
 							</tr>
@@ -252,8 +253,8 @@
 						<thead>
 							<tr>
 								<th>Nama Aplikasi</th>
-								<th>Klasifikasi</th>
-								<th>Kepemilikan</th>
+								
+								
 								<th>Tempat Aplikasi</th>
 								<th>Status</th>
 								<th>Aksi</th>
@@ -263,13 +264,14 @@
 							@foreach($aplikasi as $aps)
 							<tr>
 								<td>{{ $aps->nama_aplikasi }}</td>
-								<td>{{ $aps->jenis_aplikasi }}</td>
-								<td>{{ $aps->kepemilikan }}</td>
+								
+								
 								<td>{{ $aps->tempataplikasi }}</td>
 								<td>{{ $aps->status }}</td>
 								<td>
 									<div class="text-center">
 										<a class="btn btn-outline-dark" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
+										<a class="btn btn-outline-danger" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i> Verifikasi</a>
 									</div>
 								</td>
 							</tr>
