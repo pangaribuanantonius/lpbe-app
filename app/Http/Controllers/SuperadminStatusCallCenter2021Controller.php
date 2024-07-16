@@ -16,4 +16,14 @@ class SuperadminStatusCallCenter2021Controller extends Controller
         ]);
         return redirect('layanansuperadmin/index?layanan=aplikasi&jenisaplikasi=call_center&tahun=2021&instansi_id='.request('instansi_id'))->with('updatestatus', 'Berhasil Memperbarui Data!');
     }
+
+    public function verifadmin(Request $request, CallCenter $call_center){
+        $instansi_id = $request->instansi_id;
+        $catatan = $request->filled('catatan') ? $request->catatan : 'Kosong';
+        $call_center->update([
+            'verifikasi' => $request->verifikasi,
+            'catatan' => $catatan,
+        ]);
+        return redirect('layanansuperadmin/index?layanan=aplikasi&jenisaplikasi=call_center&tahun=2021&instansi_id='.request('instansi_id'))->with('updatestatus', 'Berhasil Memperbarui Data!');
+    }
 }

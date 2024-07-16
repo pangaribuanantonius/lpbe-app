@@ -187,9 +187,53 @@
 								<td>
 									<div class="text-center">
 										<a href="#" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#view2{{ $c->id }}"><i class="bi bi-eye"></i> Lihat</a>
+										<a class="btn btn-outline-danger" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#verifikasi{{ $c->id }}"><i class="bi bi-eye"></i> Verifikasi</a>
 									</div>
 								</td>
 							</tr>
+
+							<!--Modal verifikasi -->
+							<div class="modal fade" id="verifikasi{{ $c->id }}" tabindex="-1" aria-labelly="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<form method="post" action="{{ route('superadmincall_center.2021.verifadmin', ['call_center' => $c->id]) }}" enctype="multipart/form-data">
+											@csrf
+											@method('PATCH')
+											<input type="hidden" name="id" value="{{ $c->id }}">
+											<input type="hidden" name="instansi_id" value="{{ $instansi_id }}">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">Verifikasi</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+											</div>
+											<div class="modal-body">
+												<div class="form-group mb-3">
+													<label>Verifikasi</label>
+													<select name="verifikasi" class="form-control" required>
+														<option value="">Pilih</option>
+														<option value="Disetujui">Disetujui</option>
+														<option value="Ditolak">Ditolak</option>
+													</select>
+												</div>
+												<div class="form-group mb-3">
+													<label>Catatan</label>
+													<textarea name="catatan" class="form-control"></textarea>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal">
+													<i class="bi bi-x-circle"></i> Batal
+												</button>
+												<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
+													<span class="text">
+														<i class="bi bi-cloud-upload"></i> Lanjutkan
+													</span>
+												</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<!--End Modal verifikasi -->
 
 							<!-- modal detail data -->
 							<div class="modal fade" id="view2{{ $c->id }}" tabindex="-1" arial-labelly="exampleModalLabel" aria-hidden="true">

@@ -485,6 +485,10 @@ Route::patch('/superadmin{berkas}/balikberkaskepengguna', [MenuSuperAdminControl
 
 
 
+Route::patch('/superadminaplikasi/layanan_publik/2021/{aplikasi}/verifadmin', [SuperadminStatusAplikasi2021Controller::class, 'verifadmin'])->name('superadminaplikasi.layanan_publik.2021.verifadmin')->middleware('auth');
+Route::patch('/superadminaplikasi/administrasi_pemerintah/2021/{aplikasi}/verifadmin', [SuperadminStatusAplikasi2021AdmPemerintahController::class, 'verifadmin'])->name('superadminaplikasi.administrasi_pemerintah.2021.verifadmin')->middleware('auth');
+Route::patch('/superadmincall_center/2021/{call_center}/verifadmin', [SuperadminStatusCallCenter2021Controller::class, 'verifadmin'])->name('superadmincall_center.2021.verifadmin')->middleware('auth');
+
 
 
 

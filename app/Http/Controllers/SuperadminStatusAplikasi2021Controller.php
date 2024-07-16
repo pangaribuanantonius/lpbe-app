@@ -16,4 +16,13 @@ class SuperadminStatusAplikasi2021Controller extends Controller
         ]);
         return redirect('layanansuperadmin/index?layanan=aplikasi&jenisaplikasi=layanan_publik&tahun=2021&instansi_id='.request('instansi_id'))->with('updatestatus', 'Berhasil Memperbarui Data!');
     }
+
+    public function verifadmin(Request $request, Aplikasi $aplikasi){
+        $catatan = $request->filled('catatan') ? $request->catatan : 'Kosong';
+        $aplikasi->update([
+            'verifikasi' => $request->verifikasi,
+            'catatan' => $catatan,
+        ]);
+        return redirect('layanansuperadmin/index?layanan=aplikasi&jenisaplikasi=layanan_publik&tahun=2021&instansi_id='.request('instansi_id'))->with('updatestatus', 'Berhasil Memperbarui Data!');
+    }
 }
