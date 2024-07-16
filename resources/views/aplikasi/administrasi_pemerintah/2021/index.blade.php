@@ -34,7 +34,7 @@
 						<thead>
 							<tr>
 								<th>Nama Aplikasi</th>
-			                    <th>Jenis</th>
+			                    
 			                    <th>Tempat Aplikasi</th>
 			                    <th>Status</th>
 			                    <th>Aksi</th>
@@ -44,7 +44,7 @@
 							@foreach($aplikasiadm as $aps)
 							<tr>
 								<td>{{ $aps->nama_aplikasi }}</td>
-			                    <td>{{ $aps->jenis_aplikasi }}</td>
+			                    
 			                    <td>{{ $aps->tempataplikasi }}</td>
 			                    <td>{{ $aps->status }}</td>
 			                    <td>
@@ -259,7 +259,7 @@
 						<thead>
 							<tr>
 								<th>Nama Aplikasi</th>
-								<th>Jenis</th>
+								
 								<th>Tempat Aplikasi</th>
 								<th>Status</th>
 								<th>Aksi</th>
@@ -269,7 +269,7 @@
 							@foreach($aplikasiadm as $aps)
 							<tr>
 								<td>{{ $aps->nama_aplikasi }}</td>
-								<td>{{ $aps->jenis_aplikasi }}</td>
+								
 								<td>{{ $aps->tempataplikasi }}</td>
 								<td>{{ $aps->status }}</td>
 								<td>

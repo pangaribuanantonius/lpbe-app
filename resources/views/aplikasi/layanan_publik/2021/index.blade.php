@@ -30,8 +30,8 @@
 						<thead>
 							<tr>
 								<th>Nama Aplikasi</th>
-			                    <th>Klasifikasi</th>
-			                    <th>Kepemilikan</th>
+			                    
+			                    
 			                    <th>Tempat Aplikasi</th>
 			                    <th>Status</th>
 			                    <th>Aksi</th>
@@ -41,8 +41,8 @@
 							@foreach($aplikasi as $aps)
 							<tr>
 								<td>{{ $aps->nama_aplikasi }}</td>
-			                    <td>{{ $aps->jenis_aplikasi }}</td>
-			                    <td>{{ $aps->kepemilikan }}</td>
+			                    
+			                    
 			                    <td>{{ $aps->tempataplikasi }}</td>
 			                    <td>{{ $aps->status }}</td>
 			                    <td>
@@ -258,8 +258,8 @@
 						<thead>
 							<tr>
 								<th>Nama Aplikasi</th>
-								<th>Klasifikasi</th>
-								<th>Kepemilikan</th>
+								
+								
 								<th>Tempat Aplikasi</th>
 								<th>Status</th>
 								<th>Aksi</th>
@@ -269,8 +269,8 @@
 							@foreach($aplikasi as $aps)
 							<tr>
 								<td>{{ $aps->nama_aplikasi }}</td>
-								<td>{{ $aps->jenis_aplikasi }}</td>
-								<td>{{ $aps->kepemilikan }}</td>
+								
+								
 								<td>{{ $aps->tempataplikasi }}</td>
 								<td>{{ $aps->status }}</td>
 								<td>
