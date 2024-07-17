@@ -272,11 +272,31 @@
 								
 								
 								<td>{{ $aps->tempataplikasi }}</td>
-								<td>{{ $aps->status }}</td>
+								@if($aps->verifikasi == 'Ditolak')
 								<td>
-									<div class="text-center">
-										<a class="btn btn-outline-dark mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
-									</div>
+									{{ $aps->status }} <br>
+									<p class="badge text-danger">
+										<i class="bi bi-x-circle"></i> {{ $aps->verifikasi }}
+									</p>
+								</td>
+								@elseif($aps->verifikasi == 'Disetujui')
+								<td>
+									{{ $aps->status }} <br>
+									<p class="badge text-success">
+										<i class="bi bi-check-circle"></i> {{ $aps->verifikasi }}
+									</p> 
+								</td>
+								@elseif($aps->verifikasi == 'Kosong')
+								<td>
+									{{ $aps->status }}
+								</td>
+								@else
+								<td>
+									{{ $aps->status }}
+								</td>
+								@endif
+								<td class="text-center">
+									<a class="btn btn-outline-dark mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
 								</td>
 							</tr>
 

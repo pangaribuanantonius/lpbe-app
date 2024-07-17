@@ -190,7 +190,29 @@
 							<tr>
 								<td>{{ $c->nama_layanan }}</td>
 			                    <td>{{ $c->nomor_layanan }}</td>
-			                    <td>{{ $c->status }}</td>
+								@if($c->verifikasi == 'Ditolak')
+								<td>
+									{{ $c->status }} <br>
+									<p class="badge text-danger">
+										<i class="bi bi-x-circle"></i> {{ $c->verifikasi }}
+									</p>
+								</td>
+								@elseif($c->verifikasi == 'Disetujui')
+								<td>
+									{{ $c->status }} <br>
+									<p class="badge text-success">
+										<i class="bi bi-check-circle"></i> {{ $c->verifikasi }}
+									</p> 
+								</td>
+								@elseif($c->verifikasi == 'Kosong')
+								<td>
+									{{ $c->status }}
+								</td>
+								@else
+								<td>
+									{{ $c->status }}
+								</td>
+								@endif
 								<td>
 									<div class="text-center">
 										<a class="btn btn-outline-dark mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $c->id }}"><i class="bi bi-eye"></i> Lihat</a>
