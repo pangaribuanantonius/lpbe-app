@@ -257,6 +257,7 @@
 								
 								<th>Tempat Aplikasi</th>
 								<th>Status</th>
+								<th>Verifikasi</th>
 								<th>Aksi</th>
 							</tr>
 						</thead>
@@ -267,33 +268,30 @@
 								
 								
 								<td>{{ $aps->tempataplikasi }}</td>
-								@if($aps->verifikasi == 'Ditolak')
+								<td>{{ $aps->status }}</td>
 								<td>
-									{{ $aps->status }} <br>
+									@if($aps->verifikasi == 'Ditolak')
 									<p class="badge text-danger">
 										<i class="bi bi-x-circle"></i> {{ $aps->verifikasi }}
 									</p>
-								</td>
-								@elseif($aps->verifikasi == 'Disetujui')
-								<td>
-									{{ $aps->status }} <br>
+									@elseif($aps->verifikasi == 'Disetujui')
 									<p class="badge text-success">
 										<i class="bi bi-check-circle"></i> {{ $aps->verifikasi }}
 									</p> 
+									@elseif($aps->verifikasi == 'Kosong')
+									<p class="badge text-primary">
+										<i class="bi bi-info-circle"></i> Belum Diverifikasi
+									</p> 
+									@else
+									<p class="badge text-primary">
+										<i class="bi bi-info-circle"></i> Belum Diverifikasi
+									</p> 
+									@endif
 								</td>
-								@elseif($aps->verifikasi == 'Kosong')
-								<td>
-									{{ $aps->status }}
-								</td>
-								@else
-								<td>
-									{{ $aps->status }}
-								</td>
-								@endif
 								<td>
 									<div class="text-center">
 										<a class="btn btn-outline-dark" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
-										<a class="btn btn-outline-danger" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#verifikasi{{ $aps->id }}"><i class="bi bi-eye"></i> Verifikasi</a>
+										<a class="btn btn-outline-danger" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#verifikasi{{ $aps->id }}"><i class="bi bi-pen"></i> Verifikasi</a>
 									</div>
 								</td>
 							</tr>
@@ -318,6 +316,7 @@
 														<option value="">Pilih</option>
 														<option value="Disetujui">Disetujui</option>
 														<option value="Ditolak">Ditolak</option>
+														<option value="Kosong">Belum Diverifikasi</option>
 													</select>
 												</div>
 												<div class="form-group mb-3">
@@ -331,7 +330,7 @@
 												</button>
 												<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
 													<span class="text">
-														<i class="bi bi-cloud-upload"></i> Lanjutkan
+														<i class="bi bi-check-circle"></i> Lanjutkan
 													</span>
 												</button>
 											</div>

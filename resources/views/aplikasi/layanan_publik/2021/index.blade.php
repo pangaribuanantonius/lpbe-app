@@ -284,11 +284,11 @@
 										<i class="bi bi-check-circle"></i> {{ $aps->verifikasi }}
 									</p>
 									@elseif($aps->verifikasi == 'Kosong')
-									<p class="badge text-success">
+									<p class="badge text-primary">
 										<i class="bi bi-info-circle"></i> Belum Diverifikasi
 									</p>
 									@else
-									<p class="badge text-success">
+									<p class="badge text-primary">
 										<i class="bi bi-info-circle"></i> Belum Diverifikasi
 									</p>
 									@endif
