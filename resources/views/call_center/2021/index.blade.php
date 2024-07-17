@@ -182,6 +182,7 @@
 								<th>Nama Layanan</th>
 								<th>Nomor Layanan</th>
 			                    <th>Status</th>
+								<th>Verifikasi</th>
 			                    <th>Aksi</th>
 							</tr>
 						</thead>
@@ -190,29 +191,26 @@
 							<tr>
 								<td>{{ $c->nama_layanan }}</td>
 			                    <td>{{ $c->nomor_layanan }}</td>
-								@if($c->verifikasi == 'Ditolak')
+								<td>{{ $c->status }}</td>
 								<td>
-									{{ $c->status }} <br>
+									@if($c->verifikasi == 'Ditolak')
 									<p class="badge text-danger">
 										<i class="bi bi-x-circle"></i> {{ $c->verifikasi }}
 									</p>
-								</td>
-								@elseif($c->verifikasi == 'Disetujui')
-								<td>
-									{{ $c->status }} <br>
+									@elseif($c->verifikasi == 'Disetujui')
 									<p class="badge text-success">
 										<i class="bi bi-check-circle"></i> {{ $c->verifikasi }}
-									</p> 
+									</p>
+									@elseif($c->verifikasi == 'Kosong')
+									<p class="badge text-primary">
+										<i class="bi bi-info-circle"></i> Belum Diverifikasi
+									</p>
+									@else
+									<p class="badge text-primary">
+										<i class="bi bi-info-circle"></i> Belum Diverifikasi
+									</p>
+									@endif
 								</td>
-								@elseif($c->verifikasi == 'Kosong')
-								<td>
-									{{ $c->status }}
-								</td>
-								@else
-								<td>
-									{{ $c->status }}
-								</td>
-								@endif
 								<td>
 									<div class="text-center">
 										<a class="btn btn-outline-dark mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $c->id }}"><i class="bi bi-eye"></i> Lihat</a>
@@ -230,6 +228,14 @@
 										</div>
 										<div class="modal-body">
 											<form>
+												<div class="form-group">
+													<label>Catatan</label>
+													@if($c->catatan == 'Kosong' || $c->catatan == '')
+													<p>Tidak ada catatan</p>
+													@else
+													<p>{{$c->catatan }}</p>
+													@endif
+												</div>
 												<div class="form-group">
 													<label>Nama Layanan</label>
 													<input type="text" name="nama_layanan" class="form-control" value="{{ $c->nama_layanan }}" readonly="readonly">

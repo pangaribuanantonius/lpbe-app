@@ -262,6 +262,7 @@
 								
 								<th>Tempat Aplikasi</th>
 								<th>Status</th>
+								<th>Verifikasi</th>
 								<th>Aksi</th>
 							</tr>
 						</thead>
@@ -271,30 +272,26 @@
 								<td>{{ $aps->nama_aplikasi }}</td>
 								
 								<td>{{ $aps->tempataplikasi }}</td>
-								@if($aps->verifikasi == 'Ditolak')
-								{{ $aps->status }} <br>
+								<td>{{ $aps->status }}</td>
 								<td>
-									{{ $aps->status }} <br>
+									@if($aps->verifikasi == 'Ditolak')
 									<p class="badge text-danger">
 										<i class="bi bi-x-circle"></i> {{ $aps->verifikasi }}
 									</p>
-								</td>
-								@elseif($aps->verifikasi == 'Disetujui')
-								<td>
-									{{ $aps->status }} <br>
+									@elseif($aps->verifikasi == 'Disetujui')
 									<p class="badge text-success">
 										<i class="bi bi-check-circle"></i> {{ $aps->verifikasi }}
-									</p> 
+									</p>
+									@elseif($aps->verifikasi == 'Kosong')
+									<p class="badge text-primary">
+										<i class="bi bi-info-circle"></i> Belum Diverifikasi
+									</p>
+									@else
+									<p class="badge text-primary">
+										<i class="bi bi-info-circle"></i> Belum Diverifikasi
+									</p>
+									@endif
 								</td>
-								@elseif($aps->verifikasi == 'Kosong')
-								<td>
-									{{ $aps->status }}
-								</td>
-								@else
-								<td>
-									{{ $aps->status }}
-								</td>
-								@endif
 								<td class="text-center">
 									<a class="btn btn-outline-dark text-center mb-1" style="white-space: nowrap" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
 								</td>
@@ -310,6 +307,14 @@
 										</div>
 										<div class="modal-body">
 											<form>
+												<div class="form-group">
+													<label>Catatan</label>
+													@if($aps->catatan == 'Kosong' || $aps->catatan == '')
+													<p>Tidak ada catatan</p>
+													@else
+													<p>{{$aps->catatan }}</p>
+													@endif
+												</div>
 												<div class="form-group">
 													<label>Nama Aplikasi</label>
 													<input type="text" name="nama_aplikasi" class="form-control" value="{{ $aps->nama_aplikasi }}" readonly="readonly">
