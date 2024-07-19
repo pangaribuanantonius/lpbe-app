@@ -28,11 +28,14 @@ class AplikasiController extends Controller
         $statussaplikasiadm = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->first();
         $statusscallcenter = \App\Models\CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->first();
         $penandatanganan = Penandatanganan:: where('instansi_id', $instansi_id)->count();
+        $verifapspublik = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->where('verifikasi', 'Disetujui')->count();
+
+
 
         if ($layanan == 'aplikasi') {
             if ($jenisaplikasi == 'layanan_publik') {
                 if ($tahun == 2021) {
-                    return view('aplikasi.layanan_publik.2021.index', ['aplikasi' => $aplikasi, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss, 'penandatanganan' => $penandatanganan]);
+                    return view('aplikasi.layanan_publik.2021.index', ['aplikasi' => $aplikasi, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss, 'penandatanganan' => $penandatanganan, 'verifapspublik' => $verifapspublik]);
                 }else{
                     return view('404');
                 }

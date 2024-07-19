@@ -25,6 +25,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                 </ul>
             </p>
             @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $jlhberkas == 0)
+           
             <div class="card">
                 <div class="card-header">
                     Upload berkas anda disini
@@ -54,6 +55,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                     </form>
                 </div>
             </div>
+           
             
             @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $jlhberkas >= 1)
             <div class="card">

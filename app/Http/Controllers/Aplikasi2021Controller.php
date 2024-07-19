@@ -150,7 +150,7 @@ class Aplikasi2021Controller extends Controller
         $statuss = \App\Models\Aplikasi::first();
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
-        $aplikasi = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->Where('status', 'Final')->get();
+        $aplikasi = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->Where('status', 'Final')->Where('verifikasi', 'Disetujui')->get();
         $penandatanganan = \App\Models\Penandatanganan::Where('instansi_id', $instansi_id)->first();
 
 
@@ -187,48 +187,7 @@ class Aplikasi2021Controller extends Controller
 
     }
 
-    public function cetakaplikasipemerintahpdf_2021(){
-
-        $tahun = request('tahun');
-        $statuss = \App\Models\Aplikasi::first();
-        $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
-        $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
-        $aplikasi = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', 'Final')->get();
-        $penandatanganan = \App\Models\Penandatanganan::Where('instansi_id', $instansi_id)->first();
-
-
-        $html = View::make('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf', ['aplikasi'=>$aplikasi, 'penandatanganan'=>$penandatanganan, 'nama_instansi'=>$nama_instansi])->render();
-
-       // Ukuran kertas F4 dalam milimeter
-        $f4 = [210, 330];
-
-        // Buat instance TCPDF dengan ukuran kertas F4 dan orientasi landscape
-        $pdf = new TCPDF('L', 'mm', $f4, true, 'UTF-8', false);
-
-        // Menonaktifkan header dan footer
-        $pdf->setPrintHeader(false);
-        $pdf->setPrintFooter(false);
-
-        // Setel informasi dokumen
-       /* $pdf->SetCreator(PDF_CREATOR);*/
-        /*$pdf->SetAuthor('Nama Anda');*/
-        $pdf->SetTitle('Aplikasi Layanan Administrasi Pemerintahan');
-        $pdf->SetSubject('Subjek Dokumen PDF');
-        $pdf->SetKeywords('TCPDF, PDF, Laravel');
-
-        // Setel margin
-        $pdf->SetMargins(10, 10, 10);
-
-        // Tambahkan halaman dengan orientasi landscape
-        $pdf->AddPage('L');
-
-        // Tulis konten HTML yang dirender ke PDF
-        $pdf->writeHTML($html, true, false, true, false, '');
-
-        // Tutup dan tampilkan PDF
-        $pdf->Output('Lap. Aps. Administrasi Pemerintahan.pdf', 'I');
-
-    }
+    
 
     public function laporanterkirimaplikasipublikexcel2021(){
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;

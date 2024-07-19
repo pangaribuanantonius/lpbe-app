@@ -195,7 +195,7 @@ Route::get('/aplikasi/2024/cetakaplikasipdf_2024', [Aplikasi2024Controller::clas
 Route::get('/aplikasi/2025/cetakaplikasipdf_2025', [Aplikasi2025Controller::class, 'cetakaplikasipdf_2025'])->name('aplikasi.2025.cetakaplikasipdf_2025')->middleware('auth');
 
 /*cetak aplikasi layanan administrasi pemerintahan pdf controller pengguna*/
-Route::get('/aplikasi/administrasi_pemerintah/2021/cetaklaporanpdf', [Aplikasi2021Controller::class, 'cetakaplikasipemerintahpdf_2021'])->name('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf')->middleware('auth');
+Route::get('/aplikasi/administrasi_pemerintah/2021/cetaklaporanpdf', [Aplikasi2021AdmPemerintahController::class, 'cetakaplikasipemerintahpdf_2021'])->name('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf')->middleware('auth');
 
 /*cetak layanan call center pdf controller pengguna*/
 Route::get('/call_center/2021/cetaklaporanpdf', [CallCenter2021Controller::class, 'cetakcallcenterpdf_2021'])->name('call_center.2021.cetaklaporanpdf')->middleware('auth');

@@ -239,11 +239,17 @@
 	<button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> Cetak</button>
 </div>
 
-
 @else
 <div class="text-end">
 	<a class="btn btn-danger mb-2" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf-fill"></i> Cetak</a>
 </div>
+<!-- @if($aplikasiadm->count() == $aplikasiadm->where('verifikasi', 'Disetujui')->count())
+<div class="text-end">
+	<a class="btn btn-danger mb-2" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf-fill"></i> Cetak</a>
+</div>
+@else
+
+@endif -->
 @endif
 
 
