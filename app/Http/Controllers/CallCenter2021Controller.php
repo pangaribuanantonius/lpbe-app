@@ -94,7 +94,7 @@ class CallCenter2021Controller extends Controller
         $statuss = \App\Models\Aplikasi::first();
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
-        $call_center = \App\Models\CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', '2021')->Where('status', 'Final')->get();
+        $call_center = \App\Models\CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', '2021')->Where('status', 'Final')->Where('verifikasi', 'Disetujui')->get();
         $penandatanganan = \App\Models\Penandatanganan::Where('instansi_id', $instansi_id)->first();
 
 
