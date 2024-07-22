@@ -20,9 +20,9 @@ class MenuController extends Controller
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
 
         /*grafik layanan aplikasi*/
-        $aplikasi_layanan_publik = Aplikasi::Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->Where('instansi_id', $instansi_id)->count();
-        $aplikasi_administrasi_pemerintah = Aplikasi::Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('instansi_id', $instansi_id)->count();
-        $call_center = CallCenter::Where('tahun', '2021')->Where('instansi_id', $instansi_id)->count();
+        $aplikasi_layanan_publik = Aplikasi::Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->Where('instansi_id', $instansi_id)->where('status','!=', 'Kosong')->count();
+        $aplikasi_administrasi_pemerintah = Aplikasi::Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('instansi_id', $instansi_id)->where('status','!=', 'Kosong')->count();
+        $call_center = CallCenter::Where('tahun', '2021')->Where('instansi_id', $instansi_id)->where('status','!=', 'Kosong')->count();
 
         $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
 

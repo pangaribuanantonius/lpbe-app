@@ -16,6 +16,62 @@
 	Tidak Ada Data
 </div>
 <a class="btn btn-outline-success" href="{{ route('aplikasi.layanan_publik.2021.create') }}"><i class="bi bi-plus-circle"></i> Tambah Data</a>
+<a class="btn btn-outline-danger" href="#" data-bs-toggle="modal" data-bs-target="#finalisasinihil"><i class="bi bi-check2-circle"></i> Finalisasi</a>
+
+<!-- Modal -->
+<div class="modal fade" id="finalisasinihil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Tahap Finalisasi</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				Tidak ada data yang difinalisasi. Apakah anda yakin ?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
+				<form method="post" action="{{ route('aplikasi.layanan_publik.2021.finalisasinihil') }}" enctype="multipart/form-data">
+					@csrf
+					@method('POST')
+					<input type="hidden" name="tahun" value="2021">
+					<input type="hidden" name="jenis_aplikasi" value="Layanan Publik">
+					<input type="hidden" name="instansi_id" class="form-control" value=" {{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
+					<input type="hidden" name="nama_aplikasi" value="Kosong">
+					<input type="hidden" name="kepemilikan" value="Kosong">
+					<input type="hidden" name="tahun_digunakan" value="Kosong">
+					<input type="hidden" name="dasar_hukum" value="Kosong">
+					<input type="hidden" name="tahun_pembuatan" value="Kosong">
+					<input type="hidden" name="launching" value="Kosong">
+					<input type="hidden" name="kepemilikan" value="Kosong">
+					<input type="hidden" name="desktop" value="Kosong">
+					<input type="hidden" name="web" value="Kosong">
+					<input type="hidden" name="android" value="Kosong">
+					<input type="hidden" name="ios" value="Kosong">
+					<input type="hidden" name="platform2" value="Kosong">
+					<input type="hidden" name="url" value="Kosong">
+					<input type="hidden" name="tempataplikasi" value="Kosong">
+					<input type="hidden" name="sektorpelayananpublik" value="Kosong">
+					<input type="hidden" name="sektorpelayananpublik2" value="Kosong">
+					<input type="hidden" name="deskripsi" value="Kosong">
+					<input type="hidden" name="daftarlayanan" value="Kosong">
+					<input type="hidden" name="daftarproduklayanan" value="Kosong">
+					<input type="hidden" name="pengguna" value="Kosong">
+					<input type="hidden" name="nama_pic" value="Kosong">
+					<input type="hidden" name="jabatan_pic" value="Kosong">
+					<input type="hidden" name="kontak" value="Kosong">
+					<input type="hidden" name="status" value="Kosong">
+					<input type="hidden" name="verifikasi" value="Kosong">
+					<input type="hidden" name="catatan" value="Kosong">
+					<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
+						<i class="bi bi-cloud-upload"></i> <span class="text">Lanjutkan</span>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
 @elseif($jumlahaplikasipublik >=1 && $statuss->status == 'Sedang Proses')
 <div class="alert alert-info alert-dismissible fade show" role="alert">
 	Sedang Proses
@@ -492,7 +548,9 @@
 </div>
 </section>
 @else
-<p>Not Found</p>
+<div class="alert alert-info" role="alert">
+	Finalisasi Nihil
+</div>
 @endif
 
 <script>

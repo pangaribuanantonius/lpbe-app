@@ -77,6 +77,7 @@ Route::get('/404', function () {
 
 /*route update status aplikasi layanan publik controller pengguna*/
 Route::post('/aplikasi/layanan_publik/2021/updatestatus', [StatusAplikasi2021Controller::class, 'updatestatus'])->name('aplikasi.layanan_publik.2021.updatestatus')->middleware('auth');
+Route::post('/aplikasi/layanan_publik/2021/finalisasinihil', [StatusAplikasi2021Controller::class, 'finalisasinihil'])->name('aplikasi.layanan_publik.2021.finalisasinihil')->middleware('auth');
 /*Route::post('/aplikasi/2022/updatestatus', [StatusAplikasi2022Controller::class, 'updatestatus'])->name('aplikasi.2022.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2023/updatestatus', [StatusAplikasi2023Controller::class, 'updatestatus'])->name('aplikasi.2023.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2024/updatestatus', [StatusAplikasi2024Controller::class, 'updatestatus'])->name('aplikasi.2024.updatestatus')->middleware('auth');
@@ -84,6 +85,8 @@ Route::post('/aplikasi/2025/updatestatus', [StatusAplikasi2025Controller::class,
 
 /*route update status aplikasi administrasi pemerintah controller pengguna*/
 Route::post('/aplikasi/administrasi_pemerintah/2021/updatestatus', [StatusAplikasi2021AdmPemerintahController::class, 'updatestatus'])->name('aplikasi.administrasi_pemerintah.2021.updatestatus')->middleware('auth');
+Route::post('/aplikasi/administrasi_pemerintah/2021/finalisasinihil', [StatusAplikasi2021AdmPemerintahController::class, 'finalisasinihil'])->name('aplikasi.administrasi_pemerintah.2021.finalisasinihil')->middleware('auth');
+
 /*Route::post('/aplikasi/2022/updatestatus', [StatusAplikasi2022Controller::class, 'updatestatus'])->name('aplikasi.2022.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2023/updatestatus', [StatusAplikasi2023Controller::class, 'updatestatus'])->name('aplikasi.2023.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2024/updatestatus', [StatusAplikasi2024Controller::class, 'updatestatus'])->name('aplikasi.2024.updatestatus')->middleware('auth');
@@ -488,6 +491,8 @@ Route::patch('/superadmin{berkas}/balikberkaskepengguna', [MenuSuperAdminControl
 Route::patch('/superadminaplikasi/layanan_publik/2021/{aplikasi}/verifadmin', [SuperadminStatusAplikasi2021Controller::class, 'verifadmin'])->name('superadminaplikasi.layanan_publik.2021.verifadmin')->middleware('auth');
 Route::patch('/superadminaplikasi/administrasi_pemerintah/2021/{aplikasi}/verifadmin', [SuperadminStatusAplikasi2021AdmPemerintahController::class, 'verifadmin'])->name('superadminaplikasi.administrasi_pemerintah.2021.verifadmin')->middleware('auth');
 Route::patch('/superadmincall_center/2021/{call_center}/verifadmin', [SuperadminStatusCallCenter2021Controller::class, 'verifadmin'])->name('superadmincall_center.2021.verifadmin')->middleware('auth');
+
+
 
 
 

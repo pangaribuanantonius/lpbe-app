@@ -141,6 +141,29 @@ class CallCenter2021Controller extends Controller
         
     }
 
+    public function finalisasinihil(Request $request){
+        $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
+        $tahun = request('tahun');
+        \App\Models\Aplikasi::create([
+            'id' => \Str::random(8),
+            'nama_layanan' => $request->nama_layanan,
+            'nomor_layanan' => $request->nomor_layanan,
+            'deskripsi_layanan' => $request->deskripsi_layanan,
+            'whatsapp' => $request->whatsapp,
+            'telepon' => $request->telepon,
+            'platform' => $request->platform,
+            'sektorlayanan' => $request->sektorlayanan,
+            'sektorlainnya' => $request->sektorlainnya,
+            'nama_pic' => $request->nama_pic,
+            'jabatan_pic' => $request->jabatan_pic,
+            'kontak' => $request->kontak,
+            'status' => $request->status,
+            'verifikasi' => $request->verifikasi,
+            'catatan' => $request->catatan,
+        ]);
+        return redirect('layanan/index?layanan=aplikasi&jenisaplikasi=call_center&tahun='.request('tahun').'')->with('success', 'Berhasil Menambah Data!');
+    }
+
 
 
 }

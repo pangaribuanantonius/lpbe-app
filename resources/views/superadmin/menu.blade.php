@@ -133,6 +133,10 @@
                   $status_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->count();
                   $status_call_center = $i->call_center()->Where('tahun', '2021')->count();
 
+                  $status_publik_proses = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->Where('status', 'Sedang Proses')->count();
+                  $status_administrasi_proses = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', 'Sedang Proses')->count();
+                  $status_call_center_proses = $i->call_center()->where('tahun', '2021')->Where('status','Sedang Proses')->count();
+
                   $status_publik_final = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->Where('status', 'Final')->count();
                   $status_administrasi_final = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', 'Final')->count();
                   $status_call_center_final = $i->call_center()->where('tahun', '2021')->Where('status','Final')->count();
@@ -160,17 +164,20 @@
                     @endif
 
                     @if($hitung_publik == 0 && $hitung_administrasi == 0 && $hitung_call_center == 0)
-                    <td class="align-middle text-center"><a class="badge text-danger align-middle rounded-5"><i
-                          class="bi bi-x-circle-fill me-1"></i>belum</a></td>
+                    <td class="align-middle text-center"><a class="badge text-danger align-middle rounded-5"><i class="bi bi-x-circle-fill me-1"></i>belum</a></td>
 
 
                     @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1)
-                    <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i
-                          class="bi bi-check-circle-fill me-1"></i>Final</a></td>
+                    <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
+
+                    @elseif($status_publik_proses >=1 || $status_administrasi_proses >=1 || $status_call_center_proses >=1)
+                    <td class="align-middle text-center"><a class="badge text-primary align-middle rounded-5"><i class="bi bi-clock-fill me-1"></i>Proses</a></td>
+
+                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1)
+                    <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
 
                     @else
-                    <td class="align-middle text-center"><a class="badge text-primary align-middle rounded-5"><i
-                          class="bi bi-clock-fill me-1"></i>Proses</a></td>
+                    <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
 
                     @endif
 

@@ -25,9 +25,9 @@ class MenuSuperAdminController extends Controller
              })->get();*/
 
         $instansi = Instansi::orderBy('nama_instansi', 'asc')->get();
-        $aplikasi_layanan_publik = Aplikasi::Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->count();
-        $aplikasi_administrasi_pemerintah = Aplikasi::Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->count();
-        $call_center = CallCenter::Where('tahun', '2021')->count();
+        $aplikasi_layanan_publik = Aplikasi::Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->where('status','!=', 'Kosong')->count();
+        $aplikasi_administrasi_pemerintah = Aplikasi::Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->where('status','!=', 'Kosong')->count();
+        $call_center = CallCenter::Where('tahun', '2021')->where('status','!=', 'Kosong')->count();
         $apspublik_proses = Instansi::WhereHas('aplikasi', function($q){
                 $q->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->Where('status', 'Sedang Proses');
              })->get();
