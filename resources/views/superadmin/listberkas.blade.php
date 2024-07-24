@@ -13,7 +13,6 @@
             <thead>
                 <tr>
                     <th>Nama</th>
-                    <th>Tahun</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -22,7 +21,6 @@
                 @if($bks->posisi == 'Pengguna')
                 <tr>
                     <td>{{$bks->nama}}</td>
-                    <td>{{$bks->tahun}}</td>
                     <td class="text-center">
                         <a href="{{ route('superadmin.detail_berkas', $bks->id) }}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>
                     </td>
@@ -30,7 +28,6 @@
                 @elseif($bks->posisi == 'Admin')
                 <tr>
                     <td>{{$bks->nama}}</td>
-                    <td>{{$bks->tahun}}</td>
                     <td class="text-center">
                         <a href="{{ route('superadmin.detail_berkas', $bks->id) }}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>
                         <a href="#" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#balikberkas{{$bks->id}}"><i class="bi bi-send"></i> Kembalikan</a>

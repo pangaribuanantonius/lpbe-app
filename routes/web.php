@@ -75,6 +75,8 @@ Route::get('/404', function () {
 
 
 
+
+
 /*route update status aplikasi layanan publik controller pengguna*/
 Route::post('/aplikasi/layanan_publik/2021/updatestatus', [StatusAplikasi2021Controller::class, 'updatestatus'])->name('aplikasi.layanan_publik.2021.updatestatus')->middleware('auth');
 Route::post('/aplikasi/layanan_publik/2021/finalisasinihil', [StatusAplikasi2021Controller::class, 'finalisasinihil'])->name('aplikasi.layanan_publik.2021.finalisasinihil')->middleware('auth');

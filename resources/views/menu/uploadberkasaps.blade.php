@@ -64,7 +64,6 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                         <thead>
                             <tr>
                                 <th>Nama</th>
-                                <th>Tahun</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -72,7 +71,6 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                             @foreach($berkas as $bks)
                             <tr>
                                 <td>{{$bks->nama}}</td>
-                                <td>{{$bks->tahun}}</td>
                                 @if($bks->posisi == 'Pengguna')
                                 <td class="text-center">
                                     <a href="{{ route('menu.detail_berkas', $bks->id) }}" class="btn btn-outline-primary"><i class="bi bi-eye"></i> Lihat</a>

@@ -23,45 +23,66 @@
                         <tbody>
                             @if($berkas->posisi == 'Pengguna')
                             <tr>
-                                <td>{{ $berkas->file_aps_publik }}</td>
+                                <td>Layanan Aplikasi Publik</td>
                                 <td class="text-center">
+                                    @if($berkas->file_aps_publik == null)
+                                    <a class="btn btn-outline-primary" target="_blank" href="404"><i class="bi bi-eye"></i>Lihat</a>
+                                    @else
                                     <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_aps_publik }}"><i class="bi bi-eye"></i>Lihat</a>
+                                    @endif
                                     <a class="btn btn-outline-danger" href="{{ route('berkas.aps_layanan_publik.ubah_berkas', $berkas->id) }}"><i class="bi bi-pencil"></i>Ganti</a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>{{ $berkas->file_aps_pemerintah }}</td>
+                                <td>Layanan Aplikasi Administrasi Pemerintahan</td>
                                 <td class="text-center">
+                                    @if($berkas->file_aps_pemerintah == null)
+                                    <a class="btn btn-outline-primary" target="_blank" href="404"><i class="bi bi-eye"></i>Lihat</a>
+                                    @else
                                     <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_aps_pemerintah }}"><i class="bi bi-eye"></i>Lihat</a>
+                                    @endif
                                     <a class="btn btn-outline-danger" href="{{ route('berkas.aps_pemerintahan.ubah_berkas', $berkas->id) }}"><i class="bi bi-pencil"></i>Ganti</a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>{{ $berkas->file_call_center }}</td>
+                                <td>Layanan Call Center</td>
                                 <td class="text-center">
+                                    @if($berkas->file_call_center == null)
+                                    <a class="btn btn-outline-primary" target="_blank" href="404"><i class="bi bi-eye"></i>Lihat</a>
+                                    @else
                                     <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_call_center }}"><i class="bi bi-eye"></i>Lihat</a>
+                                    @endif
                                     <a class="btn btn-outline-danger" href="{{ route('berkas.call_center.ubah_berkas', $berkas->id) }}"><i class="bi bi-pencil"></i>Ganti</a>
                                 </td>
                             </tr>
                             @elseif($berkas->posisi == 'Admin')<tr>
-                                <td>{{ $berkas->file_aps_publik }}</td>
+                                <td>Layanan Aplikasi Publik</td>
                                 <td class="text-center">
+                                    @if($berkas->file_aps_publik == null)
+                                    <a class="btn btn-outline-primary" target="_blank" href="404"><i class="bi bi-eye"></i>Lihat</a>
+                                    @else
                                     <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_aps_publik }}"><i class="bi bi-eye"></i>Lihat</a>
-                                    
+                                    @endif
                                 </td>
                             </tr>
                             <tr>
-                                <td>{{ $berkas->file_aps_pemerintah }}</td>
+                                <td>Layanan Administrasi Pemerintahan</td>
                                 <td class="text-center">
+                                    @if($berkas->file_aps_pemerintah == null)
+                                    <a class="btn btn-outline-primary" target="_blank" href="404"><i class="bi bi-eye"></i>Lihat</a>
+                                    @else
                                     <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_aps_pemerintah }}"><i class="bi bi-eye"></i>Lihat</a>
-                                    
+                                    @endif                                    
                                 </td>
                             </tr>
                             <tr>
-                                <td>{{ $berkas->file_call_center }}</td>
+                                <td>Layanan Call Center</td>
                                 <td class="text-center">
+                                    @if($berkas->file_call_center == null)
+                                    <a class="btn btn-outline-primary" target="_blank" href="404"><i class="bi bi-eye"></i>Lihat</a>
+                                    @else
                                     <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_call_center }}"><i class="bi bi-eye"></i>Lihat</a>
-                                    
+                                    @endif
                                 </td>
                             </tr>
                             @endif
