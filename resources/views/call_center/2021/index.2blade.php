@@ -11,17 +11,17 @@
 </div>
 <!-- End Page Title -->
 
-
-
 @if($jumlahcallcenter == 0)
 <div class="alert alert-info" role="alert">
 	Tidak Ada Data
 </div>
 <a class="btn btn-outline-success" href="{{ route('call_center.2021.create') }}"><i class="bi bi-plus-circle"></i> Tambah Data</a>
-<a class="btn btn-outline-danger" href="#" data-bs-toggle="modal" data-bs-target="#finalisasinihilcallcenter"><i class="bi bi-check2-circle"></i> Finalisasi</a>
+<a class="btn btn-outline-danger" href="#" data-bs-toggle="modal" data-bs-target="#finalisasinihil"><i class="bi bi-check2-circle"></i> Finalisasi</a>
+
+
 
 <!-- Modal -->
-<div class="modal fade" id="finalisasinihilcallcenter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="finalisasinihil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -36,22 +36,21 @@
 				<form method="post" action="{{ route('call_center.2021.finalisasinihil') }}" enctype="multipart/form-data">
 					@csrf
 					@method('POST')
-					<input type="text" name="tahun" value="2021">
-					<input type="text" name="instansi_id" class="form-control" value=" {{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
-					<input type="text" name="nama_layanan" value="Kosong">
-					<input type="text" name="nomor_layanan" value="Kosong">
-					<input type="text" name="deskripsi_layanan" value="Kosong">
-					<input type="text" name="whatsapp" value="Kosong">
-					<input type="text" name="telepon" value="Kosong">
-					<input type="text" name="platform" value="Kosong">
-					<input type="text" name="sektorlayanan" value="Kosong">
-					<input type="text" name="sektorlainnya" value="Kosong">
-					<input type="text" name="nama_pic" value="Kosong">
-					<input type="text" name="jabatan_pic" value="Kosong">
-					<input type="text" name="kontak" value="Kosong">
-					<input type="text" name="status" value="Kosong">
-					<input type="text" name="verifikasi" value="Kosong">
-					<input type="text" name="catatan" value="Kosong">
+					<input type="hidden" name="tahun" value="2021">
+					<input type="hidden" name="instansi_id" class="form-control" value=" {{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
+					<input type="hidden" name="nama_layanan" value="Kosong">
+					<input type="hidden" name="nomor_layanan" value="Kosong">
+					<input type="hidden" name="deskripsi_layanan" value="Kosong">
+					<input type="hidden" name="whatapp" value="Kosong">
+					<input type="hidden" name="telepon" value="Kosong">
+					<input type="hidden" name="sektorlayan" value="Kosong">
+					<input type="hidden" name="sektorlainnya" value="Kosong">
+					<input type="hidden" name="nama_pic" value="Kosong">
+					<input type="hidden" name="jabatan_pic" value="Kosong">
+					<input type="hidden" name="kontak" value="Kosong">
+					<input type="hidden" name="status" value="Kosong">
+					<input type="hidden" name="verifikasi" value="Kosong">
+					<input type="hidden" name="catatan" value="Kosong">
 
 					<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
 						<i class="bi bi-cloud-upload"></i> <span class="text">Lanjutkan</span>
@@ -62,8 +61,6 @@
 		</div>
 	</div>
 </div>
-
-
 
 @elseif($jumlahcallcenter >=1 && $statusscallcenter->status == 'Sedang Proses')
 <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -195,7 +192,6 @@
 
 	</div>
 </section>
-
 @elseif($jumlahcallcenter >=1 && $statusscallcenter->status == 'Final')
 <div class="alert alert-info alert-info alert-dismissible fade show" role="alert">
 	Sudah Final
@@ -226,6 +222,7 @@
 </div>
 @else
 @endif -->
+
 @endif
 
 <section class="section dashboard">
@@ -380,12 +377,13 @@
 
 </div>
 </section>
-
 @else
 <div class="alert alert-info" role="alert">
 	Finalisasi Nihil
 </div>
 @endif
+
+
 
 <script>
 	document.querySelector(".first").addEventListener('click', function(){

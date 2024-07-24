@@ -87,6 +87,9 @@ Route::post('/aplikasi/2025/updatestatus', [StatusAplikasi2025Controller::class,
 Route::post('/aplikasi/administrasi_pemerintah/2021/updatestatus', [StatusAplikasi2021AdmPemerintahController::class, 'updatestatus'])->name('aplikasi.administrasi_pemerintah.2021.updatestatus')->middleware('auth');
 Route::post('/aplikasi/administrasi_pemerintah/2021/finalisasinihil', [StatusAplikasi2021AdmPemerintahController::class, 'finalisasinihil'])->name('aplikasi.administrasi_pemerintah.2021.finalisasinihil')->middleware('auth');
 
+
+Route::post('/call_center/2021/finalisasinihil', [CallCenter2021Controller::class, 'finalisasinihil'])->name('call_center.2021.finalisasinihil')->middleware('auth');
+
 /*Route::post('/aplikasi/2022/updatestatus', [StatusAplikasi2022Controller::class, 'updatestatus'])->name('aplikasi.2022.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2023/updatestatus', [StatusAplikasi2023Controller::class, 'updatestatus'])->name('aplikasi.2023.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2024/updatestatus', [StatusAplikasi2024Controller::class, 'updatestatus'])->name('aplikasi.2024.updatestatus')->middleware('auth');

@@ -85,8 +85,22 @@ class MenuController extends Controller
 
         $aplikasi = Aplikasi::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
         $call_center = CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
-        $aplikasi_final = Aplikasi::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Final')->count();
-        $call_center_final = CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Final')->count();
+
+        $aplikasi_final = Aplikasi::where('instansi_id', $instansi_id)
+        ->where('tahun', $tahun)
+        ->where(function($query) {
+            $query->where('status', 'Final')
+              ->orWhere('status', 'Kosong');
+        })
+        ->count();
+
+        $call_center_final = CallCenter::where('instansi_id', $instansi_id)
+        ->where('tahun', $tahun)
+        ->where(function($query) {
+        $query->where('status', 'Final')
+              ->orWhere('status', 'Kosong');
+        })
+        ->count();
         $jlhberkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->count();
         $berkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->get();
         return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'call_center_final' => $call_center_final, 'jlhberkas' => $jlhberkas, 'berkas' => $berkas]);
@@ -121,13 +135,13 @@ class MenuController extends Controller
         return redirect()->back()->with('update', 'Berhasil Menambah Data!');
     }*/
 
-    public function kirimberkas(Request $request)
+    /*public function kirimberkas(Request $request)
     {
         // Validasi file yang diunggah
         $validatedData = $request->validate([
-            'file_aps_publik' => 'required|file|mimes:pdf|max:10000', // max:10000 artinya maksimal 10MB
-            'file_aps_pemerintah' => 'required|file|mimes:pdf|max:10000',
-            'file_call_center' => 'required|file|mimes:pdf|max:10000',
+            'file_aps_publik' => 'file|mimes:pdf|max:10000', // max:10000 artinya maksimal 10MB
+            'file_aps_pemerintah' => 'file|mimes:pdf|max:10000',
+            'file_call_center' => 'file|mimes:pdf|max:10000',
         ]);
 
         // Mendapatkan ekstensi file dan membuat nama file unik dengan timestamp
@@ -153,7 +167,59 @@ class MenuController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Berhasil Menambah Data!');
+    }*/
+
+
+    public function kirimberkas(Request $request)
+{
+    // Validate uploaded files
+    $validatedData = $request->validate([
+        'file_aps_publik' => 'nullable|file|mimes:pdf|max:10000', // max:10000 means max 10MB
+        'file_aps_pemerintah' => 'nullable|file|mimes:pdf|max:10000',
+        'file_call_center' => 'nullable|file|mimes:pdf|max:10000',
+    ]);
+
+    // Generate unique filenames with timestamps if files are provided
+    $timestamp = time();
+    $namaFile1 = $request->file('file_aps_publik') 
+        ? $timestamp . ' Layanan Publik.' . $request->file('file_aps_publik')->getClientOriginalExtension()
+        : null;
+    $namaFile2 = $request->file('file_aps_pemerintah')
+        ? $timestamp . ' Layanan Administrasi Pemerintahan.' . $request->file('file_aps_pemerintah')->getClientOriginalExtension()
+        : null;
+    $namaFile3 = $request->file('file_call_center')
+        ? $timestamp . ' Layanan Call Center.' . $request->file('file_call_center')->getClientOriginalExtension()
+        : null;
+
+    // Move files to the desired directory if they are provided
+    if ($namaFile1) {
+        $request->file('file_aps_publik')->move(public_path('konten/berkas'), $namaFile1);
     }
+    if ($namaFile2) {
+        $request->file('file_aps_pemerintah')->move(public_path('konten/berkas'), $namaFile2);
+    }
+    if ($namaFile3) {
+        $request->file('file_call_center')->move(public_path('konten/berkas'), $namaFile3);
+    }
+
+    // Save data to the database
+    \App\Models\Berkas::create([
+        'id' => \Str::random(8),
+        'instansi_id' => $request->instansi_id,
+        'tahun' => $request->tahun,
+        'nama' => $request->nama,
+        'file_aps_publik' => $namaFile1,
+        'file_aps_pemerintah' => $namaFile2,
+        'file_call_center' => $namaFile3,
+        'posisi' => 'Pengguna',
+    ]);
+
+    return redirect()->back()->with('success', 'Berhasil Menambah Data!');
+}
+
+
+
+
 
     public function berkas() {
         $berkas = Berkas::orderBy('created_at', 'desc')->get();

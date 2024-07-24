@@ -62,6 +62,12 @@
 									</div>
 								</div>
 								<div class="mt-3">
+									<label><h5>Pangkat</h5></label>
+									<div>
+										{{ $pn->pangkat }}
+									</div>
+								</div>
+								<div class="mt-3">
 									<label><h5>Tempat</h5></label>
 									<div>
 										{{ $pn->kecamatan->nama_kecamatan }}

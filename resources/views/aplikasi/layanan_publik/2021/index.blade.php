@@ -1,6 +1,9 @@
 @extends('sidebar.sidebarmonevaplikasipengguna')
 @section('monevaplikasipengguna')
 
+
+
+
 <div class="pagetitle">
 	<h1><i class="bi bi-cpu"></i> Monev Aplikasi</h1>
 	<nav>
