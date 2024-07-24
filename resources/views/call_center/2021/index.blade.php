@@ -213,7 +213,7 @@
 
 @if($penandatanganan == 0)
 <div class="text-end">
-	<button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> Cetak</button>
+	<button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</button>
 </div>
 @else
 <div class="text-end">
@@ -385,6 +385,22 @@
 <div class="alert alert-info" role="alert">
 	Finalisasi Nihil
 </div>
+@if($penandatanganan == 0)
+<div class="text-end">
+	<button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</button>
+</div>
+@else
+<div class="text-end">
+	<a class="btn btn-danger mb-2" href="{{ route('call_center.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> Cetak</a>
+</div>
+
+<!-- @if($call_center->count() == $call_center->where('verifikasi', 'Disetujui')->count())
+<div class="text-end">
+	<a class="btn btn-danger mb-2" href="{{ route('call_center.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> Cetak</a>
+</div>
+@else
+@endif -->
+@endif
 @endif
 
 <script>

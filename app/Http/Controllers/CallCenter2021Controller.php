@@ -95,10 +95,11 @@ class CallCenter2021Controller extends Controller
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
         $call_center = \App\Models\CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', '2021')->Where('status', 'Final')->Where('verifikasi', 'Disetujui')->get();
+        $hitung_call_center = \App\Models\CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', '2021')->Where('status', 'Final')->Where('verifikasi', 'Disetujui')->count();
         $penandatanganan = \App\Models\Penandatanganan::Where('instansi_id', $instansi_id)->first();
 
 
-        $html = View::make('call_center.2021.cetaklaporanpdf', ['call_center'=>$call_center, 'penandatanganan'=>$penandatanganan, 'nama_instansi'=>$nama_instansi])->render();
+        $html = View::make('call_center.2021.cetaklaporanpdf', ['call_center'=>$call_center, 'hitung_call_center'=>$hitung_call_center, 'penandatanganan'=>$penandatanganan, 'nama_instansi'=>$nama_instansi])->render();
 
        // Ukuran kertas F4 dalam milimeter
         $f4 = [210, 330];

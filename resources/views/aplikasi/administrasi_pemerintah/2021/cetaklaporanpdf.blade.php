@@ -32,6 +32,16 @@
 			</tr>
 		</thead>
 		<tbody>
+			@if($hitung_aplikasi == 0)
+			<tr>
+				<td>Nihil</td>
+				<td>Nihil</td>
+				<td>Nihil</td>
+				<td>Nihil</td>
+				<td>Nihil</td>
+				<td>Nihil</td>
+			</tr>
+			@else
 			@foreach($aplikasi as $p)
 			<tr>
 				<td>{{ $p->nama_aplikasi }}</td>
@@ -42,6 +52,7 @@
 				<td>{{ $p->pengguna }}</td>
 			</tr>
 			@endforeach
+			@endif
 		</tbody>
 	</table>
 	<br>
@@ -76,7 +87,7 @@
 					<td width="20%"></td>
 					<td width="20%"></td>
 					<td width="30%"></td>
-					<td width="30%">{{ $penandatanganan->jabatan }}</td>
+					<td width="30%">{{ $penandatanganan->jabatan }} <br>Kabupaten Deli Serdang</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>

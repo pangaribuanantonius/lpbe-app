@@ -125,9 +125,9 @@
                   @foreach($instansi as $i)
                   @php
 
-                  $hitung_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun','2021')->count();
-                  $hitung_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->count();
-                  $hitung_call_center = $i->call_center()->Where('tahun', '2021')->count();
+                  $hitung_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun','2021')->Where('status', '!=','Kosong')->count();
+                  $hitung_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', '!=','Kosong')->count();
+                  $hitung_call_center = $i->call_center()->Where('tahun', '2021')->Where('status', '!=','Kosong')->count();
 
                   $status_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->count();
                   $status_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->count();
@@ -137,9 +137,28 @@
                   $status_administrasi_proses = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', 'Sedang Proses')->count();
                   $status_call_center_proses = $i->call_center()->where('tahun', '2021')->Where('status','Sedang Proses')->count();
 
-                  $status_publik_final = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->Where('status', 'Final')->count();
-                  $status_administrasi_final = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', 'Final')->count();
-                  $status_call_center_final = $i->call_center()->where('tahun', '2021')->Where('status','Final')->count();
+                  $status_publik_final = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')
+                  ->Where('tahun', '2021')
+                  ->where(function($query) {
+                    $query->where('status', 'Final')
+                          ->orWhere('status', 'Kosong');
+                    })
+                  ->count();
+
+                  $status_administrasi_final = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')
+                  ->Where('tahun', '2021')
+                  ->where(function($query) {
+                    $query->where('status', 'Final')
+                          ->orWhere('status', 'Kosong');
+                    })
+                  ->count();
+
+                  $status_call_center_final = $i->call_center()->where('tahun', '2021')
+                  ->where(function($query) {
+                    $query->where('status', 'Final')
+                          ->orWhere('status', 'Kosong');
+                    })
+                  ->count();
 
                   @endphp
                   <tr>
@@ -170,15 +189,11 @@
                     @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1)
                     <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
 
-                    @elseif($status_publik_proses >=1 || $status_administrasi_proses >=1 || $status_call_center_proses >=1)
-                    <td class="align-middle text-center"><a class="badge text-primary align-middle rounded-5"><i class="bi bi-clock-fill me-1"></i>Proses</a></td>
-
                     @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1)
                     <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
 
                     @else
-                    <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
-
+                    <td class="align-middle text-center"><a class="badge text-primary align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Proses</a></td>
                     @endif
 
                     <!-- <td class="align-middle text-center">1</td>

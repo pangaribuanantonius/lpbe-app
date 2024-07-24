@@ -15,7 +15,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
 <section class="section dashboard">
     <div class="row">
         <div class="col-md-12">
-            @if($aplikasi || $call_center)
+            @if($aplikasi || $aplikasi_adm || $call_center)
             <div class="alert alert-primary mt-4">Ada data yang belum di finalisasi. Mohon lakukan finalisasi!</div>
             <p>Status: 
                 <ul>
@@ -24,7 +24,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                     <li>Pendataan Layanan Call Center Sedang Proses, <a href="#">Klik Disini!</a></li>
                 </ul>
             </p>
-            @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $jlhberkas == 0)
+            @elseif($aplikasi_final >= 1 && $aplikasi_final_adm >= 1 && $call_center_final >= 1 && $jlhberkas == 0)
            
             <div class="card">
                 <div class="card-header">
@@ -57,7 +57,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
             </div>
            
             
-            @elseif($aplikasi_final >= 1 && $call_center_final >= 1 && $jlhberkas >= 1)
+            @elseif($aplikasi_final >= 1 && $aplikasi_final_adm >= 1 && $call_center_final >= 1 && $jlhberkas >= 1)
             <div class="card">
                 <div class="card-body mt-3">
                     <table class="table table-hover datatable">

@@ -31,6 +31,15 @@
 			</tr>
 		</thead>
 		<tbody>
+			@if($hitung_call_center == 0)
+			<tr>
+				<td>Nihil</td>
+				<td>Nihil</td>
+				<td>Nihil</td>
+				<td>Nihil</td>
+				<td>Nihil</td>
+			</tr>
+			@else
 			@foreach($call_center as $c)
 			<tr>
 				<td>{{ $c->nama_layanan }}</td>
@@ -40,6 +49,7 @@
 				<td>{{ $c->sektorlainnya }}</td>
 			</tr>
 			@endforeach
+			@endif
 		</tbody>
 	</table>
 	<br>
@@ -74,7 +84,7 @@
 					<td width="20%"></td>
 					<td width="20%"></td>
 					<td width="30%"></td>
-					<td width="30%">{{ $penandatanganan->jabatan }}</td>
+					<td width="30%">{{ $penandatanganan->jabatan }} <br>Kabupaten Deli Serdang</td>
 				</tr>
 				<tr>
 					<td width="20%"></td>

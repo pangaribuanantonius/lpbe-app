@@ -83,10 +83,21 @@ class MenuController extends Controller
         $tahun = request('tahun');
         $instansi_id = \App\Models\User::Where('username', session('username'))->first()->instansi_id;
 
-        $aplikasi = Aplikasi::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
+        $aplikasi = Aplikasi::where('instansi_id', $instansi_id)->where('jenis_aplikasi', 'Layanan Publik')->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
+        $aplikasi_adm = Aplikasi::where('instansi_id', $instansi_id)->where('jenis_aplikasi', 'Administrasi Pemerintah')->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
         $call_center = CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
 
         $aplikasi_final = Aplikasi::where('instansi_id', $instansi_id)
+        ->where('jenis_aplikasi', 'Layanan Publik')
+        ->where('tahun', $tahun)
+        ->where(function($query) {
+            $query->where('status', 'Final')
+              ->orWhere('status', 'Kosong');
+        })
+        ->count();
+        
+        $aplikasi_final_adm = Aplikasi::where('instansi_id', $instansi_id)
+        ->where('jenis_aplikasi', 'Administrasi Pemerintah')
         ->where('tahun', $tahun)
         ->where(function($query) {
             $query->where('status', 'Final')
@@ -101,9 +112,10 @@ class MenuController extends Controller
               ->orWhere('status', 'Kosong');
         })
         ->count();
+
         $jlhberkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->count();
         $berkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->get();
-        return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'call_center_final' => $call_center_final, 'jlhberkas' => $jlhberkas, 'berkas' => $berkas]);
+        return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'aplikasi_adm' => $aplikasi_adm, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'aplikasi_final_adm' => $aplikasi_final_adm, 'call_center_final' => $call_center_final, 'jlhberkas' => $jlhberkas, 'berkas' => $berkas]);
     }
 
     /*public function kirimberkas(Request $request){

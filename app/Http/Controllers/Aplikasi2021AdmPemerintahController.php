@@ -245,10 +245,11 @@ class Aplikasi2021AdmPemerintahController extends Controller
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
         $aplikasi = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', 'Final')->where('verifikasi', 'Disetujui')->get();
+        $hitung_aplikasi = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', 'Final')->where('verifikasi', 'Disetujui')->count();
         $penandatanganan = \App\Models\Penandatanganan::Where('instansi_id', $instansi_id)->first();
 
 
-        $html = View::make('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf', ['aplikasi'=>$aplikasi, 'penandatanganan'=>$penandatanganan, 'nama_instansi'=>$nama_instansi])->render();
+        $html = View::make('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf', ['aplikasi'=>$aplikasi, 'hitung_aplikasi'=>$hitung_aplikasi, 'penandatanganan'=>$penandatanganan, 'nama_instansi'=>$nama_instansi])->render();
 
        // Ukuran kertas F4 dalam milimeter
         $f4 = [210, 330];
