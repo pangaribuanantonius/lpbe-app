@@ -29,29 +29,29 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				Apakah anda ingin melakukan finalisasi data ?
+				Tidak ada data yang di entri. Apakah anda yakin untuk memfinalisasi layanan ini ?
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
 				<form method="post" action="{{ route('call_center.2021.finalisasinihil') }}" enctype="multipart/form-data">
 					@csrf
 					@method('POST')
-					<input type="text" name="tahun" value="2021">
-					<input type="text" name="instansi_id" class="form-control" value=" {{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
-					<input type="text" name="nama_layanan" value="Kosong">
-					<input type="text" name="nomor_layanan" value="Kosong">
-					<input type="text" name="deskripsi_layanan" value="Kosong">
-					<input type="text" name="whatsapp" value="Kosong">
-					<input type="text" name="telepon" value="Kosong">
-					<input type="text" name="platform" value="Kosong">
-					<input type="text" name="sektorlayanan" value="Kosong">
-					<input type="text" name="sektorlainnya" value="Kosong">
-					<input type="text" name="nama_pic" value="Kosong">
-					<input type="text" name="jabatan_pic" value="Kosong">
-					<input type="text" name="kontak" value="Kosong">
-					<input type="text" name="status" value="Kosong">
-					<input type="text" name="verifikasi" value="Kosong">
-					<input type="text" name="catatan" value="Kosong">
+					<input type="hidden" name="tahun" value="2021">
+					<input type="hidden" name="instansi_id" class="form-control" value=" {{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
+					<input type="hidden" name="nama_layanan" value="Kosong">
+					<input type="hidden" name="nomor_layanan" value="Kosong">
+					<input type="hidden" name="deskripsi_layanan" value="Kosong">
+					<input type="hidden" name="whatsapp" value="Kosong">
+					<input type="hidden" name="telepon" value="Kosong">
+					<input type="hidden" name="platform" value="Kosong">
+					<input type="hidden" name="sektorlayanan" value="Kosong">
+					<input type="hidden" name="sektorlainnya" value="Kosong">
+					<input type="hidden" name="nama_pic" value="Kosong">
+					<input type="hidden" name="jabatan_pic" value="Kosong">
+					<input type="hidden" name="kontak" value="Kosong">
+					<input type="hidden" name="status" value="Kosong">
+					<input type="hidden" name="verifikasi" value="Kosong">
+					<input type="hidden" name="catatan" value="Kosong">
 
 					<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
 						<i class="bi bi-cloud-upload"></i> <span class="text">Lanjutkan</span>

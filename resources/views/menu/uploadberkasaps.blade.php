@@ -19,9 +19,24 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
             <div class="alert alert-primary mt-4">Ada data yang belum di finalisasi. Mohon lakukan finalisasi!</div>
             <p>Status: 
                 <ul>
-                    <li>Pendataan Aplikasi Pelayanan Publik Sedang Proses, <a href="#">Klik Disini!</a></li>
-                    <li>Pendataan Aplikasi Layanan Administrasi Pemerintahan Sedang Proses, <a href="#">Klik Disini!</a></li>
-                    <li>Pendataan Layanan Call Center Sedang Proses, <a href="#">Klik Disini!</a></li>
+                    @if($aplikasi_final >= 1)
+                    <li>Aplikasi Pelayanan Publik Sudah Final</li>
+                    @else
+                    <li>Aplikasi Pelayanan Publik Belum Final</li>
+                    @endif
+
+                    @if($aplikasi_final_adm >= 1)
+                    <li>Aplikasi Layanan Administrasi Pemerintahan Sudah Final</li>
+                    @else
+                    <li>Aplikasi Layanan Administrasi Pemerintahan Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'administrasi_pemerintah', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
+                    @endif
+
+
+                    @if($call_center_final >= 1)
+                    <li>Layanan Call Center Sudah Final</li>
+                    @else
+                    <li>Layanan Call Center Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'call_center', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
+                    @endif
                 </ul>
             </p>
             @elseif($aplikasi_final >= 1 && $aplikasi_final_adm >= 1 && $call_center_final >= 1 && $jlhberkas == 0)

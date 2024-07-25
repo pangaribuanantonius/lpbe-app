@@ -528,7 +528,9 @@
 </div>
 </section>
 @else
-<p>tidak ada</p>
+<div class="alert alert-info" role="alert">
+	Finalisasi Nihil
+</div>
 @endif
 
 @endsection

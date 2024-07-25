@@ -83,9 +83,34 @@ class MenuController extends Controller
         $tahun = request('tahun');
         $instansi_id = \App\Models\User::Where('username', session('username'))->first()->instansi_id;
 
-        $aplikasi = Aplikasi::where('instansi_id', $instansi_id)->where('jenis_aplikasi', 'Layanan Publik')->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
-        $aplikasi_adm = Aplikasi::where('instansi_id', $instansi_id)->where('jenis_aplikasi', 'Administrasi Pemerintah')->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
-        $call_center = CallCenter::where('instansi_id', $instansi_id)->where('tahun', $tahun)->where('status', 'Sedang Proses')->count();
+        $aplikasi = Aplikasi::where('instansi_id', $instansi_id)
+        ->where('jenis_aplikasi', 'Layanan Publik')
+        ->where('tahun', $tahun)
+        ->where(function($query) {
+            $query->where('status', 'Sedang Proses')
+              ->orWhere('status', 'Kosong')
+              ->orWhere('status', 'Final');
+        })
+        ->count();
+
+        $aplikasi_adm = Aplikasi::where('instansi_id', $instansi_id)
+        ->where('jenis_aplikasi', 'Administrasi Pemerintah')
+        ->where('tahun', $tahun)
+        ->where(function($query) {
+            $query->where('status', 'Sedang Proses')
+              ->orWhere('status', 'Kosong')
+              ->orWhere('status', 'Final');
+        })
+        ->count();
+
+        $call_center = CallCenter::where('instansi_id', $instansi_id)
+        ->where('tahun', $tahun)
+        ->where(function($query) {
+            $query->where('status', 'Sedang Proses')
+              ->orWhere('status', 'Kosong')
+              ->orWhere('status', 'Final');
+        })
+        ->count();
 
         $aplikasi_final = Aplikasi::where('instansi_id', $instansi_id)
         ->where('jenis_aplikasi', 'Layanan Publik')

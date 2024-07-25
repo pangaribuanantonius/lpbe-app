@@ -30,7 +30,7 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				Tidak ada data yang difinalisasi. Apakah anda yakin ?
+				Tidak ada data yang di entri. Apakah anda yakin untuk memfinalisasi layanan ini ?
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
