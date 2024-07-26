@@ -17,7 +17,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
         <div class="col-md-12">
             @if($aplikasi || $aplikasi_adm || $call_center)
             <div class="alert alert-primary mt-4">Ada data yang belum di finalisasi. Mohon lakukan finalisasi!</div>
-            <p>Status: 
+            Catatan: 
                 <ul>
                     @if($aplikasi_final >= 1)
                     <li>Aplikasi Pelayanan Publik Sudah Final</li>
@@ -38,7 +38,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                     <li>Layanan Call Center Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'call_center', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
                     @endif
                 </ul>
-            </p>
+            
             @elseif($aplikasi_final >= 1 && $aplikasi_final_adm >= 1 && $call_center_final >= 1 && $jlhberkas == 0)
            
             <div class="card">
