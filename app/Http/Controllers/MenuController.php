@@ -87,9 +87,7 @@ class MenuController extends Controller
         ->where('jenis_aplikasi', 'Layanan Publik')
         ->where('tahun', $tahun)
         ->where(function($query) {
-            $query->where('status', 'Sedang Proses')
-              ->orWhere('status', 'Kosong')
-              ->orWhere('status', 'Final');
+            $query->where('status', 'Sedang Proses');
         })
         ->count();
 
@@ -97,18 +95,14 @@ class MenuController extends Controller
         ->where('jenis_aplikasi', 'Administrasi Pemerintah')
         ->where('tahun', $tahun)
         ->where(function($query) {
-            $query->where('status', 'Sedang Proses')
-              ->orWhere('status', 'Kosong')
-              ->orWhere('status', 'Final');
+            $query->where('status', 'Sedang Proses');
         })
         ->count();
 
         $call_center = CallCenter::where('instansi_id', $instansi_id)
         ->where('tahun', $tahun)
         ->where(function($query) {
-            $query->where('status', 'Sedang Proses')
-              ->orWhere('status', 'Kosong')
-              ->orWhere('status', 'Final');
+            $query->where('status', 'Sedang Proses');
         })
         ->count();
 
