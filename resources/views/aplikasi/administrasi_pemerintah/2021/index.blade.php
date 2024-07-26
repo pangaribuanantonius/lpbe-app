@@ -369,6 +369,14 @@
 										</div>
 										<div class="modal-body">
 											<form>
+												<div class="form-group alert alert-info">
+													<label>Catatan</label>
+													@if($aps->catatan == 'Kosong' || $aps->catatan == '')
+													<p>Tidak ada catatan</p>
+													@else
+													<p>{{$aps->catatan }}</p>
+													@endif
+												</div>
 												<div class="form-group">
 													<label>Catatan</label>
 													@if($aps->catatan == 'Kosong' || $aps->catatan == '')

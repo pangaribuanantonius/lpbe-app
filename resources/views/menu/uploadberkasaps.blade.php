@@ -22,7 +22,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                     @if($aplikasi_final >= 1)
                     <li>Aplikasi Pelayanan Publik Sudah Final</li>
                     @else
-                    <li>Aplikasi Pelayanan Publik Belum Final</li>
+                    <li>Aplikasi Pelayanan Publik Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'layanan_publik', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
                     @endif
 
                     @if($aplikasi_final_adm >= 1)
@@ -54,15 +54,15 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                         <input type="hidden" name="tahun" value="{{ $tahun }}" class="form-control">
                         <div class="form-gorup mt-3">
                             <label>File Aplikasi Layanan Publik</label>
-                            <input type="file" name="file_aps_publik" class="form-control" >
+                            <input type="file" name="file_aps_publik" class="form-control" required >
                         </div>
                         <div class="form-gorup mt-3">
                             <label>File Aplikasi Adm. Pemerintahan</label>
-                            <input type="file" name="file_aps_pemerintah" class="form-control" >
+                            <input type="file" name="file_aps_pemerintah" class="form-control" required >
                         </div>
                         <div class="form-gorup mt-3">
                             <label>File Layanan Call Center</label>
-                            <input type="file" name="file_call_center" class="form-control" >
+                            <input type="file" name="file_call_center" class="form-control" required >
                         </div>
                         <div class="form-gorup mt-3">
                             <button class="btn btn-outline-success" type="submit"><i class="bi bi-check-circle"></i> Kirim</button>
@@ -134,7 +134,28 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                 </div>
             </div>
             @else
-            <div class="alert alert-primary">Belum tersedia</div>
+            <div class="alert alert-primary mt-4">Ada data yang belum di finalisasi. Mohon lakukan finalisasi!</div>
+            Catatan: 
+                <ul>
+                    @if($aplikasi_final >= 1)
+                    <li>Aplikasi Pelayanan Publik Sudah Final</li>
+                    @else
+                    <li>Aplikasi Pelayanan Publik Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'layanan_publik', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
+                    @endif
+
+                    @if($aplikasi_final_adm >= 1)
+                    <li>Aplikasi Layanan Administrasi Pemerintahan Sudah Final</li>
+                    @else
+                    <li>Aplikasi Layanan Administrasi Pemerintahan Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'administrasi_pemerintah', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
+                    @endif
+
+
+                    @if($call_center_final >= 1)
+                    <li>Layanan Call Center Sudah Final</li>
+                    @else
+                    <li>Layanan Call Center Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'call_center', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
+                    @endif
+                </ul>
             @endif
         </div>
     </div>
