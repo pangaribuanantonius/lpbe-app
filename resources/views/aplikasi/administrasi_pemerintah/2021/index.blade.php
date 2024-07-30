@@ -297,7 +297,7 @@
 
 @else
 <div class="text-end">
-	<a class="btn btn-danger mb-2" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf-fill"></i> Cetak</a>
+	<a class="btn btn-danger mb-2" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</a>
 </div>
 <!-- @if($aplikasiadm->count() == $aplikasiadm->where('verifikasi', 'Disetujui')->count())
 <div class="text-end">
