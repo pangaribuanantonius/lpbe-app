@@ -44,7 +44,7 @@
 			<tr>
 				<td>{{ $c->nama_layanan }}</td>
 				<td>{{ $c->nomor_layanan }}</td>
-				<td>{{ $c->deskripsi_layanan }}</td>
+				<td>{!! nl2br(e($c->deskripsi_layanan)) !!}</td>
 				<td>{{ $c->sektorlayanan }}</td>
 				<td>{{ $c->sektorlainnya }}</td>
 			</tr>
