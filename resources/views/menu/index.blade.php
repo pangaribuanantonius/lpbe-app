@@ -1,7 +1,6 @@
 @extends('sidebar.sidebarpengguna')
 @section('layout')
 
-
 <!-- Page Title -->
 <div class="pagetitle">
   <h1><i class="bi bi-grid"></i> Dasbor</h1>
@@ -46,65 +45,176 @@
           </div>
         </div>
 
-        <!-- Layanan Publik Card -->
-        <div class="col-xxl-4 col-md-6">
-          <div class="card info-card sales-card">
-            <div class="card-body">
-              <h5 class="card-title">Aplikasi<br>Pelayanan Publik</h5>
-
-              <div class="d-flex align-items-center">
-                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="bi bi-shop"></i>
-                </div>
-                <div class="ps-3">
-                  <h6>{{ $aplikasi_layanan_publik }}</h6>
-                  <!-- <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">meningkat</span> -->
+          <!-- Layanan Publik Card -->
+          <div class="col-xxl-4 col-md-6">
+            <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'layanan_publik', 'tahun' => '2021']) }}">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <h5 class="card-title">Aplikasi<br>Pelayanan Publik</h5>
+  
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-shop"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{ $aplikasi_layanan_publik }}</h6>
+                      <!-- <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">meningkat</span> -->
+                    </div>
+                  </div>
                 </div>
               </div>
+            </a>
+          </div>
+          <!-- Layanan Publik Card -->
+        
+          <!-- Adm Pemerintahan Card -->
+          <div class="col-xxl-4 col-md-6">
+            <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'administrasi_pemerintah', 'tahun' => '2021']) }}">
+              <div class="card info-card revenue-card">
+                <div class="card-body">
+                  <h5 class="card-title">Layanan<br>Administrasi Pemerintahan</h5>
+  
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-building"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{ $aplikasi_administrasi_pemerintah }}</h6>
+                      <!-- <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">meningkat</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- Adm Pemerintahan Card -->
+
+          <!-- Call Center -->
+          <div class="col-xxl-4 col-md-6">
+            <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'call_center', 'tahun' => '2021']) }}">
+              <div class="card info-card customers-card">
+                <div class="card-body">
+                  <h5 class="card-title">Layanan<br>Call Center</h5>
+  
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-telephone"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>{{ $call_center }}</h6>
+                      <!-- <span class="text-danger small pt-1 fw-bold">300%</span> <span class="text-muted small pt-2 ps-1">meningkat</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- Call Center -->
+
+        <!-- Table progres unit kerja start -->
+        <div class="col-12">
+          <div class="card overflow-auto">
+            <div class="card-body">
+              <h5 class="card-title">Progres Entri Data <span>| 2021</span></h5>
+
+              <table class="table table-hover datatable">
+                <thead>
+                  <tr class="text-danger">
+
+                    <th scope="col" class="align-middle">Unit Kerja</th>
+                    <th scope="col" class="text-wrap text-center align-middle">Aplikasi Pelayanan Publik</th>
+                    <th scope="col" class="text-wrap text-center align-middle">Administrasi Pemerintahan</th>
+                    <th scope="col" class="text-wrap text-center align-middle">Call Center</th>
+                    <th scope="col" class="text-wrap text-center align-middle">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($instansiall as $i)
+                  @php
+
+                  $hitung_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun','2021')->Where('status', '!=','Kosong')->count();
+                  $hitung_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', '!=','Kosong')->count();
+                  $hitung_call_center = $i->call_center()->Where('tahun', '2021')->Where('status', '!=','Kosong')->count();
+
+                  $status_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->count();
+                  $status_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->count();
+                  $status_call_center = $i->call_center()->Where('tahun', '2021')->count();
+
+                  $status_publik_proses = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->Where('status', 'Sedang Proses')->count();
+                  $status_administrasi_proses = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', 'Sedang Proses')->count();
+                  $status_call_center_proses = $i->call_center()->where('tahun', '2021')->Where('status','Sedang Proses')->count();
+
+                  $status_publik_final = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')
+                  ->Where('tahun', '2021')
+                  ->where(function($query) {
+                    $query->where('status', 'Final')
+                          ->orWhere('status', 'Kosong');
+                    })
+                  ->count();
+
+                  $status_administrasi_final = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')
+                  ->Where('tahun', '2021')
+                  ->where(function($query) {
+                    $query->where('status', 'Final')
+                          ->orWhere('status', 'Kosong');
+                    })
+                  ->count();
+
+                  $status_call_center_final = $i->call_center()->where('tahun', '2021')
+                  ->where(function($query) {
+                    $query->where('status', 'Final')
+                          ->orWhere('status', 'Kosong');
+                    })
+                  ->count();
+
+                  @endphp
+                  <tr>
+                    <td><a href="#" class="text-wrap text-decoration-none">{{ $i->nama_instansi }}<a /></td>
+
+                    @if($hitung_publik == 0)
+                    <td class="align-middle text-center">-</td>
+                    @else
+                    <td class="align-middle text-center">{{ $hitung_publik }}</td>
+                    @endif
+
+                    @if($hitung_administrasi == 0)
+                    <td class="align-middle text-center">-</td>
+                    @else
+                    <td class="align-middle text-center">{{ $hitung_administrasi }}</td>
+                    @endif
+
+                    @if($hitung_call_center == 0)
+                    <td class="align-middle text-center">-</td>
+                    @else
+                    <td class="align-middle text-center">{{ $hitung_call_center }}</td>
+                    @endif
+
+                    @if($hitung_publik == 0 && $hitung_administrasi == 0 && $hitung_call_center == 0)
+                    <td class="align-middle text-center"><a class="badge text-danger align-middle rounded-5"><i class="bi bi-x-circle-fill me-1"></i>belum</a></td>
+
+
+                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1)
+                    <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
+
+                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1)
+                    <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
+
+                    @else
+                    <td class="align-middle text-center"><a class="badge text-primary align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Proses</a></td>
+                    @endif
+
+                    <!-- <td class="align-middle text-center">1</td>
+                          <td class="align-middle text-center">4</td>
+                          <td class="align-middle text-center">1</td> -->
+                    <!-- <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>selesai</a></td> -->
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-        <!-- Layanan Publik Card -->
-
-        <!-- Adm Pemerintahan Card -->
-        <div class="col-xxl-4 col-md-6">
-          <div class="card info-card revenue-card">
-            <div class="card-body">
-              <h5 class="card-title">Layanan<br>Administrasi Pemerintahan</h5>
-
-              <div class="d-flex align-items-center">
-                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="bi bi-building"></i>
-                </div>
-                <div class="ps-3">
-                  <h6>{{ $aplikasi_administrasi_pemerintah }}</h6>
-                  <!-- <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">meningkat</span> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Adm Pemerintahan Card -->
-
-        <!-- Call Center -->
-        <div class="col-xxl-4 col-md-6">
-          <div class="card info-card customers-card">
-            <div class="card-body">
-              <h5 class="card-title">Layanan<br>Call Center</h5>
-
-              <div class="d-flex align-items-center">
-                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="bi bi-telephone"></i>
-                </div>
-                <div class="ps-3">
-                  <h6>{{ $call_center }}</h6>
-                  <!-- <span class="text-danger small pt-1 fw-bold">300%</span> <span class="text-muted small pt-2 ps-1">meningkat</span> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <!-- Table progres unit kerja end -->
       </div>
     </div>
     <!-- Kolom kiri end -->
