@@ -391,7 +391,7 @@
 </div>
 @else
 <div class="text-end">
-	<a class="btn btn-danger mb-2" href="{{ route('call_center.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> Cetak</a>
+	<a class="btn btn-danger mb-2" href="{{ route('call_center.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a>
 </div>
 
 <!-- @if($call_center->count() == $call_center->where('verifikasi', 'Disetujui')->count())
