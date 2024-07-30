@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 class MenuController extends Controller
 {
     public function index(){
-        $instansiall = Instansi::All();
+        $instansiall = Instansi::orderBy('nama_instansi', 'asc')->get();
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
 

@@ -43,7 +43,7 @@
 			@foreach($aplikasi as $p)
 			<tr>
 				<td>{{ $p->nama_aplikasi }}</td>
-				<td>{{ $p->deskripsi }}</td>
+				<td>{!! nl2br(e($p->deskripsi)) !!}</td>
 				<td>{{ $p->kepemilikan }}</td>
 				<td>{{ $p->tempataplikasi }}</td>
 				<td>{{ $p->pengguna }}</td>
