@@ -27,7 +27,7 @@
 				<th>Nomor Layanan</th>
 				<th>Deskripsi Layanan</th>
 				<th>Sektor Layanan</th>
-				<th>Nama Sektor Lain</th>
+				<th>Sektor Lain</th>
 			</tr>
 		</thead>
 		<tbody>
