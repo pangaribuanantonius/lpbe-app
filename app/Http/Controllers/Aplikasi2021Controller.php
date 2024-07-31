@@ -17,6 +17,10 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+
 class Aplikasi2021Controller extends Controller
 {
     public function terkirim(){
@@ -290,5 +294,38 @@ class Aplikasi2021Controller extends Controller
         ])->setPaper('f4', 'landscape');;
         return $pdf->download('laporan-aplikasi-pdf-2021.pdf');
     }*/
+
+
+    public function exportexcel(){
+         // Data dari database
+         $nama_instansi = 'Nama Instansi'; // Ganti dengan data dinamis
+         $aplikasi = [
+             (object) ['nama_aplikasi' => 'Aplikasi 1', 'deskripsi' => 'Jenis 1', 'kepemilikan' => 'Kepemilikan 1', 'tempataplikasi' => 'Tempat 1', 'pengguna' => 'Pengguna 1'],
+             (object) ['nama_aplikasi' => 'Aplikasi 2', 'deskripsi' => 'Jenis 2', 'kepemilikan' => 'Kepemilikan 2', 'tempataplikasi' => 'Tempat 2', 'pengguna' => 'Pengguna 2'],
+         ];
+ 
+         // Menampilkan view dengan data
+         $html = View::make('aplikasi.layanan_publik.2021.cetaklaporanexcel', compact('nama_instansi', 'aplikasi'))->render();
+ 
+         // Membuat Spreadsheet dari HTML
+         $spreadsheet = new Spreadsheet();
+         $sheet = $spreadsheet->getActiveSheet();
+         $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Html');
+         $spreadsheet = $reader->loadFromString($html);
+ 
+         // Buat writer untuk file Excel
+         $writer = new Xlsx($spreadsheet);
+ 
+         // Mengatur nama file dan tipe konten
+         $response = new StreamedResponse(function() use ($writer) {
+             $writer->save('php://output');
+         });
+ 
+         $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+         $response->headers->set('Content-Disposition', 'attachment;filename="laporan_aplikasi.xlsx"');
+         $response->headers->set('Cache-Control', 'max-age=0');
+ 
+         return $response;
+    }
 
 }
