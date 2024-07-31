@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
                 'jabatan' => 'Super Admin',
                 'level' => 'Super Admin',
                 'username' => 'admin',
-                'password' => '$2y$10$nsUDjIMXhINVCrAg1Cf.7uh0uE8pTPGcP72JgY0Dag419rEPKN4D.',
+                'password' => '$2y$10$KV0PI8cibKb4W93aCIsC8uR6y6LnK07XOJmtOeHc5j5n0i3rOf.9G',
                 'created_at' => new \DateTime,
                 'updated_at' => null,
             ],

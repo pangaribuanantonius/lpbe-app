@@ -307,7 +307,7 @@
 @else
 <div class="text-end">
 	<a class="btn btn-danger mb-2" href="{{ route('aplikasi.layanan_publik.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a>
-	<a class="btn btn-danger mb-2" href="{{ route('aplikasi.layanan_publik.2021.cetaklaporanexcel') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> Excel</a>
+	<a class="btn btn-success mb-2" href="{{ route('aplikasi.layanan_publik.2021.cetaklaporanexcel') }}" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a>
 </div>
 
 <!-- @if($aplikasi->count() == $aplikasi->where('verifikasi', 'Disetujui')->count())
