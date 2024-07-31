@@ -7,11 +7,17 @@ use App\Models\Penandatanganan;
 use App\Exports\LaporanTerkirimCallCenter2021Export;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 use TCPDF;
 use View;
 
 use Illuminate\Http\Request;
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use Carbon\Carbon;
 
 class CallCenter2021Controller extends Controller
 {
@@ -167,6 +173,59 @@ class CallCenter2021Controller extends Controller
         return redirect('layanan/index?layanan=aplikasi&jenisaplikasi=call_center&tahun='.request('tahun').'')->with('updatestatus', 'Berhasil Menambah Data!');
     }
 
+    public function exportexcel()
+    {
+        $tahun = request('tahun');
+        $user = User::where('username', session('username'))->first();
+        $instansi_id = $user->instansi_id;
+        $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
 
+        // Ambil data aplikasi berdasarkan kondisi tertentu
+        $call_center = CallCenter::where('instansi_id', $instansi_id)
+                            ->where('tahun', '2021')
+                            ->where('status', 'Final')
+                            ->where('verifikasi', 'Disetujui')
+                            ->get();
+
+        // Hitung jumlah aplikasi
+        $hitung_call_center = CallCenter::where('instansi_id', $instansi_id)
+                                   ->where('tahun', '2021')
+                                   ->where('status', 'Final')
+                                   ->where('verifikasi', 'Disetujui')
+                                   ->count();
+
+        // Ambil data penandatanganan
+        $penandatanganan = Penandatanganan::where('instansi_id', $instansi_id)->first();
+
+        // Menampilkan view dengan data
+        $html = View::make('call_center.2021.cetaklaporanexcel', [
+            'call_center' => $call_center,
+            'hitung_call_center' => $hitung_call_center,
+            'penandatanganan' => $penandatanganan,
+            'nama_instansi' => $nama_instansi
+        ])->render();
+
+        // Membuat Spreadsheet dari HTML
+        $spreadsheet = new Spreadsheet();
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Html');
+        $spreadsheet = $reader->loadFromString($html);
+        
+
+        // Buat writer untuk file Excel
+        $writer = new Xlsx($spreadsheet);
+
+        // Mengatur nama file dan tipe konten
+        $tanggalSekarang = Carbon::now()->format('d_m_Y');
+        $fileName = 'Layanan Call Center' . ' ' . $nama_instansi . ' ' . $tanggalSekarang . '.xlsx';
+        $response = new StreamedResponse(function() use ($writer) {
+            $writer->save('php://output');
+        });
+
+        $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        $response->headers->set('Content-Disposition', 'attachment;filename="' . $fileName . '"');
+        $response->headers->set('Cache-Control', 'max-age=0');
+
+        return $response;
+    }
 
 }

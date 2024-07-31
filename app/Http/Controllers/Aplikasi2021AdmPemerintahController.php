@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Aplikasi; 
 use App\Models\Instansi;
+use App\Models\User;
 use App\Models\Urusan;
 use App\Models\BidangUrusan;
 use App\Models\Penandatanganan; 
@@ -17,6 +18,11 @@ use App\Exports\InstansiStatusTerkirimAplikasi2021Export;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use Carbon\Carbon;
 
 class Aplikasi2021AdmPemerintahController extends Controller
 {
@@ -280,5 +286,62 @@ class Aplikasi2021AdmPemerintahController extends Controller
         // Tutup dan tampilkan PDF
         $pdf->Output('Lap. Aps. Administrasi Pemerintahan.pdf', 'I');
 
+    }
+
+    public function exportexcel()
+    {
+        $tahun = request('tahun');
+        $user = User::where('username', session('username'))->first();
+        $instansi_id = $user->instansi_id;
+        $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
+
+        // Ambil data aplikasi berdasarkan kondisi tertentu
+        $aplikasi = Aplikasi::where('instansi_id', $instansi_id)
+                            ->where('jenis_aplikasi', 'Administrasi Pemerintah')
+                            ->where('tahun', '2021')
+                            ->where('status', 'Final')
+                            ->where('verifikasi', 'Disetujui')
+                            ->get();
+
+        // Hitung jumlah aplikasi
+        $hitung_aplikasi = Aplikasi::where('instansi_id', $instansi_id)
+                                   ->where('jenis_aplikasi', 'Administrasi Pemerintah')
+                                   ->where('tahun', '2021')
+                                   ->where('status', 'Final')
+                                   ->where('verifikasi', 'Disetujui')
+                                   ->count();
+
+        // Ambil data penandatanganan
+        $penandatanganan = Penandatanganan::where('instansi_id', $instansi_id)->first();
+
+        // Menampilkan view dengan data
+        $html = View::make('aplikasi.administrasi_pemerintah.2021.cetaklaporanexcel', [
+            'aplikasi' => $aplikasi,
+            'hitung_aplikasi' => $hitung_aplikasi,
+            'penandatanganan' => $penandatanganan,
+            'nama_instansi' => $nama_instansi
+        ])->render();
+
+        // Membuat Spreadsheet dari HTML
+        $spreadsheet = new Spreadsheet();
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Html');
+        $spreadsheet = $reader->loadFromString($html);
+        
+
+        // Buat writer untuk file Excel
+        $writer = new Xlsx($spreadsheet);
+
+        // Mengatur nama file dan tipe konten
+        $tanggalSekarang = Carbon::now()->format('d_m_Y');
+        $fileName = 'Aplikasi Layanan Administrasi Pemerintahan' . ' ' . $nama_instansi . ' ' . $tanggalSekarang . '.xlsx';
+        $response = new StreamedResponse(function() use ($writer) {
+            $writer->save('php://output');
+        });
+
+        $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        $response->headers->set('Content-Disposition', 'attachment;filename="' . $fileName . '"');
+        $response->headers->set('Cache-Control', 'max-age=0');
+
+        return $response;
     }
 }

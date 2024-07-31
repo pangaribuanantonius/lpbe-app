@@ -502,6 +502,8 @@ Route::patch('/superadmincall_center/2021/{call_center}/verifadmin', [Superadmin
 
 
 Route::get('/aplikasi/layanan_publik/2021/cetaklaporanexcel', [Aplikasi2021Controller::class, 'exportexcel'])->name('aplikasi.layanan_publik.2021.cetaklaporanexcel');
+Route::get('/aplikasi/administrasi_pemerintah/2021/cetaklaporanexcel', [Aplikasi2021AdmPemerintahController::class, 'exportexcel'])->name('aplikasi.administrasi_pemerintah.2021.cetaklaporanexcel');
+Route::get('/call_center/2021/cetaklaporanexcel', [CallCenter2021Controller::class, 'exportexcel'])->name('call_center.2021.cetaklaporanexcel');
 
 
 

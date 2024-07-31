@@ -293,11 +293,13 @@
 @if($penandatanganan == 0)
 <div class="text-end">
 	<button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</button>
+	<button class="second btn btn-success mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> Excel</button>
 </div>
 
 @else
 <div class="text-end">
 	<a class="btn btn-danger mb-2" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</a>
+	<a class="btn btn-success mb-2" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanexcel') }}" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a>
 </div>
 <!-- @if($aplikasiadm->count() == $aplikasiadm->where('verifikasi', 'Disetujui')->count())
 <div class="text-end">
@@ -544,11 +546,13 @@
 @if($penandatanganan == 0)
 <div class="text-end">
 	<button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</button>
+	<button class="first btn btn-success mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> Excel</button>
 </div>
 
 @else
 <div class="text-end">
 	<a class="btn btn-danger mb-2" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</a>
+	<a class="btn btn-success mb-2" href="{{ route('aplikasi.administrasi_pemerintah.2021.cetaklaporanexcel') }}" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a>
 </div>
 <!-- @if($aplikasiadm->count() == $aplikasiadm->where('verifikasi', 'Disetujui')->count())
 <div class="text-end">
@@ -563,6 +567,18 @@
 
 <script>
 	document.querySelector(".first").addEventListener('click', function(){
+		Swal.fire({
+			icon: 'error',
+			title: 'Peringatan',
+			html: 'Kolom Penandatanganan belum diisi, Klik <a href="{{ route('penandatanganan.create') }}">disini</a> untuk pengisian.',
+			confirmButtonText: 'Tutup',
+			
+		});
+	});
+</script>
+
+<script>
+	document.querySelector(".second").addEventListener('click', function(){
 		Swal.fire({
 			icon: 'error',
 			title: 'Peringatan',
