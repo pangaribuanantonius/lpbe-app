@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Aplikasi; 
+use App\Models\User;
 use App\Models\Instansi;
 use App\Models\Penandatanganan; 
 use PDF;
@@ -20,6 +21,7 @@ use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Carbon\Carbon;
 
 class Aplikasi2021Controller extends Controller
 {
@@ -296,36 +298,60 @@ class Aplikasi2021Controller extends Controller
     }*/
 
 
-    public function exportexcel(){
-         // Data dari database
-         $nama_instansi = 'Nama Instansi'; // Ganti dengan data dinamis
-         $aplikasi = [
-             (object) ['nama_aplikasi' => 'Aplikasi 1', 'deskripsi' => 'Jenis 1', 'kepemilikan' => 'Kepemilikan 1', 'tempataplikasi' => 'Tempat 1', 'pengguna' => 'Pengguna 1'],
-             (object) ['nama_aplikasi' => 'Aplikasi 2', 'deskripsi' => 'Jenis 2', 'kepemilikan' => 'Kepemilikan 2', 'tempataplikasi' => 'Tempat 2', 'pengguna' => 'Pengguna 2'],
-         ];
- 
-         // Menampilkan view dengan data
-         $html = View::make('aplikasi.layanan_publik.2021.cetaklaporanexcel', compact('nama_instansi', 'aplikasi'))->render();
- 
-         // Membuat Spreadsheet dari HTML
-         $spreadsheet = new Spreadsheet();
-         $sheet = $spreadsheet->getActiveSheet();
-         $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Html');
-         $spreadsheet = $reader->loadFromString($html);
- 
-         // Buat writer untuk file Excel
-         $writer = new Xlsx($spreadsheet);
- 
-         // Mengatur nama file dan tipe konten
-         $response = new StreamedResponse(function() use ($writer) {
-             $writer->save('php://output');
-         });
- 
-         $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-         $response->headers->set('Content-Disposition', 'attachment;filename="laporan_aplikasi.xlsx"');
-         $response->headers->set('Cache-Control', 'max-age=0');
- 
-         return $response;
+    public function exportexcel()
+    {
+        $tahun = request('tahun');
+        $user = User::where('username', session('username'))->first();
+        $instansi_id = $user->instansi_id;
+        $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
+
+        // Ambil data aplikasi berdasarkan kondisi tertentu
+        $aplikasi = Aplikasi::where('instansi_id', $instansi_id)
+                            ->where('jenis_aplikasi', 'Layanan Publik')
+                            ->where('tahun', '2021')
+                            ->where('status', 'Final')
+                            ->where('verifikasi', 'Disetujui')
+                            ->get();
+
+        // Hitung jumlah aplikasi
+        $hitung_aplikasi = Aplikasi::where('instansi_id', $instansi_id)
+                                   ->where('jenis_aplikasi', 'Layanan Publik')
+                                   ->where('tahun', '2021')
+                                   ->where('status', 'Final')
+                                   ->where('verifikasi', 'Disetujui')
+                                   ->count();
+
+        // Ambil data penandatanganan
+        $penandatanganan = Penandatanganan::where('instansi_id', $instansi_id)->first();
+
+        // Menampilkan view dengan data
+        $html = View::make('aplikasi.layanan_publik.2021.cetaklaporanexcel', [
+            'aplikasi' => $aplikasi,
+            'hitung_aplikasi' => $hitung_aplikasi,
+            'penandatanganan' => $penandatanganan,
+            'nama_instansi' => $nama_instansi
+        ])->render();
+
+        // Membuat Spreadsheet dari HTML
+        $spreadsheet = new Spreadsheet();
+        $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Html');
+        $spreadsheet = $reader->loadFromString($html);
+
+        // Buat writer untuk file Excel
+        $writer = new Xlsx($spreadsheet);
+
+        // Mengatur nama file dan tipe konten
+        $tanggalSekarang = Carbon::now()->format('d_m_Y');
+        $fileName = 'Aplikasi Layanan Publik' . $nama_instansi . ' ' . $tanggalSekarang . '.xlsx';
+        $response = new StreamedResponse(function() use ($writer) {
+            $writer->save('php://output');
+        });
+
+        $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        $response->headers->set('Content-Disposition', 'attachment;filename="' . $fileName . '"');
+        $response->headers->set('Cache-Control', 'max-age=0');
+
+        return $response;
     }
 
 }

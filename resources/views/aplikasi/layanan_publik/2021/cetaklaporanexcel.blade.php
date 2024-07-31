@@ -1,12 +1,6 @@
 <table class="table table-bordered table-striped" border="1" width="100%">
     <thead>
         <tr>
-            <th colspan="5">Laporan Aplikasi {{ $nama_instansi }}</th>
-        </tr>
-        <tr>
-            <th colspan="5">Tahun 2021</th>
-        </tr>
-        <tr>
             <th>Nama Aplikasi</th>
             <th>Deskripsi</th>
             <th>Kepemilikan</th> 
