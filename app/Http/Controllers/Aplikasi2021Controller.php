@@ -336,13 +336,14 @@ class Aplikasi2021Controller extends Controller
         $spreadsheet = new Spreadsheet();
         $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader('Html');
         $spreadsheet = $reader->loadFromString($html);
+        
 
         // Buat writer untuk file Excel
         $writer = new Xlsx($spreadsheet);
 
         // Mengatur nama file dan tipe konten
         $tanggalSekarang = Carbon::now()->format('d_m_Y');
-        $fileName = 'Aplikasi Layanan Publik' . $nama_instansi . ' ' . $tanggalSekarang . '.xlsx';
+        $fileName = 'Aplikasi Layanan Publik' . ' ' . $nama_instansi . ' ' . $tanggalSekarang . '.xlsx';
         $response = new StreamedResponse(function() use ($writer) {
             $writer->save('php://output');
         });
