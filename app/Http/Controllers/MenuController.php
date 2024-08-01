@@ -139,9 +139,9 @@ class MenuController extends Controller
 
     /*public function kirimberkas(Request $request){
         $datasudahvalidasi = $request->validate([
-            'file_aps_publik' => 'file|mimes:pdf|max:4096',
-            'file_aps_pemerintah' => 'file|mimes:pdf|max:4096',
-            'file_call_center' => 'file|mimes:pdf|max:4096',
+            'file_aps_publik' => 'file|mimes:pdf,xls,xlsx|max:4096',
+            'file_aps_pemerintah' => 'file|mimes:pdf,xls,xlsx|max:4096',
+            'file_call_center' => 'file|mimes:pdf,xls,xlsx|max:4096',
         ]);
             $extFile = $request->file_aps_publik->getClientOriginalExtension();
             $extFile = $request->file_aps_pemerintah->getClientOriginalExtension();
@@ -170,9 +170,9 @@ class MenuController extends Controller
     {
         // Validasi file yang diunggah
         $validatedData = $request->validate([
-            'file_aps_publik' => 'file|mimes:pdf|max:10000', // max:10000 artinya maksimal 10MB
-            'file_aps_pemerintah' => 'file|mimes:pdf|max:10000',
-            'file_call_center' => 'file|mimes:pdf|max:10000',
+            'file_aps_publik' => 'file|mimes:pdf,xls,xlsx|max:10000', // max:10000 artinya maksimal 10MB
+            'file_aps_pemerintah' => 'file|mimes:pdf,xls,xlsx|max:10000',
+            'file_call_center' => 'file|mimes:pdf,xls,xlsx|max:10000',
         ]);
 
         // Mendapatkan ekstensi file dan membuat nama file unik dengan timestamp
@@ -205,9 +205,9 @@ class MenuController extends Controller
 {
     // Validate uploaded files
     $validatedData = $request->validate([
-        'file_aps_publik' => 'nullable|file|mimes:pdf|max:10000', // max:10000 means max 10MB
-        'file_aps_pemerintah' => 'nullable|file|mimes:pdf|max:10000',
-        'file_call_center' => 'nullable|file|mimes:pdf|max:10000',
+        'file_aps_publik' => 'nullable|file|mimes:pdf,xls,xlsx|max:10000', // max:10000 means max 10MB
+        'file_aps_pemerintah' => 'nullable|file|mimes:pdf,xls,xlsx|max:10000',
+        'file_call_center' => 'nullable|file|mimes:pdf,xls,xlsx|max:10000',
     ]);
 
     // Generate unique filenames with timestamps if files are provided
@@ -274,9 +274,9 @@ class MenuController extends Controller
 {
     // Validasi input
     $datasudahvalidasi = $request->validate([
-        'file_aps_publik' => 'file|mimes:pdf|max:10000|nullable',
-        'file_aps_pemerintah' => 'file|mimes:pdf|max:10000|nullable',
-        'file_call_center' => 'file|mimes:pdf|max:10000|nullable',
+        'file_aps_publik' => 'file|mimes:pdf,xls,xlsx|max:10000|nullable',
+        'file_aps_pemerintah' => 'file|mimes:pdf,xls,xlsx|max:10000|nullable',
+        'file_call_center' => 'file|mimes:pdf,xls,xlsx|max:10000|nullable',
     ]);
 
     // Proses file file_aps_publik jika ada
@@ -334,7 +334,7 @@ class MenuController extends Controller
         $id = request('id');
     // Validasi input
     $datasudahvalidasi = $request->validate([
-        'file_aps_publik' => 'file|mimes:pdf|max:10000',
+        'file_aps_publik' => 'file|mimes:pdf,xls,xlsx|max:10000',
        
     ]);
 
@@ -366,7 +366,7 @@ class MenuController extends Controller
     public function update_berkas_aps_pemerintah(Request $request, Berkas $berkas) { 
         // Validasi input
         $datasudahvalidasi = $request->validate([
-            'file_aps_pemerintah' => 'file|mimes:pdf|max:10000',
+            'file_aps_pemerintah' => 'file|mimes:pdf,xls,xlsx|max:10000',
         
         ]);
 
@@ -398,7 +398,7 @@ class MenuController extends Controller
     public function update_berkas_call_center(Request $request, Berkas $berkas) {
           // Validasi input
           $datasudahvalidasi = $request->validate([
-            'file_call_center' => 'file|mimes:pdf|max:10000',
+            'file_call_center' => 'file|mimes:pdf,xls,xlsx|max:10000',
         
         ]);
 
