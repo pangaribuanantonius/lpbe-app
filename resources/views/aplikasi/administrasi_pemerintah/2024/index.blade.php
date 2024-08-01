@@ -506,7 +506,6 @@
                     @endforeach
                 </tbody>
             </table>
-           <!--  <a class="btn btn-sm btn-outline-success" href="{{ route('aplikasi.administrasi_pemerintah.2024.laporanterkirimaplikasipemerintahexcel2024') }}" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a> -->
            
         </div>
     </div>

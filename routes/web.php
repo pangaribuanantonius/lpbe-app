@@ -5,9 +5,11 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\AplikasiController;
 use App\Http\Controllers\Aplikasi2021Controller;
 use App\Http\Controllers\CallCenter2021Controller;
+use App\Http\Controllers\CallCenter2024Controller;
 use App\Http\Controllers\Aplikasi2021AdmPemerintahController;
 use App\Http\Controllers\StatusAplikasi2021Controller;
 use App\Http\Controllers\StatusAplikasi2021AdmPemerintahController;
+use App\Http\Controllers\StatusAplikasi2024AdmPemerintahController;
 use App\Http\Controllers\Aplikasi2022Controller;
 use App\Http\Controllers\StatusAplikasi2022Controller;
 use App\Http\Controllers\StatusAplikasi2023Controller;
@@ -15,6 +17,7 @@ use App\Http\Controllers\StatusAplikasi2024Controller;
 use App\Http\Controllers\StatusAplikasi2025Controller;
 use App\Http\Controllers\Aplikasi2023Controller;
 use App\Http\Controllers\Aplikasi2024Controller;
+use App\Http\Controllers\Aplikasi2024AdmPemerintahController;
 use App\Http\Controllers\Aplikasi2025Controller;
 use App\Http\Controllers\PenandatangananController;
 use App\Http\Controllers\MenuSuperAdminController;
@@ -79,7 +82,8 @@ Route::get('/404', function () {
 
 /*route update status aplikasi layanan publik controller pengguna*/
 Route::post('/aplikasi/layanan_publik/2021/updatestatus', [StatusAplikasi2021Controller::class, 'updatestatus'])->name('aplikasi.layanan_publik.2021.updatestatus')->middleware('auth');
-Route::post('/aplikasi/layanan_publik/2021/finalisasinihil', [StatusAplikasi2021Controller::class, 'finalisasinihil'])->name('aplikasi.layanan_publik.2021.finalisasinihil')->middleware('auth');
+Route::post('/aplikasi/layanan_publik/2024/updatestatus', [StatusAplikasi2024Controller::class, 'updatestatus'])->name('aplikasi.layanan_publik.2024.updatestatus')->middleware('auth');
+Route::post('/aplikasi/layanan_publik/2024/finalisasinihil', [StatusAplikasi2021Controller::class, 'finalisasinihil'])->name('aplikasi.layanan_publik.2021.finalisasinihil')->middleware('auth');
 /*Route::post('/aplikasi/2022/updatestatus', [StatusAplikasi2022Controller::class, 'updatestatus'])->name('aplikasi.2022.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2023/updatestatus', [StatusAplikasi2023Controller::class, 'updatestatus'])->name('aplikasi.2023.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2024/updatestatus', [StatusAplikasi2024Controller::class, 'updatestatus'])->name('aplikasi.2024.updatestatus')->middleware('auth');
@@ -87,10 +91,12 @@ Route::post('/aplikasi/2025/updatestatus', [StatusAplikasi2025Controller::class,
 
 /*route update status aplikasi administrasi pemerintah controller pengguna*/
 Route::post('/aplikasi/administrasi_pemerintah/2021/updatestatus', [StatusAplikasi2021AdmPemerintahController::class, 'updatestatus'])->name('aplikasi.administrasi_pemerintah.2021.updatestatus')->middleware('auth');
+Route::post('/aplikasi/administrasi_pemerintah/2024/updatestatus', [StatusAplikasi2024AdmPemerintahController::class, 'updatestatus'])->name('aplikasi.administrasi_pemerintah.2024.updatestatus')->middleware('auth');
 Route::post('/aplikasi/administrasi_pemerintah/2021/finalisasinihil', [StatusAplikasi2021AdmPemerintahController::class, 'finalisasinihil'])->name('aplikasi.administrasi_pemerintah.2021.finalisasinihil')->middleware('auth');
 
 
 Route::post('/call_center/2021/finalisasinihil', [CallCenter2021Controller::class, 'finalisasinihil'])->name('call_center.2021.finalisasinihil')->middleware('auth');
+Route::post('/call_center/2024/finalisasinihil', [CallCenter2024Controller::class, 'finalisasinihil'])->name('call_center.2024.finalisasinihil')->middleware('auth');
 
 /*Route::post('/aplikasi/2022/updatestatus', [StatusAplikasi2022Controller::class, 'updatestatus'])->name('aplikasi.2022.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2023/updatestatus', [StatusAplikasi2023Controller::class, 'updatestatus'])->name('aplikasi.2023.updatestatus')->middleware('auth');
@@ -146,6 +152,24 @@ Route::patch('/aplikasi/layanan_publik/2021/{aplikasi}/edit', [Aplikasi2021Contr
 Route::delete('/aplikasi/layanan_publik/2021/{aplikasi}/delete', [Aplikasi2021Controller::class, 'destroy'])->name('aplikasi.layanan_publik.2021.delete')->middleware('auth');
 Route::get('/aplikasi/layanan_publik/2021/terkirim', [Aplikasi2021Controller::class, 'terkirim'])->name('aplikasi.layanan_publik.2021.terkirim')->middleware('auth');
 
+/*aplikasi 2024 layanan publik controller pengguna*/
+Route::get('/aplikasi/layanan_publik/2024/create', [Aplikasi2024Controller::class, 'create'])->name('aplikasi.layanan_publik.2024.create')->middleware('auth');
+Route::post('/aplikasi/layanan_publik/2024/store', [Aplikasi2024Controller::class, 'store'])->name('aplikasi.layanan_publik.2024.store')->middleware('auth');
+Route::get('/aplikasi/layanan_publik/2024/{aplikasi}/edit', [Aplikasi2024Controller::class, 'edit'])->name('aplikasi.layanan_publik.2024.edit')->middleware('auth');
+Route::patch('/aplikasi/layanan_publik/2024/{aplikasi}/edit', [Aplikasi2024Controller::class, 'update'])->name('aplikasi.layanan_publik.2024.edit')->middleware('auth');
+Route::delete('/aplikasi/layanan_publik/2024/{aplikasi}/delete', [Aplikasi2024Controller::class, 'destroy'])->name('aplikasi.layanan_publik.2024.delete')->middleware('auth');
+Route::get('/aplikasi/layanan_publik/2024/terkirim', [Aplikasi2024Controller::class, 'terkirim'])->name('aplikasi.layanan_publik.2024.terkirim')->middleware('auth');
+Route::post('/aplikasi/layanan_publik/2024/finalisasinihil', [StatusAplikasi2021Controller::class, 'finalisasinihil'])->name('aplikasi.layanan_publik.2024.finalisasinihil')->middleware('auth');
+
+/*aplikasi 2024 layanan administrasi pemerintahan controller pengguna*/
+Route::get('/aplikasi/administrasi_pemerintah/2024/create', [Aplikasi2024AdmPemerintahController::class, 'create'])->name('aplikasi.administrasi_pemerintah.2024.create')->middleware('auth');
+Route::post('/aplikasi/administrasi_pemerintah/2024/store', [Aplikasi2024AdmPemerintahController::class, 'store'])->name('aplikasi.administrasi_pemerintah.2024.store')->middleware('auth');
+Route::get('/aplikasi/administrasi_pemerintah/2024/{aplikasi}/edit', [Aplikasi2024AdmPemerintahController::class, 'edit'])->name('aplikasi.administrasi_pemerintah.2024.edit')->middleware('auth');
+Route::patch('/aplikasi/administrasi_pemerintah/2024/{aplikasi}/edit', [Aplikasi2024AdmPemerintahController::class, 'update'])->name('aplikasi.administrasi_pemerintah.2024.edit')->middleware('auth');
+Route::delete('/aplikasi/administrasi_pemerintah/2024/{aplikasi}/delete', [Aplikasi2024AdmPemerintahController::class, 'destroy'])->name('aplikasi.administrasi_pemerintah.2024.delete')->middleware('auth');
+Route::get('/aplikasi/administrasi_pemerintah/2024/terkirim', [Aplikasi2024AdmPemerintahController::class, 'terkirim'])->name('aplikasi.administrasi_pemerintah.2024.terkirim')->middleware('auth');
+Route::post('/aplikasi/administrasi_pemerintah/2024/finalisasinihil', [StatusAplikasi2021Controller::class, 'finalisasinihil'])->name('aplikasi.administrasi_pemerintah.2024.finalisasinihil')->middleware('auth');
+
 /*aplikasi adm pemerintah tahun 2021 controller pengguna*/
 Route::get('/aplikasi/administrasi_pemerintah/2021/create', [Aplikasi2021AdmPemerintahController::class, 'create'])->name('aplikasi.administrasi_pemerintah.2021.create')->middleware('auth');
 Route::post('/aplikasi/administrasi_pemerintah/2021/store', [Aplikasi2021AdmPemerintahController::class, 'store'])->name('aplikasi.administrasi_pemerintah.2021.store')->middleware('auth');
@@ -179,13 +203,16 @@ Route::patch('/aplikasi/2023/{aplikasi}/edit', [Aplikasi2023Controller::class, '
 Route::delete('/aplikasi/2023/{aplikasi}/delete', [Aplikasi2023Controller::class, 'destroy'])->name('aplikasi.2023.delete')->middleware('auth');
 Route::get('/aplikasi/2023/terkirim', [Aplikasi2023Controller::class, 'terkirim'])->name('aplikasi.2023.terkirim')->middleware('auth');
 
-/*aplikasi 2024 controller pengguna*/
-Route::get('/aplikasi/2024/create', [Aplikasi2024Controller::class, 'create'])->name('aplikasi.2024.create')->middleware('auth');
-Route::post('/aplikasi/2024/store', [Aplikasi2024Controller::class, 'store'])->name('aplikasi.2024.store')->middleware('auth');
-Route::get('/aplikasi/2024/{aplikasi}/edit', [Aplikasi2024Controller::class, 'edit'])->name('aplikasi.2024.edit')->middleware('auth');
-Route::patch('/aplikasi/2024/{aplikasi}/edit', [Aplikasi2024Controller::class, 'update'])->name('aplikasi.2024.edit')->middleware('auth');
-Route::delete('/aplikasi/2024/{aplikasi}/delete', [Aplikasi2024Controller::class, 'destroy'])->name('aplikasi.2024.delete')->middleware('auth');
-Route::get('/aplikasi/2024/terkirim', [Aplikasi2024Controller::class, 'terkirim'])->name('aplikasi.2024.terkirim')->middleware('auth');
+
+/*layanan call center tahun 2024 controller pengguna*/
+Route::get('/call_center/2024/create', [CallCenter2024Controller::class, 'create'])->name('call_center.2024.create')->middleware('auth');
+Route::post('/call_center/2024/store', [CallCenter2024Controller::class, 'store'])->name('call_center.2024.store')->middleware('auth');
+Route::get('/call_center/2024/{call_center}/edit', [CallCenter2024Controller::class, 'edit'])->name('call_center.2024.edit')->middleware('auth');
+Route::patch('/call_center/2024/{call_center}/edit', [CallCenter2024Controller::class, 'update'])->name('call_center.2024.edit')->middleware('auth');
+Route::delete('/call_center/2024/{call_center}/delete', [CallCenter2024Controller::class, 'destroy'])->name('call_center.2024.delete')->middleware('auth');
+Route::get('/call_center/2024/terkirim', [CallCenter2024Controller::class, 'terkirim'])->name('call_center.2024.terkirim')->middleware('auth');
+Route::post('/call_center/2024/updatestatuscallcenter', [CallCenter2024Controller::class, 'updatestatuscallcenter'])->name('call_center.2024.updatestatuscallcenter')->middleware('auth');
+Route::get('/call_center/2024/cetaklaporanexcel', [CallCenter2024Controller::class, 'exportexcel'])->name('call_center.2024.cetaklaporanexcel');
 
 /*aplikasi 2025 controller pengguna*/
 Route::get('/aplikasi/2025/create', [Aplikasi2025Controller::class, 'create'])->name('aplikasi.2025.create')->middleware('auth');
@@ -197,6 +224,7 @@ Route::get('/aplikasi/2025/terkirim', [Aplikasi2025Controller::class, 'terkirim'
 
 /*cetak aplikasi layanan publik pdf controller pengguna*/
 Route::get('/aplikasi/layanan_publik/2021/cetaklaporanpdf', [Aplikasi2021Controller::class, 'cetakaplikasipublikpdf_2021'])->name('aplikasi.layanan_publik.2021.cetaklaporanpdf')->middleware('auth');
+Route::get('/aplikasi/layanan_publik/2024/cetaklaporanpdf', [Aplikasi2024Controller::class, 'cetakaplikasipublikpdf_2024'])->name('aplikasi.layanan_publik.2024.cetaklaporanpdf')->middleware('auth');
 Route::get('/aplikasi/2022/cetakaplikasipdf_2022', [Aplikasi2022Controller::class, 'cetakaplikasipdf_2022'])->name('aplikasi.2022.cetakaplikasipdf_2022')->middleware('auth');
 Route::get('/aplikasi/2023/cetakaplikasipdf_2023', [Aplikasi2023Controller::class, 'cetakaplikasipdf_2023'])->name('aplikasi.2023.cetakaplikasipdf_2023')->middleware('auth');
 Route::get('/aplikasi/2024/cetakaplikasipdf_2024', [Aplikasi2024Controller::class, 'cetakaplikasipdf_2024'])->name('aplikasi.2024.cetakaplikasipdf_2024')->middleware('auth');
@@ -204,9 +232,11 @@ Route::get('/aplikasi/2025/cetakaplikasipdf_2025', [Aplikasi2025Controller::clas
 
 /*cetak aplikasi layanan administrasi pemerintahan pdf controller pengguna*/
 Route::get('/aplikasi/administrasi_pemerintah/2021/cetaklaporanpdf', [Aplikasi2021AdmPemerintahController::class, 'cetakaplikasipemerintahpdf_2021'])->name('aplikasi.administrasi_pemerintah.2021.cetaklaporanpdf')->middleware('auth');
+Route::get('/aplikasi/administrasi_pemerintah/2024/cetaklaporanpdf', [Aplikasi2024AdmPemerintahController::class, 'cetakaplikasipemerintahpdf_2024'])->name('aplikasi.administrasi_pemerintah.2024.cetaklaporanpdf')->middleware('auth');
 
 /*cetak layanan call center pdf controller pengguna*/
 Route::get('/call_center/2021/cetaklaporanpdf', [CallCenter2021Controller::class, 'cetakcallcenterpdf_2021'])->name('call_center.2021.cetaklaporanpdf')->middleware('auth');
+Route::get('/call_center/2024/cetaklaporanpdf', [CallCenter2024Controller::class, 'cetakcallcenterpdf_2024'])->name('call_center.2024.cetaklaporanpdf')->middleware('auth');
 
 /*cetak aplikasi layanan publik excel controller pengguna 2021*/
 Route::get('/aplikasi/layanan_publik/2021/laporanterkirimaplikasipublikexcel2021', [Aplikasi2021Controller::class, 'laporanterkirimaplikasipublikexcel2021'])->name('aplikasi.layanan_publik.2021.laporanterkirimaplikasipublikexcel2021')->middleware('auth');
@@ -502,7 +532,9 @@ Route::patch('/superadmincall_center/2021/{call_center}/verifadmin', [Superadmin
 
 
 Route::get('/aplikasi/layanan_publik/2021/cetaklaporanexcel', [Aplikasi2021Controller::class, 'exportexcel'])->name('aplikasi.layanan_publik.2021.cetaklaporanexcel');
+Route::get('/aplikasi/layanan_publik/2024/cetaklaporanexcel', [Aplikasi2024Controller::class, 'exportexcel'])->name('aplikasi.layanan_publik.2024.cetaklaporanexcel');
 Route::get('/aplikasi/administrasi_pemerintah/2021/cetaklaporanexcel', [Aplikasi2021AdmPemerintahController::class, 'exportexcel'])->name('aplikasi.administrasi_pemerintah.2021.cetaklaporanexcel');
+Route::get('/aplikasi/administrasi_pemerintah/2024/cetaklaporanexcel', [Aplikasi2024AdmPemerintahController::class, 'exportexcel'])->name('aplikasi.administrasi_pemerintah.2024.cetaklaporanexcel');
 Route::get('/call_center/2021/cetaklaporanexcel', [CallCenter2021Controller::class, 'exportexcel'])->name('call_center.2021.cetaklaporanexcel');
 
 

@@ -36,18 +36,24 @@ class AplikasiController extends Controller
             if ($jenisaplikasi == 'layanan_publik') {
                 if ($tahun == 2021) {
                     return view('aplikasi.layanan_publik.2021.index', ['aplikasi' => $aplikasi, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss, 'penandatanganan' => $penandatanganan, 'verifapspublik' => $verifapspublik]);
+                }elseif ($tahun == 2024) {
+                    return view('aplikasi.layanan_publik.2024.index', ['aplikasi' => $aplikasi, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss, 'penandatanganan' => $penandatanganan, 'verifapspublik' => $verifapspublik]);
                 }else{
                     return view('404');
                 }
             }elseif ($jenisaplikasi == 'administrasi_pemerintah') {
                 if ($tahun == 2021) {
                     return view('aplikasi.administrasi_pemerintah.2021.index', ['aplikasiadm' => $aplikasiadm, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasiadm' => $jumlahaplikasiadm, 'statussaplikasiadm' => $statussaplikasiadm, 'penandatanganan' => $penandatanganan]);
+                }elseif ($tahun == 2024) {
+                    return view('aplikasi.administrasi_pemerintah.2024.index', ['aplikasiadm' => $aplikasiadm, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasiadm' => $jumlahaplikasiadm, 'statussaplikasiadm' => $statussaplikasiadm, 'penandatanganan' => $penandatanganan]);
                 }else{
                     return view('404');
                 }
             }elseif ($jenisaplikasi == 'call_center') {
                 if ($tahun == 2021) {
                     return view('call_center.2021.index', ['call_center' => $call_center, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
+                }elseif ($tahun == 2024) {
+                    return view('call_center.2024.index', ['call_center' => $call_center, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
                 }else{
                     return view('404');
                 }
