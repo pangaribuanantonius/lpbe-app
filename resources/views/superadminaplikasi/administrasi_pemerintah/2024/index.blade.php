@@ -478,9 +478,7 @@
             	<a class="btn btn-outline-primary" href="#" data-bs-toggle="modal" data-bs-target="#modalStatus2">
                     <i class="bi bi-pencil-square"></i> Ubah Status
                 </a>
-                <!-- <a class="btn btn-outline-success" href="{{ route('superadminaplikasi.administrasi_pemerintah.2024.laporanterkirimaplikasipemerintahexcel2024', ['instansi_id' => $instansi_id]) }}" target="_blank">
-	                <i class="bi bi-file-earmark-spreadsheet"></i> Excel
-	            </a> -->
+                
 
         </div>
     </div>

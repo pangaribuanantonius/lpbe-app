@@ -515,8 +515,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <!-- <a class="btn btn-sm btn-outline-success" href="{{ route('aplikasi.layanan_publik.2024.laporanterkirimaplikasipublikexcel2024') }}" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a> -->
-           <!--  <a class="btn btn-sm btn-outline-danger" href="{{ route('aplikasi.layanan_publik.2024.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a> -->
+            
 
            	
 

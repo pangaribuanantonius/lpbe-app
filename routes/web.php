@@ -24,11 +24,13 @@ use App\Http\Controllers\MenuSuperAdminController;
 use App\Http\Controllers\SuperadminAplikasiController;
 use App\Http\Controllers\SuperadminStatusAplikasi2021Controller;
 use App\Http\Controllers\SuperadminStatusAplikasi2021AdmPemerintahController;
+use App\Http\Controllers\SuperadminStatusAplikasi2024AdmPemerintahController;
 use App\Http\Controllers\SuperadminStatusAplikasi2022Controller;
 use App\Http\Controllers\SuperadminStatusAplikasi2023Controller;
 use App\Http\Controllers\SuperadminStatusAplikasi2024Controller;
 use App\Http\Controllers\SuperadminStatusAplikasi2025Controller;
 use App\Http\Controllers\SuperadminStatusCallCenter2021Controller;
+use App\Http\Controllers\SuperadminStatusCallCenter2024Controller;
 use App\Http\Controllers\LaporanAplikasiLayananPublikExcelAdmin2021Controller;
 use App\Http\Controllers\LaporanAplikasiPemerintahAdmin2021Controller;
 use App\Http\Controllers\SpbeController;
@@ -293,12 +295,15 @@ Route::get('/superadmin/datainstansi', [MenuSuperAdminController::class, 'datain
 
 /*status aplikasi layanan publik controller superadmin*/
 Route::post('/superadminaplikasi/layanan_publik/2021/updatestatus', [SuperadminStatusAplikasi2021Controller::class, 'updatestatus'])->name('superadminaplikasi.layanan_publik.2021.updatestatus')->middleware('auth');
+Route::post('/superadminaplikasi/layanan_publik/2024/updatestatus', [SuperadminStatusAplikasi2024Controller::class, 'updatestatus'])->name('superadminaplikasi.layanan_publik.2024.updatestatus')->middleware('auth');
 
 /*status aplikasi adm pemerintah controller superadmin*/
 Route::post('/superadminaplikasi/administrasi_pemerintah/2021/updatestatus', [SuperadminStatusAplikasi2021AdmPemerintahController::class, 'updatestatus'])->name('superadminaplikasi.administrasi_pemerintah.2021.updatestatus')->middleware('auth');
+Route::post('/superadminaplikasi/administrasi_pemerintah/2024/updatestatus', [SuperadminStatusAplikasi2024AdmPemerintahController::class, 'updatestatus'])->name('superadminaplikasi.administrasi_pemerintah.2024.updatestatus')->middleware('auth');
 
 /*call center controller super admin*/
 Route::post('/superadmincall_center/2021/updatestatus', [SuperadminStatusCallCenter2021Controller::class, 'updatestatus'])->name('superadmincall_center.2021.updatestatus')->middleware('auth');
+Route::post('/superadmincall_center/2024/updatestatus', [SuperadminStatusCallCenter2024Controller::class, 'updatestatus'])->name('superadmincall_center.2024.updatestatus')->middleware('auth');
 
 
 /*Route::post('/superadminaplikasi/2022/updatestatus', [SuperadminStatusAplikasi2022Controller::class, 'updatestatus'])->name('superadminaplikasi.2022.updatestatus')->middleware('auth');
@@ -540,6 +545,7 @@ Route::get('/call_center/2021/cetaklaporanexcel', [CallCenter2021Controller::cla
 
 Route::patch('/superadminaplikasi/layanan_publik/2024/{aplikasi}/verifadmin', [SuperadminStatusAplikasi2024Controller::class, 'verifadmin'])->name('superadminaplikasi.layanan_publik.2024.verifadmin')->middleware('auth');
 Route::patch('/superadminaplikasi/administrasi_pemerintah/2024/{aplikasi}/verifadmin', [SuperadminStatusAplikasi2024AdmPemerintahController::class, 'verifadmin'])->name('superadminaplikasi.administrasi_pemerintah.2024.verifadmin')->middleware('auth');
+Route::patch('/superadmincall_center/2024/{call_center}/verifadmin', [SuperadminStatusCallCenter2024Controller::class, 'verifadmin'])->name('superadmincall_center.2024.verifadmin')->middleware('auth');
 
 
 
