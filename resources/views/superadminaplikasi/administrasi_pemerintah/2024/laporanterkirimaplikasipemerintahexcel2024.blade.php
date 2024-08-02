@@ -4,7 +4,7 @@
                     <th colspan="5">Laporan Aplikasi</th>
                 </tr>
                 <tr>
-                    <th colspan="5">Tahun 2021</th>
+                    <th colspan="5">Tahun 2024</th>
                 </tr>
                 <tr>
                     <th>Nama Aplikasi</th>

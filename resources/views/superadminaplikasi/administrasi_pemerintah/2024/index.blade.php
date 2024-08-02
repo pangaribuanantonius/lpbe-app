@@ -5,18 +5,18 @@
 	<h1><i class="bi bi-pen"></i> Pendataan Aplikasi</h1>
 	<nav>
 		<ol class="breadcrumb">
-			<li class="active ms-1">Aplikasi Pelayanan Publik</li>
+			<li class="active ms-1">Aplikasi Administrasi Pemerintahan</li>
 			<li class="active ms-1">/</li>
 			<li class="active ms-1">{{ $nama_instansi }}</li>
 		</ol>
 	</nav>
 </div>
 
-@if($jumlahaplikasipublik == 0)
+@if($jumlahaplikasiadm == 0)
 <div class="alert alert-info" role="alert">
 	Tidak Ada Data
 </div>
-@elseif($jumlahaplikasipublik >=1 && $statuss->status == 'Sedang Proses')
+@elseif($jumlahaplikasiadm >=1 && $statussaplikasiadm->status == 'Sedang Proses')
 <div class="alert alert-info alert-dismissible fade show" role="alert">
 	Sedang Proses
 	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -25,7 +25,6 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="card">
-
 				<div class="card-body mt-4">
 					<table class="table table-hover datatable">
 						<thead>
@@ -39,7 +38,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($aplikasi as $aps)
+							@foreach($aplikasiadm as $aps)
 							<tr>
 								<td>{{ $aps->nama_aplikasi }}</td>
 			                    
@@ -49,7 +48,6 @@
 			                    <td>
 			                    	<div class="text-center">
 			                            <a class="btn btn-outline-dark" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $aps->id }}"><i class="bi bi-eye"></i> Lihat</a>
-
 			                        </div>
 			                    </td>
 							</tr>
@@ -199,12 +197,11 @@
 			</div>
 		</div>
 
-		<!-- Modal ubah status -->
+		<!-- Modal -->
 		<div class="modal fade" id="modalStatus1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-
-					<form method="post" action="{{ route('superadminaplikasi.layanan_publik.2024.updatestatus') }}" enctype="multipart/form-data">
+					<form method="post" action="{{ route('superadminaplikasi.administrasi_pemerintah.2024.updatestatus') }}" enctype="multipart/form-data">
 						@csrf
 						@method('POST')
 						<input type="hidden" name="instansi_id" value="{{ $aps->instansi_id }}">
@@ -239,7 +236,7 @@
 
 	</div>
 </section>
-@elseif($jumlahaplikasipublik >=1 && $statuss->status == 'Final')
+@elseif($jumlahaplikasiadm >=1 && $statussaplikasiadm->status == 'Final')
 <div class="alert alert-info alert-info alert-dismissible fade show" role="alert">
 	Sudah Final
 	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -262,7 +259,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($aplikasi as $aps)
+							@foreach($aplikasiadm as $aps)
 							<tr>
 								<td>{{ $aps->nama_aplikasi }}</td>
 								
@@ -300,7 +297,7 @@
 							<div class="modal fade" id="verifikasi{{ $aps->id }}" tabindex="-1" aria-labelly="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
-										<form method="post" action="{{ route('superadminaplikasi.layanan_publik.2024.verifadmin', ['aplikasi' => $aps->id]) }}" enctype="multipart/form-data">
+										<form method="post" action="{{ route('superadminaplikasi.administrasi_pemerintah.2024.verifadmin', ['aplikasi' => $aps->id]) }}" enctype="multipart/form-data">
 											@csrf
 											@method('PATCH')
 											<input type="hidden" name="id" value="{{ $aps->id }}">
@@ -481,9 +478,10 @@
             	<a class="btn btn-outline-primary" href="#" data-bs-toggle="modal" data-bs-target="#modalStatus2">
                     <i class="bi bi-pencil-square"></i> Ubah Status
                 </a>
-                <!-- <a class="btn btn-outline-success" href="{{ route('superadminaplikasi.layanan_publik.2024.laporanterkirimaplikasipublikexcel2024', ['instansi_id' => $instansi_id]) }}" target="_blank">
+                <!-- <a class="btn btn-outline-success" href="{{ route('superadminaplikasi.administrasi_pemerintah.2024.laporanterkirimaplikasipemerintahexcel2024', ['instansi_id' => $instansi_id]) }}" target="_blank">
 	                <i class="bi bi-file-earmark-spreadsheet"></i> Excel
 	            </a> -->
+
         </div>
     </div>
 </div>
@@ -492,7 +490,7 @@
 <div class="modal fade" id="modalStatus2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form method="post" action="{{ route('superadminaplikasi.layanan_publik.2024.updatestatus') }}" enctype="multipart/form-data">
+			<form method="post" action="{{ route('superadminaplikasi.administrasi_pemerintah.2024.updatestatus') }}" enctype="multipart/form-data">
 				@csrf
 				@method('POST')
 				<input type="hidden" name="instansi_id" value="{{ $aps->instansi_id }}">
