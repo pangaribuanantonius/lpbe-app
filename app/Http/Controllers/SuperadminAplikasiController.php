@@ -29,18 +29,24 @@ class SuperadminAplikasiController extends Controller
             if ($jenisaplikasi == 'layanan_publik') {
                 if ($tahun == '2021') {
                     return view('superadminaplikasi.layanan_publik.2021.index', ['aplikasi' => $aplikasi, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss]);
+                }elseif ($tahun == '2024') {
+                    return view('superadminaplikasi.layanan_publik.2024.index', ['aplikasi' => $aplikasi, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss]);
                 }else{
                     return view('404');
                 }
             }elseif($jenisaplikasi == 'administrasi_pemerintah') {
                 if ($tahun == '2021') {
                     return view('superadminaplikasi.administrasi_pemerintah.2021.index', ['aplikasiadm' => $aplikasiadm, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi, 'jumlahaplikasiadm' => $jumlahaplikasiadm, 'statussaplikasiadm' => $statussaplikasiadm]);
+                }elseif ($tahun == '2024') {
+                    return view('superadminaplikasi.administrasi_pemerintah.2024.index', ['aplikasiadm' => $aplikasiadm, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi, 'jumlahaplikasiadm' => $jumlahaplikasiadm, 'statussaplikasiadm' => $statussaplikasiadm]);
                 }else{
                     return view('404');
                 }
             }elseif ($jenisaplikasi == 'call_center') {
                 if ($tahun == '2021') {
                     return view('superadmincall_center.2021.index', ['call_center' => $call_center, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter]);
+                }elseif ($tahun == '2024') {
+                    return view('superadmincall_center.2024.index', ['call_center' => $call_center, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter]);
                 }else{
                     return view('404');
                 }
