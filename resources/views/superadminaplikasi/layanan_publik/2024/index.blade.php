@@ -98,7 +98,7 @@
 						<div class="form-group">
 							<label for="kepemilikan">Dasar hukum</label>
 							<textarea type="text" name="dasarhukum" class="form-control">{{ $aps->dasarhukum }}</textarea>
-							<sup><em>Cth: Peraturan Bupati Deli Serdang No. 107 Tahun 2021 Tentang Sistem Pemerintahan Berbasis Elektronik</em></sup>
+							<sup><em>Cth: Peraturan Bupati Deli Serdang No. 107 Tahun 2024 Tentang Sistem Pemerintahan Berbasis Elektronik</em></sup>
 							<br />
 						</div>
 						<div class="form-group">
@@ -204,7 +204,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 
-					<form method="post" action="{{ route('superadminaplikasi.layanan_publik.2021.updatestatus') }}" enctype="multipart/form-data">
+					<form method="post" action="{{ route('superadminaplikasi.layanan_publik.2024.updatestatus') }}" enctype="multipart/form-data">
 						@csrf
 						@method('POST')
 						<input type="hidden" name="instansi_id" value="{{ $aps->instansi_id }}">
@@ -300,7 +300,7 @@
 							<div class="modal fade" id="verifikasi{{ $aps->id }}" tabindex="-1" aria-labelly="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
-										<form method="post" action="{{ route('superadminaplikasi.layanan_publik.2021.verifadmin', ['aplikasi' => $aps->id]) }}" enctype="multipart/form-data">
+										<form method="post" action="{{ route('superadminaplikasi.layanan_publik.2024.verifadmin', ['aplikasi' => $aps->id]) }}" enctype="multipart/form-data">
 											@csrf
 											@method('PATCH')
 											<input type="hidden" name="id" value="{{ $aps->id }}">
@@ -383,7 +383,7 @@
 													<div class="form-group">
 														<label for="kepemilikan">Dasar hukum</label>
 														<textarea type="text" name="dasarhukum" class="form-control">{{ $aps->dasarhukum }}</textarea>
-														<sup><em>Cth: Peraturan Bupati Deli Serdang No. 107 Tahun 2021 Tentang Sistem Pemerintahan Berbasis Elektronik</em></sup>
+														<sup><em>Cth: Peraturan Bupati Deli Serdang No. 107 Tahun 2024 Tentang Sistem Pemerintahan Berbasis Elektronik</em></sup>
 														<br />
 													</div>
 													<div class="form-group">
@@ -481,7 +481,7 @@
             	<a class="btn btn-outline-primary" href="#" data-bs-toggle="modal" data-bs-target="#modalStatus2">
                     <i class="bi bi-pencil-square"></i> Ubah Status
                 </a>
-                <!-- <a class="btn btn-outline-success" href="{{ route('superadminaplikasi.layanan_publik.2021.laporanterkirimaplikasipublikexcel2021', ['instansi_id' => $instansi_id]) }}" target="_blank">
+                <!-- <a class="btn btn-outline-success" href="{{ route('superadminaplikasi.layanan_publik.2024.laporanterkirimaplikasipublikexcel2024', ['instansi_id' => $instansi_id]) }}" target="_blank">
 	                <i class="bi bi-file-earmark-spreadsheet"></i> Excel
 	            </a> -->
         </div>
@@ -492,7 +492,7 @@
 <div class="modal fade" id="modalStatus2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form method="post" action="{{ route('superadminaplikasi.layanan_publik.2021.updatestatus') }}" enctype="multipart/form-data">
+			<form method="post" action="{{ route('superadminaplikasi.layanan_publik.2024.updatestatus') }}" enctype="multipart/form-data">
 				@csrf
 				@method('POST')
 				<input type="hidden" name="instansi_id" value="{{ $aps->instansi_id }}">
