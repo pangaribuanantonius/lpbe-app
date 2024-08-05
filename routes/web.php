@@ -85,7 +85,7 @@ Route::get('/404', function () {
 /*route update status aplikasi layanan publik controller pengguna*/
 Route::post('/aplikasi/layanan_publik/2021/updatestatus', [StatusAplikasi2021Controller::class, 'updatestatus'])->name('aplikasi.layanan_publik.2021.updatestatus')->middleware('auth');
 Route::post('/aplikasi/layanan_publik/2024/updatestatus', [StatusAplikasi2024Controller::class, 'updatestatus'])->name('aplikasi.layanan_publik.2024.updatestatus')->middleware('auth');
-Route::post('/aplikasi/layanan_publik/2024/finalisasinihil', [StatusAplikasi2021Controller::class, 'finalisasinihil'])->name('aplikasi.layanan_publik.2021.finalisasinihil')->middleware('auth');
+Route::post('/aplikasi/layanan_publik/2021/finalisasinihil', [StatusAplikasi2021Controller::class, 'finalisasinihil'])->name('aplikasi.layanan_publik.2021.finalisasinihil')->middleware('auth');
 /*Route::post('/aplikasi/2022/updatestatus', [StatusAplikasi2022Controller::class, 'updatestatus'])->name('aplikasi.2022.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2023/updatestatus', [StatusAplikasi2023Controller::class, 'updatestatus'])->name('aplikasi.2023.updatestatus')->middleware('auth');
 Route::post('/aplikasi/2024/updatestatus', [StatusAplikasi2024Controller::class, 'updatestatus'])->name('aplikasi.2024.updatestatus')->middleware('auth');
@@ -95,6 +95,7 @@ Route::post('/aplikasi/2025/updatestatus', [StatusAplikasi2025Controller::class,
 Route::post('/aplikasi/administrasi_pemerintah/2021/updatestatus', [StatusAplikasi2021AdmPemerintahController::class, 'updatestatus'])->name('aplikasi.administrasi_pemerintah.2021.updatestatus')->middleware('auth');
 Route::post('/aplikasi/administrasi_pemerintah/2024/updatestatus', [StatusAplikasi2024AdmPemerintahController::class, 'updatestatus'])->name('aplikasi.administrasi_pemerintah.2024.updatestatus')->middleware('auth');
 Route::post('/aplikasi/administrasi_pemerintah/2021/finalisasinihil', [StatusAplikasi2021AdmPemerintahController::class, 'finalisasinihil'])->name('aplikasi.administrasi_pemerintah.2021.finalisasinihil')->middleware('auth');
+Route::post('/aplikasi/administrasi_pemerintah/2024/finalisasinihil', [StatusAplikasi2024AdmPemerintahController::class, 'finalisasinihil'])->name('aplikasi.administrasi_pemerintah.2024.finalisasinihil')->middleware('auth');
 
 
 Route::post('/call_center/2021/finalisasinihil', [CallCenter2021Controller::class, 'finalisasinihil'])->name('call_center.2021.finalisasinihil')->middleware('auth');
@@ -161,7 +162,7 @@ Route::get('/aplikasi/layanan_publik/2024/{aplikasi}/edit', [Aplikasi2024Control
 Route::patch('/aplikasi/layanan_publik/2024/{aplikasi}/edit', [Aplikasi2024Controller::class, 'update'])->name('aplikasi.layanan_publik.2024.edit')->middleware('auth');
 Route::delete('/aplikasi/layanan_publik/2024/{aplikasi}/delete', [Aplikasi2024Controller::class, 'destroy'])->name('aplikasi.layanan_publik.2024.delete')->middleware('auth');
 Route::get('/aplikasi/layanan_publik/2024/terkirim', [Aplikasi2024Controller::class, 'terkirim'])->name('aplikasi.layanan_publik.2024.terkirim')->middleware('auth');
-Route::post('/aplikasi/layanan_publik/2024/finalisasinihil', [StatusAplikasi2021Controller::class, 'finalisasinihil'])->name('aplikasi.layanan_publik.2024.finalisasinihil')->middleware('auth');
+Route::post('/aplikasi/layanan_publik/2024/finalisasinihil', [StatusAplikasi2024Controller::class, 'finalisasinihil'])->name('aplikasi.layanan_publik.2024.finalisasinihil')->middleware('auth');
 
 /*aplikasi 2024 layanan administrasi pemerintahan controller pengguna*/
 Route::get('/aplikasi/administrasi_pemerintah/2024/create', [Aplikasi2024AdmPemerintahController::class, 'create'])->name('aplikasi.administrasi_pemerintah.2024.create')->middleware('auth');
@@ -170,7 +171,7 @@ Route::get('/aplikasi/administrasi_pemerintah/2024/{aplikasi}/edit', [Aplikasi20
 Route::patch('/aplikasi/administrasi_pemerintah/2024/{aplikasi}/edit', [Aplikasi2024AdmPemerintahController::class, 'update'])->name('aplikasi.administrasi_pemerintah.2024.edit')->middleware('auth');
 Route::delete('/aplikasi/administrasi_pemerintah/2024/{aplikasi}/delete', [Aplikasi2024AdmPemerintahController::class, 'destroy'])->name('aplikasi.administrasi_pemerintah.2024.delete')->middleware('auth');
 Route::get('/aplikasi/administrasi_pemerintah/2024/terkirim', [Aplikasi2024AdmPemerintahController::class, 'terkirim'])->name('aplikasi.administrasi_pemerintah.2024.terkirim')->middleware('auth');
-Route::post('/aplikasi/administrasi_pemerintah/2024/finalisasinihil', [StatusAplikasi2021Controller::class, 'finalisasinihil'])->name('aplikasi.administrasi_pemerintah.2024.finalisasinihil')->middleware('auth');
+Route::post('/aplikasi/administrasi_pemerintah/2024/finalisasinihil', [StatusAplikasi2024AdmPemerintahController::class, 'finalisasinihil'])->name('aplikasi.administrasi_pemerintah.2024.finalisasinihil')->middleware('auth');
 
 /*aplikasi adm pemerintah tahun 2021 controller pengguna*/
 Route::get('/aplikasi/administrasi_pemerintah/2021/create', [Aplikasi2021AdmPemerintahController::class, 'create'])->name('aplikasi.administrasi_pemerintah.2021.create')->middleware('auth');
