@@ -274,6 +274,10 @@
 									@elseif($aps->verifikasi == 'Disetujui')
 									<p class="badge text-success">
 										<i class="bi bi-check-circle"></i> {{ $aps->verifikasi }}
+									</p>
+									@elseif($aps->verifikasi == 'Ditinjau')
+									<p class="badge text-primary">
+										<i class="bi bi-info-circle"></i> {{ $aps->verifikasi }}
 									</p> 
 									@elseif($aps->verifikasi == 'Kosong')
 									<p class="badge text-primary">
@@ -312,6 +316,7 @@
 													<select name="verifikasi" class="form-control" required>
 														<option value="">Pilih</option>
 														<option value="Disetujui">Disetujui</option>
+														<option value="Ditinjau">Ditinjau</option>
 														<option value="Ditolak">Ditolak</option>
 														<option value="Kosong">Belum Diverifikasi</option>
 													</select>

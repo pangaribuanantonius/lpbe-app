@@ -256,6 +256,10 @@
 									<p class="badge text-danger">
 										<i class="bi bi-x-circle"></i> {{ $c->verifikasi }}
 									</p>
+									@elseif($aps->verifikasi == 'Ditinjau')
+									<p class="badge text-primary">
+										<i class="bi bi-info-circle"></i> {{ $aps->verifikasi }}
+									</p>
 									@elseif($c->verifikasi == 'Disetujui')
 									<p class="badge text-success">
 										<i class="bi bi-check-circle"></i> {{ $c->verifikasi }}

@@ -278,13 +278,17 @@
 									<p class="badge text-success">
 										<i class="bi bi-check-circle"></i> {{ $aps->verifikasi }}
 									</p> 
-									@elseif($aps->verifikasi == 'Kosong')
+									@elseif($aps->verifikasi == 'Ditinjau')
 									<p class="badge text-primary">
-										<i class="bi bi-info-circle"></i> Belum Diverifikasi
+										<i class="bi bi-info-circle"></i> {{ $aps->verifikasi }}
+									</p> 
+									@elseif($aps->verifikasi == 'Kosong')
+									<p class="badge text-danger">
+										<i class="bi bi-ban"></i> Belum Diverifikasi
 									</p> 
 									@else
-									<p class="badge text-primary">
-										<i class="bi bi-info-circle"></i> Belum Diverifikasi
+									<p class="badge text-danger">
+										<i class="bi bi-ban"></i> Belum Diverifikasi
 									</p> 
 									@endif
 								</td>
@@ -315,6 +319,7 @@
 													<select name="verifikasi" class="form-control" required>
 														<option value="">Pilih</option>
 														<option value="Disetujui">Disetujui</option>
+														<option value="Ditinjau">Ditinjau</option>
 														<option value="Ditolak">Ditolak</option>
 														<option value="Kosong">Belum Diverifikasi</option>
 													</select>
