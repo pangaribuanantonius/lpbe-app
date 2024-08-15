@@ -132,20 +132,22 @@
                   @foreach($instansiall as $i)
                   @php
 
-                  $hitung_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun','2021')->Where('status', '!=','Kosong')->count();
-                  $hitung_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', '!=','Kosong')->count();
-                  $hitung_call_center = $i->call_center()->Where('tahun', '2021')->Where('status', '!=','Kosong')->count();
+                  $year =  Carbon\Carbon::now()->year; // Mengambil tahun saat ini
 
-                  $status_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->count();
-                  $status_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->count();
-                  $status_call_center = $i->call_center()->Where('tahun', '2021')->count();
+                  $hitung_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun',$year)->Where('status', '!=','Kosong')->count();
+                  $hitung_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->Where('status', '!=','Kosong')->count();
+                  $hitung_call_center = $i->call_center()->Where('tahun', $year)->Where('status', '!=','Kosong')->count();
 
-                  $status_publik_proses = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->Where('status', 'Sedang Proses')->count();
-                  $status_administrasi_proses = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->Where('status', 'Sedang Proses')->count();
-                  $status_call_center_proses = $i->call_center()->where('tahun', '2021')->Where('status','Sedang Proses')->count();
+                  $status_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $year)->count();
+                  $status_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->count();
+                  $status_call_center = $i->call_center()->Where('tahun', $year)->count();
+
+                  $status_publik_proses = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $year)->Where('status', 'Sedang Proses')->count();
+                  $status_administrasi_proses = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->Where('status', 'Sedang Proses')->count();
+                  $status_call_center_proses = $i->call_center()->where('tahun', $year)->Where('status','Sedang Proses')->count();
 
                   $status_publik_final = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')
-                  ->Where('tahun', '2021')
+                  ->Where('tahun', $year)
                   ->where(function($query) {
                     $query->where('status', 'Final')
                           ->orWhere('status', 'Kosong');
@@ -153,14 +155,14 @@
                   ->count();
 
                   $status_administrasi_final = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')
-                  ->Where('tahun', '2021')
+                  ->Where('tahun', $year)
                   ->where(function($query) {
                     $query->where('status', 'Final')
                           ->orWhere('status', 'Kosong');
                     })
                   ->count();
 
-                  $status_call_center_final = $i->call_center()->where('tahun', '2021')
+                  $status_call_center_final = $i->call_center()->where('tahun', $year)
                   ->where(function($query) {
                     $query->where('status', 'Final')
                           ->orWhere('status', 'Kosong');
