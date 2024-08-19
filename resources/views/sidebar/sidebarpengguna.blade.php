@@ -187,7 +187,7 @@
 
         <!-- FAQ start -->
         <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" href="faq.html">
+          <a class="nav-link collapsed rounded-5" href="{{ route('menu.faq') }}">
             <i class="bi bi-question-circle"></i>
             <span>Sering ditanyakan</span>
           </a>

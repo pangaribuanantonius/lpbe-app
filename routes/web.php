@@ -68,6 +68,8 @@ Route::get('/', function(){
     return 'testing';
 })->name('halaman_depan');
 
+
+
 Route::get('/404', function () {
     return view('404');
 });
@@ -113,6 +115,7 @@ Route::post('/spbe/2024/updatestatus', [StatusSpbe2024Controller::class, 'update
 
 /*menu controller pengguna*/
 Route::get('/menu/index', [MenuController::class, 'index'])->name('menu.index')->middleware('auth');
+Route::get('/menu/faq', [MenuController::class, 'faq'])->name('menu.faq')->middleware('auth');
 Route::get('/menu/monitoring', [MenuController::class, 'monitoring'])->name('menu.monitoring')->middleware('auth');
 Route::get('/menu/penandatanganan', [MenuController::class, 'penandatanganan'])->name('menu.penandatanganan')->middleware('auth');
 
