@@ -116,6 +116,15 @@
                         		}
                         	});
                         </script>
+						<div class="form-group mt-3">
+							<label>Apakah layanan ini menyimpan data pribadi/rahasia ?</label>
+							<div>
+								<input type="radio" name="rahasia" id="ya" value="ya" required> Ya
+							</div>
+							<div>
+								<input type="radio" name="rahasia" id="tidak" value="tidak" required> Tidak
+							</div>
+						</div>
                         <div class="row mt-3">
 	                    	<div class="col-lg-4">
 	                    		<div class="form-group">
