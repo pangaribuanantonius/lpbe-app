@@ -42,6 +42,7 @@ class CallCenter2021Controller extends Controller
                 /*'platform' => implode(',', $request->platform),*/
                 'platform' => $request->platform,
                 'sektorlayanan' => $request->sektorlayanan,
+                'sektorlainnya' => $request->sektorlainnya,
                 'rahasia' => $request->rahasia,
                 'nama_pic' => $request->nama_pic,
                 'jabatan_pic' => $request->jabatan_pic,
