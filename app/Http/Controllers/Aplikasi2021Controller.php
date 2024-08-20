@@ -68,7 +68,7 @@ class Aplikasi2021Controller extends Controller
                 'sektorpelayananpublik' => $request->sektorpelayananpublik,
                 'sektorpelayananpublik2' => $request->sektorpelayananpublik2,
                 'deskripsi' => $request->deskripsi,
-                
+                'rahasia' => $request->rahasia,
                 'pengguna' => $request->pengguna,
                 
                 'daftarlayanan' => $request->daftarlayanan,
@@ -111,7 +111,7 @@ class Aplikasi2021Controller extends Controller
                 'sektorpelayananpublik' => $request->sektorpelayananpublik,
                 'sektorpelayananpublik2' => $request->sektorpelayananpublik2,
                 'deskripsi' => $request->deskripsi,
-                
+                'rahasia' => $request->rahasia,
                 'pengguna' => $request->pengguna,
                 
                 'daftarlayanan' => $request->daftarlayanan,

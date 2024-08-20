@@ -215,6 +215,15 @@
 	                    		<textarea name="daftarproduklayanan" class="form-control" value="{{ old('daftarproduklayanan') }}" style="height:100px;" required></textarea>
 	                    	</div>
 	                    </div>
+						<div class="form-group mt-3">
+							<label>Apakah layanan ini menyimpan data pribadi/rahasia ?</label>
+							<div>
+								<input type="radio" name="rahasia" id="ya" value="ya" required> Ya
+							</div>
+							<div>
+								<input type="radio" name="rahasia" id="tidak" value="tidak" required> Tidak
+							</div>
+						</div>
 	                    <div class="form-group mt-3">
 	                    	<label>Pengguna Layanan</label>
 	                    	<div>
