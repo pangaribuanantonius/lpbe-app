@@ -117,6 +117,15 @@
                         		}
                         	});
                         </script>
+						<div class="form-group mt-3">
+							<label>Apakah layanan ini menyimpan data pribadi/rahasia ?</label>
+							<div>
+								<input type="radio" name="rahasia" id="ya" value="ya" {{ $call_center->rahasia === 'ya' ? 'checked' : '' }} required> Ya
+							</div>
+							<div>
+								<input type="radio" name="rahasia" id="tidak" value="tidak" {{ $call_center->rahasia === 'tidak' ? 'checked' : '' }} required> Tidak
+							</div>
+						</div>
                         <div class="row mt-3">
 	                    	<div class="col-lg-4">
 	                    		<div class="form-group">

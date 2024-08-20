@@ -46,6 +46,7 @@
 					<input type="hidden" name="platform" value="Kosong">
 					<input type="hidden" name="sektorlayanan" value="Kosong">
 					<input type="hidden" name="sektorlainnya" value="Kosong">
+					<input type="hidden" name="rahasia" value="Kosong">
 					<input type="hidden" name="nama_pic" value="Kosong">
 					<input type="hidden" name="jabatan_pic" value="Kosong">
 					<input type="hidden" name="kontak" value="Kosong">
@@ -394,7 +395,7 @@
 @if($penandatanganan == 0)
 <div class="text-end">
 	<button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</button>
-	<button class="second btn btn-succes mb-2"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</button>
+	<button class="second btn btn-success mb-2"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</button>
 </div>
 @else
 <div class="text-end">
