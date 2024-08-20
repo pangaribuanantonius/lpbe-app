@@ -79,6 +79,7 @@ class Aplikasi2021AdmPemerintahController extends Controller
                 'sektorpelayananpublik2' => $request->sektorpelayananpublik2,
                 'deskripsi' => $request->deskripsi,
                 /*'fiturutama' => $request->fiturutama,*/
+                'rahasia' => $request->rahasia,
                 'pengguna' => $request->pengguna,
                 /*'pengguna2' => $request->pengguna2,*/
                 'daftarlayanan' => $request->daftarlayanan,
@@ -123,6 +124,7 @@ class Aplikasi2021AdmPemerintahController extends Controller
                 'sektorpelayananpublik2' => $request->sektorpelayananpublik2,
                 'deskripsi' => $request->deskripsi,
                 /*'fiturutama' => $request->fiturutama,*/
+                'rahasia' => $request->rahasia,
                 'pengguna' => $request->pengguna,
                 /*'pengguna2' => $request->pengguna2,*/
                 'daftarlayanan' => $request->daftarlayanan,
