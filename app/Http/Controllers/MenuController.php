@@ -30,7 +30,7 @@ class MenuController extends Controller
 
         $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
 
-        return view('menu.index', ['nama_instansi' => $nama_instansi, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'call_center' =>$call_center, 'instansiall' => $instansiall, 'pemberitahuan' => $pemberitahuan]);
+        return view('menu.index', ['nama_instansi' => $nama_instansi, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'year' => $year, 'call_center' =>$call_center, 'instansiall' => $instansiall, 'pemberitahuan' => $pemberitahuan]);
     }
 
     public function faq(){

@@ -89,7 +89,8 @@ class MenuSuperAdminController extends Controller
         'call_center' => $callCenterCount,
         'apspublik_proses' => $apspublikProsesCount,
         'apspublik_final' => $apspublikFinalCount,
-        'pemberitahuan' => $pemberitahuan
+        'pemberitahuan' => $pemberitahuan,
+        'year' => $year
     ]);
 }
 
