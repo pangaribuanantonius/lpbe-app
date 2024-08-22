@@ -41,6 +41,14 @@
                 6. Setelah finalisasi anda akan diarahkan pada halaman data yang sudah di finalisasi secara otomatis. Silahkan menunggu admin dari dinas Komunikasi, Informatika, Statistik dan Persandian Kabupaten Deli Serdang untuk diverifikasi.<br>
                 <img src="{{ url('/')}}/konten/panduan/finalisasi.png" class="w-100" alt="">
             </div>
+            <div class="mt-3">
+                7. Untuk merubah profil pengguna, silahkan pilih pengaturan akun pada icon dan nama pengguna yang berada di sudut kanan atas, lalu pilih tab ubah profi untuk mengubah data pengguna. <br>
+                <img src="{{ url('/') }}/konten/panduan/ubah profil.png" class="w-100" alt="">
+            </div>
+            <div class="mt-3">
+                8. Untuk mengubah password pengguna, pilih tab ubah profi untuk mengubah password pengguna. Ketikkan password yang lama, lalu ketik juga password baru beserta konfirmasi password yang sudah di entri pada kolom password baru. <br>
+                <img src="{{ url('/') }}/konten/panduan/ubahpassword.png" class="w-100" alt="">
+            </div>
         </p>
     </div>
 </div>
