@@ -37,6 +37,10 @@ class MenuController extends Controller
         return view('menu.faq');
     }
 
+    public function panduan(){
+        return view('menu.panduan');
+    }
+
     public function monitoring(){
     $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
     $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;

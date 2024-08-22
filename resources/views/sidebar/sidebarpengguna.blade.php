@@ -178,7 +178,7 @@
         
         <!-- Panduan start -->
         <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" href="tutorial.html">
+          <a class="nav-link collapsed rounded-5" href="{{ route('menu.panduan')}}">
             <i class="bi bi-file-earmark-pdf"></i>
             <span>Buku Panduan</span>
           </a>
