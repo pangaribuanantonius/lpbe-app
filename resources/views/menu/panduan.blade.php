@@ -19,7 +19,8 @@
             Berikut ini adalah cara penggunaan dan pengelolaan aplikasi monev SPBE: <br>
             1. Pengguna harus login terlebih dahulu dengan memasukkan username dan password yang telah diberikan oleh Dinas Komunikasi, Informatika, Statistik, dan Persandian Kabupaten Deli Serdang. <br>
             <img src="{{ url('/')}}/konten/panduan/login.png" class="w-100" alt="">
-            2. Kemanusiaan yang adil dan beradab.
+            2. Pengguna dapat melihat jumlah data layanan pada menu dashboard. <br>
+
         </p>
     </div>
 </div>
