@@ -59,7 +59,7 @@
                   <hr class="dropdown-divider" />
                 </li>
   
-                <li>
+                <!-- <li>
                   <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
                     <i class="bi bi-question-circle"></i>
                     <span>Bantuan?</span>
@@ -67,7 +67,7 @@
                 </li>
                 <li>
                   <hr class="dropdown-divider" />
-                </li>
+                </li> -->
   
                 <li>
                   <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}">

@@ -136,7 +136,7 @@ class CallCenter2021Controller extends Controller
         $pdf->writeHTML($html, true, false, true, false, '');
 
         // Tutup dan tampilkan PDF
-        $pdf->Output('Lap. Layanan Call Center.pdf', 'I');
+        $pdf->Output('Lap. Layanan Call Center 2021.pdf', 'I');
 
     }
 

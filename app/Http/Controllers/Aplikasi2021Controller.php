@@ -190,7 +190,7 @@ class Aplikasi2021Controller extends Controller
         $pdf->writeHTML($html, true, false, true, false, '');
 
         // Tutup dan tampilkan PDF
-        $pdf->Output('Lap. Aps. Pelayanan Publik.pdf', 'I');
+        $pdf->Output('Lap. Aps. Pelayanan Publik 2021.pdf', 'I');
 
     }
 

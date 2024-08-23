@@ -286,7 +286,7 @@ class Aplikasi2024AdmPemerintahController extends Controller
         $pdf->writeHTML($html, true, false, true, false, '');
 
         // Tutup dan tampilkan PDF
-        $pdf->Output('Lap. Aps. Administrasi Pemerintahan.pdf', 'I');
+        $pdf->Output('Lap. Aps. Administrasi Pemerintahan 2024.pdf', 'I');
 
     }
 
