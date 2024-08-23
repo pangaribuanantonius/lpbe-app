@@ -220,12 +220,12 @@
         <!-- Panduan end -->
 
         <!-- FAQ start -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link collapsed rounded-5" href="faq.html">
             <i class="bi bi-question-circle"></i>
             <span>Sering ditanyakan</span>
           </a>
-        </li>
+        </li> -->
         <!-- FAQ end -->
     </aside>
     <!-- End Sidebar-->
