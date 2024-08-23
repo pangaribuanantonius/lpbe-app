@@ -257,21 +257,21 @@
 									<p class="badge text-danger">
 										<i class="bi bi-x-circle"></i> {{ $c->verifikasi }}
 									</p>
-									@elseif($aps->verifikasi == 'Ditinjau')
+									@elseif($c->verifikasi == 'Ditinjau')
 									<p class="badge text-primary">
-										<i class="bi bi-info-circle"></i> {{ $aps->verifikasi }}
+										<i class="bi bi-info-circle"></i> {{ $c->verifikasi }}
 									</p>
 									@elseif($c->verifikasi == 'Disetujui')
 									<p class="badge text-success">
 										<i class="bi bi-check-circle"></i> {{ $c->verifikasi }}
 									</p>
 									@elseif($c->verifikasi == 'Kosong')
-									<p class="badge text-primary">
-										<i class="bi bi-info-circle"></i> Belum Diverifikasi
+									<p class="badge text-danger">
+										<i class="bi bi-ban"></i> Belum Diverifikasi
 									</p>
 									@else
-									<p class="badge text-primary">
-										<i class="bi bi-info-circle"></i> Belum Diverifikasi
+									<p class="badge text-danger">
+										<i class="bi bi-ban"></i> Belum Diverifikasi
 									</p>
 									@endif
 								</td>
