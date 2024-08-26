@@ -42,11 +42,19 @@
                 <img src="{{ url('/')}}/konten/panduan/finalisasi.png" class="w-100" alt="">
             </div>
             <div class="mt-3">
-                7. Untuk merubah profil pengguna, silahkan pilih pengaturan akun pada icon dan nama pengguna yang berada di sudut kanan atas, lalu pilih tab ubah profi untuk mengubah data pengguna. <br>
-                <img src="{{ url('/') }}/konten/panduan/ubah profil.png" class="w-100" alt="">
+                7. Berikut ini adalah tampilan unggah berkas, lakukan pengunggahan berkas setelah data layanan diverifikasi oleh admin. <br>
+                <img src="{{ url('/') }}/konten/panduan/uploadberkas.png" class="w-100" alt="">
             </div>
             <div class="mt-3">
-                8. Untuk mengubah password pengguna, pilih tab ubah profi untuk mengubah password pengguna. Ketikkan password yang lama, lalu ketik juga password baru beserta konfirmasi password yang sudah di entri pada kolom password baru. <br>
+                8. Setelah selesai mengunggah berkas, akan muncul tampilan data berkas, tekan lihat untuk melihat detail file atau mengubah file, atau tekan kirim untuk meneruskan ke admin.
+                <img src="{{ url('/') }}/konten/panduan/databerkasaps.png" class="w-100" alt="">
+            </div>
+            <div class="mt-3">
+                9. Untuk merubah profil pengguna, silahkan pilih pengaturan akun pada icon dan nama pengguna yang berada di sudut kanan atas, lalu pilih tab ubah profi untuk mengubah data pengguna. <br>
+                <img src="{{ url('/') }}/konten/panduan/uploadberkas.png" class="w-100" alt="">
+            </div>
+            <div class="mt-3">
+                10. Untuk mengubah password pengguna, pilih tab ubah profi untuk mengubah password pengguna. Ketikkan password yang lama, lalu ketik juga password baru beserta konfirmasi password yang sudah di entri pada kolom password baru. <br>
                 <img src="{{ url('/') }}/konten/panduan/ubahpassword.png" class="w-100" alt="">
             </div>
         </p>
