@@ -33,7 +33,7 @@
             <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png" class="img-fluid gambarLogin d-none d-md-block" alt="gambarLogin" />
           </div>
           <small
-            ><p class="text-center text-white fs-5 leftText"><i class="bi bi-boxes"></i> Monev <span class="strong">LPBE</span></p></small
+            ><p class="text-center text-white fs-5 leftText"><i class="bi bi-boxes"></i> Monev <span class="strong">SPBE</span></p></small
           >
           <small class="text-center text-white text-wrap mb-3">Diskominfostan<br />Kabupaten Deli Serdang</small>
         </div>
