@@ -9,8 +9,7 @@
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon.ico" rel="icon" />
-
+    <link href="https://portal.deliserdangkab.go.id/wp-content/berkas/1718002763.png" rel="icon" />
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
