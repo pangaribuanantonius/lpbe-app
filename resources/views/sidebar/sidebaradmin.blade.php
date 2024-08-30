@@ -239,9 +239,9 @@
       <div class="copyright">
         &copy; Hak Cipta <strong><span>Diskominfostan Kab. Deli Serdang</span></strong>
       </div>
-      <div class="credits">
-        Desain oleh <a href="https://jonkolong.github.io/" target="_blank">Jon Kolong</a>
-      </div>
+      <!-- <div class="credits">
+        Desain oleh <a href="https://dinaskominfostan.deliserdangkab.go.id" target="_blank">Jon Kolong</a>
+      </div> -->
     </footer>
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-circle-fill"></i></a>
