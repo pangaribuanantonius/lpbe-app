@@ -59,7 +59,7 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				Apakah Yakin Mengirim Data Ini ?
+				Apakah Yakin Menghapus Data Ini ?
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Close</button>
