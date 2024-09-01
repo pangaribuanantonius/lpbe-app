@@ -31,7 +31,7 @@
 									<td>{{ $datainstansi->nama_instansi }}</td>
 									<td class="text-center">
 			                            <a class="btn btn-outline-danger text-center mb-1" href="{{ route('instansi.edit', $datainstansi->id) }}"><i class="bi bi-pencil" style="white-space: nowrap"></i> Edit</a>
-			                            <a class="btn btn-outline-primary text-center mb-1" href="{{ route('pengguna.index', ['instansi_id' => $datainstansi->id]) }}" style="white-space: nowrap"><i class="bi bi-eye"></i> Lihat</a>
+			                            <a class="btn btn-outline-primary text-center mb-1" href="{{ route('pengguna.index', ['instansi_id' => $datainstansi->id]) }}" style="white-space: nowrap"><i class="bi bi-eye"></i> Lihat Pengguna</a>
 									</td>
 								</tr>
 								@endforeach
