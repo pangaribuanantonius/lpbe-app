@@ -20,7 +20,7 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Progres entri Monev Aplikasi</h5>
+              <h5 class="card-title">Progres entri Monev Aplikasi <span>| {{ $year }}</span></h5>
 
               <!-- Pie Chart start -->
               <div id="pieChart"></div>
