@@ -61,8 +61,14 @@
                   <h5 class="card-title">Profil Pengguna</h5>
 
                   @foreach($pengguna as $peg)
+
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label ">Nama Pengguna</div>
+                    <div class="col-lg-3 col-md-4 label ">Username</div>
+                    <div class="col-lg-9 col-md-8">{{ $peg->username }}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Nama</div>
                     <div class="col-lg-9 col-md-8">{{ $peg->nama }}</div>
                   </div>
 
@@ -87,7 +93,7 @@
                   @method('PATCH')
 
                     <div class="row mb-3">
-                      <label for="nama" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
+                      <label for="nama" class="col-md-4 col-lg-3 col-form-label">Nama</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="nama" type="text" class="form-control" id="nama" value="{{ $ppp->nama }}">
                       </div>
