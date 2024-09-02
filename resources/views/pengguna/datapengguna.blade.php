@@ -22,7 +22,7 @@
               <!-- <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle"> -->
               <h1><i class="bi bi-person-circle"></i></h1>
               <h2>{{ \App\Models\User::where('username', session('username'))->first()->nama }}</h2>
-              <h3>{{ \App\Models\User::where('username', session('username'))->first()->level }}</h3>
+              <h3>{{ $nama_instansi }}</h3>
               <!-- <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
