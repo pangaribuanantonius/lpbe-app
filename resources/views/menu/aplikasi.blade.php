@@ -13,6 +13,7 @@
         </nav>
       </div>
       <!-- End Page Title -->
+      
 
       <section class="section dashboard">
         <div class="row">
@@ -36,7 +37,7 @@
                                 <option value="layanan_publik">Pelayanan Publik</option>
                                 <option value="administrasi_pemerintah">Administrasi Pemerintah</option>
                                 <option value="call_center">Layanan Call Center</option>
-                                <option value="website">Website</option>
+                                <option class="text-primary-emphasis fw-semibold" value="website">Website</option>
                               </select>
                             </div>
                           </div>
