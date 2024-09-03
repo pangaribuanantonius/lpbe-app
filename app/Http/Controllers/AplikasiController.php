@@ -25,9 +25,11 @@ class AplikasiController extends Controller
         $jumlahaplikasipublik = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->count();
         $jumlahaplikasiadm = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->count();
         $jumlahcallcenter = \App\Models\CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->count();
+        $jumlahwebsite = \App\Models\Website::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->count();
         $statuss = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->first();
         $statussaplikasiadm = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->first();
         $statusscallcenter = \App\Models\CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->first();
+        $statusswebsite = \App\Models\Website::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->first();
         $penandatanganan = Penandatanganan:: where('instansi_id', $instansi_id)->count();
         $verifapspublik = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->where('verifikasi', 'Disetujui')->count();
 
@@ -60,9 +62,9 @@ class AplikasiController extends Controller
                 }
             }elseif ($jenisaplikasi == 'website') {
                 if ($tahun == 2021) {
-                    return view('website.2021.index', ['website' => $website, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
+                    return view('website.2021.index', ['website' => $website, 'nama_instansi' => $nama_instansi, 'jumlahwebsite' => $jumlahwebsite, 'statusswebsite' => $statusswebsite, 'penandatanganan' => $penandatanganan]);
                 }elseif ($tahun == 2024) {
-                    return view('website.2024.index', ['website' => $website, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
+                    return view('website.2024.index', ['website' => $website, 'nama_instansi' => $nama_instansi, 'jumlahwebsite' => $jumlahwebsite, 'statusswebsite' => $statusswebsite, 'penandatanganan' => $penandatanganan]);
                 }else{
                     return view('404');
                 }
