@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class Website extends Model
 {
     use HasFactory;
-    protected $table = 'tabel_websiite';
+    protected $table = 'tabel_website';
     protected $guarded = [];
     public $incrementing = false;
 }
