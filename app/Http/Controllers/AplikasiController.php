@@ -20,6 +20,7 @@ class AplikasiController extends Controller
         $aplikasi = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->get();
         $aplikasiadm = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->get();
         $call_center = CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->get();
+        $website = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Website')->Where('tahun', $tahun)->get();
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
         $jumlahaplikasipublik = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->count();
         $jumlahaplikasiadm = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->count();
@@ -54,6 +55,14 @@ class AplikasiController extends Controller
                     return view('call_center.2021.index', ['call_center' => $call_center, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
                 }elseif ($tahun == 2024) {
                     return view('call_center.2024.index', ['call_center' => $call_center, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
+                }else{
+                    return view('404');
+                }
+            }elseif ($jenisaplikasi == 'website') {
+                if ($tahun == 2021) {
+                    return view('website.2021.index', ['website' => $website, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
+                }elseif ($tahun == 2024) {
+                    return view('website.2024.index', ['website' => $website, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
                 }else{
                     return view('404');
                 }
