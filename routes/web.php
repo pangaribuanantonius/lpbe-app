@@ -6,6 +6,7 @@ use App\Http\Controllers\AplikasiController;
 use App\Http\Controllers\Aplikasi2021Controller;
 use App\Http\Controllers\CallCenter2021Controller;
 use App\Http\Controllers\CallCenter2024Controller;
+use App\Http\Controllers\Website2021Controller;
 use App\Http\Controllers\Aplikasi2021AdmPemerintahController;
 use App\Http\Controllers\StatusAplikasi2021Controller;
 use App\Http\Controllers\StatusAplikasi2021AdmPemerintahController;
@@ -553,6 +554,10 @@ Route::patch('/superadminaplikasi/administrasi_pemerintah/2024/{aplikasi}/verifa
 Route::patch('/superadmincall_center/2024/{call_center}/verifadmin', [SuperadminStatusCallCenter2024Controller::class, 'verifadmin'])->name('superadmincall_center.2024.verifadmin')->middleware('auth');
 
 
+
+
+// website tahun 2021 level pengguna
+Route::get('/website/2021/create', [Website2021Controller::class, 'create'])->name('website.2021.create')->middleware('auth');
 
 
 

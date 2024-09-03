@@ -18,10 +18,10 @@
 	Tidak Ada Data
 </div>
 <a class="btn btn-outline-success" href="{{ route('website.2021.create') }}"><i class="bi bi-plus-circle"></i> Tambah Data</a>
-<a class="btn btn-outline-danger" href="#" data-bs-toggle="modal" data-bs-target="#finalisasinihilcallcenter"><i class="bi bi-check2-circle"></i> Finalisasi</a>
+<a class="btn btn-outline-danger" href="#" data-bs-toggle="modal" data-bs-target="#finalisasinihilwebsite"><i class="bi bi-check2-circle"></i> Finalisasi</a>
 
 <!-- Modal -->
-<div class="modal fade" id="finalisasinihilcallcenter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="finalisasinihilwebsite" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -33,27 +33,12 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
-				<form method="post" action="{{ route('website.2021.finalisasinihil') }}" enctype="multipart/form-data">
+				<form method="post" action="#" enctype="multipart/form-data">
 					@csrf
 					@method('POST')
 					<input type="hidden" name="tahun" value="2021">
 					<input type="hidden" name="instansi_id" class="form-control" value=" {{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
-					<input type="hidden" name="nama_layanan" value="Kosong">
-					<input type="hidden" name="nomor_layanan" value="Kosong">
-					<input type="hidden" name="deskripsi_layanan" value="Kosong">
-					<input type="hidden" name="whatsapp" value="Kosong">
-					<input type="hidden" name="telepon" value="Kosong">
-					<input type="hidden" name="platform" value="Kosong">
-					<input type="hidden" name="sektorlayanan" value="Kosong">
-					<input type="hidden" name="sektorlainnya" value="Kosong">
-					<input type="hidden" name="rahasia" value="Kosong">
-					<input type="hidden" name="nama_pic" value="Kosong">
-					<input type="hidden" name="jabatan_pic" value="Kosong">
-					<input type="hidden" name="kontak" value="Kosong">
-					<input type="hidden" name="status" value="Kosong">
-					<input type="hidden" name="verifikasi" value="Kosong">
-					<input type="hidden" name="catatan" value="Kosong">
-
+					
 					<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
 						<i class="bi bi-cloud-upload"></i> <span class="text">Lanjutkan</span>
 					</button>
@@ -66,7 +51,7 @@
 
 
 
-@elseif($jumlahcallcenter >=1 && $statusscallcenter->status == 'Sedang Proses')
+@elseif($jumlahwebsite >=1 && $statusswebsite->status == 'Sedang Proses')
 <div class="alert alert-info alert-dismissible fade show" role="alert">
 	Sedang Proses
 	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -86,21 +71,19 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($website as $c)
+							@foreach($website as $w)
 							<tr>
-								<td>{{ $c->nama_layanan }}</td>
-			                    <td>{{ $c->nomor_layanan }}</td>
-			                    <td>{{ $c->status }}</td>
+								<td>{{ $w->nama_website }}</td>
 			                    <td>
 			                    	<div class="text-center">
-			                            <a class="btn btn-outline-dark text-center mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $c->id }}"><i class="bi bi-eye"></i> Lihat</a>
-			                            <a class="btn btn-outline-primary text-center mb-1" style="white-space: nowrap;" href="{{ route('website.2021.edit', $c->id) }}"><i class="bi bi-pencil"></i> Edit</a>
+			                            <a class="btn btn-outline-dark text-center mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $w->id }}"><i class="bi bi-eye"></i> Lihat</a>
+			                            <a class="btn btn-outline-primary text-center mb-1" style="white-space: nowrap;" href="#"><i class="bi bi-pencil"></i> Edit</a>
 			                        </div>
 			                    </td>
 							</tr>
 
 							<!-- modal detail data -->
-							<div class="modal fade" id="view{{ $c->id }}" tabindex="-1" arial-labelly="exampleModalLabel" aria-hidden="true">
+							<div class="modal fade" id="view{{ $w->id }}" tabindex="-1" arial-labelly="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -111,45 +94,9 @@
 											<form>
 												<div class="form-group">
 													<label>Nama Layanan</label>
-													<input type="text" name="nama_layanan" class="form-control" value="{{ $c->nama_layanan }}" readonly="readonly">
+													<input type="text" name="nama_layanan" class="form-control" value="{{ $w->nama_layanan }}" readonly="readonly">
 												</div><br>
-												<div class="form-group">
-													<label>Nomor Layanan</label>
-													<input type="text" name="nomor_layanan" class="form-control" value="{{ $c->nomor_layanan }}" readonly="readonly">
-												</div><br>
-												<div class="form-group">
-													<label>Platform</label><br />
-													<input type="checkbox" name="whatsapp" value="Whatsapp" {{ $c->whatsapp=="Whatsapp"? 'checked':'' }} disabled> Whatsapp <br/>
-													<input type="checkbox" name="telepon" value="Telepon" {{ $c->telepon=="Telepon"? 'checked':'' }} disabled> Telepon <br/>
-												</div><br>
-												<div class="form-group">
-													<label>Platform Lainnya</label>
-													<input type="text" name="platform2" class="form-control" readonly="readonly" value="{{ $c->platform2 }}">
-												</div><br>
-												<div class="form-group">
-													<label>Deskripsi Layanan</label>
-													<textarea name="deskripsi_layanan" class="form-control" readonly="readonly">{{ $c->deskripsi_layanan }}</textarea>
-												</div><br>
-												<div class="form-group">
-													<label>Sektor Layanan</label>
-													<input type="text" name="sektorlayanan" class="form-control" readonly="readonly" value="{{ $c->sektorlayanan }}">
-												</div><br>
-												<div class="form-group">
-													<label>Sektor Lainnya</label>
-													<input type="text" name="sektorlainnya" class="form-control" readonly="readonly" value="{{ $c->sektorlainnya }}">
-												</div><br>
-												<div class="form-group">
-													<label>Nama PIC</label>
-													<input type="text" name="nama_pic" class="form-control" readonly="readonly" value="{{ $c->nama_pic }}">
-												</div><br>
-												<div class="form-group">
-													<label>Jabatan PIC</label>
-													<input type="text" name="jabatan_pic" class="form-control" readonly="readonly" value="{{ $c->jabatan_pic }}">
-												</div><br>
-												<div class="form-group">
-													<label>Kontak</label>
-													<input type="text" name="kontak" class="form-control" readonly="readonly" value="{{ $c->kontak }}">
-												</div><br>
+												
 											</form>
 										</div>
                                 <!-- <div class="modal-footer">
@@ -182,7 +129,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
-						<form method="post" action="{{ route('website.2021.updatestatuscallcenter') }}" enctype="multipart/form-data">
+						<form method="post" action="{{ route('website.2021.updatestatuswebsite') }}" enctype="multipart/form-data">
 							@csrf
 							@method('POST')
 							<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
@@ -197,7 +144,7 @@
 	</div>
 </section>
 
-@elseif($jumlahcallcenter >=1 && $statusscallcenter->status == 'Final')
+@elseif($jumlahwebsite >=1 && $statusswebsite->status == 'Final')
 <div class="alert alert-info alert-info alert-dismissible fade show" role="alert">
 	Sudah Final
 	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -247,25 +194,25 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($website as $c)
+							@foreach($website as $w)
 							<tr>
-								<td>{{ $c->nama_layanan }}</td>
-			                    <td>{{ $c->nomor_layanan }}</td>
-								<td>{{ $c->status }}</td>
+								<td>{{ $w->nama_layanan }}</td>
+			                    <td>{{ $w->nomor_layanan }}</td>
+								<td>{{ $w->status }}</td>
 								<td>
-									@if($c->verifikasi == 'Ditolak')
+									@if($w->verifikasi == 'Ditolak')
 									<p class="badge text-danger">
-										<i class="bi bi-x-circle"></i> {{ $c->verifikasi }}
+										<i class="bi bi-x-circle"></i> {{ $w->verifikasi }}
 									</p>
-									@elseif($c->verifikasi == 'Ditinjau')
+									@elseif($w->verifikasi == 'Ditinjau')
 									<p class="badge text-primary">
-										<i class="bi bi-info-circle"></i> {{ $c->verifikasi }}
+										<i class="bi bi-info-circle"></i> {{ $w->verifikasi }}
 									</p>
-									@elseif($c->verifikasi == 'Disetujui')
+									@elseif($w->verifikasi == 'Disetujui')
 									<p class="badge text-success">
-										<i class="bi bi-check-circle"></i> {{ $c->verifikasi }}
+										<i class="bi bi-check-circle"></i> {{ $w->verifikasi }}
 									</p>
-									@elseif($c->verifikasi == 'Kosong')
+									@elseif($w->verifikasi == 'Kosong')
 									<p class="badge text-danger">
 										<i class="bi bi-ban"></i> Belum Diverifikasi
 									</p>
@@ -277,13 +224,13 @@
 								</td>
 								<td>
 									<div class="text-center">
-										<a class="btn btn-outline-dark mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $c->id }}"><i class="bi bi-eye"></i> Lihat</a>
+										<a class="btn btn-outline-dark mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view2{{ $w->id }}"><i class="bi bi-eye"></i> Lihat</a>
 									</div>
 								</td>
 							</tr>
 
 							<!-- modal detail data -->
-							<div class="modal fade" id="view2{{ $c->id }}" tabindex="-1" arial-labelly="exampleModalLabel" aria-hidden="true">
+							<div class="modal fade" id="view2{{ $w->id }}" tabindex="-1" arial-labelly="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
@@ -294,53 +241,17 @@
 											<form>
 												<div class="form-group">
 													<label>Catatan</label>
-													@if($c->catatan == 'Kosong' || $c->catatan == '')
+													@if($w->catatan == 'Kosong' || $w->catatan == '')
 													<p>Tidak ada catatan</p>
 													@else
-													<p>{{$c->catatan }}</p>
+													<p>{{$w->catatan }}</p>
 													@endif
 												</div>
 												<div class="form-group">
 													<label>Nama Layanan</label>
-													<input type="text" name="nama_layanan" class="form-control" value="{{ $c->nama_layanan }}" readonly="readonly">
+													<input type="text" name="nama_layanan" class="form-control" value="{{ $w->nama_layanan }}" readonly="readonly">
 												</div><br>
-												<div class="form-group">
-													<label>Nomor Layanan</label>
-													<input type="text" name="nomor_layanan" class="form-control" value="{{ $c->nomor_layanan }}" readonly="readonly">
-												</div><br>
-												<div class="form-group">
-													<label>Platform</label><br />
-													<input type="checkbox" name="whatsapp" value="Whatsapp" {{ $c->whatsapp=="Whatsapp"? 'checked':'' }} disabled> Whatsapp <br/>
-													<input type="checkbox" name="telepon" value="Telepon" {{ $c->telepon=="Telepon"? 'checked':'' }} disabled> Telepon <br/>
-												</div><br>
-												<div class="form-group">
-													<label>Platform Lainnya</label>
-													<input type="text" name="platform2" class="form-control" readonly="readonly" value="{{ $c->platform2 }}">
-												</div><br>
-												<div class="form-group">
-													<label>Deskripsi Layanan</label>
-													<textarea name="deskripsi_layanan" class="form-control" readonly="readonly">{{ $c->deskripsi_layanan }}</textarea>
-												</div><br>
-												<div class="form-group">
-													<label>Sektor Layanan</label>
-													<input type="text" name="sektorlayanan" class="form-control" readonly="readonly" value="{{ $c->sektorlayanan }}">
-												</div><br>
-												<div class="form-group">
-													<label>Sektor Lainnya</label>
-													<input type="text" name="sektorlainnya" class="form-control" readonly="readonly" value="{{ $c->sektorlainnya }}">
-												</div><br>
-												<div class="form-group">
-													<label>Nama PIC</label>
-													<input type="text" name="nama_pic" class="form-control" readonly="readonly" value="{{ $c->nama_pic }}">
-												</div><br>
-												<div class="form-group">
-													<label>Jabatan PIC</label>
-													<input type="text" name="jabatan_pic" class="form-control" readonly="readonly" value="{{ $c->jabatan_pic }}">
-												</div><br>
-												<div class="form-group">
-													<label>Kontak</label>
-													<input type="text" name="kontak" class="form-control" readonly="readonly" value="{{ $c->kontak }}">
-												</div><br>
+												
 											</form>
 										</div>
                                 <!-- <div class="modal-footer">
@@ -354,7 +265,7 @@
                     @endforeach
                 </tbody>
             </table>
-             <!-- <a class="btn btn-sm btn-outline-success" href="{{ route('website.2021.laporanterkirimcallcenterexcel2021') }}" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a> -->
+             <!-- <a class="btn btn-sm btn-outline-success" href="{{ route('website.2021.laporanterkirimwebsiteexcel2021') }}" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a> -->
             
         </div>
     </div>
