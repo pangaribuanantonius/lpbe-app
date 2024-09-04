@@ -60,5 +60,23 @@ class Website2021Controller extends Controller
         return view('website.2021.edit', ['website' => $website, 'nama_instansi' => $nama_instansi]);
     }
 
+    public function update(Request $request, Website $website){
+        $website->update([
+            'tahun' => $request->tahun,
+            'nama_website' => $request->nama_website,
+            'deskripsi_website' => $request->deskripsi_website,
+            'url' => $request->url,
+            'pengembang' => $request->pengembang,
+            'tempat' => $request->tempat,
+            'rahasia' => $request->rahasia,
+            'ramah_anak' => $request->ramah_anak,
+            'nama_pic' => $request->nama_pic,
+            'jabatan_pic' => $request->jabatan_pic,
+            'kontak' => $request->kontak,
+            'status' => 'Sedang Proses',
+        ]);
+        return redirect('layanan/index?layanan=aplikasi&jenisaplikasi=website&tahun='.request('tahun').'')->with('success', 'Berhasil Menambah Data!');
+    }
+
 
 }

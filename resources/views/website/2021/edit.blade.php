@@ -17,9 +17,12 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <form method="post" action="#" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('website.2021.edit', ['website' => $website]) }}" enctype="multipart/form-data">
                         @csrf
-                        @method('POST')
+                        @method('PATCH')
+                        <input type="hidden" name="id">
+                        <input type="hidden" name="tahun" value="2021">
+                        <input type="hidden" name="instansi_id" class="form-control" value=" {{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
                         <div class="form-group mt-3">
                             <label>Nama Website</label>
                             <input type="text" name="nama_website" value="{{ $website->nama_website }}" class="form-control" required>
