@@ -159,7 +159,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
-						<form method="post" action="#" enctype="multipart/form-data">
+						<form method="post" action="{{ route('website.2021.updatefinal') }}" enctype="multipart/form-data">
 							@csrf
 							@method('POST')
 							<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">

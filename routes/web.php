@@ -561,6 +561,7 @@ Route::get('/website/2021/create', [Website2021Controller::class, 'create'])->na
 Route::post('/website/2021/store', [Website2021Controller::class, 'store'])->name('website.2021.store')->middleware('auth');
 Route::get('/website/2021/{website}/edit', [Website2021Controller::class, 'edit'])->name('website.2021.edit')->middleware('auth');
 Route::patch('/website/2021/{website}/edit', [Website2021Controller::class, 'update'])->name('website.2021.edit')->middleware('auth');
+Route::post('/website/2021/updatefinal', [Website2021Controller::class, 'updatefinal'])->name('website.2021.updatefinal')->middleware('auth');
 
 
 

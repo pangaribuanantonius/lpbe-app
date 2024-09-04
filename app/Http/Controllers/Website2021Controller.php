@@ -78,5 +78,14 @@ class Website2021Controller extends Controller
         return redirect('layanan/index?layanan=aplikasi&jenisaplikasi=website&tahun='.request('tahun').'')->with('success', 'Berhasil Menambah Data!');
     }
 
+    public function updatefinal(Request $request){
+        $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
+        $tahun = request('tahun');
+        \App\Models\Website::Where('instansi_id', $instansi_id)->Where('tahun', '2021')->update([
+            'status' => 'Final',
+        ]);
+         return redirect('layanan/index?layanan=aplikasi&jenisaplikasi=website&tahun=2021')->with('updatestatus', 'Berhasil Memperbarui Data!');
+    }
+
 
 }
