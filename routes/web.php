@@ -559,6 +559,7 @@ Route::patch('/superadmincall_center/2024/{call_center}/verifadmin', [Superadmin
 // website tahun 2021 level pengguna
 Route::get('/website/2021/create', [Website2021Controller::class, 'create'])->name('website.2021.create')->middleware('auth');
 Route::post('/website/2021/store', [Website2021Controller::class, 'store'])->name('website.2021.store')->middleware('auth');
+Route::get('/website/2021/{website}/edit', [Website2021Controller::class, 'edit'])->name('website.2021.edit')->middleware('auth');
 
 
 

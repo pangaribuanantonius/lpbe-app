@@ -20,6 +20,8 @@
                     <form method="post" action="{{ route('website.2021.store') }}" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
+                        <input type="hidden" name="tahun" value="2021">
+                        <input type="hidden" name="instansi_id" class="form-control" value=" {{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
                         <div class="form-group mt-3">
                             <label>Nama Website</label>
                             <input type="text" name="nama_website" class="form-control" required>

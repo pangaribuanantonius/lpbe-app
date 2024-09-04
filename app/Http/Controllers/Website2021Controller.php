@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aplikasi; 
+use App\Models\Website; 
 use App\Models\User;
 use App\Models\Instansi;
 use App\Models\Penandatanganan; 
@@ -39,8 +39,25 @@ class Website2021Controller extends Controller
             'id' => \Str::random(8),
             'tahun' => $request->tahun,
             'instansi_id' => $request->instansi_id,
-            'nama'
+            'nama_website' => $request->nama_website,
+            'deskripsi_website' => $request->deskripsi_website,
+            'url' => $request->url,
+            'pengembang' => $request->pengembang,
+            'tempat' => $request->tempat,
+            'rahasia' => $request->rahasia,
+            'ramah_anak' => $request->ramah_anak,
+            'nama_pic' => $request->nama_pic,
+            'jabatan_pic' => $request->jabatan_pic,
+            'kontak' => $request->kontak,
+            'status' => 'Sedang Proses',
         ]);
+        return redirect('layanan/index?layanan=aplikasi&jenisaplikasi=website&tahun='.request('tahun').'')->with('success', 'Berhasil Menambah Data!');
+    }
+
+    public function edit(Website $website){
+        $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
+        $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
+        return view('website.2021.edit', ['website' => $website, 'nama_instansi' => $nama_instansi]);
     }
 
 

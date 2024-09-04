@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Aplikasi;
 use App\Models\CallCenter;
+use App\Models\Website;
 use App\Models\Instansi;
 use App\Models\Penandatanganan;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class AplikasiController extends Controller
         $aplikasi = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->get();
         $aplikasiadm = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->get();
         $call_center = CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->get();
-        $website = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Website')->Where('tahun', $tahun)->get();
+        $website = Website::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->get();
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
         $jumlahaplikasipublik = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->count();
         $jumlahaplikasiadm = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->count();

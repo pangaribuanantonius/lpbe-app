@@ -15,12 +15,12 @@ return new class extends Migration
             $table->string('id', 10)->unique();
             $table->string('instansi_id', 10)->nullable(true)->default('Kosong');
             $table->string('nama_website')->nullable(true)->default('Kosong');
-            $table->longText('deskripsi_website')->nullable(true);
+            $table->longText('deskripsi_website')->nullable(true)->default('Kosong');
             $table->string('url')->nullable(true)->default('Kosong');
             $table->string('pengembang')->nullable(true)->default('Kosong');
             $table->string('tempat')->nullable(true)->default('Kosong');
             $table->string('rahasia')->nullable(true)->default('Kosong');
-            $table->string('ramah anak')->nullable(true)->default('Kosong');
+            $table->string('ramah_anak')->nullable(true)->default('Kosong');
             $table->string('nama_pic')->nullable(true)->default('Kosong');
             $table->string('jabatan_pic')->nullable(true)->default('Kosong');
             $table->string('kontak')->nullable(true)->default('Kosong');

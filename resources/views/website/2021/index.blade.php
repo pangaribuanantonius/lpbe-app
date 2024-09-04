@@ -64,9 +64,7 @@
 					<table class="table table-hover datatable">
 						<thead>
 							<tr>
-								<th>Nama Layanan</th>
-								<th>Nomor Layanan</th>
-			                    <th>Status</th>
+			                    <th>Nama Website</th>
 			                    <th>Aksi</th>
 							</tr>
 						</thead>
@@ -77,7 +75,7 @@
 			                    <td>
 			                    	<div class="text-center">
 			                            <a class="btn btn-outline-dark text-center mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#view{{ $w->id }}"><i class="bi bi-eye"></i> Lihat</a>
-			                            <a class="btn btn-outline-primary text-center mb-1" style="white-space: nowrap;" href="#"><i class="bi bi-pencil"></i> Edit</a>
+			                            <a class="btn btn-outline-primary text-center mb-1" style="white-space: nowrap;" href="{{ route('website.2021.edit', $w->id) }}"><i class="bi bi-pencil"></i> Edit</a>
 			                        </div>
 			                    </td>
 							</tr>
@@ -129,7 +127,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
-						<form method="post" action="{{ route('website.2021.updatestatuswebsite') }}" enctype="multipart/form-data">
+						<form method="post" action="#" enctype="multipart/form-data">
 							@csrf
 							@method('POST')
 							<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
