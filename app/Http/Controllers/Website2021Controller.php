@@ -26,11 +26,22 @@ use Carbon\Carbon;
 
 class Website2021Controller extends Controller
 {
-     public function create(){
+    public function create(){
         $layanan = request('layanan');
         $tahun = request('tahun');
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
         return view('website.2021.create', ['nama_instansi' => $nama_instansi]);
     }
+
+    public function store(Request $request){
+        \App\Models\Website::create([
+            'id' => \Str::random(8),
+            'tahun' => $request->tahun,
+            'instansi_id' => $request->instansi_id,
+            'nama'
+        ]);
+    }
+
+
 }
