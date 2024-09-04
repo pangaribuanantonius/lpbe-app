@@ -562,6 +562,9 @@ Route::post('/website/2021/store', [Website2021Controller::class, 'store'])->nam
 Route::get('/website/2021/{website}/edit', [Website2021Controller::class, 'edit'])->name('website.2021.edit')->middleware('auth');
 Route::patch('/website/2021/{website}/edit', [Website2021Controller::class, 'update'])->name('website.2021.edit')->middleware('auth');
 Route::post('/website/2021/updatefinal', [Website2021Controller::class, 'updatefinal'])->name('website.2021.updatefinal')->middleware('auth');
+Route::post('/website/2021/finalisasinihil', [Website2021Controller::class, 'finalisasinihil'])->name('website.2021.finalisasinihil')->middleware('auth');
+Route::get('/website/2021/cetaklaporanpdf', [Website2021Controller::class, 'cetakwebsitepdf_2021'])->name('website.2021.cetaklaporanpdf')->middleware('auth');
+Route::get('/Website/2021/cetaklaporanexcel', [Website2021Controller::class, 'exportexcel'])->name('website.2021.cetaklaporanexcel');
 
 
 

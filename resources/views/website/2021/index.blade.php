@@ -33,12 +33,23 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button>
-				<form method="post" action="#" enctype="multipart/form-data">
+				<form method="post" action="{{ route('website.2021.finalisasinihil') }}" enctype="multipart/form-data">
 					@csrf
 					@method('POST')
 					<input type="hidden" name="tahun" value="2021">
 					<input type="hidden" name="instansi_id" class="form-control" value=" {{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
-					
+					<input type="hidden" name="nama_website" value="Kosong">
+					<input type="hidden" name="deskripsi_website" value="Kosong">
+					<input type="hidden" name="url" value="Kosong">
+					<input type="hidden" name="pengembang" value="Kosong">
+					<input type="hidden" name="rahasia" value="Kosong">
+					<input type="hidden" name="ramah_anak" value="Kosong">
+					<input type="hidden" name="nama_pic" value="Kosong">
+					<input type="hidden" name="jabatan_pic" value="Kosong">
+					<input type="hidden" name="kontak" value="Kosong">
+					<input type="hidden" name="status" value="Kosong">
+					<input type="hidden" name="verifikasi" value="Kosong">
+					<input type="hidden" name="catatan" value="Kosong">
 					<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
 						<i class="bi bi-cloud-upload"></i> <span class="text">Lanjutkan</span>
 					</button>
@@ -179,15 +190,7 @@
 	Sudah Final
 	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
-<!--<div class="mb-2" align="right">
-	<a class="btn btn-outline-danger" style="margin-left: 762px;" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
-		<i class="bi bi-printer"></i> cetak
-	</a>
-	<ul class="dropdown-menu">
-		<li><a class="dropdown-item" href="{{ route('website.2021.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a></li>
-		<li><a class="dropdown-item" href="#" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a></li>
-	</ul>
-</div>-->
+
 
 @if($penandatanganan == 0)
 <div class="text-end">
@@ -216,8 +219,8 @@
 					<table class="table table-hover datatable">
 						<thead>
 							<tr>
-								<th>Nama Layanan</th>
-								<th>Nomor Layanan</th>
+								<th>Nama Website</th>
+								<th>Tempat</th>
 			                    <th>Status</th>
 								<th>Verifikasi</th>
 			                    <th>Aksi</th>
@@ -226,8 +229,8 @@
 						<tbody>
 							@foreach($website as $w)
 							<tr>
-								<td>{{ $w->nama_layanan }}</td>
-			                    <td>{{ $w->nomor_layanan }}</td>
+								<td>{{ $w->nama_website }}</td>
+			                    <td>{{ $w->tempat }}</td>
 								<td>{{ $w->status }}</td>
 								<td>
 									@if($w->verifikasi == 'Ditolak')
@@ -295,7 +298,7 @@
                     @endforeach
                 </tbody>
             </table>
-             <!-- <a class="btn btn-sm btn-outline-success" href="{{ route('website.2021.laporanterkirimwebsiteexcel2021') }}" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a> -->
+             
             
         </div>
     </div>
