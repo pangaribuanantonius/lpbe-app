@@ -24,19 +24,19 @@
                         <input type="hidden" name="instansi_id" class="form-control" value=" {{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" readonly>
                         <div class="form-group mt-3">
                             <label>Nama Website</label>
-                            <input type="text" name="nama_website" class="form-control" required>
+                            <input type="text" name="nama_website" class="form-control" value="{{ old('nama_website') }}" required>
                         </div>
                         <div class="form-group mt-3">
                             <label>Deskripsi Website</label>
-                            <textarea name="deskripsi_website" class="form-control"></textarea>
+                            <textarea name="deskripsi_website" class="form-control" value="{{ old('deskripsi_website') }}"></textarea>
                         </div>
                         <div class="form-group mt-3">
                             <label>Alamat URL</label>
-                            <input type="url" name="url" class="form-control" required>
+                            <input type="url" name="url" class="form-control" value="{{ old('url') }}" required>
                         </div>
                         <div class="form-group mt-3">
                             <label>Pengembang</label>
-                            <select name="pengembang" class="form-control" required>
+                            <select name="pengembang" class="form-control" value="{{ old('pengembang') }}" required>
                                 <option value="">-- Pilih --</option>
                                 <option value="Dikembangkan Sendiri">Dikembangkan Sendiri</option>
                                 <option value="Dinas Komunikasi, Informatika, Statistik dan Persandian">Dinas Komunikasi, Informatika, Statistik dan Persandian</option>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group mt-3">
                             <label>Tempat</label>
-                            <select name="tempat" class="form-control" required>
+                            <select name="tempat" class="form-control" value="{{ old('tempat') }}" required>
                                 <option value="">-- Pilih --</option>
                                 <option value="Unit Kerja Terkait">Unit Kerja Terkait</option>
                                 <option value="Dinas Komunikasi, Informatika, Statistik dan Persandian">Dinas Komunikasi, Informatika, Statistik dan Persandian</option>
