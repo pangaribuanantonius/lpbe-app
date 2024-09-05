@@ -59,7 +59,6 @@
 					<input type="hidden" name="deskripsi" value="Kosong">
 					<input type="hidden" name="daftarlayanan" value="Kosong">
 					<input type="hidden" name="daftarproduklayanan" value="Kosong">
-					<input type="hidden" name="rahasia" value="Kosong">
 					<input type="hidden" name="pengguna" value="Kosong">
 					<input type="hidden" name="nama_pic" value="Kosong">
 					<input type="hidden" name="jabatan_pic" value="Kosong">
