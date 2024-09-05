@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Aplikasi;
 use App\Models\CallCenter;
+use App\Models\Website;
 use App\Models\Instansi;
 use Illuminate\Http\Request;
 
@@ -17,13 +18,16 @@ class SuperadminAplikasiController extends Controller
         $aplikasi = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->get();
         $aplikasiadm = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->get();
         $call_center = CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->get();
+        $website = Website::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->get();
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
         $jumlahaplikasipublik = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->count();
         $jumlahaplikasiadm = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->count();
         $jumlahcallcenter = \App\Models\CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->count();
+        $jumlahwebsite = \App\Models\Website::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->count();
         $statuss = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->first();
         $statussaplikasiadm = \App\Models\Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $tahun)->first();
         $statusscallcenter = \App\Models\CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->first();
+        $statusswebsite = \App\Models\Website::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->first();
 
         if ($layanan == 'aplikasi') {
             if ($jenisaplikasi == 'layanan_publik') {
@@ -47,6 +51,14 @@ class SuperadminAplikasiController extends Controller
                     return view('superadmincall_center.2021.index', ['call_center' => $call_center, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter]);
                 }elseif ($tahun == '2024') {
                     return view('superadmincall_center.2024.index', ['call_center' => $call_center, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter]);
+                }else{
+                    return view('404');
+                }
+            }elseif ($jenisaplikasi == 'website') {
+                if ($tahun == '2021') {
+                    return view('superadminwebsite.2021.index', ['website' => $website, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi, 'jumlahwebsite' => $jumlahwebsite, 'statusswebsite' => $statusswebsite]);
+                }elseif ($tahun == '2024') {
+                    return view('superadminwebsite.2024.index', ['website' => $website, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi, 'jumlahwebsite' => $jumlahwebsite, 'statusswebsite' => $statusswebsite]);
                 }else{
                     return view('404');
                 }
