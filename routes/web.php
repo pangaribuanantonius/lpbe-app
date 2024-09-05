@@ -32,6 +32,7 @@ use App\Http\Controllers\SuperadminStatusAplikasi2024Controller;
 use App\Http\Controllers\SuperadminStatusAplikasi2025Controller;
 use App\Http\Controllers\SuperadminStatusCallCenter2021Controller;
 use App\Http\Controllers\SuperadminStatusCallCenter2024Controller;
+use App\Http\Controllers\SuperadminStatusWebsite2021Controller;
 use App\Http\Controllers\LaporanAplikasiLayananPublikExcelAdmin2021Controller;
 use App\Http\Controllers\LaporanAplikasiPemerintahAdmin2021Controller;
 use App\Http\Controllers\SpbeController;
@@ -565,6 +566,9 @@ Route::post('/website/2021/updatefinal', [Website2021Controller::class, 'updatef
 Route::post('/website/2021/finalisasinihil', [Website2021Controller::class, 'finalisasinihil'])->name('website.2021.finalisasinihil')->middleware('auth');
 Route::get('/website/2021/cetaklaporanpdf', [Website2021Controller::class, 'cetakwebsitepdf_2021'])->name('website.2021.cetaklaporanpdf')->middleware('auth');
 Route::get('/Website/2021/cetaklaporanexcel', [Website2021Controller::class, 'exportexcel'])->name('website.2021.cetaklaporanexcel');
+
+// website tahun 2021 level admin
+Route::post('/superadminwebsite/2021/updatestatus', [SuperadminStatusWebsite2021Controller::class, 'updatestatus'])->name('superadminwebsite.2021.updatestatus')->middleware('auth');
 
 
 

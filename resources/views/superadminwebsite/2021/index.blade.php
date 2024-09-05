@@ -326,7 +326,7 @@
 		<div class="modal fade" id="modalStatus2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form method="post" action="#" enctype="multipart/form-data">
+					<form method="post" action="{{ route('superadminwebsite.2021.updatestatus') }}" enctype="multipart/form-data">
 						@csrf
 						@method('POST')
 						<input type="hidden" name="instansi_id" value="{{ $w->instansi_id }}">
