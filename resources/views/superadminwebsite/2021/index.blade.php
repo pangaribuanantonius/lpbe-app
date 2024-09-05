@@ -215,7 +215,7 @@
 							<div class="modal fade" id="verifikasi{{ $w->id }}" tabindex="-1" aria-labelly="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
-										<form method="post" action="#" enctype="multipart/form-data">
+										<form method="post" action="{{ route('superadminwebsite.2021.verifadmin', ['website' => $w->id]) }}" enctype="multipart/form-data">
 											@csrf
 											@method('PATCH')
 											<input type="hidden" name="id" value="{{ $w->id }}">
