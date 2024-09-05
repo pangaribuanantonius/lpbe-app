@@ -89,6 +89,10 @@
 													<input type="text" name="sektorlainnya" class="form-control" readonly="readonly" value="{{ $c->sektorlainnya }}">
 												</div><br>
 												<div class="form-group">
+													<label>Apakah layanan ini menyimpan data pribadi/rahasia</label><br>
+													{{ $c->rahasia }}
+												</div><br>
+												<div class="form-group">
 													<label>Nama PIC</label>
 													<input type="text" name="nama_pic" class="form-control" readonly="readonly" value="{{ $c->nama_pic }}">
 												</div><br>
@@ -299,6 +303,10 @@
 												<div class="form-group">
 													<label>Sektor Lainnya</label>
 													<input type="text" name="sektorlainnya" class="form-control" readonly="readonly" value="{{ $c->sektorlainnya }}">
+												</div><br>
+												<div class="form-group">
+													<label>Apakah layanan ini menyimpan data pribadi/rahasia</label><br>
+													{{ $c->rahasia }}
 												</div><br>
 												<div class="form-group">
 													<label>Nama PIC</label>
