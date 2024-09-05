@@ -63,6 +63,7 @@
 					<input type="hidden" name="pengguna" value="Kosong">
 					<input type="hidden" name="nama_pic" value="Kosong">
 					<input type="hidden" name="jabatan_pic" value="Kosong">
+					<input type="hidden" name="rahasia" value="Kosong">
 					<input type="hidden" name="kontak" value="Kosong">
 					<input type="hidden" name="status" value="Kosong">
 					<input type="hidden" name="verifikasi" value="Kosong">
@@ -222,6 +223,10 @@
 					<div class="form-group">
 						<label>Produk Layanan</label>
 						<textarea name="daftarproduklayanan" class="form-control" readonly="readonly">{{ $aps->daftarproduklayanan }}</textarea>
+					</div><br>
+					<div class="form-group">
+						<label>Apakah layanan ini menyimpan data pribadi/rahasia</label><br>
+						{{ $aps->rahasia }}
 					</div><br>
 					<div class="form-group">
 						<label>Nama PIC</label>
@@ -496,6 +501,10 @@
 												<div class="form-group">
 													<label>Nama PIC</label>
 													<input type="text" name="nama_pic" class="form-control" readonly="readonly" value="{{ $aps->nama_pic }}">
+												</div><br>
+												<div class="form-group">
+													<label>Apakah layanan ini menyimpan data pribadi/rahasia</label><br>
+													{{ $aps->rahasia }}
 												</div><br>
 												<div class="form-group">
 													<label>Jabatan PIC</label>
