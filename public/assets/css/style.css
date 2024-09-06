@@ -89,6 +89,11 @@ h6 {
   opacity: 1;
 }
 
+/* datatable */
+.table-progress .table-head {
+  font-size: 12px;
+}
+
 /* default Bootstrap stylings override */
 
 /* Dropdown menus */

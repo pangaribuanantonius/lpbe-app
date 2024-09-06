@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Aplikasi;
 use App\Models\CallCenter;
+use App\Models\Website;
 use App\Models\Spbe;
 use App\Models\Penandatanganan;
 use App\Models\Berkas;
@@ -27,10 +28,11 @@ class MenuController extends Controller
         $aplikasi_layanan_publik = Aplikasi::Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $year)->Where('instansi_id', $instansi_id)->where('status','!=', 'Kosong')->count();
         $aplikasi_administrasi_pemerintah = Aplikasi::Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->Where('instansi_id', $instansi_id)->where('status','!=', 'Kosong')->count();
         $call_center = CallCenter::Where('tahun', $year)->Where('instansi_id', $instansi_id)->where('status','!=', 'Kosong')->count();
+        $website = Website::Where('tahun', $year)->Where('instansi_id', $instansi_id)->where('status','!=', 'Kosong')->count();
 
         $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
 
-        return view('menu.index', ['nama_instansi' => $nama_instansi, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'year' => $year, 'call_center' =>$call_center, 'instansiall' => $instansiall, 'pemberitahuan' => $pemberitahuan]);
+        return view('menu.index', ['nama_instansi' => $nama_instansi, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'website' => $website, 'year' => $year, 'call_center' =>$call_center, 'instansiall' => $instansiall, 'pemberitahuan' => $pemberitahuan]);
     }
 
     public function faq(){

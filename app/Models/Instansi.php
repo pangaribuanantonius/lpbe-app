@@ -17,6 +17,9 @@ class Instansi extends Model
     public function call_center(){
         return $this->hasMany(CallCenter::class, 'instansi_id', 'id');
     }
+    public function website(){
+        return $this->hasMany(Website::class, 'instansi_id', 'id');
+    }
     public function spbe(){
         return $this->hasMany(Spbe::class, 'instansi_id', 'id');
     }
