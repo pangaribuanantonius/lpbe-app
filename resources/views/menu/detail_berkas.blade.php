@@ -55,6 +55,17 @@
                                     <a class="btn btn-outline-danger" href="{{ route('berkas.call_center.ubah_berkas', $berkas->id) }}"><i class="bi bi-pencil"></i>Ganti</a>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Layanan Website</td>
+                                <td class="text-center">
+                                    @if($berkas->file_website == null)
+                                    <a class="btn btn-outline-primary" target="_blank" href="404"><i class="bi bi-eye"></i>Lihat</a>
+                                    @else
+                                    <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_website }}"><i class="bi bi-eye"></i>Lihat</a>
+                                    @endif
+                                    <a class="btn btn-outline-danger" href="#"><i class="bi bi-pencil"></i>Ganti</a>
+                                </td>
+                            </tr>
                             @elseif($berkas->posisi == 'Admin')<tr>
                                 <td>Layanan Aplikasi Publik</td>
                                 <td class="text-center">
