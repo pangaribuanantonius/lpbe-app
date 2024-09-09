@@ -33,6 +33,7 @@ use App\Http\Controllers\SuperadminStatusAplikasi2025Controller;
 use App\Http\Controllers\SuperadminStatusCallCenter2021Controller;
 use App\Http\Controllers\SuperadminStatusCallCenter2024Controller;
 use App\Http\Controllers\SuperadminStatusWebsite2021Controller;
+use App\Http\Controllers\SuperadminStatusWebsite2024Controller;
 use App\Http\Controllers\LaporanAplikasiLayananPublikExcelAdmin2021Controller;
 use App\Http\Controllers\LaporanAplikasiPemerintahAdmin2021Controller;
 use App\Http\Controllers\SpbeController;
