@@ -35,7 +35,7 @@
                     show: true
                   }
                 },
-                  labels: ['Layanan Publik', 'Administrasi Pemerintahan', 'Call Center']
+                  labels: ['Layanan Publik', 'Administrasi Pemerintahan', 'Call Center', 'Website']
                       }).render();
                     });
               </script>
@@ -104,6 +104,27 @@
           </div>
         </div>
 
+        <!-- Website -->
+        <div class="col-xxl-4 col-md-6">
+          <div class="card info-card customers-card">
+            <div class="card-body">
+              <h5 class="card-title">Layanan<br>Website</h5>
+
+              <div class="d-flex align-items-center">
+                <div class="card-icon rounded-circle d-flex bg-secondary-subtle align-items-center justify-content-center">
+                  <i class="bi bi-globe"></i>
+                </div>
+                <div class="ps-3">
+                  <h6>{{ $website }}</h6>
+                  <!-- <span class="text-danger small pt-1 fw-bold">300%</span> <span class="text-muted small pt-2 ps-1">meningkat</span> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Website -->
+
+
         <!-- Table progres unit kerja start -->
         <div class="col-12">
           <div class="card overflow-auto">
@@ -118,6 +139,7 @@
                     <th scope="col" class="text-wrap text-center align-middle">Aplikasi Pelayanan Publik</th>
                     <th scope="col" class="text-wrap text-center align-middle">Administrasi Pemerintahan</th>
                     <th scope="col" class="text-wrap text-center align-middle">Call Center</th>
+                    <th scope="col" class="text-wrap text-center align-middle">Website</th>
                     <th scope="col" class="text-wrap text-center align-middle">Status</th>
                   </tr>
                 </thead>
@@ -130,14 +152,17 @@
                   $hitung_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun',$year)->Where('status', '!=','Kosong')->count();
                   $hitung_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->Where('status', '!=','Kosong')->count();
                   $hitung_call_center = $i->call_center()->Where('tahun', $year)->Where('status', '!=','Kosong')->count();
+                  $hitung_website = $i->website()->Where('tahun', $year)->Where('status', '!=','Kosong')->count();
 
                   $status_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $year)->count();
                   $status_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->count();
                   $status_call_center = $i->call_center()->Where('tahun', $year)->count();
+                  $status_website = $i->website()->Where('tahun', $year)->count();
 
                   $status_publik_proses = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $year)->Where('status', 'Sedang Proses')->count();
                   $status_administrasi_proses = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->Where('status', 'Sedang Proses')->count();
                   $status_call_center_proses = $i->call_center()->where('tahun', $year)->Where('status','Sedang Proses')->count();
+                  $status_website_proses = $i->website()->where('tahun', $year)->Where('status','Sedang Proses')->count();
 
                   $status_publik_final = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')
                   ->Where('tahun', $year)
@@ -156,6 +181,13 @@
                   ->count();
 
                   $status_call_center_final = $i->call_center()->where('tahun', $year)
+                  ->where(function($query) {
+                    $query->where('status', 'Final')
+                          ->orWhere('status', 'Kosong');
+                    })
+                  ->count();
+
+                  $status_website_final = $i->website()->where('tahun', $year)
                   ->where(function($query) {
                     $query->where('status', 'Final')
                           ->orWhere('status', 'Kosong');
@@ -184,14 +216,20 @@
                     <td class="align-middle text-center">{{ $hitung_call_center }}</td>
                     @endif
 
-                    @if($hitung_publik == 0 && $hitung_administrasi == 0 && $hitung_call_center == 0)
+                    @if($hitung_website == 0)
+                    <td class="align-middle text-center">-</td>
+                    @else
+                    <td class="align-middle text-center">{{ $hitung_website }}</td>
+                    @endif
+
+                    @if($hitung_publik == 0 && $hitung_administrasi == 0 && $hitung_call_center == 0 && $hitung_website == 0)
                     <td class="align-middle text-center"><a class="badge text-danger align-middle rounded-5"><i class="bi bi-x-circle-fill me-1"></i>belum</a></td>
 
 
-                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1)
+                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1 && hitung_website_final >= 1)
                     <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
 
-                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1)
+                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1 && hitung_website_final >= 1)
                     <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
 
                     @else
