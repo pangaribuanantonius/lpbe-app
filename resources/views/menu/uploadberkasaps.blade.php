@@ -15,7 +15,7 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
 <section class="section dashboard">
     <div class="row">
         <div class="col-md-12">
-            @if($aplikasi || $aplikasi_adm || $call_center)
+            @if($aplikasi || $aplikasi_adm || $call_center || $website)
             <div class="alert alert-primary mt-4">Ada data yang belum di finalisasi. Mohon lakukan finalisasi!</div>
             Catatan: 
                 <ul>
@@ -31,11 +31,16 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                     <li>Aplikasi Layanan Administrasi Pemerintahan Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'administrasi_pemerintah', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
                     @endif
 
-
                     @if($call_center_final >= 1)
                     <li>Layanan Call Center Sudah Final</li>
                     @else
                     <li>Layanan Call Center Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'call_center', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
+                    @endif
+
+                    @if($website_final >= 1)
+                    <li>Layanan Website Sudah Final</li>
+                    @else
+                    <li>Layanan Website Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'website', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
                     @endif
                 </ul>
             
@@ -63,6 +68,10 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                         <div class="form-gorup mt-3">
                             <label>File Layanan Call Center</label>
                             <input type="file" name="file_call_center" class="form-control" required >
+                        </div>
+                        <div class="form-gorup mt-3">
+                            <label>File Layanan Website</label>
+                            <input type="file" name="file_website" class="form-control" required >
                         </div>
                         <div class="form-gorup mt-3">
                             <button class="btn btn-outline-success" type="submit"><i class="bi bi-check-circle"></i> Kirim</button>
@@ -149,11 +158,16 @@ $instansi_id = \App\Models\User::where('username', session('username'))->first()
                     <li>Aplikasi Layanan Administrasi Pemerintahan Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'administrasi_pemerintah', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
                     @endif
 
-
                     @if($call_center_final >= 1)
                     <li>Layanan Call Center Sudah Final</li>
                     @else
                     <li>Layanan Call Center Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'call_center', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
+                    @endif
+
+                    @if($website_final >= 1)
+                    <li>Layanan Website Sudah Final</li>
+                    @else
+                    <li>Layanan Website Belum Final. <a href="{{ route('layanan.index', ['layanan' => 'aplikasi', 'jenisaplikasi' => 'website', 'tahun' => request('tahun')]) }}">Lihat Disini</a></li>
                     @endif
                 </ul>
             @endif

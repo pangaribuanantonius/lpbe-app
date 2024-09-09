@@ -140,7 +140,7 @@
 												</div><br>
 												<div class="form-group">
 													<label>Apakah layanan ini menyimpan data pribadi/rahasia</label><br>
-													{{ $aps->rahasia }}
+													{{ $c->rahasia }}
 												</div><br>
 												<div class="form-group">
 													<label>Nama PIC</label>
@@ -335,7 +335,7 @@
 												</div><br>
 												<div class="form-group">
 													<label>Apakah layanan ini menyimpan data pribadi/rahasia</label><br>
-													{{ $aps->rahasia }}
+													{{ $c->rahasia }}
 												</div><br>
 												<div class="form-group">
 													<label>Nama PIC</label>

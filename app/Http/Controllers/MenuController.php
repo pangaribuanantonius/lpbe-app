@@ -120,6 +120,13 @@ class MenuController extends Controller
         })
         ->count();
 
+        $website = Website::where('instansi_id', $instansi_id)
+        ->where('tahun', $tahun)
+        ->where(function($query) {
+            $query->where('status', 'Sedang Proses');
+        })
+        ->count();
+
         $aplikasi_final = Aplikasi::where('instansi_id', $instansi_id)
         ->where('jenis_aplikasi', 'Layanan Publik')
         ->where('tahun', $tahun)
@@ -146,9 +153,17 @@ class MenuController extends Controller
         })
         ->count();
 
+        $website_final = Website::where('instansi_id', $instansi_id)
+        ->where('tahun', $tahun)
+        ->where(function($query) {
+        $query->where('status', 'Final')
+              ->orWhere('status', 'Kosong');
+        })
+        ->count();
+
         $jlhberkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->count();
         $berkas = Berkas::where('instansi_id', $instansi_id)->where('tahun', $tahun)->get();
-        return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'aplikasi_adm' => $aplikasi_adm, 'call_center' => $call_center, 'aplikasi_final' => $aplikasi_final, 'aplikasi_final_adm' => $aplikasi_final_adm, 'call_center_final' => $call_center_final, 'jlhberkas' => $jlhberkas, 'berkas' => $berkas]);
+        return view('menu.uploadberkasaps', ['aplikasi' => $aplikasi, 'aplikasi_adm' => $aplikasi_adm, 'call_center' => $call_center, 'website' => $website, 'aplikasi_final' => $aplikasi_final, 'aplikasi_final_adm' => $aplikasi_final_adm, 'call_center_final' => $call_center_final, 'website_final' => $website_final, 'jlhberkas' => $jlhberkas, 'berkas' => $berkas]);
     }
 
     /*public function kirimberkas(Request $request){
@@ -222,6 +237,7 @@ class MenuController extends Controller
         'file_aps_publik' => 'nullable|file|mimes:pdf,xls,xlsx|max:10000', // max:10000 means max 10MB
         'file_aps_pemerintah' => 'nullable|file|mimes:pdf,xls,xlsx|max:10000',
         'file_call_center' => 'nullable|file|mimes:pdf,xls,xlsx|max:10000',
+        'file_website' => 'nullable|file|mimes:pdf,xls,xlsx|max:10000',
     ]);
 
     // Generate unique filenames with timestamps if files are provided
@@ -236,6 +252,10 @@ class MenuController extends Controller
         ? $timestamp . ' Layanan Call Center.' . $request->file('file_call_center')->getClientOriginalExtension()
         : null;
 
+    $namaFile4 = $request->file('file_website')
+        ? $timestamp . ' Layanan Website.' . $request->file('file_website')->getClientOriginalExtension()
+        : null;
+
     // Move files to the desired directory if they are provided
     if ($namaFile1) {
         $request->file('file_aps_publik')->move(public_path('konten/berkas'), $namaFile1);
@@ -245,6 +265,9 @@ class MenuController extends Controller
     }
     if ($namaFile3) {
         $request->file('file_call_center')->move(public_path('konten/berkas'), $namaFile3);
+    }
+    if ($namaFile4) {
+        $request->file('file_website')->move(public_path('konten/berkas'), $namaFile4);
     }
 
     // Save data to the database
@@ -256,6 +279,7 @@ class MenuController extends Controller
         'file_aps_publik' => $namaFile1,
         'file_aps_pemerintah' => $namaFile2,
         'file_call_center' => $namaFile3,
+        'file_website' => $namaFile4,
         'posisi' => 'Pengguna',
     ]);
 
@@ -291,6 +315,7 @@ class MenuController extends Controller
         'file_aps_publik' => 'file|mimes:pdf,xls,xlsx|max:10000|nullable',
         'file_aps_pemerintah' => 'file|mimes:pdf,xls,xlsx|max:10000|nullable',
         'file_call_center' => 'file|mimes:pdf,xls,xlsx|max:10000|nullable',
+        'file_website' => 'file|mimes:pdf,xls,xlsx|max:10000|nullable',
     ]);
 
     // Proses file file_aps_publik jika ada
@@ -330,6 +355,19 @@ class MenuController extends Controller
         $namaFile3 = time() . " Layanan Call Center." . $extFile3;
         $request->file_call_center->move('konten/berkas', $namaFile3);
         $berkas->file_call_center = $namaFile3;
+    }
+
+    // Proses file website jika ada
+    if ($request->hasFile('file_website')) {
+        // Hapus file lama jika ada
+        if ($berkas->file_website) {
+            unlink(public_path('konten/berkas/' . $berkas->file_website));
+        }
+        // Upload file baru
+        $extFile4 = $request->file_website->getClientOriginalExtension();
+        $namaFile4 = time() . " Layanan Call Center." . $extFile4;
+        $request->file_website->move('konten/berkas', $namaFile4);
+        $berkas->file_website = $namaFile3;
     }
 
     // Update data lainnya
@@ -435,8 +473,40 @@ class MenuController extends Controller
     // Redirect dengan pesan sukses
     return redirect()->back()->with('update', 'Berhasil Memperbarui Data!');
 
-
     }
+
+    public function ubah_berkas_website(Berkas $berkas) {
+        return view('berkas.website.ubah_berkas', ['berkas' => $berkas]);
+    }
+
+    public function update_website(Request $request, Berkas $berkas) {
+        // Validasi input
+        $datasudahvalidasi = $request->validate([
+          'file_website' => 'file|mimes:pdf,xls,xlsx|max:10000',
+      
+      ]);
+
+       // Proses file file_call_center jika ada
+  if ($request->hasFile('file_website')) {
+      // Hapus file lama jika ada
+      if ($berkas->file_website) {
+          unlink(public_path('konten/berkas/' . $berkas->file_website));
+      }
+      // Upload file baru
+      $extFile4 = $request->file_website->getClientOriginalExtension();
+      $namaFile4 = time() . " Layanan Website." . $extFile4;
+      $request->file_website->move('konten/berkas', $namaFile4);
+      $berkas->file_website = $namaFile4;
+  }
+
+  // Update data lainnya
+  $berkas->save();
+
+  // Redirect dengan pesan sukses
+  return redirect()->back()->with('update', 'Berhasil Memperbarui Data!');
+
+  }
+    
 
     public function ubahposisiberkas(Request $request, Berkas $berkas){
         $berkas->update([
