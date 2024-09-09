@@ -199,8 +199,8 @@
 </div>
 @else
 <div class="text-end">
-	<a class="btn btn-danger mb-2" href="#" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a>
-	<a class="btn btn-success mb-2" href="#" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a>
+	<a class="btn btn-danger mb-2" href="{{ route('website.2024.cetaklaporanpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a>
+	<a class="btn btn-success mb-2" href="{{ route('website.2024.cetaklaporanexcel') }}" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a>
 </div>
 
 <!-- @if($website->count() == $website->where('verifikasi', 'Disetujui')->count())
