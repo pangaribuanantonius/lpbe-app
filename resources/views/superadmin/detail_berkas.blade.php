@@ -52,6 +52,16 @@
                                     @endif
                                 </td>
                             </tr>
+                            <tr>
+                                <td>Layanan Website</td>
+                                <td class="text-center">
+                                    @if($berkas->file_call_center == null)
+                                    <a class="btn btn-outline-primary" target="_blank" href="404"><i class="bi bi-eye"></i>Lihat</a>
+                                    @else
+                                    <a class="btn btn-outline-primary" target="_blank" href="{{ url('/')}}/konten/berkas/{{ $berkas->file_website }}"><i class="bi bi-eye"></i>Lihat</a>
+                                    @endif
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             

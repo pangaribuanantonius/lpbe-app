@@ -226,10 +226,10 @@
                     <td class="align-middle text-center"><a class="badge text-danger align-middle rounded-5"><i class="bi bi-x-circle-fill me-1"></i>belum</a></td>
 
 
-                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1 && hitung_website_final >= 1)
+                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1 && $status_website_final >= 1)
                     <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
 
-                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1 && hitung_website_final >= 1)
+                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1 && $status_website_final >= 1)
                     <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
 
                     @else
