@@ -568,6 +568,16 @@ Route::post('/website/2021/finalisasinihil', [Website2021Controller::class, 'fin
 Route::get('/website/2021/cetaklaporanpdf', [Website2021Controller::class, 'cetakwebsitepdf_2021'])->name('website.2021.cetaklaporanpdf')->middleware('auth');
 Route::get('/Website/2021/cetaklaporanexcel', [Website2021Controller::class, 'exportexcel'])->name('website.2021.cetaklaporanexcel');
 
+// website tahun 2024 level pengguna
+Route::get('/website/2024/create', [Website2024Controller::class, 'create'])->name('website.2024.create')->middleware('auth');
+Route::post('/website/2024/store', [Website2024Controller::class, 'store'])->name('website.2024.store')->middleware('auth');
+Route::get('/website/2024/{website}/edit', [Website2024Controller::class, 'edit'])->name('website.2024.edit')->middleware('auth');
+Route::patch('/website/2024/{website}/edit', [Website2024Controller::class, 'update'])->name('website.2024.edit')->middleware('auth');
+Route::post('/website/2024/updatefinal', [Website2024Controller::class, 'updatefinal'])->name('website.2024.updatefinal')->middleware('auth');
+Route::post('/website/2024/finalisasinihil', [Website2024Controller::class, 'finalisasinihil'])->name('website.2024.finalisasinihil')->middleware('auth');
+Route::get('/website/2024/cetaklaporanpdf', [Website2024Controller::class, 'cetakwebsitepdf_2024'])->name('website.2024.cetaklaporanpdf')->middleware('auth');
+Route::get('/Website/2024/cetaklaporanexcel', [Website2024Controller::class, 'exportexcel'])->name('website.2024.cetaklaporanexcel');
+
 // website tahun 2021 level admin
 Route::post('/superadminwebsite/2021/updatestatus', [SuperadminStatusWebsite2021Controller::class, 'updatestatus'])->name('superadminwebsite.2021.updatestatus')->middleware('auth');
 Route::patch('/superadminwebsite/2021/{website}/verifadmin', [SuperadminStatusWebsite2021Controller::class, 'verifadmin'])->name('superadminwebsite.2021.verifadmin')->middleware('auth');
