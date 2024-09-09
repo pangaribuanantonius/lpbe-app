@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Aplikasi;
 use App\Models\CallCenter;
+use App\Models\Website;
 use App\Models\Instansi;
 use App\Models\User;
 use App\Models\Tahun;
@@ -63,6 +64,10 @@ class MenuSuperAdminController extends Controller
         ->where('status', '!=', 'Kosong')
         ->count();
 
+    $WebsiteCount = Website::where('tahun', $year)
+        ->where('status', '!=', 'Kosong')
+        ->count();
+
     // Menghitung jumlah instansi dengan aplikasi dalam proses dan final
     $apspublikProsesCount = Instansi::whereHas('aplikasi', function($query) use ($year) {
         $query->where('jenis_aplikasi', 'Layanan Publik')
@@ -87,6 +92,7 @@ class MenuSuperAdminController extends Controller
         'aplikasi_layanan_publik' => $aplikasiLayananPublikCount,
         'aplikasi_administrasi_pemerintah' => $aplikasiAdministrasiPemerintahCount,
         'call_center' => $callCenterCount,
+        'website' => $WebsiteCount,
         'apspublik_proses' => $apspublikProsesCount,
         'apspublik_final' => $apspublikFinalCount,
         'pemberitahuan' => $pemberitahuan,

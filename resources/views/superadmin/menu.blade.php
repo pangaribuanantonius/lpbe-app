@@ -27,7 +27,7 @@
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
                   new ApexCharts(document.querySelector("#pieChart"), {
-                    series: [{!! $aplikasi_layanan_publik!!}, {!! $aplikasi_administrasi_pemerintah!!}, {!! $call_center!!}],
+                    series: [{!! $aplikasi_layanan_publik!!}, {!! $aplikasi_administrasi_pemerintah!!}, {!! $call_center!!}, {!! $website!!}],
                   chart: {
                   height: 350,
                   type: 'pie',
