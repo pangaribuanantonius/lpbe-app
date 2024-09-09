@@ -479,7 +479,7 @@ class MenuController extends Controller
         return view('berkas.website.ubah_berkas', ['berkas' => $berkas]);
     }
 
-    public function update_website(Request $request, Berkas $berkas) {
+    public function update_berkas_website(Request $request, Berkas $berkas) {
         // Validasi input
         $datasudahvalidasi = $request->validate([
           'file_website' => 'file|mimes:pdf,xls,xlsx|max:10000',

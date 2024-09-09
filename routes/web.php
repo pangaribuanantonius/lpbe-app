@@ -505,7 +505,8 @@ Route::get('/berkas/aps_pemerintahan/{berkas}/ubah_berkas', [MenuController::cla
 Route::patch('/berkas/aps_pemerintahan/{berkas}/ubah_berkas', [MenuController::class, 'update_berkas_aps_pemerintah'])->name('berkas.aps_pemerintahan.ubah_berkas')->middleware('auth');
 Route::get('/berkas/call_center/{berkas}/ubah_berkas', [MenuController::class, 'ubah_berkas_call_center'])->name('berkas.call_center.ubah_berkas')->middleware('auth');
 Route::patch('/berkas/call_center/{berkas}/ubah_berkas', [MenuController::class, 'update_berkas_call_center'])->name('berkas.call_center.ubah_berkas')->middleware('auth');
-
+Route::get('/berkas/website/{berkas}/ubah_berkas', [MenuController::class, 'ubah_berkas_website'])->name('berkas.website.ubah_berkas')->middleware('auth');
+Route::patch('/berkas/website/{berkas}/ubah_berkas', [MenuController::class, 'update_berkas_website'])->name('berkas.website.ubah_berkas')->middleware('auth');
 
 
 
