@@ -7,6 +7,7 @@ use App\Http\Controllers\Aplikasi2021Controller;
 use App\Http\Controllers\CallCenter2021Controller;
 use App\Http\Controllers\CallCenter2024Controller;
 use App\Http\Controllers\Website2021Controller;
+use App\Http\Controllers\Website2024Controller;
 use App\Http\Controllers\Aplikasi2021AdmPemerintahController;
 use App\Http\Controllers\StatusAplikasi2021Controller;
 use App\Http\Controllers\StatusAplikasi2021AdmPemerintahController;
