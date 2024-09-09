@@ -583,6 +583,10 @@ Route::get('/Website/2024/cetaklaporanexcel', [Website2024Controller::class, 'ex
 Route::post('/superadminwebsite/2021/updatestatus', [SuperadminStatusWebsite2021Controller::class, 'updatestatus'])->name('superadminwebsite.2021.updatestatus')->middleware('auth');
 Route::patch('/superadminwebsite/2021/{website}/verifadmin', [SuperadminStatusWebsite2021Controller::class, 'verifadmin'])->name('superadminwebsite.2021.verifadmin')->middleware('auth');
 
+// website tahun 2024 level admin
+Route::post('/superadminwebsite/2024/updatestatus', [SuperadminStatusWebsite2024Controller::class, 'updatestatus'])->name('superadminwebsite.2024.updatestatus')->middleware('auth');
+Route::patch('/superadminwebsite/2024/{website}/verifadmin', [SuperadminStatusWebsite2024Controller::class, 'verifadmin'])->name('superadminwebsite.2024.verifadmin')->middleware('auth');
+
 
 
 Route::get('/', [LoginController::class, 'login'])->name('login');
