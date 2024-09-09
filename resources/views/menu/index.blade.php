@@ -123,7 +123,7 @@
                       <i class="bi bi-globe"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>{{ $call_center }}</h6>
+                      <h6>{{ $website }}</h6>
                       <!-- <span class="text-danger small pt-1 fw-bold">300%</span> <span class="text-muted small pt-2 ps-1">meningkat</span> -->
                     </div>
                   </div>
@@ -131,7 +131,7 @@
               </div>
             </a>
           </div>
-          <!-- Call Center -->
+          <!-- Website -->
 
           <style>
             .table-progress th,
