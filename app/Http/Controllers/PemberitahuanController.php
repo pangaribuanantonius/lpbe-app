@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PemberitahuanController extends Controller
 {
     public function index(){
-        $pemberitahuan = Pemberitahuan::all();
+        $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->get();
         return view('pemberitahuan.index', ['pemberitahuan' => $pemberitahuan]);
     }
 
