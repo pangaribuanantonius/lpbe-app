@@ -199,8 +199,12 @@
 						<input type="text" name="tempataplikasi" class="form-control" readonly="readonly" value="{{ $aps->tempataplikasi }}">
 					</div><br>
 					<div class="form-group">
-						<label>URL</label>
-						<input type="text" name="url" class="form-control" readonly="readonly" value="{{ $aps->url }}">
+						<label>Urusan</label>
+						<input type="text" name="urusan" class="form-control" readonly="readonly" value="{{ $aps->urusan1->nama_urusan }}">
+					</div><br>
+					<div class="form-group">
+						<label>Urusan</label>
+						<input type="text" name="bidang_urusan" class="form-control" readonly="readonly" value="{{ $aps->anakurusan1->nama_bidang_urusan }}">
 					</div><br>
 					<div class="form-group">
 						<label>Deskripsi Singkat</label>
@@ -473,8 +477,12 @@
 													<input type="text" name="tempataplikasi" class="form-control" readonly="readonly" value="{{ $aps->tempataplikasi }}">
 												</div><br>
 												<div class="form-group">
-													<label>URL</label>
-													<input type="text" name="url" class="form-control" readonly="readonly" value="{{ $aps->url }}">
+													<label>Urusan</label>
+													<input type="text" name="urusan" class="form-control" readonly="readonly" value="{{ $aps->urusan1->nama_urusan }}">
+												</div><br>
+												<div class="form-group">
+													<label>Urusan</label>
+													<input type="text" name="bidang_urusan" class="form-control" readonly="readonly" value="{{ $aps->anakurusan1->nama_bidang_urusan }}">
 												</div><br>
 												<div class="form-group">
 													<label>Deskripsi Singkat</label>
