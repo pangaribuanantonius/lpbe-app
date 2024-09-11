@@ -136,16 +136,12 @@
 						<input type="text" name="tempataplikasi" class="form-control" readonly="readonly" value="{{ $aps->tempataplikasi }}">
 					</div><br>
 					<div class="form-group">
-						<label>URL</label>
-						<input type="text" name="url" class="form-control" readonly="readonly" value="{{ $aps->url }}">
+						<label>Urusan</label>
+						<input type="text" name="urusan" class="form-control" readonly="readonly" value="{{ $aps->urusan1->nama_urusan }}">
 					</div><br>
 					<div class="form-group">
-						<label>Sektor Pelayanan Publik</label>
-						<input type="text" name="sektorpelayananpublik" class="form-control" readonly="readonly" value="{{ $aps->sektorpelayananpublik }}">
-					</div><br>
-					<div class="form-group">
-						<label>Sektor Pelayanan Publik Lainnya</label>
-						<input type="text" name="sektorpelayananpublik2" class="form-control" readonly="readonly" value="{{ $aps->sektorpelayananpublik2 }}">
+						<label>Urusan</label>
+						<input type="text" name="bidang_urusan" class="form-control" readonly="readonly" value="{{ $aps->anakurusan1->nama_bidang_urusan }}">
 					</div><br>
 					<div class="form-group">
 						<label>Deskripsi Singkat</label>
@@ -429,16 +425,12 @@
 													<input type="text" name="tempataplikasi" class="form-control" readonly="readonly" value="{{ $aps->tempataplikasi }}">
 												</div><br>
 												<div class="form-group">
-													<label>URL</label>
-													<input type="text" name="url" class="form-control" readonly="readonly" value="{{ $aps->url }}">
+													<label>Urusan</label>
+													<input type="text" name="urusan" class="form-control" readonly="readonly" value="{{ $aps->urusan1->nama_urusan }}">
 												</div><br>
 												<div class="form-group">
-													<label>Sektor Pelayanan Publik</label>
-													<input type="text" name="sektorpelayananpublik" class="form-control" readonly="readonly" value="{{ $aps->sektorpelayananpublik }}">
-												</div><br>
-												<div class="form-group">
-													<label>Sektor Pelayanan Publik Lainnya</label>
-													<input type="text" name="sektorpelayananpublik2" class="form-control" readonly="readonly" value="{{ $aps->sektorpelayananpublik2 }}">
+													<label>Urusan</label>
+													<input type="text" name="bidang_urusan" class="form-control" readonly="readonly" value="{{ $aps->anakurusan1->nama_bidang_urusan }}">
 												</div><br>
 												<div class="form-group">
 													<label>Deskripsi Singkat</label>
