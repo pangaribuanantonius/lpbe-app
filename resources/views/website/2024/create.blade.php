@@ -33,6 +33,7 @@
                         <div class="form-group mt-3">
                             <label>Alamat URL</label>
                             <input type="url" name="url" class="form-control" value="{{ old('url') }}" required>
+                            <sup><em>Contoh: <span class="fw-bold text-danger">https://</span>deliserdangkab.go.id</em></sup>
                         </div>
                         <div class="form-group mt-3">
                             <label>Pengembang</label>
