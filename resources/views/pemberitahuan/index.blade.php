@@ -21,6 +21,7 @@
 						<table class="table table-hover datatable">
 							<thead>
 								<tr>
+									<th>No Urut</th>
 									<th scope="col" class="align-middle">Pemberitahuan</th>
 									<th scope="col" class="align-middle">Aksi</th>
 								</tr>
@@ -28,6 +29,7 @@
 							<tbody>
 								@foreach($pemberitahuan as $ppp)
 								<tr>
+									<td>{{ $ppp->urutan }}</td>
 									<td>{{ $ppp->isi_pemberitahuan }}</td>
 									<td class="text-center">
 			                            <a class="btn btn-outline-primary" style="white-space: nowrap;" href="{{ route('pemberitahuan.edit', $ppp->id) }}"><i class="bi bi-pencil"></i> Edit</a>
