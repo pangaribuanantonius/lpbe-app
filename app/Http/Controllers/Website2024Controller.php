@@ -78,6 +78,12 @@ class Website2024Controller extends Controller
         return redirect('layanan/index?layanan=aplikasi&jenisaplikasi=website&tahun='.request('tahun').'')->with('success', 'Berhasil Menambah Data!');
     }
 
+    public function destroy(Request $request, Website $website){
+        $website::destroy($website->id);
+        /*return redirect('info/index')->with(['flashdata' => 'Berhasil']);*/
+        return redirect('layanan/index?layanan=aplikasi&jenisaplikasi=website&tahun='.request('tahun'))->with('delete', 'Berhasil Menghapus Data!');
+    }
+
     public function updatefinal(Request $request){
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
         $tahun = request('tahun');

@@ -34,6 +34,7 @@
                         <div class="form-group mt-3">
                             <label>Alamat URL</label>
                             <input type="url" name="url" class="form-control" value="{{ $website->url }}" required>
+                            <sup><em>Contoh: <span class="fw-bold text-danger">https://</span>deliserdangkab.go.id</em></sup>
                         </div>
                         <div class="form-group mt-3">
                             <label>Pengembang</label>
@@ -103,7 +104,40 @@
 	                    	</span>
 	                    	<span class="text">Simpan</span>
 	                    </button>
+	                    <a href="#" class="btn btn-outline-danger btn-icon-split"  data-bs-toggle="modal" data-bs-target="#Modal">
+	                    	<span class="icon">
+	                    		<i class="bi bi-trash"></i>
+	                    	</span>
+	                    	<span class="text">Hapus</span>
+	                    </a>
                     </form>
+                    <!-- Modal Hapus Data -->
+					<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Peringatan!</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									Apakah anda yakin menghapus data ini ?
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-sm btn-outline-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Batal</button> 
+									<form method="post" action="{{ route('website.2024.delete', $website->id) }}" enctype="multipart/form-data">
+										@csrf
+										@method('DELETE')
+										<input type="hidden" name="id">
+										<input type="hidden" name="tahun" value="{{ $website->tahun }}">
+										<button type="submit" class="btn btn-sm btn-outline-primary btn-icon-split">
+											<i class="bi bi-check2-circle"></i> <span class="text">Lanjutkan</span>
+										</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- akhir modal hapus data -->
                 </div>
             </div>
         </div>

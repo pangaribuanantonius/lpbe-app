@@ -575,6 +575,7 @@ Route::get('/website/2024/create', [Website2024Controller::class, 'create'])->na
 Route::post('/website/2024/store', [Website2024Controller::class, 'store'])->name('website.2024.store')->middleware('auth');
 Route::get('/website/2024/{website}/edit', [Website2024Controller::class, 'edit'])->name('website.2024.edit')->middleware('auth');
 Route::patch('/website/2024/{website}/edit', [Website2024Controller::class, 'update'])->name('website.2024.edit')->middleware('auth');
+Route::delete('/website/2024/{website}/delete', [Website2024Controller::class, 'destroy'])->name('website.2024.delete')->middleware('auth');
 Route::post('/website/2024/updatefinal', [Website2024Controller::class, 'updatefinal'])->name('website.2024.updatefinal')->middleware('auth');
 Route::post('/website/2024/finalisasinihil', [Website2024Controller::class, 'finalisasinihil'])->name('website.2024.finalisasinihil')->middleware('auth');
 Route::get('/website/2024/cetaklaporanpdf', [Website2024Controller::class, 'cetakwebsitepdf_2024'])->name('website.2024.cetaklaporanpdf')->middleware('auth');
