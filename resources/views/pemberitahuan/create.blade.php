@@ -22,6 +22,10 @@
 							@csrf
 							@method('POST')
 							<div class="form-group mt-3">
+								<label>Urutan</label>
+								<input type="number" name="urutan" class="form-control value="{{ old('urutan') }}" required>
+							</div>
+							<div class="form-group mt-3">
 								<label>Isi Pemberitahuan</label>
 								<div>
 									<textarea name="isi_pemberitahuan" class="form-control" value="{{ old('isi_pemberitahuan') }}" required></textarea>

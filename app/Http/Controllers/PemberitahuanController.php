@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PemberitahuanController extends Controller
 {
     public function index(){
-        $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->get();
+        $pemberitahuan = Pemberitahuan::orderBy('urutan', 'asc')->get();
         return view('pemberitahuan.index', ['pemberitahuan' => $pemberitahuan]);
     }
 
@@ -19,6 +19,7 @@ class PemberitahuanController extends Controller
     public function store(Request $request){
         Pemberitahuan::create([
             'id' => \Str::random(8),
+            'urutan' => $request->urutan,
             'isi_pemberitahuan' => $request->isi_pemberitahuan,
         ]);
         return redirect('pemberitahuan/index')->with('success', 'Berhasil Menambah Data!');
@@ -30,6 +31,7 @@ class PemberitahuanController extends Controller
 
     public function update(Request $request, Pemberitahuan $pemberitahuan){
         $pemberitahuan->update([
+            'urutan' => $request->urutan,
             'isi_pemberitahuan' => $request->isi_pemberitahuan,
         ]);
         return redirect('pemberitahuan/index')->with('update', 'Berhasil Mengubah Data!');
