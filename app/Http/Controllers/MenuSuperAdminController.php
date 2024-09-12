@@ -82,7 +82,7 @@ class MenuSuperAdminController extends Controller
     })->count();
 
     // Mengambil 3 pemberitahuan terbaru
-    $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')
+    $pemberitahuan = Pemberitahuan::orderBy('urutan', 'asc')
         ->limit(3)
         ->get();
 
@@ -105,8 +105,9 @@ class MenuSuperAdminController extends Controller
         $aplikasi_layanan_publik = Aplikasi::Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->count();
         $aplikasi_administrasi_pemerintah = Aplikasi::Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->count();
         $call_center = CallCenter::Where('tahun', '2021')->count();
-
-        $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
+        $pemberitahuan = Pemberitahuan::orderBy('urutan', 'asc')
+        ->limit(3)
+        ->get();
         
 
         return view('superadmin.monevaplikasi_admin', ['instansi' => $instansi, 'pemberitahuan' =>$pemberitahuan, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'call_center' => $call_center]);
@@ -132,7 +133,9 @@ class MenuSuperAdminController extends Controller
     public function aplikasi(){
         $instansi = Instansi::orderBy('nama_instansi', 'asc')->get();
         $tahun = \App\Models\Tahun::orderBy('tahun', 'asc')->get();
-        $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
+        $pemberitahuan = Pemberitahuan::orderBy('urutan', 'asc')
+        ->limit(3)
+        ->get();
         return view('superadmin.aplikasi', ['instansi' => $instansi, 'tahun' => $tahun, 'pemberitahuan' => $pemberitahuan]);
     }
 
