@@ -29,8 +29,9 @@ class MenuController extends Controller
         $aplikasi_administrasi_pemerintah = Aplikasi::Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->Where('instansi_id', $instansi_id)->where('status','!=', 'Kosong')->count();
         $call_center = CallCenter::Where('tahun', $year)->Where('instansi_id', $instansi_id)->where('status','!=', 'Kosong')->count();
         $website = Website::Where('tahun', $year)->Where('instansi_id', $instansi_id)->where('status','!=', 'Kosong')->count();
-
-        $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
+        $pemberitahuan = Pemberitahuan::orderBy('urutan', 'asc')
+        ->limit(3)
+        ->get();
 
         return view('menu.index', ['nama_instansi' => $nama_instansi, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'website' => $website, 'year' => $year, 'call_center' =>$call_center, 'instansiall' => $instansiall, 'pemberitahuan' => $pemberitahuan]);
     }
@@ -61,8 +62,9 @@ class MenuController extends Controller
         $aplikasi_layanan_publik = Aplikasi::Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->count();
         $aplikasi_administrasi_pemerintah = Aplikasi::Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->count();
         $call_center = CallCenter::Where('tahun', '2021')->count();
-
-        $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
+        $pemberitahuan = Pemberitahuan::orderBy('urutan', 'asc')
+        ->limit(3)
+        ->get();
         return view('menu.aplikasi', ['tahun' => $tahun, 'nama_instansi' => $nama_instansi, 'pemberitahuan' => $pemberitahuan, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'call_center' =>$call_center, 'instansiall' => $instansiall]);
     }
 
@@ -70,7 +72,9 @@ class MenuController extends Controller
         $tahun = \App\Models\Tahun::orderBy('tahun', 'asc')->get();
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
-        $pemberitahuan = Pemberitahuan::orderBy('created_at', 'desc')->limit(3)->get();
+        $pemberitahuan = Pemberitahuan::orderBy('urutan', 'asc')
+        ->limit(3)
+        ->get();
         return view('menu.kirimaps', ['tahun' => $tahun, 'pemberitahuan' => $pemberitahuan, 'instansi_id' => $instansi_id, 'nama_instansi' => $nama_instansi]);
     }
 
