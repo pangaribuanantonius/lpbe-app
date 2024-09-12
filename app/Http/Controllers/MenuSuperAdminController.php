@@ -101,17 +101,60 @@ class MenuSuperAdminController extends Controller
 }
 
     public function monevaplikasi_admin(){
-        $instansi = Instansi::All();
-        $aplikasi_layanan_publik = Aplikasi::Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', '2021')->count();
-        $aplikasi_administrasi_pemerintah = Aplikasi::Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', '2021')->count();
-        $call_center = CallCenter::Where('tahun', '2021')->count();
+        $year = Carbon::now()->year; // Mengambil tahun saat ini
+
+        // Mengambil instansi dengan urutan nama
+        $instansi = Instansi::orderBy('nama_instansi', 'asc')->get();
+    
+        // Menghitung aplikasi berdasarkan jenis, tahun, dan status
+        $aplikasiLayananPublikCount = Aplikasi::where('jenis_aplikasi', 'Layanan Publik')
+            ->where('tahun', $year)
+            ->where('status', '!=', 'Kosong')
+            ->count();
+    
+        $aplikasiAdministrasiPemerintahCount = Aplikasi::where('jenis_aplikasi', 'Administrasi Pemerintah')
+            ->where('tahun', $year)
+            ->where('status', '!=', 'Kosong')
+            ->count();
+    
+        $callCenterCount = CallCenter::where('tahun', $year)
+            ->where('status', '!=', 'Kosong')
+            ->count();
+    
+        $WebsiteCount = Website::where('tahun', $year)
+            ->where('status', '!=', 'Kosong')
+            ->count();
+    
+        // Menghitung jumlah instansi dengan aplikasi dalam proses dan final
+        $apspublikProsesCount = Instansi::whereHas('aplikasi', function($query) use ($year) {
+            $query->where('jenis_aplikasi', 'Layanan Publik')
+                ->where('tahun', $year)
+                ->where('status', 'Sedang Proses');
+        })->count();
+    
+        $apspublikFinalCount = Instansi::whereHas('aplikasi', function($query) use ($year) {
+            $query->where('jenis_aplikasi', 'Layanan Publik')
+                ->where('tahun', $year)
+                ->where('status', 'Final');
+        })->count();
+    
+        // Mengambil 3 pemberitahuan terbaru
         $pemberitahuan = Pemberitahuan::orderBy('urutan', 'asc')
-        ->limit(3)
-        ->get();
-        
-
-        return view('superadmin.monevaplikasi_admin', ['instansi' => $instansi, 'pemberitahuan' =>$pemberitahuan, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'call_center' => $call_center]);
-
+            ->limit(3)
+            ->get();
+    
+        // Mengirim data ke view
+        return view('superadmin.menu', [
+            'instansi' => $instansi,
+            'aplikasi_layanan_publik' => $aplikasiLayananPublikCount,
+            'aplikasi_administrasi_pemerintah' => $aplikasiAdministrasiPemerintahCount,
+            'call_center' => $callCenterCount,
+            'website' => $WebsiteCount,
+            'apspublik_proses' => $apspublikProsesCount,
+            'apspublik_final' => $apspublikFinalCount,
+            'pemberitahuan' => $pemberitahuan,
+            'year' => $year
+        ]);
     }
 
     public function datainstansi(){

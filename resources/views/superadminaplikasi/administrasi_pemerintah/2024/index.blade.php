@@ -18,10 +18,10 @@
 </div>
 @elseif($jumlahaplikasiadm >=1 && $statussaplikasiadm->status == 'Sedang Proses')
 <div class="alert alert-info alert-dismissible fade show" role="alert">
-	Sedang Proses
+	Tidak Ada Data
 	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
-<section class="section dashboard">
+<section class="section dashboard d-none">
 	<div class="row">
 		<div class="col-lg-12">
 			<div class="card">
