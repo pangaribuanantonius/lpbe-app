@@ -591,6 +591,7 @@ Route::patch('/superadminwebsite/2024/{website}/verifadmin', [SuperadminStatusWe
 
 
 
+
 Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'ceklogin'])->name('ceklogin');

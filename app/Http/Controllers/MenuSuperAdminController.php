@@ -101,6 +101,7 @@ class MenuSuperAdminController extends Controller
 }
 
     public function monevaplikasi_admin(){
+        $instansi_id = request('instansi_id');
         $year = Carbon::now()->year; // Mengambil tahun saat ini
 
         // Mengambil instansi dengan urutan nama
@@ -108,20 +109,24 @@ class MenuSuperAdminController extends Controller
     
         // Menghitung aplikasi berdasarkan jenis, tahun, dan status
         $aplikasiLayananPublikCount = Aplikasi::where('jenis_aplikasi', 'Layanan Publik')
+            ->where('instansi_id', $instansi_id)
             ->where('tahun', $year)
             ->where('status', '!=', 'Kosong')
             ->count();
     
         $aplikasiAdministrasiPemerintahCount = Aplikasi::where('jenis_aplikasi', 'Administrasi Pemerintah')
+            ->where('instansi_id', $instansi_id)
             ->where('tahun', $year)
             ->where('status', '!=', 'Kosong')
             ->count();
     
         $callCenterCount = CallCenter::where('tahun', $year)
+            ->where('instansi_id', $instansi_id)
             ->where('status', '!=', 'Kosong')
             ->count();
     
         $WebsiteCount = Website::where('tahun', $year)
+            ->where('instansi_id', $instansi_id)
             ->where('status', '!=', 'Kosong')
             ->count();
     
@@ -145,6 +150,7 @@ class MenuSuperAdminController extends Controller
     
         // Mengirim data ke view
         return view('superadmin.menu', [
+            'instansi_id' => $instansi_id,
             'instansi' => $instansi,
             'aplikasi_layanan_publik' => $aplikasiLayananPublikCount,
             'aplikasi_administrasi_pemerintah' => $aplikasiAdministrasiPemerintahCount,
@@ -331,5 +337,6 @@ class MenuSuperAdminController extends Controller
         return redirect()->back()->with('update', 'Berhasil Memperbarui Data!');
 
     }
+
     
 }
