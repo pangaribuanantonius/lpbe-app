@@ -297,7 +297,7 @@ Route::get('/superadmin/daftarindikator', [MenuSuperAdminController::class, 'daf
 Route::get('/superadmin/daftarurusanaplikasiadmpemerintah', [MenuSuperAdminController::class, 'daftarurusanaplikasiadmpemerintah'])->name('superadmin.daftarurusanaplikasiadmpemerintah')->middleware('auth');
 Route::get('/superadmin/daftarurusanaplikasiadmpemerintah', [MenuSuperAdminController::class, 'daftarurusanaplikasiadmpemerintah'])->name('superadmin.daftarurusanaplikasiadmpemerintah')->middleware('auth');
 Route::get('/superadmin/daftarbidangurusanaplikasiadmpemerintah/{urusan_id}', [MenuSuperAdminController::class, 'daftarbidangurusanaplikasiadmpemerintah'])->name('superadmin.daftarbidangurusanaplikasiadmpemerintah')->middleware('auth');
-Route::get('/superadmin/monevaplikasi_admin', [MenuSuperAdminController::class, 'monevaplikasi_admin'])->name('superadmin.monevaplikasi_admin')->middleware('auth');
+Route::get('/superadmin/rekap_aps', [MenuSuperAdminController::class, 'rekap_aps'])->name('superadmin.rekap_aps')->middleware('auth');
 Route::get('/superadmin/datainstansi', [MenuSuperAdminController::class, 'datainstansi'])->name('superadmin.datainstansi')->middleware('auth');
 
 

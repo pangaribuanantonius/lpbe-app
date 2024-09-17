@@ -101,7 +101,7 @@ class MenuSuperAdminController extends Controller
     ]);
 }
 
-    public function monevaplikasi_admin(){
+    public function rekap_aps(){
         $instansi_id = request('instansi_id');
         $year = Carbon::now()->year; // Mengambil tahun saat ini
 
@@ -150,7 +150,7 @@ class MenuSuperAdminController extends Controller
             ->get();
     
         // Mengirim data ke view
-        return view('superadmin.menu', [
+        return view('superadmin.rekap_aps', [
             'instansi_id' => $instansi_id,
             'instansi' => $instansi,
             'aplikasi_layanan_publik' => $aplikasiLayananPublikCount,

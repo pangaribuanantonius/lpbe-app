@@ -95,12 +95,7 @@
             <span>Dasbor</span>
         </a>
         </li>
-        <li class="nav-item">
-        <a class="nav-link rounded-5" href="{{ route('superadmin.monevaplikasi_admin', ['tahun' => '2021']) }}">
-            <i class="bi bi-graph-up-arrow me-2"></i>
-            <span>Monev Aplikasi</span>
-        </a>
-        </li>
+        
         <!-- Aplikasi nav end -->
 
         <li class="nav-heading"><hr></li>
