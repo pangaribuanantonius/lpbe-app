@@ -45,7 +45,7 @@ class MenuSuperAdminController extends Controller
     public function menu()
 {
     $year = Carbon::now()->year; // Mengambil tahun saat ini
-
+    $instansi_id = request('instansi_id');
     // Mengambil instansi dengan urutan nama
     $instansi = Instansi::orderBy('nama_instansi', 'asc')->get();
 
@@ -88,6 +88,7 @@ class MenuSuperAdminController extends Controller
 
     // Mengirim data ke view
     return view('superadmin.menu', [
+        'instansi_id' => $instansi_id,
         'instansi' => $instansi,
         'aplikasi_layanan_publik' => $aplikasiLayananPublikCount,
         'aplikasi_administrasi_pemerintah' => $aplikasiAdministrasiPemerintahCount,

@@ -106,9 +106,9 @@
         <li class="nav-item">
           <a class="nav-link collapsed rounded-5" data-bs-target="#aplikasi" data-bs-toggle="collapse" href="#"> <i class="bi bi-cpu"></i><span>Aplikasi</span><i class="bi bi-chevron-down ms-auto"></i> </a>
           <ul id="aplikasi" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-            <li class="d-none">
+            <!-- <li class="d-none">
               <a href="{{ route('superadmin.monevaplikasi_admin') }}" class="rounded-5"> <i class="bi bi-graph-up-arrow me-2"></i><span>Monev Aplikasi</span> </a>
-            </li>
+            </li> -->
             <li>
               <a href="{{ route('superadmin.aplikasi') }}" class="rounded-5"> <i class="bi bi-pen me-2"></i><span>Pendataan Aplikasi</span> </a>
             </li>
