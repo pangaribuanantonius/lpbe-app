@@ -12,7 +12,7 @@
 </div>
 <!-- End Page Title -->
 
-<section class="section dashboard"></section>
+<section class="section dashboard">
   <div class="row">
     <!-- Left side columns -->
     <div class="col-lg-8">
@@ -310,4 +310,5 @@
     <!-- Kolom kanan end -->
   </div>
 </section>
+
 @endsection
