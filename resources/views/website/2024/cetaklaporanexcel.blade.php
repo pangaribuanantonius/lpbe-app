@@ -13,6 +13,7 @@
             <td>{{ $w->nama_website }}</td>
             <td>{{ $w->deskripsi_website }}</td>
             <td>{{ $w->pengembang }}</td>
+            <td>{{ $w->tempat }}</td>
         </tr>                       
         @endforeach
     </tbody>
