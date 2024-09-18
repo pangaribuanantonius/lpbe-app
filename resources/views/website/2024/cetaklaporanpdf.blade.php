@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Call Center Tahun 2024 {{ $nama_instansi }}</title>
+	<title>Website Tahun 2024 {{ $nama_instansi }}</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -15,7 +15,7 @@
 	</style>
 	<center>
 		<p align="center">
-			<strong>Layanan Call Center <br> {{ $nama_instansi }}</Strong><br>
+			<strong>Layanan Website <br> {{ $nama_instansi }}</Strong><br>
 			<strong>Tahun 2024</strong>
 		</p>
 	</center>
