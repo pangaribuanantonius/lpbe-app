@@ -103,7 +103,14 @@ class MenuSuperAdminController extends Controller
 
     public function rekap_aps(){
         $instansi_id = request('instansi_id');
+        $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
         $year = Carbon::now()->year; // Mengambil tahun saat ini
+
+        //menampilkan data
+        $aps_layanan_publik = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $year)->get();
+        $aps_adm_pemerintah = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->get();
+        $aps_callcenter = CallCenter::Where('instansi_id', $instansi_id)->Where('tahun', $year)->get();
+        $aps_website = Website::Where('instansi_id', $instansi_id)->Where('tahun', $year)->get();
 
         // Mengambil instansi dengan urutan nama
         $instansi = Instansi::orderBy('nama_instansi', 'asc')->get();
@@ -160,7 +167,13 @@ class MenuSuperAdminController extends Controller
             'apspublik_proses' => $apspublikProsesCount,
             'apspublik_final' => $apspublikFinalCount,
             'pemberitahuan' => $pemberitahuan,
-            'year' => $year
+            'year' => $year,
+            'nama_instansi' => $nama_instansi,
+            'aps_layanan_publik' => $aps_layanan_publik,
+            'aps_adm_pemerintah' => $aps_adm_pemerintah,
+            'aps_callcenter' => $aps_callcenter,
+            'aps_website' => $aps_website,
+
         ]);
     }
 

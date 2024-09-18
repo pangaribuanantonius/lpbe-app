@@ -3,10 +3,10 @@
 
 <!-- Page Title -->
 <div class="pagetitle">
-  <h1><i class="bi bi-grid"></i> Dasbor</h1>
+  <h1><i class="bi bi-grid"></i> Monitoring dan Evaluasi SPBE</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="active ms-1"><i class="bi bi-steam"></i> Layanan Pemerintah Berbasis Elektronik</li>
+      <li class="active ms-1"><i class="bi bi-steam"></i> {{$nama_instansi}}</li>
     </ol>
   </nav>
 </div>
@@ -125,129 +125,163 @@
         <!-- Website -->
 
 
-        <!-- Table progres unit kerja start -->
+        <!-- data aplikasi layanan publik -->
         <div class="col-12">
           <div class="card overflow-auto">
             <div class="card-body">
-              <h5 class="card-title">Progres Entri Data <span>| {{ $year }}</span></h5>
-
-              <table class="table table-hover datatable">
+              <h5 class="card-title">Aplikasi Pelayanan Publik</h5>
+              <table class="table table-hover datatble">
                 <thead>
                   <tr class="text-danger">
-
-                    <th scope="col" class="align-middle">Unit Kerja</th>
-                    <th scope="col" class="text-wrap text-center align-middle">Aplikasi Pelayanan Publik</th>
-                    <th scope="col" class="text-wrap text-center align-middle">Administrasi Pemerintahan</th>
-                    <th scope="col" class="text-wrap text-center align-middle">Call Center</th>
-                    <th scope="col" class="text-wrap text-center align-middle">Website</th>
-                    <th scope="col" class="text-wrap text-center align-middle">Status</th>
+                    <th scope="col">Nama Aplikasi</th>
+                    <th scope="col">Tempat Aplikasi</th>
+                    <th scope="col">Pengguna</th>
+                    <th scope="col">status</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($instansi as $i)
-                  @php
-
-                  $year =  Carbon\Carbon::now()->year; // Mengambil tahun saat ini
-
-                  $hitung_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun',$year)->Where('status', '!=','Kosong')->count();
-                  $hitung_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->Where('status', '!=','Kosong')->count();
-                  $hitung_call_center = $i->call_center()->Where('tahun', $year)->Where('status', '!=','Kosong')->count();
-                  $hitung_website = $i->website()->Where('tahun', $year)->Where('status', '!=','Kosong')->count();
-
-                  $status_publik = $i->aplikasi()->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $year)->count();
-                  $status_administrasi = $i->aplikasi()->Where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->count();
-                  $status_call_center = $i->call_center()->Where('tahun', $year)->count();
-                  $status_website = $i->website()->Where('tahun', $year)->count();
-
-                  $status_publik_proses = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $year)->Where('status', 'Sedang Proses')->count();
-                  $status_administrasi_proses = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')->Where('tahun', $year)->Where('status', 'Sedang Proses')->count();
-                  $status_call_center_proses = $i->call_center()->where('tahun', $year)->Where('status','Sedang Proses')->count();
-                  $status_website_proses = $i->website()->where('tahun', $year)->Where('status','Sedang Proses')->count();
-
-                  $status_publik_final = $i->aplikasi()->where('jenis_aplikasi', 'Layanan Publik')
-                  ->Where('tahun', $year)
-                  ->where(function($query) {
-                    $query->where('status', 'Final')
-                          ->orWhere('status', 'Kosong');
-                    })
-                  ->count();
-
-                  $status_administrasi_final = $i->aplikasi()->where('jenis_aplikasi', 'Administrasi Pemerintah')
-                  ->Where('tahun', $year)
-                  ->where(function($query) {
-                    $query->where('status', 'Final')
-                          ->orWhere('status', 'Kosong');
-                    })
-                  ->count();
-
-                  $status_call_center_final = $i->call_center()->where('tahun', $year)
-                  ->where(function($query) {
-                    $query->where('status', 'Final')
-                          ->orWhere('status', 'Kosong');
-                    })
-                  ->count();
-
-                  $status_website_final = $i->website()->where('tahun', $year)
-                  ->where(function($query) {
-                    $query->where('status', 'Final')
-                          ->orWhere('status', 'Kosong');
-                    })
-                  ->count();
-
-                  @endphp
+                  @if($aplikasi_layanan_publik == 0)
                   <tr>
-                    <td><a href="{{ route('superadmin.rekap_aps', ['instansi_id' => $i->id]) }}" class="text-wrap text-decoration-none">{{ $i->nama_instansi }}</a></td>
-
-                    @if($hitung_publik == 0)
-                    <td class="align-middle text-center">-</td>
-                    @else
-                    <td class="align-middle text-center">{{ $hitung_publik }}</td>
-                    @endif
-
-                    @if($hitung_administrasi == 0)
-                    <td class="align-middle text-center">-</td>
-                    @else
-                    <td class="align-middle text-center">{{ $hitung_administrasi }}</td>
-                    @endif
-
-                    @if($hitung_call_center == 0)
-                    <td class="align-middle text-center">-</td>
-                    @else
-                    <td class="align-middle text-center">{{ $hitung_call_center }}</td>
-                    @endif
-
-                    @if($hitung_website == 0)
-                    <td class="align-middle text-center">-</td>
-                    @else
-                    <td class="align-middle text-center">{{ $hitung_website }}</td>
-                    @endif
-
-                    @if($hitung_publik == 0 && $hitung_administrasi == 0 && $hitung_call_center == 0 && $hitung_website == 0)
-                    <td class="align-middle text-center"><a class="badge text-danger align-middle rounded-5"><i class="bi bi-x-circle-fill me-1"></i>belum</a></td>
-
-
-                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1 && $status_website_final >= 1)
-                    <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
-
-                    @elseif($status_publik_final >=1 && $status_administrasi_final >=1 && $status_call_center_final >=1 && $status_website_final >= 1)
-                    <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Final</a></td>
-
-                    @else
-                    <td class="align-middle text-center"><a class="badge text-primary align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>Proses</a></td>
-                    @endif
-
-                    <!-- <td class="align-middle text-center">1</td>
-                          <td class="align-middle text-center">4</td>
-                          <td class="align-middle text-center">1</td> -->
-                    <!-- <td class="align-middle text-center"><a class="badge text-success align-middle rounded-5"><i class="bi bi-check-circle-fill me-1"></i>selesai</a></td> -->
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+                  @else
+                  @foreach($aps_layanan_publik as $layanan_publik)
+                  <tr>
+                    <td>{{ $layanan_publik->nama_aplikasi }}</td>
+                    <td>{{ $layanan_publik->tempataplikasi }}</td>
+                    <td>{{ $layanan_publik->pengguna }}</td>
+                    <td>{{ $layanan_publik->status }}</td>
                   </tr>
                   @endforeach
+                  @endif
                 </tbody>
               </table>
             </div>
           </div>
         </div>
-        <!-- Table progres unit kerja end -->
+
+        <!-- data aplikasi layanan administrasi pemeritahan -->
+        <div class="col-12">
+          <div class="card overflow-auto">
+            <div class="card-body">
+              <h5 class="card-title">Aplikasi Pelayanan Publik</h5>
+              <table class="table table-hover datatble">
+                <thead>
+                  <tr class="text-danger">
+                    <th scope="col">Nama Aplikasi</th>
+                    <th scope="col">Tempat Aplikasi</th>
+                    <th scope="col">Pengguna</th>
+                    <th scope="col">status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @if($aplikasi_administrasi_pemerintah == 0)
+                  <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+                  @else
+                  @foreach($aps_adm_pemerintah as $adm_pemerintah)
+                  <tr>
+                    <td>{{ $adm_pemerintah->nama_aplikasi }}</td>
+                    <td>{{ $adm_pemerintah->tempataplikasi }}</td>
+                    <td>{{ $adm_pemerintah->pengguna }}</td>
+                    <td>{{ $adm_pemerintah->status }}</td>
+                  </tr>
+                  @endforeach
+                  @endif
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- data aplikasi layanan call center -->
+        <div class="col-12">
+          <div class="card overflow-auto">
+            <div class="card-body">
+              <h5 class="card-title">Call Center</h5>
+              <table class="table table-hover datatble">
+                <thead>
+                  <tr class="text-danger">
+                    <th scope="col">Nama Layanan</th>
+                    <th scope="col">Nomor Layanan</th>
+                    <th scope="col">status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @if($call_center == 0)
+                  <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+                  @else
+                  @foreach($aps_callcenter as $callcenter)
+                  <tr>
+                    <td>{{ $callcenter->nama_layanan }}</td>
+                    <td>{{ $callcenter->nomor_layanan }}</td>
+                    <td>{{ $callcenter->status }}</td>
+                  </tr>
+                  @endforeach
+                  @endif
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- data aplikasi layanan website -->
+        <div class="col-12">
+          <div class="card overflow-auto">
+            <div class="card-body">
+              <h5 class="card-title">Website</h5>
+              <table class="table table-hover datatble">
+                <thead>
+                  <tr class="text-danger">
+                    <th scope="col">Nama Website</th>
+                    <th scope="col">Pengembang</th>
+                    <th scope="col">Tempat</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @if($website == 0)
+                  <tr>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                  </tr>
+                  @else
+                  @foreach($aps_website as $website)
+                  <tr>
+                    <td>{{ $website->nama_website }}</td>
+                    <td>{{ $website->pengembang }}</td>
+                    <td>{{ $website->tempat }}</td>
+                    <td>{{ $website->status }}</td>
+                  </tr>
+                  @endforeach
+                  @endif
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+       
+         
+
+
+       
       </div>
     </div>
     <!-- Kolom kiri end -->
