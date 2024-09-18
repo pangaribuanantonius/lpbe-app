@@ -127,6 +127,14 @@
 													<input type="text" class="form-control" name="tempat" value="{{ $w->tempat }}" readonly>
 												</div><br>
 												<div class="form-group">
+													<label>Apakah website ini menyimpan data pribadi/rahasia ?</label><br>
+													{{ $w->rahasia }}
+												</div><br>
+												<div class="form-group">
+													<label>Apakah website ini menyediakan fitur ramah anak ?</label><br>
+													{{ $w->ramah_anak }}
+												</div><br>
+												<div class="form-group">
 													<label>Nama PIC</label>
 													<input type="text" class="form-control" name="nama_pic" value="{{ $w->nama_pic }}" readonly>
 												</div><br>
@@ -281,10 +289,45 @@
 													@endif
 												</div>
 												<div class="form-group">
-													<label>Nama Layanan</label>
-													<input type="text" name="nama_layanan" class="form-control" value="{{ $w->nama_layanan }}" readonly="readonly">
+													<label>Nama Website</label>
+													<input type="text" name="nama_website" class="form-control" value="{{ $w->nama_website }}" readonly="readonly">
 												</div><br>
-												
+												<div class="form-group">
+													<label>Deskripsi Website</label>
+													<textarea name="deskripsi_website" class="form-control" readonly>{{ $w->deskripsi_website }}</textarea>
+												</div><br>
+												<div class="form-group">
+													<label>URL</label>
+													<input type="text" class="form-control" name="url" value="{{ $w->url }}" readonly>
+												</div><br>
+												<div class="form-group">
+													<label>Pengembang</label>
+													<input type="text" class="form-control" name="pengembang" value="{{ $w->pengembang }}" readonly>
+												</div><br>
+												<div class="form-group">
+													<label>Tempat</label>
+													<input type="text" class="form-control" name="tempat" value="{{ $w->tempat }}" readonly>
+												</div><br>
+												<div class="form-group">
+													<label>Apakah website ini menyimpan data pribadi/rahasia ?</label><br>
+													{{ $w->rahasia }}
+												</div><br>
+												<div class="form-group">
+													<label>Apakah website ini menyediakan fitur ramah anak ?</label><br>
+													{{ $w->ramah_anak }}
+												</div><br>
+												<div class="form-group">
+													<label>Nama PIC</label>
+													<input type="text" class="form-control" name="nama_pic" value="{{ $w->nama_pic }}" readonly>
+												</div><br>
+												<div class="form-group">
+													<label>Jabatan</label>
+													<input type="text" class="form-control" name="jabatan_pic" value="{{ $w->jabatan_pic }}" readonly>
+												</div><br>
+												<div class="form-group">
+													<label>Kontak</label>
+													<input type="text" class="form-control" name="kontak" value="{{ $w->kontak }}" readonly>
+												</div><br>
 											</form>
 										</div>
                                 <!-- <div class="modal-footer">
