@@ -41,11 +41,10 @@
 			@else
 			@foreach($website as $w)
 			<tr>
-				<td>{{ $w->nama_layanan }}</td>
-				<td>{{ $w->nomor_layanan }}</td>
-				<td>{!! nl2br(e($w->deskripsi_layanan)) !!}</td>
-				<td>{{ $w->sektorlayanan }}</td>
-				<td>{{ $w->sektorlainnya }}</td>
+				<td>{{ $w->nama_website }}</td>
+				<td>{!! nl2br(e($w->deskripsi_website)) !!}</td>
+				<td>{{ $w->pengembang }}</td>
+				<td>{{ $w->tempat }}</td>
 			</tr>
 			@endforeach
 			@endif
