@@ -142,10 +142,7 @@
                 <tbody>
                   @if($aplikasi_layanan_publik == 0)
                   <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <td colspan="4" class="text-center">Nihil</td>
                   </tr>
                   @else
                   @foreach($aps_layanan_publik as $layanan_publik)
@@ -180,10 +177,9 @@
                 <tbody>
                   @if($aplikasi_administrasi_pemerintah == 0)
                   <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <tr>
+                      <td colspan="4" class="text-center">Nihil</td>
+                    </tr>
                   </tr>
                   @else
                   @foreach($aps_adm_pemerintah as $adm_pemerintah)
@@ -218,9 +214,9 @@
                 <tbody>
                   @if($call_center == 0)
                   <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <tr>
+                      <td colspan="3" class="text-center">Nihil</td>
+                    </tr>
                   </tr>
                   @else
                   @foreach($aps_callcenter as $callcenter)
@@ -255,10 +251,9 @@
                 <tbody>
                   @if($website == 0)
                   <tr>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
+                    <tr>
+                      <td colspan="4" class="text-center">Nihil</td>
+                    </tr>
                   </tr>
                   @else
                   @foreach($aps_website as $website)
