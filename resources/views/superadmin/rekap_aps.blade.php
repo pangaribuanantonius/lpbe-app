@@ -131,6 +131,7 @@
             <div class="card-body">
               <h5 class="card-title">Aplikasi Pelayanan Publik</h5>
               <table class="table table-hover datatble">
+                @if($aplikasi_layanan_publik == 0)
                 <thead>
                   <tr class="text-danger">
                     <th scope="col">Nama Aplikasi</th>
@@ -140,17 +141,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @if($aplikasi_layanan_publik == 0)
                   <tr>
                     <td colspan="4" class="text-center">Nihil</td>
                   </tr>
-                  @else
+                </tbody>
+                @else
+                <thead>
+                  <tr class="text-danger">
+                    <th scope="col">Nama Aplikasi</th>
+                    <th scope="col">Tempat Aplikasi</th>
+                    <th scope="col">Pengguna</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Verifikasi</th>
+                  </tr>
+                </thead>
+                <tbody>
                   @foreach($aps_layanan_publik as $layanan_publik)
                   <tr>
                     <td>{{ $layanan_publik->nama_aplikasi }}</td>
                     <td>{{ $layanan_publik->tempataplikasi }}</td>
                     <td>{{ $layanan_publik->pengguna }}</td>
                     <td>{{ $layanan_publik->status }}</td>
+                    <td>{{ $layanan_publik->verifikasi }}</td>
                   </tr>
                   @endforeach
                   @endif
@@ -164,8 +176,9 @@
         <div class="col-12">
           <div class="card overflow-auto">
             <div class="card-body">
-              <h5 class="card-title">Aplikasi Pelayanan Publik</h5>
+              <h5 class="card-title">Aplikasi Administrasi Pemerintahan</h5>
               <table class="table table-hover datatble">
+                @if($aplikasi_administrasi_pemerintah == 0)
                 <thead>
                   <tr class="text-danger">
                     <th scope="col">Nama Aplikasi</th>
@@ -175,19 +188,28 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @if($aplikasi_administrasi_pemerintah == 0)
                   <tr>
-                    <tr>
-                      <td colspan="4" class="text-center">Nihil</td>
-                    </tr>
+                    <td colspan="4" class="text-center">Nihil</td>
                   </tr>
-                  @else
+                </tbody>
+                @else
+                <thead>
+                  <tr class="text-danger">
+                    <th scope="col">Nama Aplikasi</th>
+                    <th scope="col">Tempat Aplikasi</th>
+                    <th scope="col">Pengguna</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Verifikasi</th>
+                  </tr>
+                </thead>
+                <tbody>
                   @foreach($aps_adm_pemerintah as $adm_pemerintah)
                   <tr>
                     <td>{{ $adm_pemerintah->nama_aplikasi }}</td>
                     <td>{{ $adm_pemerintah->tempataplikasi }}</td>
                     <td>{{ $adm_pemerintah->pengguna }}</td>
                     <td>{{ $adm_pemerintah->status }}</td>
+                    <td>{{ $adm_pemerintah->verifikasi }}</td>
                   </tr>
                   @endforeach
                   @endif
@@ -202,8 +224,9 @@
         <div class="col-12">
           <div class="card overflow-auto">
             <div class="card-body">
-              <h5 class="card-title">Call Center</h5>
+              <h5 class="card-title">Layanan Call Center</h5>
               <table class="table table-hover datatble">
+                @if($call_center == 0)
                 <thead>
                   <tr class="text-danger">
                     <th scope="col">Nama Layanan</th>
@@ -212,18 +235,26 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @if($call_center == 0)
                   <tr>
-                    <tr>
-                      <td colspan="3" class="text-center">Nihil</td>
-                    </tr>
+                    <td colspan="4" class="text-center">Nihil</td>
                   </tr>
-                  @else
+                </tbody>
+                @else
+                <thead>
+                  <tr class="text-danger">
+                    <th scope="col">Nama Layanan</th>
+                    <th scope="col">Nomor Layanan</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Verifikasi</th>
+                  </tr>
+                </thead>
+                <tbody>
                   @foreach($aps_callcenter as $callcenter)
                   <tr>
                     <td>{{ $callcenter->nama_layanan }}</td>
                     <td>{{ $callcenter->nomor_layanan }}</td>
                     <td>{{ $callcenter->status }}</td>
+                    <td>{{ $callcenter->verifikasi }}</td>
                   </tr>
                   @endforeach
                   @endif
@@ -238,30 +269,40 @@
         <div class="col-12">
           <div class="card overflow-auto">
             <div class="card-body">
-              <h5 class="card-title">Website</h5>
+              <h5 class="card-title">Layanan Website</h5>
               <table class="table table-hover datatble">
+                @if($website == 0)
                 <thead>
                   <tr class="text-danger">
                     <th scope="col">Nama Website</th>
                     <th scope="col">Pengembang</th>
                     <th scope="col">Tempat</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">status</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @if($website == 0)
                   <tr>
-                    <tr>
-                      <td colspan="4" class="text-center">Nihil</td>
-                    </tr>
+                    <td colspan="4" class="text-center">Nihil</td>
                   </tr>
-                  @else
+                </tbody>
+                @else
+                <thead>
+                  <tr class="text-danger">
+                    <th scope="col">Nama Website</th>
+                    <th scope="col">Pengembang</th>
+                    <th scope="col">Tempat</th>
+                    <th scope="col">status</th>
+                    <th scope="col">Verifikasi</th>
+                  </tr>
+                </thead>
+                <tbody>
                   @foreach($aps_website as $website)
                   <tr>
                     <td>{{ $website->nama_website }}</td>
                     <td>{{ $website->pengembang }}</td>
                     <td>{{ $website->tempat }}</td>
                     <td>{{ $website->status }}</td>
+                    <td>{{ $website->verifikasi }}</td>
                   </tr>
                   @endforeach
                   @endif
