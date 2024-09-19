@@ -33,7 +33,7 @@
       <div class="d-flex align-items-center justify-content-between">
         <a href="#" class="logo d-flex align-items-center">
           <!-- <img src="assets/img/logo.png" alt="" /> -->
-          <span class="d-none d-lg-block"><i class="bi bi-steam"></i> Monev SPBE</span>
+          <span class="d-none d-lg-block"><i class="bi bi-cpu"></i> Monev SPBE</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
       </div>
@@ -106,7 +106,7 @@
         <li class="nav-item">
           <a class="nav-link collapsed rounded-5" data-bs-target="#aplikasi" data-bs-toggle="collapse" href="#"> <i class="bi bi-cpu"></i><span>Aplikasi</span><i class="bi bi-chevron-down ms-auto"></i> </a>
           <ul id="aplikasi" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-            
+
             <li>
               <a href="{{ route('superadmin.aplikasi') }}" class="rounded-5"> <i class="bi bi-pen me-2"></i><span>Pendataan Aplikasi</span> </a>
             </li>
@@ -161,7 +161,7 @@
           </a>
         </li> -->
         <!-- Urusan end -->
-        
+
         <!-- Unit kerja start -->
         <!-- <li class="nav-item">
           <a class="nav-link collapsed rounded-5" href="unor.html">
@@ -170,7 +170,7 @@
           </a>
         </li> -->
         <!-- Unit kerja end -->
-        
+
         <!-- Penandatanganan start -->
         <!-- <li class="nav-item">
           <a class="nav-link collapsed rounded-5" href="penandatangan.html">
@@ -201,13 +201,13 @@
         <!-- Tahun start -->
         <li class="nav-item">
           <a class="nav-link collapsed rounded-5" href="{{ route('superadmin.tahun') }}">
-            <i class="bi bi-steam"></i>
+            <i class="bi bi-calendar3"></i>
             <span>Tahun</span>
           </a>
         </li>
         <!-- Tahun end -->
 
-        
+
         <!-- Panduan start -->
         <!-- <li class="nav-item">
           <a class="nav-link collapsed rounded-5" href="tutorial.html">

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="bootstrap.min.css" />
     <!-- Icons -->
     <link href="https://portal.deliserdangkab.go.id/wp-content/berkas/1718002763.png" rel="icon" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,7 +34,7 @@
             <img src="https://portal.deliserdangkab.go.id/wp-content/berkas/1686018101.png" class="img-fluid gambarLogin d-none d-md-block" alt="gambarLogin" />
           </div>
           <small
-            ><p class="text-center text-white fs-5 leftText"><i class="bi bi-boxes"></i> Monev <span class="strong">SPBE</span></p></small
+            ><p class="text-center text-white fs-5 leftText"><i class="bi bi-cpu"></i> Monev <span class="strong">SPBE</span></p></small
           >
           <small class="text-center text-white text-wrap mb-3">Diskominfostan<br />Kabupaten Deli Serdang</small>
         </div>
