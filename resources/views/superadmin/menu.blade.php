@@ -6,7 +6,7 @@
   <h1><i class="bi bi-grid"></i> Dasbor</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="active ms-1"><i class="bi bi-steam"></i> Layanan Pemerintah Berbasis Elektronik</li>
+      <li class="active ms-1"><i class="bi bi-cpu"></i>Monev SPBE</li>
     </ol>
   </nav>
 </div>
