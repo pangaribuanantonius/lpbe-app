@@ -196,7 +196,7 @@
 
                   @endphp
                   <tr>
-                    <td><a href="{{ route('superadmin.rekap_aps', ['instansi_id' => $i->id]) }}" class="text-wrap text-decoration-none">{{ $i->nama_instansi }}</a></td>
+                    <td><a href="{{ route('superadmin.rekap_aps', ['instansi_id' => $i->id]) }}" class="text-wrap text-decoration-none text-dark">{{ $i->nama_instansi }}</a></td>
 
                     @if($hitung_publik == 0)
                     <td class="align-middle text-center">-</td>
