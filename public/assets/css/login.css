@@ -1,0 +1,116 @@
+:root {
+    --bs-primary: #00425a;
+    --bs-primary-shadow: #022836;
+    --bs-secondary: #6c757d;
+    --bs-secondary-shadow: #4c4e50;
+    --bs-light: #fc7300;
+    --bs-light-shadow: #c25700;
+    --bs-background: #ececec;
+  }
+  
+  body {
+    font-family: "Livvic", sans-serif;
+    font-weight: 500;
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+  /* Main Container */
+  .kotakUtama {
+    padding: 30px;
+  }
+  
+  /* Login Container */
+  .boxArea {
+    width: 930px;
+  }
+  
+  /* Left box */
+  .leftBox {
+      background: var(--bs-primary);
+      background: rgb(7,0,130);
+      background: radial-gradient(circle, rgb(0, 71, 118) 0%, rgb(0, 13, 40) 100%);
+      padding: 40px 30px 40px 40px;
+  }
+  
+  .leftBoxForgot {
+    background: var(--bs-secondary);
+    padding: 40px 30px 40px 40px;
+  }
+  
+  .gambarLogin {
+    width: 200px;
+  }
+  
+  .login-btn {
+    height: 2.5rem;
+    border-radius: 8px;
+    color: white;
+    background-color: var(--bs-primary);
+    box-shadow: 0 4px 0 var(--bs-primary-shadow);
+    border: none;
+  }
+  
+  .login-btn:hover {
+    color: white;
+    background-color: var(--bs-light);
+    box-shadow: 0 4px 0 var(--bs-light-shadow);
+    border: none;
+    transition: 200ms;
+  }
+  
+  .login-btn:active {
+    color: white;
+    background-color: var(--bs-light);
+    box-shadow: none;
+    transform: translateY(4px);
+    border: none;
+  }
+  
+  .logoG {
+    height: 2.5rem;
+    border-radius: 8px;
+    background-color: var(--bs-background);
+    box-shadow: 0 4px 0 #b1b1b1;
+    border: none;
+  }
+  
+  .logoG:hover {
+    color: white;
+    background-color: var(--bs-light);
+    box-shadow: 0 4px 0 var(--bs-light-shadow);
+    border: none;
+    transition: 200ms;
+  }
+  
+  .logoG:active {
+    color: white;
+    background-color: var(--bs-light);
+    box-shadow: none;
+    transform: translateY(4px);
+    border: none;
+  }
+  
+  .leftText {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+  }
+  
+  small {
+    width: 17rem;
+  }
+  
+  /* Right box */
+  .logoG {
+    width: 20px;
+  }
+  
+  /* Custom placeholder */
+  ::placeholder {
+    font-size: 14px;
+    font-style: italic;
+  }
