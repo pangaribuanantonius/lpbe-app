@@ -221,7 +221,6 @@
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
-                    <td>-</td>
                   </tr>
                   @else
                   @foreach($aps_callcenter as $callcenter)
