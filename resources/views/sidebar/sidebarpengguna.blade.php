@@ -144,6 +144,9 @@
             <li>
               <a href="#" class="rounded-5"> <i class="bi bi-award me-2"></i><span>Quick Win</span> </a>
             </li>
+            <li>
+              <a href="#" class="rounded-5"> <i class="bi bi-clipboard-check me-2"></i><span>Kuesioner</span> </a>
+            </li>
           </ul>
         </li>
         <!-- Smart City end -->
@@ -157,7 +160,7 @@
           </a>
         </li> -->
         <!-- Urusan end -->
-        
+
         <!-- Unit kerja start -->
         <!-- <li class="nav-item">
           <a class="nav-link collapsed rounded-5" href="unor.html">
@@ -166,7 +169,7 @@
           </a>
         </li> -->
         <!-- Unit kerja end -->
-        
+
         <!-- Penandatanganan start -->
         <li class="nav-item">
           <a class="nav-link collapsed rounded-5" href="{{ route('menu.penandatanganan') }}">
@@ -175,7 +178,7 @@
           </a>
         </li>
         <!-- Penandatanganan end -->
-        
+
         <!-- Panduan start -->
         <li class="nav-item">
           <a class="nav-link collapsed rounded-5" href="{{ route('menu.panduan')}}">

@@ -148,6 +148,9 @@
             <li>
               <a href="#" class="rounded-5"> <i class="bi bi-award me-2"></i><span>Quick Win</span> </a>
             </li>
+            <li>
+              <a href="#" class="rounded-5"> <i class="bi bi-clipboard-check me-2"></i><span>Kuesioner</span> </a>
+            </li>
           </ul>
         </li>
         <!-- Smart City end -->
