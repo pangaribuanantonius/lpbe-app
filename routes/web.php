@@ -51,6 +51,7 @@ use App\Http\Controllers\InstansiController;
 use App\Http\Controllers\TahunController;
 use App\Http\Controllers\PemberitahuanController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SmartcityController;
 
 
 /*
@@ -588,6 +589,11 @@ Route::patch('/superadminwebsite/2021/{website}/verifadmin', [SuperadminStatusWe
 // website tahun 2024 level admin
 Route::post('/superadminwebsite/2024/updatestatus', [SuperadminStatusWebsite2024Controller::class, 'updatestatus'])->name('superadminwebsite.2024.updatestatus')->middleware('auth');
 Route::patch('/superadminwebsite/2024/{website}/verifadmin', [SuperadminStatusWebsite2024Controller::class, 'verifadmin'])->name('superadminwebsite.2024.verifadmin')->middleware('auth');
+
+
+
+//smartcity
+Route::get('/smartcity/formkuesionersmartcity', [SmartcityController::class, 'formkuesionersmartcity'])->name('smartcity.formkuesionersmartcity')->middleware('auth');
 
 
 

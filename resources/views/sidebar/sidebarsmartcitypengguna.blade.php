@@ -15,7 +15,6 @@
     <link href="https://fonts.gstatic.com" rel="preconnect" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Livvic:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
     <link href="{{ url('/')}}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="{{ url('/')}}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
     <link href="{{ url('/')}}/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
@@ -98,106 +97,24 @@
         </li>
         <!-- End Dashboard Nav -->
 
-        <!-- Aplikasi nav start -->
+
         <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" href="{{ route('menu.aplikasi') }}"> <i class="bi bi-cpu"></i><span>Monev Aplikasi</span></a>
+            <a class="nav-link rounded-5" href="{{ route('smartcity.formkuesionersmartcity') }}">
+                <i class="bi bi-graph-up-arrow me-2"></i><span>Kuesioner Smart City</span>
+              </a>
         </li>
 
-        <!-- <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" data-bs-target="#aplikasi" data-bs-toggle="collapse" href="#"> <i class="bi bi-cpu"></i><span>Aplikasi</span><i class="bi bi-chevron-down ms-auto"></i> </a>
-          <ul id="aplikasi" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-            <li>
-              <a href="#" class="rounded-5"> <i class="bi bi-graph-up-arrow me-2"></i><span>Monev Aplikasi</span> </a>
-            </li>
-            <li>
-              <a href="#" class="rounded-5"> <i class="bi bi-pen me-2"></i><span>Pendataan Aplikasi</span> </a>
-            </li>
-          </ul>
-        </li> -->
-
-        <!-- Aplikasi nav end -->
-
-        <!-- SPBE start -->
-        <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-clipboard2-pulse"></i><span>SPBE</span><i class="bi bi-chevron-down ms-auto"></i> </a>
-          <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-            <li>
-              <a href="#" class="rounded-5"> <i class="bi bi-graph-up-arrow me-2"></i><span>Monev SPBE</span> </a>
-            </li>
-            <li>
-              <a href="#" class="rounded-5"> <i class="bi bi-file-check me-2"></i><span>Penilaian Mandiri</span> </a>
-            </li>
-            <li>
-              <a href="#" class="rounded-5"> <i class="bi bi-binoculars me-2"></i><span>Audit Internal</span> </a>
-            </li>
-          </ul>
-        </li>
-        <!-- SPBE end -->
-
-        <!-- Smart City start -->
-        <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-houses"></i><span>Smart City</span><i class="bi bi-chevron-down ms-auto"></i> </a>
-          <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-            <li>
-              <a href="{{ route('smartcity.formkuesionersmartcity') }}" class="rounded-5"> <i class="bi bi-graph-up-arrow me-2"></i><span>Kuesioner Smart City</span> </a>
-            </li>
-            <li>
-              <a href="#" class="rounded-5"> <i class="bi bi-award me-2"></i><span>Quick Win</span> </a>
-            </li>
-          </ul>
-        </li>
-        <!-- Smart City end -->
-
-        <li class="nav-heading"><hr></li>
-        <!-- Urusan start -->
-        <!-- <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" href="urusan.html">
-            <i class="bi bi-bar-chart-steps"></i>
-            <span>Urusan</span>
-          </a>
-        </li> -->
-        <!-- Urusan end -->
+     
         
-        <!-- Unit kerja start -->
-        <!-- <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" href="unor.html">
-            <i class="bi bi-diagram-3"></i>
-            <span>Unit Kerja/Organisasi</span>
-          </a>
-        </li> -->
-        <!-- Unit kerja end -->
-        
-        <!-- Penandatanganan start -->
-        <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" href="{{ route('menu.penandatanganan') }}">
-            <i class="bi bi-pen"></i>
-            <span>Penandatanganan</span>
-          </a>
-        </li>
-        <!-- Penandatanganan end -->
-        
-        <!-- Panduan start -->
-        <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" href="{{ route('menu.panduan')}}">
-            <i class="bi bi-file-earmark-pdf"></i>
-            <span>Buku Panduan</span>
-          </a>
-        </li>
-        <!-- Panduan end -->
+     
 
-        <!-- FAQ start -->
-        <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" href="{{ route('menu.faq') }}">
-            <i class="bi bi-question-circle"></i>
-            <span>Sering ditanyakan</span>
-          </a>
-        </li>
-        <!-- FAQ end -->
+       
+        </ul>
     </aside>
     <!-- End Sidebar-->
 
     <main id="main" class="main">
-      @yield('layout')
+      @yield('smartcitypengguna')
     </main>
     <!-- End #main -->
 
