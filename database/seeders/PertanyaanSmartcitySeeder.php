@@ -14,10 +14,15 @@ class PertanyaanSmartcitySeeder extends Seeder
     {
         $listPertanyaan = [
             [
-                'id' => '0q8ug5Gh',
+                'id' => 'q91TVVhC',
                 'instansi_id' => 'itFy1L7e',
-                'pertanyaan' => 'Apa Hewan Favoritmu ?'
-            ]
+                'pertanyaan' => 'Apa hewan Favoritmu ?'
+            ],
+            [
+                'id' => 'LQRELUCT',
+                'instansi_id' => 'itFy1L7e',
+                'pertanyaan' => 'Apa makanan Favoritmu ?'
+            ],
         ];
         \DB::table('tabel_pertanyaan_smartcity')->insert($listPertanyaan);
     }
