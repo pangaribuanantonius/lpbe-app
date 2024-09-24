@@ -13,8 +13,16 @@ return new class extends Migration
     {
         Schema::create('tabel_pertanyaan_smartcity', function(Blueprint $table) {
             $table->string('id', 10)->unique();
-            $table->string('instansi_id', 10)->nullable(true)->default('Kosong');
+            $table->string('instansi_id_1', 10)->nullable(true)->default('Kosong');
+            $table->string('instansi_id_2', 10)->nullable(true)->default('Kosong');
+            $table->string('instansi_id_3', 10)->nullable(true)->default('Kosong');
+            $table->string('instansi_id_4', 10)->nullable(true)->default('Kosong');
+            $table->string('instansi_id_5', 10)->nullable(true)->default('Kosong');
             $table->longText('pertanyaan')->nullable(true);
+            $table->string('pilihan1')->nullable(true);
+            $table->string('pilihan2')->nullable(true);
+            $table->string('pilihan3')->nullable(true);
+            $table->string('pilihan4')->nullable(true);
             $table->timestamps();
         });
     }

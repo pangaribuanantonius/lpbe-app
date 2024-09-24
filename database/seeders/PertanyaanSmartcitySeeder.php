@@ -15,13 +15,29 @@ class PertanyaanSmartcitySeeder extends Seeder
         $listPertanyaan = [
             [
                 'id' => 'q91TVVhC',
-                'instansi_id' => 'itFy1L7e',
-                'pertanyaan' => 'Apa hewan Favoritmu ?'
+                'instansi_id_1' => 'Kosong',
+                'instansi_id_2' => 'Kosong',
+                'instansi_id_3' => 'Kosong',
+                'instansi_id_4' => 'Kosong',
+                'instansi_id_5' => 'Kosong',
+                'pertanyaan' => 'Apa hewan Favoritmu ?',
+                'pilihan1' => 'Anjing',
+                'pilihan2' => 'Kucing',
+                'pilihan3' => 'Kelinci',
+                'pilihan4' => 'Hamster',
             ],
             [
                 'id' => 'LQRELUCT',
-                'instansi_id' => 'itFy1L7e',
-                'pertanyaan' => 'Apa makanan Favoritmu ?'
+                'instansi_id_1' => 'Kosong',
+                'instansi_id_2' => 'Kosong',
+                'instansi_id_3' => 'Kosong',
+                'instansi_id_4' => 'Kosong',
+                'instansi_id_5' => 'Kosong',
+                'pertanyaan' => 'Apa makanan Favoritmu ?',
+                'pilihan1' => 'Telur',
+                'pilihan2' => 'Mie Instan',
+                'pilihan3' => 'Ikan',
+                'pilihan4' => 'Tidak ada satupun yang benar',
             ],
         ];
         \DB::table('tabel_pertanyaan_smartcity')->insert($listPertanyaan);
