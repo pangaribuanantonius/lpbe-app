@@ -15,7 +15,9 @@
 
 <div class="card">
 	<div class="card-body">
-		<form action="" method="post" enctype="multipart/form-data">
+		<form action="{{ route('superadminsmartcity.simpan_pertanyaan') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
             <div class="form-group mt-3">
                 <label>Tulis Pertanyaan disini</label>
                 <textarea name="pertanyaan" class="form-control" required></textarea>
@@ -32,45 +34,56 @@
                 <label>Isi Pilihan III disini</label>
                 <input type="text" name="pilihan3" class="form-control" required>
             </div>
-            <div class="form-group mt-3"></div>
+            <div class="form-group mt-3">
                 <label>Isi Pilihan IV disini</label>
                 <input type="text" name="pilihan4" class="form-control" required>
             </div>
             <div class="form-group mt-3">
-                <label>Isi Pilihan V disini</label>
-                <input type="text" name="pilihan5" class="form-control" required>
-            </div>
-            <div class="form-group mt-3">
                 <label>Pilih Unit Kerja I</label>
-                <select name="instansi_id_1">
+                <select name="instansi_id_1" class="form-control">
                     <option value="">Pilih</option>
+                    @foreach($list_instansi as $instansi)
+                    <option value="{{ $instansi->id }}">{{ $instansi->nama_instansi }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group mt-3">
                 <label>Pilih Unit Kerja II</label>
-                <select name="instansi_id_2">
+                <select name="instansi_id_2" class="form-control">
                     <option value="">Pilih</option>
+                    @foreach($list_instansi as $instansi)
+                    <option value="{{ $instansi->id }}">{{ $instansi->nama_instansi }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group mt-3">
                 <label>Pilih Unit Kerja III</label>
-                <select name="instansi_id_3">
+                <select name="instansi_id_3" class="form-control">
                     <option value="">Pilih</option>
+                    @foreach($list_instansi as $instansi)
+                    <option value="{{ $instansi->id }}">{{ $instansi->nama_instansi }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group mt-3">
                 <label>Pilih Unit Kerja IV</label>
-                <select name="instansi_id_4">
+                <select name="instansi_id_4" class="form-control">
                     <option value="">Pilih</option>
+                    @foreach($list_instansi as $instansi)
+                    <option value="{{ $instansi->id }}">{{ $instansi->nama_instansi }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group mt-3">
                 <label>Pilih Unit Kerja V</label>
-                <select name="instansi_id_5">
+                <select name="instansi_id_5" class="form-control">
                     <option value="">Pilih</option>
+                    @foreach($list_instansi as $instansi)
+                    <option value="{{ $instansi->id }}">{{ $instansi->nama_instansi }}</option>
+                    @endforeach
                 </select>
             </div>
-            <button class="btn btn-success" type="submit">Submit</button>
+            <button class="btn btn-success mt-3" type="submit">Submit</button>
         </form>
 	</div>
 </div>

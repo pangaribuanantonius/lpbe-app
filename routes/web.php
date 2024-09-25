@@ -52,6 +52,7 @@ use App\Http\Controllers\TahunController;
 use App\Http\Controllers\PemberitahuanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SmartcityController;
+use App\Http\Controllers\SuperadminSmartcityController;
 
 
 /*
@@ -594,6 +595,11 @@ Route::patch('/superadminwebsite/2024/{website}/verifadmin', [SuperadminStatusWe
 
 //smartcity
 Route::get('/smartcity/formkuesionersmartcity', [SmartcityController::class, 'formkuesionersmartcity'])->name('smartcity.formkuesionersmartcity')->middleware('auth');
+Route::post('/smartcity/simpan_jawaban', [SmartcityController::class, 'simpan_jawaban'])->name('smartcity.simpan_jawaban')->middleware('auth');
+
+//superadmin smartcity
+Route::get('/superadminsmartcity/create', [SuperadminSmartcityController::class, 'create'])->name('superadminsmartcity.create')->middleware('auth');
+Route::post('/superadminsmartcity/simpan_pertanyaan', [SuperadminSmartcityController::class, 'simpan_pertanyaan'])->name('superadminsmartcity.simpan_pertanyaan')->middleware('auth');
 
 
 
