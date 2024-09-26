@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('instansi_id_3', 10)->nullable(true)->default('Kosong');
             $table->string('instansi_id_4', 10)->nullable(true)->default('Kosong');
             $table->string('instansi_id_5', 10)->nullable(true)->default('Kosong');
+            $table->string('no_urut', 10)->nullable(true)->default('Kosong');
             $table->longText('pertanyaan')->nullable(true);
             $table->string('pilihan1')->nullable(true);
             $table->string('pilihan2')->nullable(true);

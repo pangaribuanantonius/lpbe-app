@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class SmartcityController extends Controller
 {
     public function formkuesionersmartcity(){
-        $pertanyaan = Smartcity::all();
+        $pertanyaan = Smartcity::orderBy('no_urut', 'asc')->get();
         return view('smartcity.formkuesionersmartcity', ['pertanyaan' => $pertanyaan]);
     }
 

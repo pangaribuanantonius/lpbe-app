@@ -19,6 +19,10 @@
             @csrf
             @method('POST')
             <div class="form-group mt-3">
+                <label>No Urut</label>
+                <input type="number" name="no_urut" class="form-control" required>
+            </div>
+            <div class="form-group mt-3">
                 <label>Tulis Pertanyaan disini</label>
                 <textarea name="pertanyaan" class="form-control" required></textarea>
             </div>

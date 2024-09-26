@@ -15,6 +15,7 @@ class SuperadminSmartcityController extends Controller
     public function simpan_pertanyaan(Request $request){
         \App\Models\SmartCity::create([
             'id' => \Str::random(8),
+            'no_urut' => $request->no_urut,
             'pertanyaan' => $request->pertanyaan,
             'pilihan1' => $request->pilihan1,
             'pilihan2' => $request->pilihan2,
