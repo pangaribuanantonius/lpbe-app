@@ -21,15 +21,24 @@ $i = 1;
 		<form action="{{ route('smartcity.simpan_jawaban') }}" method="post" enctype="multipart/form-data">
 			@csrf
 			@foreach($pertanyaan as $questions)
-			<input type="text" name="instansi_id" value="{{ auth()->user()->instansi_id }}">
-			<input type="text" name="pertanyaan_id[]" value="{{ $questions->id }}">
+			<input type="hidden" name="instansi_id" value="{{ auth()->user()->instansi_id }}">
+			<input type="hidden" name="pertanyaan_id[]" value="{{ $questions->id }}">
 			<div class="form-group mt-3">
 				<label>{{ $i++ }}. {{ $questions->pertanyaan }}</label> <br>
 				<!-- Perbaikan: Setiap jawaban punya name unik dengan ID pertanyaan -->
-				<input type="radio" name="jawaban[{{ $questions->id }}]" value="{{ $questions->pilihan1 }}"> {{ $questions->pilihan1 }} <br>
-				<input type="radio" name="jawaban[{{ $questions->id }}]" value="{{ $questions->pilihan2 }}"> {{ $questions->pilihan2 }} <br>
-				<input type="radio" name="jawaban[{{ $questions->id }}]" value="{{ $questions->pilihan3 }}"> {{ $questions->pilihan3 }} <br>
-				<input type="radio" name="jawaban[{{ $questions->id }}]" value="{{ $questions->pilihan4 }}"> {{ $questions->pilihan4 }} <br>
+				 <!-- <select name="jawaban[{{ $questions->id }}]" class="form-control" required>
+					<option value="">Pilih Jawaban</option>
+					<option value="{{ $questions->pilihan1 }}">{{ $questions->pilihan1 }}</option>
+					<option value="{{ $questions->pilihan2 }}">{{ $questions->pilihan2 }}</option>
+					<option value="{{ $questions->pilihan3 }}">{{ $questions->pilihan3 }}</option>
+					<option value="{{ $questions->pilihan4 }}">{{ $questions->pilihan4 }}</option>
+				 </select> -->
+
+				 <input type="radio" name="jawaban[{{ $questions->id }}]" value="{{ $questions->pilihan1 }}" required> {{ $questions->pilihan1 }} <br>
+				 <input type="radio" name="jawaban[{{ $questions->id }}]" value="{{ $questions->pilihan2 }}" required> {{ $questions->pilihan2 }} <br>
+				 <input type="radio" name="jawaban[{{ $questions->id }}]" value="{{ $questions->pilihan3 }}" required> {{ $questions->pilihan3 }} <br>
+				 <input type="radio" name="jawaban[{{ $questions->id }}]" value="{{ $questions->pilihan4 }}" required> {{ $questions->pilihan4 }} <br>
+
 			</div>
 			@endforeach
 
