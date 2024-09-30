@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 use App\Models\SmartCity;
 use App\Models\JawabanSmartcity;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SmartcityController extends Controller
 {
     public function formkuesionersmartcity(){
+        $year =  Carbon::now()->year; // Mengambil tahun saat ini
         $pertanyaan = Smartcity::orderBy('no_urut', 'asc')->get();
-        return view('smartcity.formkuesionersmartcity', ['pertanyaan' => $pertanyaan]);
+        return view('smartcity.formkuesionersmartcity', ['pertanyaan' => $pertanyaan, 'year' => $year]);
     }
 
     public function simpan_jawaban(Request $request){
@@ -27,6 +29,7 @@ class SmartcityController extends Controller
             // Simpan jawaban ke database
             JawabanSmartcity::create([
                 'id' => \Str::random(8),
+                'tahun' => $request->tahun,
                 'instansi_id' => $request->instansi_id,
                 'pertanyaan_id' => $pertanyaanId,
                 'jawaban' => $jawaban,

@@ -23,6 +23,7 @@ $i = 1;
 			@foreach($pertanyaan as $questions)
 			<input type="hidden" name="instansi_id" value="{{ auth()->user()->instansi_id }}">
 			<input type="hidden" name="pertanyaan_id[]" value="{{ $questions->id }}">
+			<input type="hidden" name="tahun" value="{{ $year }}" class="form-control">
 			<div class="form-group mt-3">
 				<label>{{ $i++ }}. {{ $questions->pertanyaan }}</label> <br>
 				<!-- Perbaikan: Setiap jawaban punya name unik dengan ID pertanyaan -->
