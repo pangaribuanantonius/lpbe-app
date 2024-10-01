@@ -18,6 +18,15 @@
 		<form action="{{ route('superadminsmartcity.simpan_pertanyaan') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('POST')
+            <div class="form-grouup mt-3">
+                <label>Dimensi</label>
+                <select name="dimensi_id" class="form-control" required>
+                    <option value="">Pilih</option>
+                    @foreach($listdimensi as $dimensi)
+                    <option value="{{ $dimensi->id }}">{{ $dimensi->nama_dimensi }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="form-group mt-3">
                 <label>No Urut</label>
                 <input type="number" name="no_urut" class="form-control" required>

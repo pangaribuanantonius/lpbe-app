@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers;
 use App\Models\SmartCity;
+use App\Models\DimensiSmartcity;
 use App\Models\Instansi;
 use Illuminate\Http\Request;
 
 class SuperadminSmartcityController extends Controller
 {
     public function create(){
+        $listdimensi = DimensiSmartcity::orderBy('nama_dimensi', 'asc')->get();
         $list_instansi = Instansi::orderBy('nama_instansi', 'asc')->get();
-        return view('superadminsmartcity.create', ['list_instansi' => $list_instansi]);
+        return view('superadminsmartcity.create', ['list_instansi' => $list_instansi, 'listdimensi' => $listdimensi]);
     }
 
     public function simpan_pertanyaan(Request $request){
         \App\Models\SmartCity::create([
             'id' => \Str::random(8),
             'no_urut' => $request->no_urut,
+            'dimensi_id' => $request->dimensi_id,
             'pertanyaan' => $request->pertanyaan,
             'pilihan1' => $request->pilihan1,
             'pilihan2' => $request->pilihan2,
