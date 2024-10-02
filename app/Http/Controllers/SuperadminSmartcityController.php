@@ -8,17 +8,21 @@ use Illuminate\Http\Request;
 
 class SuperadminSmartcityController extends Controller
 {
+
+    public function data_pertanyaan(){
+        $listpertanyaan = SmartCity::orderBy('no_urut', 'asc')->get();
+        return view('superadminsmartcity.data_pertanyaan', ['listpertanyaan' => $listpertanyaan]);
+    }
+
     public function create(){
-        $listdimensi = DimensiSmartcity::orderBy('nama_dimensi', 'asc')->get();
         $list_instansi = Instansi::orderBy('nama_instansi', 'asc')->get();
-        return view('superadminsmartcity.create', ['list_instansi' => $list_instansi, 'listdimensi' => $listdimensi]);
+        return view('superadminsmartcity.create', ['list_instansi' => $list_instansi]);
     }
 
     public function simpan_pertanyaan(Request $request){
         \App\Models\SmartCity::create([
             'id' => \Str::random(8),
             'no_urut' => $request->no_urut,
-            'dimensi_id' => $request->dimensi_id,
             'pertanyaan' => $request->pertanyaan,
             'pilihan1' => $request->pilihan1,
             'pilihan2' => $request->pilihan2,
@@ -30,6 +34,12 @@ class SuperadminSmartcityController extends Controller
             'instansi_id_4' => $request->instansi_id_4,
             'instansi_id_5' => $request->instansi_id_5,
         ]);
-        dd('berhasil');
+        return redirect('superadminsmartcity/create')->with('success', 'Berhasil Menambah Data!');
     }
+
+    public function edit_pertanyaan(SmartCity $pertanyaan){
+        $list_instansi = Instansi::orderBy('nama_instansi', 'asc')->get();
+        return view('superadminsmartcity.edit_pertanyaan', ['pertanyaan' => $pertanyaan, 'list_instansi' => $list_instansi]);
+    }
+    
 }

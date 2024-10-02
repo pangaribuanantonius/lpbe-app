@@ -11,20 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tabel_pertanyaan_smartcity', function(Blueprint $table) {
+        Schema::create('tabel_kuesioner_smartcity', function(Blueprint $table) {
             $table->string('id', 10)->unique();
             $table->string('instansi_id_1', 10)->nullable(true)->default('Kosong');
             $table->string('instansi_id_2', 10)->nullable(true)->default('Kosong');
             $table->string('instansi_id_3', 10)->nullable(true)->default('Kosong');
             $table->string('instansi_id_4', 10)->nullable(true)->default('Kosong');
             $table->string('instansi_id_5', 10)->nullable(true)->default('Kosong');
-            $table->string('dimensi_id', 10)->nullable(true)->default('Kosong');
             $table->string('no_urut', 10)->nullable(true)->default('Kosong');
             $table->longText('pertanyaan')->nullable(true);
-            $table->string('pilihan1')->nullable(true);
-            $table->string('pilihan2')->nullable(true);
-            $table->string('pilihan3')->nullable(true);
-            $table->string('pilihan4')->nullable(true);
+            $table->string('pilihan1')->nullable(true)->default('Kosong');
+            $table->string('pilihan2')->nullable(true)->default('Kosong');
+            $table->string('pilihan3')->nullable(true)->default('Kosong');
+            $table->string('pilihan4')->nullable(true)->default('Kosong');
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tabel_pertanyaan_smartcity');
+        Schema::dropIfExists('tabel_kuesioner_smartcity');
     }
 };

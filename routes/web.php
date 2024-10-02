@@ -598,8 +598,10 @@ Route::get('/smartcity/formkuesionersmartcity', [SmartcityController::class, 'fo
 Route::post('/smartcity/simpan_jawaban', [SmartcityController::class, 'simpan_jawaban'])->name('smartcity.simpan_jawaban')->middleware('auth');
 
 //superadmin smartcity
+Route::get('/superadminsmartcity/data_pertanyaan', [SuperadminSmartcityController::class, 'data_pertanyaan'])->name('superadminsmartcity.data_pertanyaan')->middleware('auth');
 Route::get('/superadminsmartcity/create', [SuperadminSmartcityController::class, 'create'])->name('superadminsmartcity.create')->middleware('auth');
 Route::post('/superadminsmartcity/simpan_pertanyaan', [SuperadminSmartcityController::class, 'simpan_pertanyaan'])->name('superadminsmartcity.simpan_pertanyaan')->middleware('auth');
+Route::get('/superadminsmartcity/{pertanyaan}/edit_pertanyaan', [SuperadminSmartcityController::class, 'edit_pertanyaan'])->name('superadminsmartcity.edit_pertanyaan')->middleware('auth');
 
 
 

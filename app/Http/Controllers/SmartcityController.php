@@ -10,11 +10,8 @@ class SmartcityController extends Controller
 {
     public function formkuesionersmartcity(){
         $year =  Carbon::now()->year; // Mengambil tahun saat ini
-        // $pertanyaan = Smartcity::orderBy('no_urut', 'asc')->get();
-        $smartgovernance = Smartcity::where('dimensi_id', 'fcnoIREe')->get();
-        $smartbranding = Smartcity::where('dimensi_id', 'e99K36Hi')->get();
-        $smarteconomy = Smartcity::where('dimensi_id', 'rL0TxVJL')->get();
-        return view('smartcity.formkuesionersmartcity', ['smartgovernance' => $smartgovernance, 'smartbranding' => $smartbranding, 'smarteconomy' => $smarteconomy, 'year' => $year]);
+        $kuesioner = Smartcity::orderBy('no_urut', 'asc')->get();
+        return view('smartcity.formkuesionersmartcity', ['kuesioner' => $kuesioner, 'year' => $year]);
     }
 
     public function simpan_jawaban(Request $request){
