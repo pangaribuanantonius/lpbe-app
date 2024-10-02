@@ -100,7 +100,7 @@
 
         <!-- Aplikasi nav start -->
         <li class="nav-item">
-          <a class="nav-link collapsed rounded-5" href="{{ route('menu.aplikasi') }}"> <i class="bi bi-cpu"></i><span>Monev Aplikasi</span></a>
+          <a class="nav-link collapsed rounded-5 monev-aplikasi-link" href="{{ route('menu.aplikasi') }}"> <i class="bi bi-cpu"></i><span>Monev Aplikasi</span></a>
         </li>
 
         <!-- <li class="nav-item">
@@ -271,6 +271,39 @@
             )
       </script> -->
       @endif
+
+
+
+
+      <script>
+        // Tunggu sampai halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', function () {
+            // Waktu penutupan (contoh: 2024-10-01 17:00:00)
+            var endTime = new Date('2024-10-01T17:00:00').getTime();
+        
+            // Fungsi untuk memeriksa waktu setiap detik
+            var checkTime = setInterval(function() {
+                var currentTime = new Date().getTime();
+                var timeLeft = endTime - currentTime;
+        
+                if (timeLeft <= 0) {
+                    clearInterval(checkTime);
+        
+                    // Menonaktifkan link Monev Aplikasi
+                    var monevLink = document.querySelector('.monev-aplikasi-link');
+                    if (monevLink) {
+                        monevLink.style.pointerEvents = 'none'; // Menonaktifkan klik
+                        monevLink.style.color = 'gray'; // Ubah warna untuk menandakan link tidak aktif
+                        monevLink.innerHTML += "&nbsp;(Ditutup)"; // Tambahkan teks "Ditutup"
+                    }
+                }
+            }, 0); // Periksa setiap 0 detik
+        });
+        </script>
+        
+        
+        
+        
 
 
 

@@ -73,6 +73,27 @@
                         </div>
                       </div>
                     </form>
+
+                    <div class="row">
+                      <h6>Periode aplikasi</h6>
+                      <div class="col-lg-6">
+                        <label>1</label>
+                        <input type="text" name="" class="form-control">
+                      </div>
+                      <div class="col-lg-6">
+                        <label>2</label>
+                        <input type="text" name="" class="form-control">
+                      </div>
+                      <div class="col-lg-6">
+                        <label>3</label>
+                        <input type="text" name="" class="form-control">
+                      </div>
+                      <div class="col-lg-6">
+                        <label>4</label>
+                        <input type="text" name="" class="form-control">
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
