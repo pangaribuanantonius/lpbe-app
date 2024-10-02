@@ -139,7 +139,7 @@
           <a class="nav-link collapsed rounded-5" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-houses"></i><span>Smart City</span><i class="bi bi-chevron-down ms-auto"></i> </a>
           <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
             <li>
-              <a href="{{ route('smartcity.formkuesionersmartcity') }}" class="rounded-5"> <i class="bi bi-graph-up-arrow me-2"></i><span>Kuesioner Smart City</span> </a>
+              <a href="#" class="rounded-5"> <i class="bi bi-graph-up-arrow me-2"></i><span>Kuesioner Smart City</span> </a>
             </li>
             <li>
               <a href="#" class="rounded-5"> <i class="bi bi-award me-2"></i><span>Quick Win</span> </a>
