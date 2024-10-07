@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Aplikasi;
 use App\Models\CallCenter;
+use App\Models\Periode;
 use App\Models\Website;
 use App\Models\Spbe;
 use App\Models\Penandatanganan;
@@ -17,7 +18,7 @@ use Illuminate\Http\Request;
 class MenuController extends Controller
 {
     public function index(){
-
+        $end_aplikasi = Periode::where('nama_layanan', 'aplikasi')->first();
         $year =  Carbon::now()->year; // Mengambil tahun saat ini
 
         $instansiall = Instansi::orderBy('nama_instansi', 'asc')->get();
@@ -33,7 +34,7 @@ class MenuController extends Controller
         ->limit(3)
         ->get();
 
-        return view('menu.index', ['nama_instansi' => $nama_instansi, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'website' => $website, 'year' => $year, 'call_center' =>$call_center, 'instansiall' => $instansiall, 'pemberitahuan' => $pemberitahuan]);
+        return view('menu.index', ['end_aplikasi' => $end_aplikasi, 'nama_instansi' => $nama_instansi, 'aplikasi_layanan_publik' => $aplikasi_layanan_publik, 'aplikasi_administrasi_pemerintah' => $aplikasi_administrasi_pemerintah, 'website' => $website, 'year' => $year, 'call_center' =>$call_center, 'instansiall' => $instansiall, 'pemberitahuan' => $pemberitahuan]);
     }
 
     public function faq(){

@@ -5,6 +5,7 @@ use App\Models\Aplikasi;
 use App\Models\CallCenter;
 use App\Models\Website;
 use App\Models\Instansi;
+use App\Models\Periode;
 use App\Models\User;
 use App\Models\Tahun;
 use App\Models\Berkas;
@@ -194,13 +195,16 @@ class MenuSuperAdminController extends Controller
     }
 
     public function aplikasi(){
+        $end_aplikasi = Periode::where('nama_layanan', 'aplikasi')->first();
         $instansi = Instansi::orderBy('nama_instansi', 'asc')->get();
         $tahun = \App\Models\Tahun::orderBy('tahun', 'asc')->get();
         $pemberitahuan = Pemberitahuan::orderBy('urutan', 'asc')
         ->limit(3)
         ->get();
-        return view('superadmin.aplikasi', ['instansi' => $instansi, 'tahun' => $tahun, 'pemberitahuan' => $pemberitahuan]);
+        return view('superadmin.aplikasi', ['instansi' => $instansi, 'tahun' => $tahun, 'pemberitahuan' => $pemberitahuan, 'end_aplikasi' => $end_aplikasi]);
     }
+
+
 
     public function dataopd(){
         $instansi1 = Instansi::WheredoesntHave('aplikasi', function($q){$q->Where('tahun', '2022'); })->get();

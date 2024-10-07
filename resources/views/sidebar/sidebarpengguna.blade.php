@@ -279,7 +279,7 @@
         // Tunggu sampai halaman selesai dimuat
         document.addEventListener('DOMContentLoaded', function () {
             // Waktu penutupan (contoh: 2024-10-01 17:00:00)
-            var endTime = new Date('2024-10-01T17:00:00').getTime();
+            var endTime = new Date('{{ $end_aplikasi->end_time }}').getTime();
         
             // Fungsi untuk memeriksa waktu setiap detik
             var checkTime = setInterval(function() {

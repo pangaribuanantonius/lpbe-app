@@ -74,25 +74,14 @@
                       </div>
                     </form>
 
+    <br>
                     <div class="row">
-                      <h6>Periode aplikasi</h6>
-                      <div class="col-lg-6">
-                        <label>1</label>
-                        <input type="text" name="" class="form-control">
-                      </div>
-                      <div class="col-lg-6">
-                        <label>2</label>
-                        <input type="text" name="" class="form-control">
-                      </div>
-                      <div class="col-lg-6">
-                        <label>3</label>
-                        <input type="text" name="" class="form-control">
-                      </div>
-                      <div class="col-lg-6">
-                        <label>4</label>
-                        <input type="text" name="" class="form-control">
+                      <div class="col-12">
+                        <label>Tentukan batas akhir input Layanan Aplikasi</label>
+                        <input type="datetime-local" id="end_time" name="end_time" value="{{ \Carbon\Carbon::parse($end_aplikasi->end_time)->format('Y-m-d\TH:i') }}" class="form-control">
                       </div>
                     </div>
+                    <button type="submit" class="btn btn-outline-success mt-3">Simpan</button>
 
                   </div>
                 </div>
