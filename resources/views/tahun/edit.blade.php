@@ -18,13 +18,26 @@
 			<form method="post" action="{{ route('tahun.edit', ['tahun' => $tahun]) }}" enctype="multipart/form-data">
 				@csrf
                 @method('PATCH')
-				<div class="form-group">
+				<div class="form-group mt-3">
 					<label>Tahun</label>
 					<div>
 						<input type="number" name="tahun" class="form-control" value="{{ $tahun->tahun }}">
 					</div>
-				</div><br>
-				<div class="form-group">
+				</div>
+				<div class="form-group mt-3">
+					<select name="layanan" class="form-control">
+						<option value="{{ $tahun->layanan }}" {{ $tahun->layanan == $tahun->layanan ? 'selected' : '' }}>
+							{{ $tahun->layanan }}
+						</option>
+						<option value="aplikasi">Layanan Aplikasi</option>
+						<option value="aplikasi">Layanan SPBE</option>
+						<option value="smartcity">Smartcity</option>
+					</select>
+				</div>
+				<div class="form-group mt-3">
+					<input type="datetime-local" name="end_time" value="{{ $tahun->end_time }}" class="form-control">
+				</div>
+				<div class="form-group mt-3">
 					<button class="btn btn-outline-success btn-icon-split" type="submit">
 						<span class="icon">
 							<i class="bi bi-check-circle"></i>

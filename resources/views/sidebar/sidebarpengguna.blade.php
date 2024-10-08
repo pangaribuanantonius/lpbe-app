@@ -275,7 +275,7 @@
 
 
 
-      <script>
+      <!-- <script>
         // Tunggu sampai halaman selesai dimuat
         document.addEventListener('DOMContentLoaded', function () {
             // Waktu penutupan (contoh: 2024-10-01 17:00:00)
@@ -299,7 +299,7 @@
                 }
             }, 0); // Periksa setiap 0 detik
         });
-        </script>
+        </script> -->
         
         
         

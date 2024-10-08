@@ -25,6 +25,8 @@ class TahunController extends Controller
     public function update(Request $request, Tahun $tahun){
         $tahun->update([
             'tahun' => $request->tahun,
+            'layanan' => $request->layanan,
+            'end_time' => $request->end_time
         ]);
         return redirect('superadmin/tahun')->with('update', 'Berhasil Mengubah Data!');
     }
