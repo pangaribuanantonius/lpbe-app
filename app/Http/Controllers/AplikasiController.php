@@ -5,8 +5,10 @@ use App\Models\Aplikasi;
 use App\Models\CallCenter;
 use App\Models\Website;
 use App\Models\Instansi;
+use App\Models\Tahun;
 use App\Models\Penandatanganan;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AplikasiController extends Controller
 {
@@ -33,39 +35,68 @@ class AplikasiController extends Controller
         $statusswebsite = \App\Models\Website::Where('instansi_id', $instansi_id)->Where('tahun', $tahun)->first();
         $penandatanganan = Penandatanganan:: where('instansi_id', $instansi_id)->count();
         $verifapspublik = Aplikasi::Where('instansi_id', $instansi_id)->Where('jenis_aplikasi', 'Layanan Publik')->Where('tahun', $tahun)->where('verifikasi', 'Disetujui')->count();
+        $cek_periode_2024 = Tahun::Where('tahun', '2024')->first();
+
+
+    // Cek apakah $cek_periode tidak null dan apakah end_aplikasi sudah terlewati
+    if (!$cek_periode_2024 || Carbon::now()->greaterThan($cek_periode_2024->end_aplikasi)) {
+        if ($layanan == 'aplikasi') {
+            if ($jenisaplikasi == 'layanan_publik') {
+                if ($tahun == 2024) {
+                    return view('aplikasi.layanan_publik.2024.index2', ['cek_periode_2024' => $cek_periode_2024, 'aplikasi' => $aplikasi, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss, 'penandatanganan' => $penandatanganan, 'verifapspublik' => $verifapspublik]);
+                }else{
+                    return view('404');
+                }
+            }elseif ($jenisaplikasi == 'administrasi_pemerintah') {
+                if ($tahun == 2024) {
+                    return view('aplikasi.administrasi_pemerintah.2024.index2', ['cek_periode_2024' => $cek_periode_2024, 'aplikasiadm' => $aplikasiadm, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasiadm' => $jumlahaplikasiadm, 'statussaplikasiadm' => $statussaplikasiadm, 'penandatanganan' => $penandatanganan]);
+                }else{
+                    return view('404');
+                }
+            }elseif ($jenisaplikasi == 'call_center') {
+                if ($tahun == 2024) {
+                    return view('call_center.2024.index2', ['cek_periode_2024' => $cek_periode_2024 ,'call_center' => $call_center, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
+                }else{
+                    return view('404');
+                }
+            }elseif ($jenisaplikasi == 'website') {
+                if ($tahun == 2024) {
+                    return view('website.2024.index2', ['cek_periode_2024' => $cek_periode_2024 ,'website' => $website, 'nama_instansi' => $nama_instansi, 'jumlahwebsite' => $jumlahwebsite, 'statusswebsite' => $statusswebsite, 'penandatanganan' => $penandatanganan]);
+                }else{
+                    return view('404');
+                }
+            }else{
+                return view('404');
+            }
+        }else{
+            return view('404');
+        }
+    }
 
 
 
         if ($layanan == 'aplikasi') {
             if ($jenisaplikasi == 'layanan_publik') {
-                if ($tahun == 2021) {
-                    return view('aplikasi.layanan_publik.2021.index', ['aplikasi' => $aplikasi, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss, 'penandatanganan' => $penandatanganan, 'verifapspublik' => $verifapspublik]);
-                }elseif ($tahun == 2024) {
-                    return view('aplikasi.layanan_publik.2024.index', ['aplikasi' => $aplikasi, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss, 'penandatanganan' => $penandatanganan, 'verifapspublik' => $verifapspublik]);
+                if ($tahun == 2024) {
+                    return view('aplikasi.layanan_publik.2024.index', ['cek_periode_2024' => $cek_periode_2024, 'aplikasi' => $aplikasi, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasipublik' => $jumlahaplikasipublik, 'statuss' => $statuss, 'penandatanganan' => $penandatanganan, 'verifapspublik' => $verifapspublik]);
                 }else{
                     return view('404');
                 }
             }elseif ($jenisaplikasi == 'administrasi_pemerintah') {
-                if ($tahun == 2021) {
-                    return view('aplikasi.administrasi_pemerintah.2021.index', ['aplikasiadm' => $aplikasiadm, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasiadm' => $jumlahaplikasiadm, 'statussaplikasiadm' => $statussaplikasiadm, 'penandatanganan' => $penandatanganan]);
-                }elseif ($tahun == 2024) {
-                    return view('aplikasi.administrasi_pemerintah.2024.index', ['aplikasiadm' => $aplikasiadm, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasiadm' => $jumlahaplikasiadm, 'statussaplikasiadm' => $statussaplikasiadm, 'penandatanganan' => $penandatanganan]);
+                if ($tahun == 2024) {
+                    return view('aplikasi.administrasi_pemerintah.2024.index', ['cek_periode_2024' => $cek_periode_2024, 'aplikasiadm' => $aplikasiadm, 'jenis_aplikasi' => $jenis_aplikasi, 'nama_instansi' => $nama_instansi, 'jumlahaplikasiadm' => $jumlahaplikasiadm, 'statussaplikasiadm' => $statussaplikasiadm, 'penandatanganan' => $penandatanganan]);
                 }else{
                     return view('404');
                 }
             }elseif ($jenisaplikasi == 'call_center') {
-                if ($tahun == 2021) {
-                    return view('call_center.2021.index', ['call_center' => $call_center, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
-                }elseif ($tahun == 2024) {
-                    return view('call_center.2024.index', ['call_center' => $call_center, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
+               if ($tahun == 2024) {
+                    return view('call_center.2024.index', ['cek_periode_2024' => $cek_periode_2024, 'call_center' => $call_center, 'nama_instansi' => $nama_instansi, 'jumlahcallcenter' => $jumlahcallcenter, 'statusscallcenter' => $statusscallcenter, 'penandatanganan' => $penandatanganan]);
                 }else{
                     return view('404');
                 }
             }elseif ($jenisaplikasi == 'website') {
-                if ($tahun == 2021) {
-                    return view('website.2021.index', ['website' => $website, 'nama_instansi' => $nama_instansi, 'jumlahwebsite' => $jumlahwebsite, 'statusswebsite' => $statusswebsite, 'penandatanganan' => $penandatanganan]);
-                }elseif ($tahun == 2024) {
-                    return view('website.2024.index', ['website' => $website, 'nama_instansi' => $nama_instansi, 'jumlahwebsite' => $jumlahwebsite, 'statusswebsite' => $statusswebsite, 'penandatanganan' => $penandatanganan]);
+                if ($tahun == 2024) {
+                    return view('website.2024.index', ['cek_periode_2024' => 'cek_periode_2024', 'website' => $website, 'nama_instansi' => $nama_instansi, 'jumlahwebsite' => $jumlahwebsite, 'statusswebsite' => $statusswebsite, 'penandatanganan' => $penandatanganan]);
                 }else{
                     return view('404');
                 }

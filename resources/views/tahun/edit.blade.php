@@ -25,17 +25,16 @@
 					</div>
 				</div>
 				<div class="form-group mt-3">
-					<select name="layanan" class="form-control">
-						<option value="{{ $tahun->layanan }}" {{ $tahun->layanan == $tahun->layanan ? 'selected' : '' }}>
-							{{ $tahun->layanan }}
-						</option>
-						<option value="aplikasi">Layanan Aplikasi</option>
-						<option value="aplikasi">Layanan SPBE</option>
-						<option value="smartcity">Smartcity</option>
-					</select>
+					<label>Batas entri Aplkasi</label>
+					<input type="datetime-local" name="end_aplikasi" value="{{ $tahun->end_aplikasi }}" class="form-control">
 				</div>
 				<div class="form-group mt-3">
-					<input type="datetime-local" name="end_time" value="{{ $tahun->end_time }}" class="form-control">
+					<label>Batas entri SPBE</label>
+					<input type="datetime-local" name="end_spbe" value="{{ $tahun->end_spbe }}" class="form-control">
+				</div>
+				<div class="form-group mt-3">
+					<label>Batas entri SPBE</label>
+					<input type="datetime-local" name="end_smartcity" value="{{ $tahun->end_smartcity }}" class="form-control">
 				</div>
 				<div class="form-group mt-3">
 					<button class="btn btn-outline-success btn-icon-split" type="submit">

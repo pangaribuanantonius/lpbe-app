@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tabel_tahun', function (Blueprint $table) {
-            $table->string('layanan')->nullable(true)->default('Kosong')->after('tahun');
-            $table->dateTime('end_time')->nullable(); // Menggunakan dateTime atau timestamp
+            $table->string('end_aplikasi')->nullable(true)->default('Kosong')->after('tahun');
+            $table->string('end_spbe')->nullable(true)->default('Kosong')->after('end_aplikasi');
+            $table->string('end_smartcity')->nullable(true)->default('Kosong')->after('end_spbe');
         });
     }
 
@@ -23,8 +24,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('tabel_tahun', function (Blueprint $table) {
-            $table->dropColumn('layanan');
-            $table->dropColumn('end_time');
+            $table->dropColumn('end_aplikasi');
+            $table->dropColumn('end_spbe');
+            $table->dropColumn('end_smartcity');
         });
     }
 };
