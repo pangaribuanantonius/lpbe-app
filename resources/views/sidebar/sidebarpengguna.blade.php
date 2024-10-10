@@ -151,7 +151,17 @@
         </li>
         <!-- Smart City end -->
 
+        <!-- Social Media start -->
+        <li class="nav-item">
+          <a class="nav-link rounded-5" href="#">
+            <i class="bi bi-controller"></i>
+            <span>Media Sosial</span>
+          </a>
+        </li>
+        <!-- Social Media end -->
+
         <li class="nav-heading"><hr></li>
+
         <!-- Urusan start -->
         <!-- <li class="nav-item">
           <a class="nav-link collapsed rounded-5" href="urusan.html">
