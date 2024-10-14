@@ -5,7 +5,7 @@
 <div class="pagetitle">
     <h1><i class="bi bi-controller"></i> Media Sosial</h1>
     <ol class="breadcrumb">
-        <li class="active ms-1">Data</li>
+        <li class="active ms-1">Form Media Sosial</li>
     </ol>
 </div>
 <!-- End Page Title -->
@@ -15,39 +15,41 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <form method="post" action="#" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('media_sosial.store') }}" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
-                        <input type="text" name="instansi_id" value="{{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" class="form-control" readonly>
+                        <input type="hidden" name="instansi_id" value="{{ \App\Models\User::where('username', session('username'))->first()->instansi_id }}" class="form-control" readonly>
 
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <label>Link Profil Facebook</label>
-                            <input type="text" name="link_facebook" class="form-control">
+                            <input type="url" name="link_facebook" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <label>Link Profil Instagram</label>
-                            <input type="text" name="link_instagram" class="form-control">
+                            <input type="url" name="link_instagram" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label>Link Profil Facebook</label>
-                            <input type="text" name="link_facebook" class="form-control">
-                        </div>
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <label>Link Profil Twitter</label>
-                            <input type="text" name="link_twitter" class="form-control">
+                            <input type="url" name="link_twitter" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <label>Link Profil Youtube</label>
-                            <input type="text" name="link_youtube" class="form-control">
+                            <input type="url" name="link_youtube" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <label>Link Profil Tiktok</label>
-                            <input type="text" name="link_tiktok" class="form-control">
+                            <input type="url" name="link_tiktok" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mt-3">
                             <label>Link Profil Threads</label>
-                            <input type="text" name="link_threads" class="form-control">
+                            <input type="url" name="link_threads" class="form-control">
                         </div>
+                        <button class="btn btn-outline-success btn-icon-split mt-3" id="submitButton" type="submit">
+	                    	<span class="icon">
+	                    		<i class="bi bi-check2-circle"></i>
+	                    	</span>
+	                    	<span class="text">Simpan</span>
+	                    </button>
 
                     </form>
                 </div>
