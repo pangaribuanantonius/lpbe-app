@@ -22,27 +22,27 @@
 
                         <div class="form-group mt-3">
                             <label>Link Profil Facebook</label>
-                            <input type="url" name="link_facebook" class="form-control">
+                            <input type="url" name="link_facebook" class="form-control" value="{{ old('link_facebook') }}">
                         </div>
                         <div class="form-group mt-3">
                             <label>Link Profil Instagram</label>
-                            <input type="url" name="link_instagram" class="form-control">
+                            <input type="url" name="link_instagram" class="form-control" value="{{ old('link_instagram') }}">
                         </div>
                         <div class="form-group mt-3">
                             <label>Link Profil Twitter</label>
-                            <input type="url" name="link_twitter" class="form-control">
+                            <input type="url" name="link_twitter" class="form-control" value="{{ old('link_twitter') }}">
                         </div>
                         <div class="form-group mt-3">
                             <label>Link Profil Youtube</label>
-                            <input type="url" name="link_youtube" class="form-control">
+                            <input type="url" name="link_youtube" class="form-control" value="{{ old('link_youtube') }}">
                         </div>
                         <div class="form-group mt-3">
                             <label>Link Profil Tiktok</label>
-                            <input type="url" name="link_tiktok" class="form-control">
+                            <input type="url" name="link_tiktok" class="form-control" value="{{ old('link_tiktok') }}">
                         </div>
                         <div class="form-group mt-3">
                             <label>Link Profil Threads</label>
-                            <input type="url" name="link_threads" class="form-control">
+                            <input type="url" name="link_threads" class="form-control" value="{{ old('link_threads') }}">
                         </div>
                         <button class="btn btn-outline-success btn-icon-split mt-3" id="submitButton" type="submit">
 	                    	<span class="icon">

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('link_youtube')->nullable(true)->default('Kosong');
             $table->string('link_tiktok')->nullable(true)->default('Kosong');
             $table->string('link_threads')->nullable(true)->default('Kosong');
+            $table->timestamps();
         });
     }
 

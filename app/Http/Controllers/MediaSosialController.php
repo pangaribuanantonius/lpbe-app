@@ -34,6 +34,6 @@ class MediaSosialController extends Controller
             'link_tiktok' => $request->link_tiktok,
             'link_threads' => $request->link_threads,
         ]);
-        return redirect('media_sosial.index')->with('success', 'Berhasil Menambah Data!');
+        return redirect('media_sosial/index')->with('success', 'Berhasil Menambah Data!');
     }
 }
