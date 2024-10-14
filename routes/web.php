@@ -21,6 +21,7 @@ use App\Http\Controllers\Aplikasi2023Controller;
 use App\Http\Controllers\Aplikasi2024Controller;
 use App\Http\Controllers\Aplikasi2024AdmPemerintahController;
 use App\Http\Controllers\Aplikasi2025Controller;
+use App\Http\Controllers\MediaSosialController;
 use App\Http\Controllers\PenandatangananController;
 use App\Http\Controllers\MenuSuperAdminController;
 use App\Http\Controllers\SuperadminAplikasiController;
@@ -607,7 +608,8 @@ Route::get('/superadminsmartcity/{pertanyaan}/edit_pertanyaan', [SuperadminSmart
 
 
 // media sosial
-Route::get('/media_sosial/index', [SmartcityController::class, 'index'])->name('media_sosial.index')->middleware('auth');
+Route::get('/media_sosial/index', [MediaSosialController::class, 'index'])->name('media_sosial.index')->middleware('auth');
+Route::get('/media_sosial/create', [MediaSosialController::class, 'create'])->name('media_sosial.create')->middleware('auth');
 
 
 
