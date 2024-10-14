@@ -606,6 +606,11 @@ Route::get('/superadminsmartcity/{pertanyaan}/edit_pertanyaan', [SuperadminSmart
 
 
 
+// media sosial
+Route::get('/media_sosial/index', [SmartcityController::class, 'index'])->name('media_sosial.index')->middleware('auth');
+
+
+
 Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'ceklogin'])->name('ceklogin');

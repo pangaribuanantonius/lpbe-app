@@ -14,6 +14,10 @@ class SmartcityController extends Controller
         return view('smartcity.formkuesionersmartcity', ['kuesioner' => $kuesioner, 'year' => $year]);
     }
 
+    public function index() {
+        return view('media_sosial.index');
+    }
+
     public function simpan_jawaban(Request $request){
         // Validasi data yang masuk
         $request->validate([

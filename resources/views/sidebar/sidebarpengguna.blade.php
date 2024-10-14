@@ -153,7 +153,7 @@
 
         <!-- Social Media start -->
         <li class="nav-item">
-          <a class="nav-link rounded-5" href="#">
+          <a class="nav-link collapsed rounded-5" href="{{ route('media_sosial.index') }}">
             <i class="bi bi-controller"></i>
             <span>Media Sosial</span>
           </a>
