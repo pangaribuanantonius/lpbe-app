@@ -12,7 +12,7 @@ class MediaSosialController extends Controller
     public function index() {
         $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
         $nama_instansi = Instansi::where('id', $instansi_id)->first()->nama_instansi;
-        $media_sosial = MediaSosial::where('instansi_id', $instansi_id)->get();
+        $media_sosial = MediaSosial::where('instansi_id', $instansi_id)->first();
         $hitung_media_sosial = \App\Models\MediaSosial::Where('instansi_id', $instansi_id)->count();
         $penandatanganan = Penandatanganan:: where('instansi_id', $instansi_id)->count();
 

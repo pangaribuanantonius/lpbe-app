@@ -11,4 +11,7 @@ class MediaSosial extends Model
     protected $table = 'tabel_media_sosial';
     protected $guarded = [];
     public $incrementing = false;
+    public function instansi(){
+        return $this->belongsTo(Instansi::class, 'instansi_id', 'id');
+    }
 }
