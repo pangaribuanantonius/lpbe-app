@@ -611,6 +611,8 @@ Route::get('/superadminsmartcity/{pertanyaan}/edit_pertanyaan', [SuperadminSmart
 Route::get('/media_sosial/index', [MediaSosialController::class, 'index'])->name('media_sosial.index')->middleware('auth');
 Route::get('/media_sosial/create', [MediaSosialController::class, 'create'])->name('media_sosial.create')->middleware('auth');
 Route::post('/media_sosial/store', [MediaSosialController::class, 'store'])->name('media_sosial.store')->middleware('auth');
+Route::get('/media_sosial/{media_sosial}/edit', [MediaSosialController::class, 'edit'])->name('media_sosial.edit')->middleware('auth');
+Route::patch('/media_sosial/{media_sosial}/edit', [MediaSosialController::class, 'update'])->name('media_sosial.edit')->middleware('auth');
 
 
 

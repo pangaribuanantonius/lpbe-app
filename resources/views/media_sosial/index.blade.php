@@ -31,7 +31,7 @@
                     <td><a href="#" class="text-wrap text-decoration-none">{{ $media_sosial->instansi->nama_instansi }}</a></td>
                     <td class="align-middle text-center">
                         <a class="btn btn-outline-dark text-center mb-1" style="white-space: nowrap;" href="#" data-bs-toggle="modal" data-bs-target="#detail"><i class="bi bi-eye"></i> Detail</a>
-                        <a class="btn btn-outline-primary text-center mb-1" style="white-space: nowrap;" href="#"><i class="bi bi-pencil"></i> Edit</a>
+                        <a class="btn btn-outline-primary text-center mb-1" style="white-space: nowrap;" href="{{ route('media_sosial.edit', $media_sosial->id) }}"><i class="bi bi-pencil"></i> Edit</a>
                     </td>
                   </tr>
 

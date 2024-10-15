@@ -36,4 +36,22 @@ class MediaSosialController extends Controller
         ]);
         return redirect('media_sosial/index')->with('success', 'Berhasil Menambah Data!');
     }
+
+    public function edit(MediaSosial $media_sosial){
+        $instansi_id = \App\Models\User::where('username', session('username'))->first()->instansi_id;
+        $media_sosial = MediaSosial::where('instansi_id', $instansi_id)->first();
+        return view('media_sosial.edit', ['media_sosial' => $media_sosial, 'instansi_id' => $instansi_id]);
+    }
+
+    public function update(Request $request, MediaSosial $media_sosial){
+        $media_sosial->update([
+            'link_facebook' => $request->link_facebook,
+            'link_instagram' => $request->link_instagram,
+            'link_twitter' => $request->link_twitter,
+            'link_youtube' => $request->link_youtube,
+            'link_tiktok' => $request->link_tiktok,
+            'link_threads' => $request->link_threads,
+        ]);
+        return redirect('media_sosial/index')->with('update', 'Berhasil Mengubah Data!');
+    }
 }
