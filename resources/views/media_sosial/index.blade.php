@@ -17,6 +17,16 @@
     </div>
     <a class="btn btn-outline-success" href="{{ route('media_sosial.create') }}"><i class="bi bi-plus-circle"></i> Tambah Data</a>
     @else
+
+    <div class="text-end">
+        @if($penandatanganan == 0)
+        <button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</button>
+        <button class="second btn btn-success mb-2"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</button>
+        @else
+        <a class="btn btn-danger mb-2" href="#" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a>
+        <a class="btn btn-success mb-2" href="#" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a>
+        @endif
+    </div>
     <div class="card">
         <div class="card-body">
             <table class="table table-hover datatable table-progress">
@@ -110,5 +120,29 @@
     <button class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Ubah Data</button>
     @endif
 </section>
+
+<script>
+	document.querySelector(".first").addEventListener('click', function(){
+		Swal.fire({
+			icon: 'error',
+			title: 'Peringatan',
+			html: 'Kolom Penandatanganan belum diisi, Klik <a href="{{ route('penandatanganan.create') }}">disini</a> untuk pengisian.',
+			confirmButtonText: 'Tutup',
+			
+		});
+	});
+</script>
+
+<script>
+	document.querySelector(".second").addEventListener('click', function(){
+		Swal.fire({
+			icon: 'error',
+			title: 'Peringatan',
+			html: 'Kolom Penandatanganan belum diisi, Klik <a href="{{ route('penandatanganan.create') }}">disini</a> untuk pengisian.',
+			confirmButtonText: 'Tutup',
+			
+		});
+	});
+</script>
 
 @endsection
