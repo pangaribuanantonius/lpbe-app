@@ -572,7 +572,7 @@
 <div class="text-end">
 	<div class="text-end">
 		<button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</button>
-		<button class="second btn btn-success mb-2"><i class="bi bi-file-earmark-spreadsheet"></i> PDF</button>
+		<button class="second btn btn-success mb-2"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</button>
 	</div>
 </div>
 @else
