@@ -1,5 +1,5 @@
-@extends('sidebar.sidebarmonevaplikasipengguna')
-@section('monevaplikasipengguna')
+@extends('sidebar.sidebarmediasosialpengguna')
+@section('mediasosialpengguna')
 
 <!-- Page Title -->
 <div class="pagetitle">
@@ -23,8 +23,8 @@
         <button class="first btn btn-danger mb-2"><i class="bi bi-file-earmark-pdf-fill"></i> PDF</button>
         <button class="second btn btn-success mb-2"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</button>
         @else
-        <a class="btn btn-danger mb-2" href="#" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a>
-        <a class="btn btn-success mb-2" href="#" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a>
+        <a class="btn btn-danger mb-2" href="{{ route('media_sosial.cetakpdf') }}" target="_blank"><i class="bi bi-file-earmark-pdf"></i> PDF</a>
+        <a class="btn btn-success mb-2" href="{{ route('media_sosial.cetakexcel') }}" target="_blank"><i class="bi bi-file-earmark-spreadsheet"></i> Excel</a>
         @endif
     </div>
     <div class="card">
@@ -117,7 +117,7 @@
               </table>
         </div>
     </div>
-    <button class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Ubah Data</button>
+    
     @endif
 </section>
 

@@ -613,6 +613,8 @@ Route::get('/media_sosial/create', [MediaSosialController::class, 'create'])->na
 Route::post('/media_sosial/store', [MediaSosialController::class, 'store'])->name('media_sosial.store')->middleware('auth');
 Route::get('/media_sosial/{media_sosial}/edit', [MediaSosialController::class, 'edit'])->name('media_sosial.edit')->middleware('auth');
 Route::patch('/media_sosial/{media_sosial}/edit', [MediaSosialController::class, 'update'])->name('media_sosial.edit')->middleware('auth');
+Route::get('/media_sosial/cetakpdf', [MediaSosialController::class, 'exportpdf'])->name('media_sosial.cetakpdf')->middleware('auth');
+Route::get('/media_sosial/cetakexcel', [MediaSosialController::class, 'exportexcel'])->name('media_sosial.cetakexcel')->middleware('auth');
 
 
 
