@@ -22,6 +22,8 @@ use App\Http\Controllers\Aplikasi2024Controller;
 use App\Http\Controllers\Aplikasi2024AdmPemerintahController;
 use App\Http\Controllers\Aplikasi2025Controller;
 use App\Http\Controllers\MediaSosialController;
+use App\Http\Controllers\SuperadminMediaSosialController;
+use App\Http\Controllers\SuperadminMediaSosial;
 use App\Http\Controllers\PenandatangananController;
 use App\Http\Controllers\MenuSuperAdminController;
 use App\Http\Controllers\SuperadminAplikasiController;
@@ -607,7 +609,7 @@ Route::get('/superadminsmartcity/{pertanyaan}/edit_pertanyaan', [SuperadminSmart
 
 
 
-// media sosial
+// media sosial level pengguna
 Route::get('/media_sosial/index', [MediaSosialController::class, 'index'])->name('media_sosial.index')->middleware('auth');
 Route::get('/media_sosial/create', [MediaSosialController::class, 'create'])->name('media_sosial.create')->middleware('auth');
 Route::post('/media_sosial/store', [MediaSosialController::class, 'store'])->name('media_sosial.store')->middleware('auth');
@@ -615,6 +617,9 @@ Route::get('/media_sosial/{media_sosial}/edit', [MediaSosialController::class, '
 Route::patch('/media_sosial/{media_sosial}/edit', [MediaSosialController::class, 'update'])->name('media_sosial.edit')->middleware('auth');
 Route::get('/media_sosial/cetakpdf', [MediaSosialController::class, 'exportpdf'])->name('media_sosial.cetakpdf')->middleware('auth');
 Route::get('/media_sosial/cetakexcel', [MediaSosialController::class, 'exportexcel'])->name('media_sosial.cetakexcel')->middleware('auth');
+
+// media sosial level admin
+Route::get('/superadmin_mediasosial/index', [SuperadminMediaSosialController::class, 'index'])->name('superadmin_mediasosial.index')->middleware('auth');
 
 
 

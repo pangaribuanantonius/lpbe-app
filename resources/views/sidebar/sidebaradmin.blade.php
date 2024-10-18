@@ -155,6 +155,15 @@
         </li>
         <!-- Smart City end -->
 
+        <!-- media sosial -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('superadmin_mediasosial.index') }}">
+            <i class="bi bi-controller"></i>
+            <span>Media Sosial</span>
+          </a>
+        </li>
+         <!-- end media sosial -->
+
         <li class="nav-heading"><hr></li>
         <!-- Urusan start -->
         <!-- <li class="nav-item">
